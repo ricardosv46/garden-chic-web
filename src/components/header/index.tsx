@@ -1,12 +1,12 @@
 import React from 'react'
+import Banner from '../banner'
 import Menu from '../menu/index'
-// import Menu from '../menu/index'
 
 const Header = () => {
 	return (
-		<div>
-			<p className='text-primary-600 border'>Logo x.x </p>
+		<div className=''>
 			<Menu />
+			<Banner />
 		</div>
 	)
 }
