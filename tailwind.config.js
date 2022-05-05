@@ -1,15 +1,14 @@
 const colors = require('tailwindcss/colors')
 const primary = {
-	600: '#5c6ac4',
-	700: '#3f51b5'
+	600: '#2a7d2e'
 }
 
 const secondary = {}
 
 module.exports = {
 	content: [
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}'
+		'./src/pages/**/*.{js,ts,jsx,tsx}',
+		'./src/components/**/*.{js,ts,jsx,tsx}'
 	],
 	presets: [],
 	darkMode: 'media', // or 'class'
