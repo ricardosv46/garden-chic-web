@@ -1,4 +1,4 @@
-.header {
+/* .header {
 	background-image: url('/imgs/header/fondo-menu.jpg');
 	background-position: center center;
 	background-size: cover;
@@ -14,4 +14,22 @@
 	left: 0;
 	right: 0;
 	background-color: rgba(0, 0, 0, 0.6);
+} */
+
+.menu-mobile {
+	position: absolute;
+	padding: 2rem 1rem;
+	left: 0;
+	background: white;
+	width: 100%;
+	top: 5rem;
+	transform: translateX(100%);
+	transition: all 0.5s;
+	pointer-events: none;
+}
+
+.menu-mobile-active {
+	transform: translateX(0);
+	pointer-events: auto;
+	transition: all 0.5s;
 }

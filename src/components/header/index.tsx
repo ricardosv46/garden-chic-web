@@ -1,12 +1,17 @@
 import React from 'react'
 import Banner from '../banner'
-import Menu from '../menu/index'
+import MenuDestokp from '../menu/desktop/index'
+import MenuMobile from '../menu/mobile/index'
 
 const Header = () => {
 	return (
 		<div className=''>
-			<Menu />
-			<Banner />
+			<div className='hidden lg:block'>
+				<MenuDestokp />
+			</div>
+			<div className='lg:hidden relative z-20'>
+				<MenuMobile />
+			</div>
 		</div>
 	)
 }

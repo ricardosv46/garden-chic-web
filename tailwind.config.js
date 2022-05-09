@@ -1,7 +1,4 @@
 const colors = require('tailwindcss/colors')
-const primary = {
-	600: '#2a7d2e'
-}
 
 const secondary = {}
 
@@ -21,7 +18,9 @@ module.exports = {
 			'2xl': '1536px'
 		},
 		colors: {
-			primary: primary,
+			primary: {
+				600: '#2a7d2e'
+			},
 			secondary: secondary,
 			inherit: colors.inherit,
 			current: colors.current,

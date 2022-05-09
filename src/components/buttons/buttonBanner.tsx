@@ -8,7 +8,8 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonBanner = ({title, ...props}: Props) => {
 	return (
 		<button
-			className='border-white border py-2 px-10 text-xl font-light rounded-sm'
+			className='border-white border bg-white py-[6px] px-10 text-primary-600 text-xl font-light rounded-sm 
+             hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all duration-300'
 			{...props}
 		>
 			{title}
