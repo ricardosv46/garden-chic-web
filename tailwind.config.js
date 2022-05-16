@@ -20,6 +20,7 @@ module.exports = {
     },
     colors: {
       primary: {
+        300: '#2AB939',
         600: '#2a7d2e',
         800: '#124a2f'
       },
@@ -35,7 +36,9 @@ module.exports = {
       neutral: colors.neutral,
       stone: colors.stone,
       red: colors.red,
-      orange: colors.orange,
+      orange: {
+        300: '#ff8120'
+      },
       amber: colors.amber,
       yellow: colors.yellow,
       lime: colors.lime,
@@ -211,10 +214,10 @@ module.exports = {
       full: '9999px'
     },
     /*
-				borderSpacing: ({ theme }) => ({
-						...theme('spacing'),
-				}),
-				*/
+        borderSpacing: ({ theme }) => ({
+            ...theme('spacing'),
+        }),
+        */
     borderWidth: {
       DEFAULT: '1px',
       0: '0px',
