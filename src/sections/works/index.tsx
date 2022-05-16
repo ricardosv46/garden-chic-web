@@ -94,7 +94,7 @@ const Works = () => {
 
       <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
         {works.map((item) => (
-          <div>
+          <div key={item.title}>
             <Image
               width={400}
               height={307}
@@ -111,7 +111,7 @@ const Works = () => {
         ))}
         {show &&
           works2.map((item) => (
-            <div>
+            <div key={item.title}>
               <Image
                 width={400}
                 height={307}
