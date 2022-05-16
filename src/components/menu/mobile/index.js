@@ -6,7 +6,7 @@ const MenuMobile = () => {
 
 	return (
 		<div>
-			<nav className='flex justify-between py-6 px-4 items-center relative overflow-hidden'>
+			<nav className='flex justify-between py-6 px-4 items-center relative'>
 				<p className='text-3xl  font-bold font-mono text-primary-600'>
 					Garden Chic
 				</p>
