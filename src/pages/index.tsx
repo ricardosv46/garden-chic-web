@@ -9,7 +9,6 @@ import Works from '../sections/works'
 const Home: NextPage = () => {
   return (
     <div>
-      <Header />
       <Banner />
       <QuePodemosHacer />
       <Servicios />
