@@ -108,17 +108,17 @@ const Blogs = () => {
       <BannerBlogs />
       <Container>
         <div className='flex flex-col items-center justify-center '>
-          <ol className='hidden flex-col lg:flex-row gap-3 mt-8 lg:flex'>
+          <ol className='hidden flex-col lg:flex-row gap-3 mt-24 lg:flex'>
             {blogs.map((item) => (
               <li
                 key={item}
-                className='text-gray-900 text-md font-semibold border-b-2 ease-in-out duration-300 border-white hover:border-primary-300 hover:cursor-pointer'
+                className='text-gray-900 text-lg font-semibold border-b-2 ease-in-out duration-300 border-white hover:border-primary-300 hover:cursor-pointer'
               >
                 {item}
               </li>
             ))}
           </ol>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-16 '>
             {dataBlogs.map((item) => (
               <CarBlog {...item} />
             ))}
