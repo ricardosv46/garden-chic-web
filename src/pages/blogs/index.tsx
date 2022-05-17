@@ -119,8 +119,8 @@ const Blogs = () => {
             ))}
           </ol>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-16 '>
-            {dataBlogs.map((item) => (
-              <CarBlog {...item} />
+            {dataBlogs.map((item, index) => (
+              <CarBlog {...item} key={index} />
             ))}
           </div>
           <div className='mt-10'></div>

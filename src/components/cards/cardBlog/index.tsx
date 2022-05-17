@@ -13,7 +13,7 @@ const CarBlog = ({ img, title, subtitle, description }: IProps) => {
   const [hoverL, setHoverL] = useState(false)
   return (
     <div className='w-full lg:w-[370px] border-2 rounded-lg overflow-hidden pb-2'>
-      <Image src={`/imgs/blogs/${img}`} width={740} height={460} />
+      <Image src={`/imgs/blogs/${img}`} width={740} height={460} alt="blogs" />
       <div className='p-5'>
         <p className='text-gray-900 text-md font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'>
           {title}
@@ -32,7 +32,7 @@ const CarBlog = ({ img, title, subtitle, description }: IProps) => {
             <svg
               stroke='currentColor'
               fill={hoverF ? '#fff' : '#2ab939'}
-              stroke-width='0'
+              strokeWidth='0'
               viewBox='0 0 320 512'
               height='1em'
               width='1em'
@@ -49,7 +49,7 @@ const CarBlog = ({ img, title, subtitle, description }: IProps) => {
             <svg
               stroke='currentColor'
               fill={hoverT ? '#fff' : '#2ab939'}
-              stroke-width='0'
+              strokeWidth='0'
               viewBox='0 0 512 512'
               height='1em'
               width='1em'
@@ -66,7 +66,7 @@ const CarBlog = ({ img, title, subtitle, description }: IProps) => {
             <svg
               stroke='currentColor'
               fill={hoverL ? '#fff' : '#2ab939'}
-              stroke-width='0'
+              strokeWidth='0'
               viewBox='0 0 448 512'
               height='1em'
               width='1em'
