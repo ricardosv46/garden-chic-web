@@ -20,9 +20,11 @@ module.exports = {
     },
     colors: {
       primary: {
+        100: '#FCFAF7',
         300: '#2AB939',
         600: '#2a7d2e',
         800: '#124a2f'
+
       },
       secondary: secondary,
       inherit: colors.inherit,
