@@ -1,5 +1,5 @@
 import React from 'react'
-import Banner from '../banner'
+
 import MenuDestokp from '../menu/desktop/index'
 import MenuMobile from '../menu/mobile'
 
