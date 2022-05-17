@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           name='description'
           content='Somos expertos en el cuidado de tu jardin.'
         />
-        <meta name='image' content='/imgs/blogs/banner__item1.jpg' />
+        <meta name='image' content='/imgs/banner/banner__item1.jpg' />
 
         <meta
           name='twitter:title'
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           name='twitter:description'
           content='Somos expertos en el cuidado de tu jardin.'
         />
-        <meta name='twitter:image' content='/imgs/blogs/banner__item1.jpg' />
+        <meta name='twitter:image' content='/imgs/banner/banner__item1.jpg' />
         <meta name='twitter:url' content='https://garden-chic-web.vercel.app' />
         <meta name='twitter:card' content='summary_large_image' />
 
@@ -46,12 +46,12 @@ const Home: NextPage = () => {
         <meta property='og:type' content='website' />
         <meta property='og:site_name' content='Garden Chic - Inicio' />
         <meta property='og:url' content='https://garden-chic-web.vercel.app' />
-        <meta property='og:image' content='/imgs/blogs/banner__item1.jpg' />
+        <meta property='og:image' content='/imgs/banner/banner__item1.jpg' />
         <meta
           property='og:image:secure_url'
-          content='/imgs/blogs/banner__item1.jpg'
+          content='/imgs/banner/banner__item1.jpg'
         />
-        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:type' content='image/jpg' />
         <meta property='og:image:width' content='400' />
         <meta property='og:image:height' content='300' />
         <meta
