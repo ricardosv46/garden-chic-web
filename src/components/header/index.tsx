@@ -1,11 +1,12 @@
 import React from 'react'
+import Container from '../container'
 
 import MenuDestokp from '../menu/desktop/index'
 import MenuMobile from '../menu/mobile'
 
 const Header = () => {
   return (
-    <div className=''>
+    <div>
       <div className='hidden lg:block'>
         <MenuDestokp />
       </div>
