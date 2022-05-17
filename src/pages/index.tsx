@@ -6,6 +6,7 @@ import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
 import Works from '../sections/works'
+import { NextSeo } from 'next-seo'
 
 const Home: NextPage = () => {
   return (
@@ -16,49 +17,28 @@ const Home: NextPage = () => {
           name='description'
           content='Somos expertos en el cuidado de tu jardin.'
         />
-        <meta property='og:title' content='Garden Chic - Inicio' />
-        <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://garden-chic-web.vercel.app' />
         <meta name='keywords' content='jardines, jardin, plantas' />
-        {/* <meta name='robots' content='index,follow' />
-        <meta name='googlebot' content='index,follow' /> */}
-        <meta name='viewport' content='width=device-width' />
-        <meta name='title' content='Garden Chic - Inicio' />
-        <meta
-          name='description'
-          content='Somos expertos en el cuidado de tu jardin.'
-        />
-        <meta name='image' content='/imgs/banner/banner__item1.jpg' />
 
-        <meta
-          name='twitter:title'
-          content='Somos expertos en el cuidado de tu jardin.'
-        />
-        <meta
-          name='twitter:description'
-          content='Somos expertos en el cuidado de tu jardin.'
-        />
-        <meta name='twitter:image' content='/imgs/banner/banner__item1.jpg' />
-        <meta name='twitter:url' content='https://garden-chic-web.vercel.app' />
-        <meta name='twitter:card' content='summary_large_image' />
-
-        <meta property='og:title' content='Garden Chic - Inicio' />
-        <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='Garden Chic - Inicio' />
-        <meta property='og:url' content='https://garden-chic-web.vercel.app' />
-        <meta property='og:image' content='/imgs/banner/banner__item1.jpg' />
-        <meta
-          property='og:image:secure_url'
-          content='/imgs/banner/banner__item1.jpg'
-        />
-        <meta property='og:image:type' content='image/jpg' />
-        <meta property='og:image:width' content='400' />
-        <meta property='og:image:height' content='300' />
-        <meta
-          property='og:description'
-          content='Somos expertos en el cuidado de tu jardin.'
+        <link rel='icon' href='/favicon.ico' />
+        <link
+          rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css'
         />
       </Head>
+      <NextSeo
+        openGraph={{
+          type: 'website',
+          url: `https://garden-chic-web.vercel.app/`,
+          title: 'Garden Chic - Inicio',
+          description: 'Somos expertos en el cuidado de tu jardin.',
+          images: [
+            {
+              url: '/imgs/banner/banner__item1.jpg'
+            }
+          ],
+          site_name: 'Garden Chic - Inicio'
+        }}
+      />
       <Banner />
       <QuePodemosHacer />
       <Servicios />
