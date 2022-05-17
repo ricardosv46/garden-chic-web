@@ -20,20 +20,16 @@ const Home: NextPage = () => {
         <meta name='keywords' content='jardines, jardin, plantas' />
 
         <link rel='icon' href='/favicon.ico' />
-        <link
-          rel='stylesheet'
-          href='https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css'
-        />
       </Head>
       <NextSeo
         openGraph={{
           type: 'website',
-          url: `https://garden-chic-web.vercel.app/`,
+          url: `https://garden-chic-web.vercel.app`,
           title: 'Garden Chic - Inicio',
           description: 'Somos expertos en el cuidado de tu jardin.',
           images: [
             {
-              url: '/imgs/banner/banner__item1.jpg'
+              url: 'https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
             }
           ],
           site_name: 'Garden Chic - Inicio'
