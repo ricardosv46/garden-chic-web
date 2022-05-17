@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import BtnBurger from '../../btnBurger'
 import style from '../index.module.css'
 const MenuMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <div>
@@ -19,7 +21,10 @@ const MenuMobile = () => {
           <li className='cursor-pointer text-primary-600 py-2 font-semibold'>
             Inicio
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold'>
+          <li
+            className='cursor-pointer text-primary-600 py-2 font-semibold'
+            onClick={() => router.push('nosotros')}
+          >
             Nosotros
           </li>
           <li className='cursor-pointer text-primary-600 py-2 font-semibold'>
@@ -30,6 +35,12 @@ const MenuMobile = () => {
           </li>
           <li className='cursor-pointer text-primary-600 py-2 font-semibold'>
             Reseña
+          </li>
+          <li
+            className='cursor-pointer text-primary-600 py-2 font-semibold'
+            onClick={() => router.push('blogs')}
+          >
+            Blogs
           </li>
           <li className='cursor-pointer text-primary-600 py-2 font-semibold'>
             Contactos
