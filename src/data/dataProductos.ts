@@ -5,7 +5,8 @@ export const dataProductos = [
     firtsPrice: '',
     price: '$35.00',
     categoty1: 'Flores',
-    categoty2: 'Exterior'
+    categoty2: 'Exterior',
+    rebaja: false
   },
   {
     img: 'producto2.jpg',
@@ -13,7 +14,8 @@ export const dataProductos = [
     firtsPrice: '$49.00',
     price: '$39.00',
     categoty1: 'Medio',
-    categoty2: 'Plantas'
+    categoty2: 'Plantas',
+    rebaja: true
   },
   {
     img: 'producto3.jpg',
@@ -21,7 +23,8 @@ export const dataProductos = [
     firtsPrice: '$49.00',
     price: '$39.00',
     categoty1: 'Flores',
-    categoty2: 'Interior'
+    categoty2: 'Interior',
+    rebaja: true
   },
   {
     img: 'producto4.jpg',
@@ -29,7 +32,8 @@ export const dataProductos = [
     firtsPrice: '$20.00',
     price: '$18.00',
     categoty1: 'Interior',
-    categoty2: 'Plantas'
+    categoty2: 'Plantas',
+    rebaja: true
   },
   {
     img: 'producto5.jpg',
@@ -37,7 +41,8 @@ export const dataProductos = [
     firtsPrice: '$30.00',
     price: '$28.00',
     categoty1: 'Flores',
-    categoty2: 'Exterior'
+    categoty2: 'Exterior',
+    rebaja: true
   },
   {
     img: 'producto6.jpg',
@@ -45,7 +50,8 @@ export const dataProductos = [
     firtsPrice: '',
     price: '$20.00',
     categoty1: 'Interior',
-    categoty2: 'Altos'
+    categoty2: 'Altos',
+    rebaja: false
   },
   {
     img: 'producto7.jpg',
@@ -53,7 +59,8 @@ export const dataProductos = [
     firtsPrice: '',
     price: '$20.00',
     categoty1: 'Interior',
-    categoty2: 'Altos'
+    categoty2: 'Altos',
+    rebaja: false
   },
   {
     img: 'producto8.jpg',
@@ -61,7 +68,8 @@ export const dataProductos = [
     firtsPrice: '',
     price: '$20.00',
     categoty1: 'Interior',
-    categoty2: 'Altos'
+    categoty2: 'Altos',
+    rebaja: false
   },
   {
     img: 'producto9.jpg',
@@ -69,6 +77,7 @@ export const dataProductos = [
     firtsPrice: '',
     price: '$20.00',
     categoty1: 'Flores',
-    categoty2: 'Interior'
+    categoty2: 'Interior',
+    rebaja: false
   }
 ]

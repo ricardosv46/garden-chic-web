@@ -13,7 +13,7 @@ const Compartir = () => {
       >
         <svg
           stroke='currentColor'
-          fill={hoverF ? '#fff' : '#2ab939'}
+          fill={hoverF ? '#fff' : '#7E94C1'}
           strokeWidth='0'
           viewBox='0 0 320 512'
           height='1em'
@@ -30,7 +30,7 @@ const Compartir = () => {
       >
         <svg
           stroke='currentColor'
-          fill={hoverT ? '#fff' : '#2ab939'}
+          fill={hoverT ? '#fff' : '#7E94C1'}
           strokeWidth='0'
           viewBox='0 0 512 512'
           height='1em'
@@ -47,7 +47,7 @@ const Compartir = () => {
       >
         <svg
           stroke='currentColor'
-          fill={hoverL ? '#fff' : '#2ab939'}
+          fill={hoverL ? '#fff' : '#7E94C1'}
           strokeWidth='0'
           viewBox='0 0 448 512'
           height='1em'

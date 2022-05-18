@@ -6,12 +6,12 @@ import Container from '../../components/container'
 
 const Servicios = () => {
   return (
-    <Container className='p-10  py-36' bgColor='bg-[#EAEFE4]'>
+    <Container className='p-10  py-36' bgColor='bg-primary-100'>
       {/*       <h2 className="text-4xl lg:text-5xl text-center font-normal mb-24 text-primary-800 ">
         Servicios
       </h2>
  */}
-      <div className="">
+      <div className=''>
         <Swiper
           loop={true}
           grabCursor={true}
@@ -38,17 +38,16 @@ const Servicios = () => {
               slidesPerView: 3,
               spaceBetween: 10,
               navigation: false
-
             }
           }}
           modules={[Navigation]}
           className='mySwiper'
         >
           <SwiperSlide>
-            <div className="flex flex-col items-center gap-y-5 text-primary-600">
+            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
               <Image
                 src='/imgs/carrouselHome/manos.png'
-                alt="manos"
+                alt='manos'
                 width={50}
                 height={50}
               />
@@ -56,10 +55,10 @@ const Servicios = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center gap-y-5 text-primary-600">
+            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
               <Image
                 src='/imgs/carrouselHome/manos.png'
-                alt="manos"
+                alt='manos'
                 width={50}
                 height={50}
               />
@@ -67,10 +66,10 @@ const Servicios = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center gap-y-5 text-primary-600">
+            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
               <Image
                 src='/imgs/carrouselHome/manos.png'
-                alt="manos"
+                alt='manos'
                 width={50}
                 height={50}
               />
@@ -78,10 +77,10 @@ const Servicios = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center gap-y-5 text-primary-600">
+            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
               <Image
                 src='/imgs/carrouselHome/manos.png'
-                alt="manos"
+                alt='manos'
                 width={50}
                 height={50}
               />
@@ -89,10 +88,10 @@ const Servicios = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex flex-col items-center gap-y-5 text-primary-600">
+            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
               <Image
                 src='/imgs/carrouselHome/manos.png'
-                alt="manos"
+                alt='manos'
                 width={50}
                 height={50}
               />
@@ -102,7 +101,6 @@ const Servicios = () => {
         </Swiper>
       </div>
     </Container>
-
   )
 }
 

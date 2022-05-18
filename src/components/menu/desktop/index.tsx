@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import style from '../index.module.css'
@@ -5,10 +6,18 @@ const MenuDestokp = () => {
   return (
     <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]'>
       <div
-        className={`${style.header} w-full  py-3 hidden
+        className={`${style.header} w-full   hidden
             text-primary-600  md:flex items-center justify-between`}
       >
-        <p className='relative text-3xl  font-bold font-mono'>Garden Chic</p>
+        <Link href={'/'}>
+          <Image
+            className='cursor-pointer'
+            src='/imgs/logos/logo-horizontal.svg'
+            width={250}
+            height={100}
+            alt='logo'
+          />
+        </Link>
         <ul className='  flex relative font-semibold'>
           <li className='p-7 cursor-pointer '>
             <Link href={'/'}>Inicio</Link>

@@ -41,8 +41,10 @@ const Tienda = () => {
               </svg>
             </div>
           </div>
-          <p className='text-gray-900 text-2xl font-bold py-10'>Carrito</p>
-          {dataBlogs.map((item, i) => {
+          <p className='text-gray-900 text-2xl font-bold py-10'>
+            Productos similares
+          </p>
+          {dataProductos.map((item, i) => {
             if (i < 5) {
               return (
                 <div
@@ -53,18 +55,29 @@ const Tienda = () => {
                     onClick={() => router.push(`/blog/${item.img}`)}
                     loading='lazy'
                     className='cursor-pointer'
-                    src={`/imgs/blogs/${item.img}`}
+                    src={`/imgs/productos/${item.img}`}
                     width={75}
                     height={75}
                     alt='blogs'
                   />
-                  <div className='flex flex-1 justify-center items-center'>
+                  <div className='flex flex-col gap-1 flex-1 justify-center '>
                     <p
                       onClick={() => router.push(`/blogs/${item.img}`)}
-                      className='text-gray-900 text-2xl font-bold  ease-in-out duration-300 hover:text-primary-300 cursor-pointer leading-5'
+                      className='text-gray-900 text-xl font-bold  ease-in-out duration-300 hover:text-primary-300 cursor-pointer '
                     >
-                      {item.subtitle.slice(0, 26)}...
+                      {item.title}
                     </p>
+                    <span className='w-5 h-1 bg-primary-300'></span>
+                    <div className='flex gap-3'>
+                      {item.firtsPrice.length > 0 && (
+                        <p className='text-gray-300 text-md font-black line-through'>
+                          {item.firtsPrice}
+                        </p>
+                      )}
+                      <p className='text-gray-900 text-md font-black'>
+                        {item.price}
+                      </p>
+                    </div>
                   </div>
                 </div>
               )

@@ -1,0 +1,42 @@
+.item-1,
+.item-2,
+.item-3 {
+  background-image: url('/imgs/banner/banner__item1.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  height: 450px;
+  position: relative;
+}
+.item-2 {
+  background-image: url('/imgs/banner/banner__item2.webp');
+}
+.item-3 {
+  background-image: url('/imgs/banner/banner_item3.jpg');
+}
+
+.item-1::before,
+.item-2::before,
+.item-3:before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .item-1,
+  .item-2,
+  .item-3 {
+    height: 700px;
+  }
+}
+@media (min-width: 1200px) {
+  .item-1,
+  .item-2,
+  .item-3 {
+    height: 833px;
+  }
+}

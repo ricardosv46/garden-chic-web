@@ -7,6 +7,7 @@ interface IProps {
   price: string
   categoty1: string
   categoty2: string
+  rebaja: boolean
 }
 
 const CardProducto = ({
@@ -15,11 +16,12 @@ const CardProducto = ({
   firtsPrice = '',
   price,
   categoty1,
-  categoty2
+  categoty2,
+  rebaja
 }: IProps) => {
   return (
-    <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-3 ease-in-out duration-500'>
-      <div className='border-b-2 cursor-pointer'>
+    <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-3 ease-in-out duration-500 '>
+      <div className='border-b-2 cursor-pointer relative'>
         <Image
           loading='lazy'
           src={`/imgs/productos/${img}`}
@@ -27,6 +29,11 @@ const CardProducto = ({
           height={540}
           alt='blogs'
         />
+        {rebaja && (
+          <div className='absolute top-4 right-4 w-16 h-16 bg-primary-300 rounded-full text-white flex justify-center items-center'>
+            Sale!
+          </div>
+        )}
       </div>
       <div className='p-6'>
         <div className='flex gap-3 items-center'>

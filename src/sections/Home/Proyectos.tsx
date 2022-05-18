@@ -70,7 +70,7 @@ const works2 = [
 const Proyectos = () => {
   const [show, setShow] = useState(false)
   return (
-    <Container bgColor='bg-[#FBF9F6]' className='p-10'>
+    <Container bgColor='bg-[#F9FAFB]' className='p-10'>
       <div className='flex flex-col items-center justify-center '>
         <h1 className='text-primary-800 text-5xl'>Trabajos</h1>
         <ol className='hidden flex-col lg:flex-row gap-3 mt-8 lg:flex'>
