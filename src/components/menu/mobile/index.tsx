@@ -41,7 +41,7 @@ const MenuMobile = () => {
             className='cursor-pointer text-primary-600 py-2 font-semibold'
             onClick={() => setIsOpen(false)}
           >
-            <Link href={'/galeria'}>Galeria</Link>
+            <Link href={'/tienda'}>Tienda</Link>
           </li>
           <li
             className='cursor-pointer text-primary-600 py-2 font-semibold'

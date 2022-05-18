@@ -67,7 +67,7 @@ const works2 = [
   }
 ]
 
-const Works = () => {
+const Proyectos = () => {
   const [show, setShow] = useState(false)
   return (
     <Container bgColor='bg-[#FBF9F6]' className='p-10'>
@@ -141,4 +141,4 @@ const Works = () => {
   )
 }
 
-export default Works
+export default Proyectos

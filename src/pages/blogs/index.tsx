@@ -26,7 +26,7 @@ const Blogs = () => {
             {blogs.map((item) => (
               <li
                 key={item}
-                className='text-gray-900 text-lg font-semibold border-b-2 ease-in-out duration-300 border-white hover:border-primary-300 hover:cursor-pointer'
+                className='text-gray-900 text-lg font-semibold border-b-2 ease-in-out duration-300 border-white hover:border-primary-300 hover:cursor-pointer py-1'
               >
                 {item}
               </li>

@@ -5,8 +5,8 @@ import Contactanos from '../sections/Home/contactanos'
 import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
-import Works from '../sections/works'
 import { NextSeo } from 'next-seo'
+import Proyectos from '../sections/Home/Proyectos'
 
 const Home: NextPage = () => {
   return (
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
       <Banner />
       <QuePodemosHacer />
       <Servicios />
-      <Works />
+      <Proyectos />
       <NuestrosClientes />
       <Contactanos />
     </div>

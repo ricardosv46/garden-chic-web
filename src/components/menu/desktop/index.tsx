@@ -20,7 +20,7 @@ const MenuDestokp = () => {
             <Link href={'/servicios'}>Servicios</Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/galeria'}>Galeria</Link>
+            <Link href={'/tienda'}>Tienda</Link>
           </li>
           <li className='p-7 cursor-pointer'>
             <Link href={'/reseñas'}>Reseñas</Link>

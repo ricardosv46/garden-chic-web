@@ -21,8 +21,8 @@ const DetalleBlog = () => {
   const blog = dataBlogs.find((item) => item.img === slug)
 
   return (
-    <Container className='flex py-10 gap-10'>
-      <div className='w-9/12'>
+    <Container className='lg:flex py-10 gap-10'>
+      <div className='w-full lg:w-9/12'>
         <h1 className='text-gray-900 text-md font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'>
           {blog?.title}
         </h1>
@@ -42,7 +42,7 @@ const DetalleBlog = () => {
           height={690}
           alt='blogs'
         />
-        <p className='text-gray-900 text-md font-medium leading-8  mt-16 pr-20'>
+        <p className='text-gray-900 text-md font-medium leading-8  mt-16 lg:pr-20'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           facilisis nulla sit amet nunc congue, eu rhoncus enim pulvinar.
           Curabitur eleifend, quam vel imperdiet viverra, orci odio viverra ex,
@@ -93,12 +93,12 @@ const DetalleBlog = () => {
           fringilla consectetur. Duis congue bibendum risus, id auctor augue
           pretium nec.
         </p>
-        <div className='mt-5 flex justify-end pr-20'>
+        <div className='mt-5 flex justify-end lg:pr-20 py-10 lg:py-0'>
           <Compartir />
         </div>
       </div>
 
-      <div className='w-3/12 px-3'>
+      <div className='w-full lg:w-3/12 px-3'>
         <div className='flex items-center justify-between relative overflow-hidden'>
           <input
             type='text'
