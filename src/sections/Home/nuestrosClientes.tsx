@@ -7,13 +7,13 @@ import Container from '../../components/container'
 const NuestrosClientes = () => {
   return (
     <Container className='p-10  py-36'>
-      <div className="flex items-center gap-x-4 mb-10">
-        <hr className="w-[90%] h-[1px] border border-black  "></hr>
+      <div className='flex items-center gap-x-4 mb-10'>
+        <hr className='w-[90%] h-[1px] border border-black  '></hr>
 
-        <h2 className="text-2xl lg:text-5xl text-center font-normal text-primary-800 w-full ">
+        <h2 className='text-2xl lg:text-5xl text-center font-normal text-primary-800 w-full '>
           Nuestros Clientes
         </h2>
-        <hr className="w-[90%] h-[1px] border border-black"></hr>
+        <hr className='w-[90%] h-[1px] border border-black'></hr>
       </div>
       <Swiper
         loop={true}
@@ -41,76 +41,76 @@ const NuestrosClientes = () => {
           1400: {
             slidesPerView: 6,
             spaceBetween: 10
-          },
+          }
         }}
         modules={[Navigation]}
         className='mySwiper'
       >
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img1.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img2.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img3.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img4.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img5.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img6.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="flex flex-col items-center gap-y-5 text-primary-600">
+          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
             <Image
               src='/imgs/carrouselNuestrosClientes/img7.svg'
-              alt="manos"
+              alt='manos'
               width={350}
               height={350}
             />
@@ -118,7 +118,6 @@ const NuestrosClientes = () => {
         </SwiperSlide>
       </Swiper>
     </Container>
-
   )
 }
 

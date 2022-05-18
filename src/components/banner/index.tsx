@@ -2,9 +2,7 @@ import React from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+
 // import required modules
 import { Navigation, Pagination } from 'swiper'
 import Item1 from './items_banner/item1'

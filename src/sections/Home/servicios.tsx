@@ -36,8 +36,7 @@ const Servicios = () => {
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 10,
-              navigation: false
+              spaceBetween: 10
             }
           }}
           modules={[Navigation]}
