@@ -30,13 +30,13 @@
   .item-1,
   .item-2,
   .item-3 {
-    height: 700px;
+    height: 600px;
   }
 }
 @media (min-width: 1200px) {
   .item-1,
   .item-2,
   .item-3 {
-    height: 833px;
+    height: 700px;
   }
 }

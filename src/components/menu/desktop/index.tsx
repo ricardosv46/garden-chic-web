@@ -1,44 +1,59 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import style from '../index.module.css'
 const MenuDestokp = () => {
   return (
-    <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]'>
+    <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]  '>
       <div
-        className={`${style.header} w-full   hidden
+        className={`w-full   hidden  
             text-primary-600  md:flex items-center justify-between`}
       >
-        <Link href={'/'}>
-          <Image
-            className='cursor-pointer'
-            src='/imgs/logos/logo-horizontal.svg'
-            width={250}
-            height={100}
-            alt='logo'
-          />
+        <Link href='/' passHref>
+          <div>
+            <Image
+              className='cursor-pointer'
+              src='/imgs/logos/logo-horizontal.svg'
+              width={250}
+              height={100}
+              alt='logo'
+            />
+          </div>
         </Link>
         <ul className='  flex relative font-semibold'>
           <li className='p-7 cursor-pointer '>
-            <Link href={'/'}>Inicio</Link>
+            <Link href='/' passHref>
+              Inicio
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/nosotros'}>Nosotros</Link>
+            <Link href='/nosotros' passHref>
+              Nosotros
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/servicios'}>Servicios</Link>
+            <Link href='/servicios' passHref>
+              Servicios
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/tienda'}>Tienda</Link>
+            <Link href='/tienda' passHref>
+              Tienda
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/reseñas'}>Reseñas</Link>
+            <Link href='/proyectos' passHref>
+              Proyectos
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/blogs'}>Blogs</Link>
+            <Link href='/blogs' passHref>
+              Blogs
+            </Link>
           </li>
           <li className='p-7 cursor-pointer'>
-            <Link href={'/contactos'}>Contactos</Link>
+            <Link href='/contactos' passHref>
+              Contactos
+            </Link>
           </li>
         </ul>
       </div>

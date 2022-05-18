@@ -10,9 +10,6 @@ interface IProps {
 }
 
 const CarBlog = ({ img, title, subtitle, description }: IProps) => {
-  const [hoverF, setHoverF] = useState(false)
-  const [hoverT, setHoverT] = useState(false)
-  const [hoverL, setHoverL] = useState(false)
   const router = useRouter()
   return (
     <div className='w-full lg:w-[370px] border-2 rounded-lg overflow-hidden pb-2'>

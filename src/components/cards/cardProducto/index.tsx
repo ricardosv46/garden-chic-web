@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 interface IProps {
   img: string
@@ -19,9 +20,13 @@ const CardProducto = ({
   categoty2,
   rebaja
 }: IProps) => {
+  const router = useRouter()
   return (
-    <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-3 ease-in-out duration-500 '>
-      <div className='border-b-2 cursor-pointer relative'>
+    <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
+      <div
+        onClick={() => router.push(`/tienda/${img}`)}
+        className='border-b-2 cursor-pointer relative'
+      >
         <Image
           loading='lazy'
           src={`/imgs/productos/${img}`}
@@ -46,7 +51,10 @@ const CardProducto = ({
           </p>
         </div>
         <div className='w-5 h-0.5 bg-primary-300 my-5'></div>
-        <p className='text-gray-900 text-3xl  font-bold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'>
+        <p
+          onClick={() => router.push(`/tienda/${img}`)}
+          className='text-gray-900 text-3xl  font-bold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'
+        >
           {title}
         </p>
         <div className='flex gap-3 mt-5'>

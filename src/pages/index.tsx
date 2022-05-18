@@ -6,7 +6,7 @@ import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
 import { NextSeo } from 'next-seo'
-import Proyectos from '../sections/Home/Proyectos'
+import Proyectos from '../sections/Home/proyectos'
 
 const Home: NextPage = () => {
   return (
@@ -18,8 +18,6 @@ const Home: NextPage = () => {
           content='Somos expertos en el cuidado de tu jardin.'
         />
         <meta name='keywords' content='jardines, jardin, plantas' />
-
-        <link rel='icon' href='/favicon.ico' />
       </Head>
       <NextSeo
         openGraph={{
