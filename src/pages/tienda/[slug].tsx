@@ -96,7 +96,10 @@ const Productos = () => {
               <CardProducto {...dataProductos[5]} />
               <CardProducto {...dataProductos[6]} />
             </div>
-            <p className='text-gray-900 text-3xl  font-bold my-5'>Reseñas</p>
+
+            {/* Reseñas del procuto */}
+
+            {/* <p className='text-gray-900 text-3xl  font-bold my-5'>Reseñas</p>
 
             <p className='text-gray-900 text-xl   my-5'>Aún no hay reseñas</p>
 
@@ -165,7 +168,7 @@ const Productos = () => {
               <button className='px-5 py-2 border-primary-300 border-2 rounded-lg hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm '>
                 ENVIAR
               </button>
-            </div>
+            </div>*/}
           </div>
         </div>
 

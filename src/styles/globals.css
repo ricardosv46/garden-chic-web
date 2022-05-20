@@ -21,21 +21,55 @@ img {
   display: block;
 }
 
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform  -translate-y-4 duration-300  text-xs;
+}
+
+input:focus-within ~ label {
+  @apply text-primary-600;
+}
+
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label {
+  @apply transform  -translate-y-4 duration-300  text-xs;
+}
+
+textarea:focus-within ~ label {
+  @apply text-primary-600;
+}
+
 .swiper-button-next {
-  right: 40px !important;
+  right: 10px !important;
 }
 .swiper-button-prev {
-  left: 40px !important;
+  left: 10px !important;
 }
 
 .swiper-button-next:after {
-  font-size: 25px !important;
+  font-size: 20px !important;
   color: white !important;
 }
+
 .swiper-button-prev:after {
-  font-size: 25px !important;
+  font-size: 20px !important;
   color: white !important;
 }
 .swiper-pagination-bullet-active {
   background-color: #fff !important;
+}
+
+@media (min-width: 768px) {
+  .swiper-button-next:after {
+    font-size: 25px !important;
+  }
+  .swiper-button-prev:after {
+    font-size: 25px !important;
+  }
+  .swiper-button-next {
+    right: 40px !important;
+  }
+  .swiper-button-prev {
+    left: 40px !important;
+  }
 }
