@@ -16,9 +16,12 @@ body {
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.image-block-hack > span {
+  display: block !important;
+}
+
+.image-h-full-hack > span {
+  height: 100% !important;
 }
 
 input:focus-within ~ label,
@@ -72,4 +75,58 @@ textarea:focus-within ~ label {
   .swiper-button-prev {
     left: 40px !important;
   }
+}
+
+/* banner de para paginas */
+.banner {
+  background-image: url('/imgs/works/bannerproyecto.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  height: 450px;
+  position: relative;
+}
+.banner::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .banner {
+    height: 500px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner {
+    height: 600px;
+  }
+}
+
+/* banner de para proyectos */
+.banner-proyectos {
+  background-image: url('/imgs/works/bannerproyecto.jpg');
+}
+/* banner de para contactos */
+.banner-contactos {
+  background-image: url('/imgs/contactos/bennercontacto.jpg');
+}
+/* banner de para blogs */
+.banner-blogs {
+  background-image: url('/imgs/banner/bg-blog.jpg');
+}
+/* banner de para tienda */
+.banner-tienda {
+  background-image: url('/imgs/banner/bg-tienda.jpg');
+}
+
+.img-cover {
+  background-image: url('/imgs/nosotros/about2.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }

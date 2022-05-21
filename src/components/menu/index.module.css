@@ -22,7 +22,7 @@
   left: 0;
   background: white;
   width: 100%;
-  top: 5rem;
+  top: 4.4rem;
   transform: translateX(-100%);
   transition: all 0.5s;
   pointer-events: none;

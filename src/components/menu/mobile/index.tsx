@@ -13,12 +13,12 @@ const MenuMobile = () => {
     <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]'>
       <div className='flex justify-between items-center  '>
         <Link href='/' passHref>
-          <div>
+          <div className='flex'>
             <Image
               className='cursor-pointer'
               src='/imgs/logos/logo-horizontal.svg'
-              width={200}
-              height={80}
+              width={175}
+              height={70}
               alt='logo'
             />
           </div>

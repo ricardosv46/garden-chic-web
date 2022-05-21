@@ -11,12 +11,12 @@ const MenuDestokp = () => {
             text-primary-600  md:flex items-center justify-between`}
       >
         <Link href='/' passHref>
-          <div>
+          <div className='flex'>
             <Image
               className='cursor-pointer'
               src='/imgs/logos/logo-horizontal.svg'
-              width={250}
-              height={100}
+              width={200}
+              height={80}
               alt='logo'
             />
           </div>

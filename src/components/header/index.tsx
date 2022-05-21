@@ -24,10 +24,10 @@ const Header = () => {
 
   return (
     <>
-      <div className={`hidden lg:block  sticky top-0  bg-white z-50`}>
+      <div className={`hidden lg:block  sticky top-0  bg-white z-50 shadow-lg`}>
         <MenuDestokp />
       </div>
-      <div className='lg:hidden relative z-20'>
+      <div className={`lg:hidden  sticky top-0  bg-white z-50 shadow-lg`}>
         <MenuMobile />
       </div>
     </>
