@@ -6,7 +6,7 @@ import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
 import { NextSeo } from 'next-seo'
-import Proyectos from '../sections/Home/proyectos'
+import Proyects from '../sections/Home/proyects'
 
 const Home: NextPage = () => {
   return (
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       <Banner />
       <QuePodemosHacer />
       <Servicios />
-      <Proyectos />
+      <Proyects />
       <NuestrosClientes />
       <Contactanos />
     </div>

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Container from '../../components/container'
 import { dataProyectos } from '../../data/dataProyectos'
 
-const Proyectos = () => {
+const Proyects = () => {
   const [show, setShow] = useState(false)
   const router = useRouter()
   return (
@@ -117,4 +117,4 @@ const Proyectos = () => {
   )
 }
 
-export default Proyectos
+export default Proyects
