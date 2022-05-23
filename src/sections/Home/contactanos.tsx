@@ -88,7 +88,7 @@ const Contactanos = () => {
             <Image
               layout='responsive'
               loading='lazy'
-              src='/imgs/formulario.jpg'
+              src='/imgs/contactos/formulario.jpg'
               alt='manos'
               width={975}
               height={1350}

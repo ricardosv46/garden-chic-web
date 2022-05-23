@@ -38,7 +38,7 @@ const Proyects = () => {
             return (
               <div
                 key={item.title}
-                className='hover:cursor-pointer relative shadow-sm '
+                className='hover:cursor-pointer relative lg:shadow-sm'
                 onClick={() => router.push(`/proyectos/${item.img}`)}
               >
                 <div className='hidden lg:flex bg-white text-primary-300 absolute top-0 w-full h-full z-10  justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-out pt-10 hover:pt-0 rounded-lg'>
@@ -73,7 +73,7 @@ const Proyects = () => {
               return (
                 <div
                   key={item.title}
-                  className='hover:cursor-pointer relative shadow-sm '
+                  className='hover:cursor-pointer relative lg:shadow-sm'
                   onClick={() => router.push(`/proyectos/${item.img}`)}
                 >
                   <div className='hidden lg:flex bg-white text-primary-300 absolute top-0 w-full h-full z-10  justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-out pt-10 hover:pt-0 rounded-lg'>

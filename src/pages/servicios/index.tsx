@@ -35,12 +35,12 @@ const Servicios = () => {
       <h1 className='text-center text-5xl text-primary-300 font-bold'>
         Servicios
       </h1>
-      <div className='py-10'>
+      <div className='py-10 '>
         {servicios.map((item) => (
           <div
             key={item.img}
-            className={`flex gap-5 ${
-              item.position === 'r' ? 'flex-row-reverse' : ''
+            className={`flex flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 ${
+              item.position === 'r' ? 'lg:flex-row-reverse' : ''
             }`}
           >
             <Image
@@ -50,7 +50,7 @@ const Servicios = () => {
               src={`/imgs/servicios/${item.img}`}
               alt='imagen proyecto'
             />
-            <div className='flex-1 px-28 flex flex-col justify-center items-center gap-10'>
+            <div className='flex-1 px-10 lg:px-28 flex flex-col justify-center items-center gap-10'>
               <h2 className='text-center text-4xl text-primary-300 font-bold'>
                 {item.title}
               </h2>

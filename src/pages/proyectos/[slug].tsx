@@ -41,7 +41,7 @@ const Detalle = () => {
           </div>
         </div>
 
-        <div className='flex gap-5 py-10'>
+        <div className='flex flex-col lg:flex-row gap-5 py-10 justify-center items-center '>
           <Image
             width={660}
             height={600}
@@ -50,7 +50,7 @@ const Detalle = () => {
             className='rounded-lg'
           />
 
-          <div className='flex-1 p-10 flex flex-col justify-center items-center'>
+          <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center items-center'>
             <h2 className='text-center text-5xl text-primary-300 font-bold'>
               Before
             </h2>
@@ -71,12 +71,12 @@ const Detalle = () => {
       </Container>
       <BannerProyectos />
       <Container>
-        <div className='flex gap-5 py-20'>
+        <div className='flex flex-col lg:flex-row gap-5 py-20'>
           <div className='flex-1'>
-            <h3 className='text-center text-2xl text-primary-300 font-bold'>
+            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
               The Challenge
             </h3>
-            <p className='text-center text-lg text-primary-300 font-semibold pt-5'>
+            <p className='lg:text-center text-lg text-primary-300 font-semibold pt-5'>
               At Gardeny, we take a cooperative approach, developing the design
               concept together with our clients, tailoring the service according
               to their taste, needs and budget. We can design everything from
@@ -85,10 +85,10 @@ const Detalle = () => {
             </p>
           </div>
           <div className='flex-1'>
-            <h3 className='text-center text-2xl text-primary-300 font-bold'>
+            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
               The Challenge
             </h3>
-            <p className='text-center text-lg text-primary-300 font-semibold pt-5'>
+            <p className='lg:text-center text-lg text-primary-300 font-semibold pt-5'>
               We prepare planting plans outlining plant varieties, numbers,
               spacing and plant care, followed by the sourcing and selection of
               plants and finally the setting out and planting of plants. We work
@@ -97,16 +97,16 @@ const Detalle = () => {
             </p>
           </div>
           <div className='flex-1 flex flex-col gap-5'>
-            <h3 className='text-center text-2xl text-primary-300 font-bold'>
+            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
               Services
             </h3>
-            <div className='flex items-center  gap-14 px-16'>
+            <div className='flex items-center  gap-14 lg:px-16'>
               <div className='bg-primary-100 h-20 w-20 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer'>
                 <IconBuilding fill='#445378' width={30} height={30} />
               </div>
               <p className='text-lg text-primary-300 font-bold'>Urbano</p>
             </div>
-            <div className='flex items-center  gap-14 px-16'>
+            <div className='flex items-center  gap-14 lg:px-16'>
               <div className='bg-primary-100 h-20 w-20 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer'>
                 <IconHouse fill='#445378' width={30} height={30} />
               </div>
