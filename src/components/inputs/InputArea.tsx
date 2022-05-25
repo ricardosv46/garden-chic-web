@@ -10,9 +10,8 @@ const InputArea = ({ label, value, name, onChange, className }: IProps) => {
   console.log(value)
   return (
     <div
-      className={` w-full rounded border-2 px-3 border-slate-200 focus-within:border-primary-300 h-60    focus-within:pt-5 ${
-        value?.length > 0 ? 'pt-5' : ''
-      } ${className}`}
+      className={` w-full rounded border-2 px-3 border-slate-200 focus-within:border-primary-300 h-60    focus-within:pt-5 ${value?.length > 0 ? 'pt-5' : ''
+        } ${className}`}
     >
       <div className='relative w-full'>
         <textarea
@@ -24,7 +23,7 @@ const InputArea = ({ label, value, name, onChange, className }: IProps) => {
         ></textarea>
         <label
           htmlFor={name}
-          className='absolute left-0 top-0 -z-1 text-slate-400 text-lg font-semibold  '
+          className='label absolute left-0 top-0 -z-1 text-slate-400 text-lg font-semibold  '
         >
           {label}
         </label>

@@ -24,21 +24,21 @@ body {
   height: 100% !important;
 }
 
-input:focus-within ~ label,
-input:not(:placeholder-shown) ~ label {
+input:focus-within ~ .label,
+input:not(:placeholder-shown) ~ .label {
   @apply transform  -translate-y-4 duration-300  text-xs;
 }
 
-input:focus-within ~ label {
+input:focus-within ~ .label {
   @apply text-primary-600;
 }
 
-textarea:focus-within ~ label,
-textarea:not(:placeholder-shown) ~ label {
+textarea:focus-within ~ .label,
+textarea:not(:placeholder-shown) ~ .label {
   @apply transform  -translate-y-4 duration-300  text-xs;
 }
 
-textarea:focus-within ~ label {
+textarea:focus-within ~ .label {
   @apply text-primary-600;
 }
 
@@ -129,4 +129,32 @@ textarea:focus-within ~ label {
   background-size: cover;
   width: 100%;
   height: 100%;
+}
+
+
+
+
+
+.input-range__track {
+  background: #ddd;
+}
+
+.input-range__track--active {
+  background: #445378 !important;
+}
+
+.input-range__label-container{
+  font-size: 0.65rem;
+}
+.input-range__label--value .input-range__label-container {
+
+  color: #aaaaaa;
+  font-size: 0.8rem;
+
+  border-radius: 2px;
+}
+
+.input-range__slider{
+  background: #445378 !important;
+  border: none !important;
 }

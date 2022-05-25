@@ -12,7 +12,7 @@ const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
   return (
     <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]  '>
       <div
-        className={`w-full   hidden  
+        className={`w-full hidden  
             text-primary-600  md:flex items-center justify-between`}
       >
         <Link href='/' passHref>

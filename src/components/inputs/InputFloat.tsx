@@ -9,9 +9,8 @@ interface IProps {
 const InputFloat = ({ label, value, name, onChange, className }: IProps) => {
   return (
     <div
-      className={`rounded border-2 border-slate-200  focus-within:border-primary-300 h-12 flex px-3 focus-within:pt-3  items-center  ${
-        value?.length > 0 ? 'pt-3' : ''
-      } ${className}`}
+      className={`rounded border-2 border-slate-200  focus-within:border-primary-300 h-12 flex px-3 focus-within:pt-3  items-center  ${value?.length > 0 ? 'pt-3' : ''
+        } ${className}`}
     >
       <div className='relative w-full'>
         <input
@@ -25,7 +24,7 @@ const InputFloat = ({ label, value, name, onChange, className }: IProps) => {
         />
         <label
           htmlFor={name}
-          className='absolute left-0 top-0 -z-1 text-slate-400 text-lg font-semibold  '
+          className='absolute left-0 top-0 -z-1 text-slate-400 text-lg font-semibold label '
         >
           {label}
         </label>
