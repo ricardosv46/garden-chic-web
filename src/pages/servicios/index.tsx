@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import Container from '../../components/container'
+import Contactanos from '../../sections/Home/contactanos'
 
 const servicios = [
   {
@@ -94,6 +95,7 @@ const Servicios = () => {
 
         </div>
       </div>
+      <Contactanos />
     </Container>
   )
 }
