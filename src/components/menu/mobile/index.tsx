@@ -8,7 +8,12 @@ import BtnBurger from '../../btnBurger'
 import Container from '../../container'
 import SidebarCart from '../../sidebarCart'
 import style from '../index.module.css'
-const MenuMobile = ({ onOpen }) => {
+
+interface SidebarCartProps {
+  onOpen: () => void
+}
+
+const MenuMobile = ({ onOpen }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
 

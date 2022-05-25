@@ -3,7 +3,12 @@ import Link from 'next/link'
 import React from 'react'
 import IconCart from '../../../../public/icons/IconCart'
 import IconUser from '../../../../public/icons/IconUser'
-const MenuDestokp = () => {
+
+
+interface SidebarCartProps {
+  onOpen: () => void
+}
+const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
   return (
     <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]  '>
       <div
@@ -60,7 +65,7 @@ const MenuDestokp = () => {
             </li>
           </ul>
           <div className='flex gap-10'>
-            <button>
+            <button onClick={() => onOpen()}>
               <IconCart height={25} width={25} />
             </button>
             <button>

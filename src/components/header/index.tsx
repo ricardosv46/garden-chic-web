@@ -25,8 +25,8 @@ const Header = () => {
 
   return (
     <>
-      <div className={`hidden lg:block  sticky top-0  bg-white z-50 shadow-lg`}>
-        <MenuDestokp />
+      <div className={`hidden lg:block  sticky top-0  bg-white z-40 shadow-lg`}>
+        <MenuDestokp onOpen={() => setIsOpenCart(true)} />
       </div>
       <div className={`lg:hidden  sticky top-0  bg-white z-40 shadow-lg`}>
         <MenuMobile onOpen={() => setIsOpenCart(true)} />
