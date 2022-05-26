@@ -5,13 +5,13 @@ import React from 'react'
 interface IProps {
   img: string
   title: string
-  firtsPrice?: string
-  price: string
+  firtsPrice: number
+  price: number
 }
 const CardProductosRelacionados = ({
   img,
   title,
-  firtsPrice = '',
+  firtsPrice,
   price
 }: IProps) => {
   const router = useRouter()
@@ -35,12 +35,13 @@ const CardProductosRelacionados = ({
         </p>
         <span className='w-5 h-1 bg-primary-300'></span>
         <div className='flex gap-3'>
-          {firtsPrice.length > 0 && (
+          {price < firtsPrice && (
             <p className='text-gray-300 text-md font-black line-through'>
-              {firtsPrice}
+              S/. {firtsPrice.toFixed(2)}
             </p>
           )}
-          <p className='text-gray-900 text-md font-black'>{price}</p>
+
+          <p className='text-gray-900 text-md font-black'> S/. {price.toFixed(2)}</p>
         </div>
       </div>
     </div>

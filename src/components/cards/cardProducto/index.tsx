@@ -1,25 +1,31 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { useCarritoContext } from '../../../context/carrito/CarritoState'
 interface IProps {
+  id: number,
   img: string
   title: string
-  firtsPrice?: string
-  price: string
+  firtsPrice: number
+  price: number
   categoty1: string
   categoty2: string
   rebaja: boolean
+
 }
 
 const CardProducto = ({
+  id,
   img,
   title,
-  firtsPrice = '',
+  firtsPrice,
   price,
   categoty1,
   categoty2,
   rebaja
 }: IProps) => {
+
+  const { agregarCarrito } = useCarritoContext()
   const router = useRouter()
   return (
     <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
@@ -58,16 +64,28 @@ const CardProducto = ({
           {title}
         </p>
         <div className='flex gap-3 mt-5'>
-          {firtsPrice.length > 0 && (
+          {price < firtsPrice && (
             <p className='text-gray-300 text-xl font-black line-through'>
-              {firtsPrice}
+              S/. {firtsPrice.toFixed(2)}
             </p>
           )}
 
-          <p className='text-gray-900 text-xl font-black '>{price}</p>
+          <p className='text-gray-900 text-xl font-black '>S./ {price.toFixed(2)}</p>
         </div>
 
-        <button className='w-full py-2 border-primary-300 border-2 hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm mt-20'>
+        <button className='w-full py-2 border-primary-300 border-2 hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm mt-20'
+          onClick={() =>
+            agregarCarrito({
+              id,
+              img,
+              title,
+              firtsPrice,
+              price,
+              categoty1,
+              categoty2,
+              rebaja,
+            })
+          }>
           AGREGAR AL CARRITO
         </button>
       </div>

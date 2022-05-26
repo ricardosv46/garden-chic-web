@@ -1,6 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import IconCart from '../../../public/icons/IconCart'
+import { useCarritoContext } from '../../context/carrito/CarritoState'
+import Image from 'next/image'
+import IconDelete from '../../../public/icons/IconDelete'
+import IconMinus from '../../../public/icons/IconMinus'
+import IconPlus from '../../../public/icons/IconPlus'
+import CardItemCarrito from '../cards/cardItemCarrito'
 
 const variants = {
   open: {
@@ -27,6 +33,10 @@ interface SidebarCartProps {
 }
 
 const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
+
+  const { carrito/* , actualizarPrecioCarrito, eliminarCarrito, CalcularTotal */ } = useCarritoContext()
+  console.log(carrito);
+
   return (
     <div className="fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40">
       <motion.div
@@ -50,16 +60,30 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
 
             </div>
 
-            <div className="flex flex-col items-center justify-center mt-7">
-              <IconCart width={35} height={35} />
-              <p className="text-center text-sm mt-2">Tu carrito de compras está vacío.</p>
-            </div>
+            {carrito.length > 0 ?
+              <div className="mt-5 ">
+                {carrito.map((item, index) => (
+                  <CardItemCarrito
+                    key={index}
+                    title={item.title}
+                    price={item.price}
+                    img={item.img}
+                    firtsPrice={item.firtsPrice}
+                  />
+                ))}
+              </div>
+
+              : <div className="flex flex-col items-center justify-center mt-7">
+                <IconCart width={35} height={35} />
+                <p className="text-center text-sm mt-2">Tu carrito de compras está vacío.</p>
+              </div>}
+
           </div>
 
 
         </div>
-      </motion.div>
-    </div>
+      </motion.div >
+    </div >
 
   )
 }
