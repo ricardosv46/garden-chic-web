@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { motion } from 'framer-motion'
 import IconCart from '../../../public/icons/IconCart'
-import InputRange from 'react-input-range'
+import InputRange, { Range } from 'react-input-range'
 import Accordion from '../accordion'
 import InputSearch from '../inputs/InputSearch'
 import IconFilter from '../../../public/icons/IconFilter'
@@ -24,16 +24,22 @@ const variants = {
 }
 
 const fade = {
-  open: { opacity: 1, pointerEvents: 'unset' },
-  closed: { opacity: 0, pointerEvents: 'none' }
-}
+  open: {
+    opacity: 1,
+    pointerEvents: 'unset'
+  },
+  closed: {
+    opacity: 0,
+    pointerEvents: 'none'
+  }
+} as const
 
 
 interface SidebarFilterProps {
   isOpen: boolean
-  range: { min: number, max: number }
+  range: number | Range
   onClose: () => void
-  setRange: () => void
+  setRange: Dispatch<SetStateAction<number | Range>>
 }
 
 const SidebarFilter = ({ isOpen = false, range, onClose, setRange }: SidebarFilterProps) => {

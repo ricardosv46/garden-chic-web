@@ -6,7 +6,7 @@ import CardProductosRelacionados from '../../components/cards/cardProducto/cardP
 import Container from '../../components/container'
 import InputSearch from '../../components/inputs/InputSearch'
 import { dataProductos } from '../../data/dataProductos'
-import InputRange from 'react-input-range';
+import InputRange, { Range } from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
 import SidebarFilter from '../../components/sidebarFilter'
 import Accordion from '../../components/accordion'
@@ -15,8 +15,10 @@ import IconFilter from '../../../public/icons/IconFilter'
 
 const Tienda = () => {
   const router = useRouter()
-  const [range, setRange] = useState({ min: 40, max: 180 })
+  const [range, setRange] = useState<number | Range>({ min: 40, max: 180 })
   const [isOpenFilter, setIsOpenFilter] = useState(false)
+
+
 
   return (
     <div>
@@ -60,7 +62,7 @@ const Tienda = () => {
                       minValue={0}
                       value={range}
                       formatLabel={range => `S./ ${range} `}
-                      onChange={setRange}
+                      onChange={value => setRange(value)}
                     />
                   </div>
                 </div>
