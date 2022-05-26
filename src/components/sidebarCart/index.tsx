@@ -18,7 +18,7 @@ const variants = {
 const fade = {
   open: { opacity: 1, pointerEvents: 'unset' },
   closed: { opacity: 0, pointerEvents: 'none' }
-}
+} as const
 
 
 interface SidebarCartProps {
