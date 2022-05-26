@@ -5,7 +5,7 @@ import style from './nuestraMision.module.css'
 const NuestraMision = () => {
   return (
     <div className=''>
-      <Container bgColor='bg-primary-300' className='py-5 pb-10'>
+      <Container bgColor='bg-gray-100' className='py-5 pb-10'>
         <div className='grid grid-cols-1 md:grid-cols-[60%,40%] bg-white'>
           <div className='order-2   py-3 px-6 text-xl md:text-2xl  md:px-12 lg:py-10 xl:pt-32 xl:pb-24  font-light '>
             <h2 className='text-primary-800 font-normal leading-none text-[50px] '>

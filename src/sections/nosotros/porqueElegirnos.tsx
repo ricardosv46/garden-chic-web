@@ -5,7 +5,7 @@ import style from './porqueElegirnos.module.css'
 
 const PorqueElegirnos = () => {
   return (
-    <Container bgColor='bg-primary-300' className='pt-10 pb-5'>
+    <Container bgColor='bg-gray-100' className='pt-10 pb-5'>
       <div className='grid grid-cols-1 md:grid-cols-[40%,60%] bg-white'>
         <div className='order-2 md:order-1 py-3 px-6 text-xl md:text-2xl  md:px-12 lg:py-10 xl:pt-28 xl:pb-20  font-light '>
           <h2 className='text-primary-800 font-normal leading-none text-[50px] '>
