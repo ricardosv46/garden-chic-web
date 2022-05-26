@@ -3,10 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import IconCart from '../../../../public/icons/IconCart'
+import { useCarritoContext } from '../../../context/carrito/CarritoState'
 import BtnBurger from '../../btnBurger'
-
-import Container from '../../container'
-import SidebarCart from '../../sidebarCart'
 import style from '../index.module.css'
 
 interface SidebarCartProps {
@@ -16,7 +14,7 @@ interface SidebarCartProps {
 const MenuMobile = ({ onOpen }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
-
+  const { carrito } = useCarritoContext()
 
   return (
     <>
@@ -34,9 +32,14 @@ const MenuMobile = ({ onOpen }: SidebarCartProps) => {
             </div>
           </Link>
           <div className="flex gap-x-10 text-primary-600">
-            <button onClick={() => onOpen()}>
-              <IconCart height={30} width={30} />
-            </button>
+            <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
+              <IconCart height={25} width={25} />
+              {carrito.length > 0 && (
+                <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
+                  {carrito.length}
+                </div>
+              )}
+            </div>
             <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
           <ul

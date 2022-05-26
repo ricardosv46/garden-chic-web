@@ -3,12 +3,15 @@ import Link from 'next/link'
 import React from 'react'
 import IconCart from '../../../../public/icons/IconCart'
 import IconUser from '../../../../public/icons/IconUser'
+import { useCarritoContext } from '../../../context/carrito/CarritoState'
 
 
 interface SidebarCartProps {
   onOpen: () => void
 }
 const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
+
+  const { carrito } = useCarritoContext()
   return (
     <nav className='mx-auto my-0 w-[90%] xl:w-[1280px]  '>
       <div
@@ -65,9 +68,15 @@ const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
             </li>
           </ul>
           <div className='flex gap-10'>
-            <button onClick={() => onOpen()}>
+            <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
               <IconCart height={25} width={25} />
-            </button>
+              {carrito.length > 0 && (
+                <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
+                  {carrito.length}
+                </div>
+              )}
+            </div>
+
             <button>
               <IconUser height={25} width={25} />
             </button>
