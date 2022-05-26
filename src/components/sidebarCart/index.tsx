@@ -53,7 +53,7 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
         animate={isOpen ? 'open' : 'closed'}
       >
         <div className="text-primary-600 w-[340px]  bg-white  min-h-screen border-r  ">
-          <div className="w-full  bg-white  p-6 ">
+          <div className="flex flex-col w-full bg-white  p-6 h-screen">
             <div className="flex justify-between items-center  ">
               <h2 className='uppercase font-bold'>Mi carrito</h2>
               <p className="font-bold text-black cursor-pointer" onClick={onClose}>Seguir comprando</p>
@@ -61,7 +61,7 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
             </div>
 
             {carrito.length > 0 ?
-              <div className="mt-5 ">
+              <div className="mt-5 h-[800px]">
                 {carrito.map((item, index) => (
                   <CardItemCarrito
                     key={index}
@@ -71,12 +71,28 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
                     firtsPrice={item.firtsPrice}
                   />
                 ))}
+
+
               </div>
+
 
               : <div className="flex flex-col items-center justify-center mt-7">
                 <IconCart width={35} height={35} />
                 <p className="text-center text-sm mt-2">Tu carrito de compras está vacío.</p>
               </div>}
+
+            <div className="flex justify-between mb-4">
+              <p className='font-semibold text-lg'>Subtotal</p>
+              <p className='font-bold text-black'>S/ 168.00</p>
+            </div>
+            <div className="flex flex-col gap-y-3 ">
+              <button className="bg-white text-primary-800 border border-primary-800 font-bold py-2 px-4 rounded w-full uppercase">
+                Ver carrito
+              </button>
+              <button className="bg-primary-800 text-white font-bold py-2 px-4 rounded w-full uppercase">
+                Finalizar compra
+              </button>
+            </div>
 
           </div>
 
