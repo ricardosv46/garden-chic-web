@@ -1,15 +1,15 @@
 const ConfigSeo = {
-  title: 'Next SEO',
+  title: 'Garden Chic - Inicio',
   titleTemplate: '%s - Next SEO',
-  description: 'Next SEO',
+  description: 'Somos expertos en el cuidado de tu jardin.',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://next-seo.com',
+    url: 'https://garden-chic-web.vercel.app',
     site_name: 'Next SEO',
     images: [
       {
-        url: 'https://next-seo.com/static/images/next-seo-logo.png',
+        url: 'https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg',
         width: 1200,
         height: 1200,
         alt: 'Next SEO',
@@ -29,11 +29,11 @@ const ConfigSeo = {
   },
   google: {
     handle: '123456789',
-    site: 'https://next-seo.com',
+    site: 'https://garden-chic-web.vercel.app',
   },
   microsoft: {
     handle: '123456789',
-    site: 'https://next-seo.com',
+    site: 'https://garden-chic-web.vercel.app',
   },
 
 }
