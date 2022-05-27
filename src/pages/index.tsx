@@ -40,21 +40,21 @@ const Home: NextPage = () => {
       /> */}
 
       <NextSeo
-        title="Avneesh Agarwal"
-        titleTemplate="Avneesh Agarwal"
-        defaultTitle="Avneesh Agarwal"
-        description="A full stack web developer, who loves to design and develop beautiful websites. I have been coding for over a year now. One of my hobbies is writing, I love to document my journey by writing blog posts and also teach others through them."
+        title="Garden Chic - Inicio"
+        titleTemplate="Garden Chic - Inicio"
+        defaultTitle="Garden Chic - Inicio"
+        description="Somos expertos en el cuidado de tu jardin."
         canonical="https://www.avneesh.tech/"
         openGraph={{
-          url: "https://www.avneesh.tech/",
-          title: "Avneesh Agarwal",
-          description: "A full stack web developer, who loves to design and develop beautiful websites. I have been coding for over a year now. One of my hobbies is writing, I love to document my journey by writing blog posts and also teach others through them.",
+          url: "https://garden-chic-web.vercel.app",
+          title: "Garden Chic",
+          description: "Somos expertos en el cuidado de tu jardin.",
           images: [
             {
-              url: "/og-image.png",
+              url: "/imgs/banner/banner__item1.jpg",
               width: 800,
               height: 420,
-              alt: "Avneesh Agarwal",
+              alt: "Garden Chic",
             },
           ],
         }}
