@@ -12,7 +12,7 @@ import Seo from '../../next-seo.config'
 const Home: NextPage = () => {
   return (
     <div>
-      <NextSeo {...Seo} />
+      {/* <NextSeo {...Seo} /> */}
 
       {/*
       <Head>
@@ -39,6 +39,31 @@ const Home: NextPage = () => {
         }}
       /> */}
 
+      <NextSeo
+        title="Avneesh Agarwal"
+        titleTemplate="Avneesh Agarwal"
+        defaultTitle="Avneesh Agarwal"
+        description="A full stack web developer, who loves to design and develop beautiful websites. I have been coding for over a year now. One of my hobbies is writing, I love to document my journey by writing blog posts and also teach others through them."
+        canonical="https://www.avneesh.tech/"
+        openGraph={{
+          url: "https://www.avneesh.tech/",
+          title: "Avneesh Agarwal",
+          description: "A full stack web developer, who loves to design and develop beautiful websites. I have been coding for over a year now. One of my hobbies is writing, I love to document my journey by writing blog posts and also teach others through them.",
+          images: [
+            {
+              url: "/og-image.png",
+              width: 800,
+              height: 420,
+              alt: "Avneesh Agarwal",
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@avneesh0612",
+          site: "@avneesh0612",
+          cardType: "summary_large_image",
+        }}
+      />
       <Banner />
       <QuePodemosHacer />
       <Servicios />
