@@ -1,12 +1,14 @@
 const ConfigSeo = {
   title: 'Garden Chic - Inicio',
-  titleTemplate: '%s - Next SEO',
+  /*   titleTemplate: '%s - Next SEO', */
   description: 'Somos expertos en el cuidado de tu jardin.',
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'es_ES',
     url: 'https://garden-chic-web.vercel.app',
     site_name: 'Next SEO',
+    title: 'Garden Chic - Inicio',
+    description: 'Somos expertos en el cuidado de tu jardin.',
     images: [
       {
         url: 'https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg',

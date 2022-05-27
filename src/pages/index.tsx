@@ -5,14 +5,14 @@ import Contactanos from '../sections/Home/contactanos'
 import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
-import { DefaultSeo, NextSeo } from 'next-seo'
+import { NextSeo } from 'next-seo'
 import Proyects from '../sections/Home/proyects'
 import Seo from '../../next-seo.config'
 
 const Home: NextPage = () => {
   return (
     <div>
-      <DefaultSeo {...Seo} />
+      <NextSeo {...Seo} />
 
       {/*
       <Head>
