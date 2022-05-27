@@ -3,15 +3,65 @@ import React from 'react'
 import IconDelete from '../../../../public/icons/IconDelete'
 import IconMinus from '../../../../public/icons/IconMinus'
 import IconPlus from '../../../../public/icons/IconPlus'
+import { CarritoProps } from '../../../context/carrito/CarritoState'
 
 interface CardItemCarritoProps {
+  id: number
   title: string
   price: number
   img: string
   firtsPrice: number
-
+  categoty1: string
+  categoty2: string
+  rebaja: boolean
+  amount: number
+  eliminarCarrito: (id: number) => void
+  actualizarPrecioCarrito: (payload: CarritoProps) => void
 }
-const CardItemCarrito = ({ title, price, img, firtsPrice }: CardItemCarritoProps) => {
+const CardItemCarrito = ({
+  id,
+  title,
+  price,
+  img,
+  firtsPrice,
+  categoty1,
+  categoty2,
+  rebaja,
+  amount,
+  eliminarCarrito,
+  actualizarPrecioCarrito }: CardItemCarritoProps) => {
+
+
+  const incrementPrice = () => {
+    console.log('increment')
+
+
+    actualizarPrecioCarrito({
+      id,
+      img,
+      title,
+      firtsPrice,
+      price,
+      categoty1,
+      categoty2,
+      rebaja,
+      amount: amount + 1,
+    })
+  }
+  const decrementPrice = () => {
+
+    actualizarPrecioCarrito({
+      id,
+      img,
+      title,
+      firtsPrice,
+      price,
+      categoty1,
+      categoty2,
+      rebaja,
+      amount: amount > 1 ? amount - 1 : amount,
+    })
+  }
   return (
     <div className="flex justify-between mt-5">
       <div className="flex gap-x-3">
@@ -38,11 +88,11 @@ const CardItemCarrito = ({ title, price, img, firtsPrice }: CardItemCarritoProps
 
 
           <div className="flex  gap-x-2 ">
-            <button className='bg-gray-200 px-2 py-1 rounded '>
+            <button className='bg-gray-200 px-2 py-1 rounded ' onClick={decrementPrice}>
               <IconMinus width={10} height={10} />
             </button>
-            <p className="text-black">1</p>
-            <button className='bg-gray-200 px-2 py-1 rounded '>
+            <p className="text-black">{amount}</p>
+            <button className='bg-gray-200 px-2 py-1 rounded ' onClick={() => incrementPrice()}>
               <IconPlus width={10} height={10} />
             </button>
           </div>
@@ -50,7 +100,7 @@ const CardItemCarrito = ({ title, price, img, firtsPrice }: CardItemCarritoProps
 
       </div>
 
-      <div className="">
+      <div className="cursor-pointer h-full mt-2" onClick={() => eliminarCarrito(id)}>
         <IconDelete height={16} width={16} fill="red" />
       </div>
 

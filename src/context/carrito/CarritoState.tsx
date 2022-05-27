@@ -8,7 +8,8 @@ export interface CarritoProps {
   price: number,
   categoty1: string,
   categoty2: string,
-  rebaja: boolean
+  rebaja: boolean,
+  amount: number,
 }
 export interface CarritoInitialState {
   carrito: CarritoProps[]

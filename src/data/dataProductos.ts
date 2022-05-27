@@ -7,7 +7,8 @@ export const dataProductos = [
     price: 35,
     categoty1: 'Flores',
     categoty2: 'Exterior',
-    rebaja: false
+    rebaja: false,
+    amount: 1
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ export const dataProductos = [
     price: 39,
     categoty1: 'Medio',
     categoty2: 'Plantas',
-    rebaja: true
+    rebaja: true,
+    amount: 1
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ export const dataProductos = [
     price: 39,
     categoty1: 'Flores',
     categoty2: 'Interior',
-    rebaja: true
+    rebaja: true,
+    amount: 1
   },
   {
     id: 4,
@@ -37,7 +40,8 @@ export const dataProductos = [
     price: 18,
     categoty1: 'Interior',
     categoty2: 'Plantas',
-    rebaja: true
+    rebaja: true,
+    amount: 1
   },
   {
     id: 5,
@@ -47,7 +51,8 @@ export const dataProductos = [
     price: 28,
     categoty1: 'Flores',
     categoty2: 'Exterior',
-    rebaja: true
+    rebaja: true,
+    amount: 1
   },
   {
     id: 6,
@@ -57,7 +62,8 @@ export const dataProductos = [
     price: 20,
     categoty1: 'Interior',
     categoty2: 'Altos',
-    rebaja: false
+    rebaja: false,
+    amount: 1
   },
   {
     id: 7,
@@ -67,7 +73,8 @@ export const dataProductos = [
     price: 20,
     categoty1: 'Interior',
     categoty2: 'Altos',
-    rebaja: false
+    rebaja: false,
+    amount: 1
   },
   {
     id: 8,
@@ -77,7 +84,8 @@ export const dataProductos = [
     price: 20,
     categoty1: 'Interior',
     categoty2: 'Altos',
-    rebaja: false
+    rebaja: false,
+    amount: 1
   },
   {
     id: 9,
@@ -87,6 +95,7 @@ export const dataProductos = [
     price: 20,
     categoty1: 'Flores',
     categoty2: 'Interior',
-    rebaja: false
+    rebaja: false,
+    amount: 1
   }
 ]

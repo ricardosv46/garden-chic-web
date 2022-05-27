@@ -11,7 +11,7 @@ interface IProps {
   categoty1: string
   categoty2: string
   rebaja: boolean
-
+  amount: number
 }
 
 const CardProducto = ({
@@ -22,7 +22,8 @@ const CardProducto = ({
   price,
   categoty1,
   categoty2,
-  rebaja
+  rebaja,
+  amount
 }: IProps) => {
 
   const { agregarCarrito } = useCarritoContext()
@@ -84,6 +85,7 @@ const CardProducto = ({
               categoty1,
               categoty2,
               rebaja,
+              amount
             })
           }>
           AGREGAR AL CARRITO

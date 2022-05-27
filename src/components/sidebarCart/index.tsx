@@ -1,11 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import IconCart from '../../../public/icons/IconCart'
 import { useCarritoContext } from '../../context/carrito/CarritoState'
-import Image from 'next/image'
-import IconDelete from '../../../public/icons/IconDelete'
-import IconMinus from '../../../public/icons/IconMinus'
-import IconPlus from '../../../public/icons/IconPlus'
 import CardItemCarrito from '../cards/cardItemCarrito'
 
 const variants = {
@@ -34,8 +30,18 @@ interface SidebarCartProps {
 
 const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
 
-  const { carrito/* , actualizarPrecioCarrito, eliminarCarrito, CalcularTotal */ } = useCarritoContext()
-  console.log(carrito);
+  const { carrito, eliminarCarrito, CalcularTotal, actualizarPrecioCarrito } = useCarritoContext()
+
+  const [total, setTotal] = useState(0)
+  useEffect(() => {
+    const calculoTotal = carrito.reduce(
+      (total, product) => total + product.amount * product.price,
+      0
+    )
+    setTotal(calculoTotal)
+  }, [carrito])
+
+  console.log(total);
 
   return (
     <div className="fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40">
@@ -53,26 +59,39 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
         animate={isOpen ? 'open' : 'closed'}
       >
         <div className="text-primary-600 w-[340px]  bg-white  min-h-screen border-r  ">
-          <div className="flex flex-col w-full bg-white  p-6 h-screen">
-            <div className="flex justify-between items-center  ">
+          <div className="flex flex-col w-full bg-white  py-6 pl-6 h-screen">
+            <div className="flex justify-between items-center pr-6 ">
               <h2 className='uppercase font-bold'>Mi carrito</h2>
               <p className="font-bold text-black cursor-pointer" onClick={onClose}>Seguir comprando</p>
 
             </div>
 
             {carrito.length > 0 ?
-              <div className="mt-5 h-[800px]">
+              <div className="mt-5 h-[800px] scroll overflow-y-scroll pr-6">
                 {carrito.map((item, index) => (
                   <CardItemCarrito
                     key={index}
-                    title={item.title}
-                    price={item.price}
-                    img={item.img}
-                    firtsPrice={item.firtsPrice}
+                    {...item}
+                    eliminarCarrito={eliminarCarrito}
+                    actualizarPrecioCarrito={actualizarPrecioCarrito}
                   />
                 ))}
 
-
+                <div className="flex justify-between mb-4 mt-8">
+                  <p className='font-semibold text-lg'>Subtotal</p>
+                  <p className='font-bold text-black'>S/ {total.toFixed(2)}</p>
+                </div>
+                <div className="flex flex-col gap-y-3 ">
+                  <button
+                    className="bg-white text-sm text-primary-800 border border-primary-800 font-bold py-2 px-4 rounded w-full uppercase hover:bg-primary-800 hover:text-white duration-300 ease-in">
+                    Ver carrito
+                  </button>
+                  <button
+                    className="bg-primary-800 text-sm text-white font-bold py-2 px-4 rounded w-full uppercase"
+                    /* onClick={() => CalcularTotal(total)} */>
+                    Finalizar compra
+                  </button>
+                </div>
               </div>
 
 
@@ -81,18 +100,7 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
                 <p className="text-center text-sm mt-2">Tu carrito de compras está vacío.</p>
               </div>}
 
-            <div className="flex justify-between mb-4">
-              <p className='font-semibold text-lg'>Subtotal</p>
-              <p className='font-bold text-black'>S/ 168.00</p>
-            </div>
-            <div className="flex flex-col gap-y-3 ">
-              <button className="bg-white text-primary-800 border border-primary-800 font-bold py-2 px-4 rounded w-full uppercase">
-                Ver carrito
-              </button>
-              <button className="bg-primary-800 text-white font-bold py-2 px-4 rounded w-full uppercase">
-                Finalizar compra
-              </button>
-            </div>
+
 
           </div>
 
