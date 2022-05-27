@@ -77,9 +77,12 @@ const CardItemCarrito = ({
           <div className="">
             <p className="font-bold text-primary-800 text-xl">{title}</p>
             <div className="flex gap-x-3 mt-1">
-              <p className='text-gray-300 text-sm  line-through'>
-                S/. {firtsPrice.toFixed(2)}
-              </p>
+              {firtsPrice > price && (
+                <p className='text-gray-300 text-sm  line-through'>
+                  S/. {firtsPrice.toFixed(2)}
+                </p>
+              )}
+
 
               <p className="text-black text-sm">S/ {price.toFixed(2)}</p>
             </div>

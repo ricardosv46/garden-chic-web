@@ -5,12 +5,16 @@ import Contactanos from '../sections/Home/contactanos'
 import NuestrosClientes from '../sections/Home/nuestrosClientes'
 import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
-import { NextSeo } from 'next-seo'
+import { DefaultSeo, NextSeo } from 'next-seo'
 import Proyects from '../sections/Home/proyects'
+import Seo from '../../next-seo.config'
 
 const Home: NextPage = () => {
   return (
     <div>
+      <DefaultSeo {...Seo} />
+
+      {/*
       <Head>
         <title>Garden Chic - Inicio</title>
         <meta
@@ -19,7 +23,8 @@ const Home: NextPage = () => {
         />
         <meta name='keywords' content='jardines, jardin, plantas' />
       </Head>
-      <NextSeo
+
+        <NextSeo
         openGraph={{
           type: 'website',
           url: `https://garden-chic-web.vercel.app`,
@@ -32,7 +37,8 @@ const Home: NextPage = () => {
           ],
           site_name: 'Garden Chic - Inicio'
         }}
-      />
+      /> */}
+
       <Banner />
       <QuePodemosHacer />
       <Servicios />
