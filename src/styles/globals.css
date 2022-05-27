@@ -145,6 +145,7 @@ textarea:focus-within ~ .label {
 
 .input-range__label-container{
   font-size: 0.65rem;
+  display: none;
 }
 .input-range__label--value .input-range__label-container {
 
@@ -155,8 +156,9 @@ textarea:focus-within ~ .label {
 }
 
 .input-range__slider{
-  background: #445378 !important;
-  border: none !important;
+  background: #fff !important;
+  border:  1px solid #445378;
+
 }
 
 .scroll::-webkit-scrollbar {

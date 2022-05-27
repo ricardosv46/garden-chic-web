@@ -15,9 +15,14 @@ import IconFilter from '../../../public/icons/IconFilter'
 
 const Tienda = () => {
   const router = useRouter()
-  const [range, setRange] = useState<number | Range>({ min: 40, max: 180 })
-  const [isOpenFilter, setIsOpenFilter] = useState(false)
 
+  const initialState = {
+    min: 500,
+    max: 1000
+  }
+
+  const [range, setRange] = useState<number | Range>(initialState)
+  const [isOpenFilter, setIsOpenFilter] = useState(false)
 
 
   return (
@@ -57,13 +62,26 @@ const Tienda = () => {
                     <p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
                   </div>
                   <div className="pb-10">
-                    <InputRange
-                      maxValue={200}
-                      minValue={0}
-                      value={range}
-                      formatLabel={range => `S./ ${range} `}
-                      onChange={value => setRange(value)}
-                    />
+                    <div className="flex justify-between text-primary-600">
+                      <div className="flex flex-col ">
+                        <div className='text-base'>Minimo</div>
+                        <p className='text-sm'>S/ {(range as Range).min}</p>
+                      </div>
+                      <div className="flex flex-col ">
+                        <div className='text-base'>Máximo</div>
+                        <p className='text-sm'>S/ {(range as Range).max}</p>
+                      </div>
+                    </div>
+                    <div className="mx-2 mt-2">
+                      <InputRange
+                        maxValue={initialState.max as number}
+                        minValue={initialState.min as number}
+                        value={range}
+                        formatLabel={range => `S./ ${range} `}
+                        onChange={value => setRange(value)}
+                      />
+                    </div>
+
                   </div>
                 </div>
               </Accordion>
