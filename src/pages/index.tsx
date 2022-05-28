@@ -19,7 +19,11 @@ const Home: NextPage = () => {
         />
         <meta name='keywords' content='jardines, jardin, plantas' />
       </Head> */}
+
       <NextSeo
+        title='Garden Chic - Inicio'
+        description='Somos expertos en el cuidado de tu jardin.'
+        canonical='https://garden-chic-web.vercel.app/'
         openGraph={{
           type: 'website',
           url: 'https://garden-chic-web.vercel.app',
