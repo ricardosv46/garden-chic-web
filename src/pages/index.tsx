@@ -21,9 +21,11 @@ const Home: NextPage = () => {
       </Head>
       <NextSeo
         openGraph={{
+          type: 'website',
           url: 'https://garden-chic-web.vercel.app',
           title: 'Garden Chic',
           description: 'Somos expertos en el cuidado de tu jardin.',
+          site_name: 'Garden Chic',
           images: [
             {
               url: 'https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg',
