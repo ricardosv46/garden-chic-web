@@ -11,18 +11,11 @@ import Seo from '../../next-seo.config'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       {/* <NextSeo {...Seo} /> */}
 
       {/*
-      <Head>
-        <title>Garden Chic - Inicio</title>
-        <meta
-          name='description'
-          content='Somos expertos en el cuidado de tu jardin.'
-        />
-        <meta name='keywords' content='jardines, jardin, plantas' />
-      </Head>
+    
 
         <NextSeo
         openGraph={{
@@ -39,6 +32,22 @@ const Home: NextPage = () => {
         }}
       /> */}
 
+      <Head>
+        <title>Garden Chic - Inicio</title>
+        <meta
+          name='description'
+          content='Somos expertos en el cuidado de tu jardin.'
+        />
+        <meta name='keywords' content='jardines, jardin, plantas' />
+
+        <meta property='og:title' content='Garden Chic - meta' />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://garden-chic-web.vercel.app' />
+        <meta
+          property='og:image'
+          content='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
+        />
+      </Head>
 
       <Banner />
       <QuePodemosHacer />
@@ -46,7 +55,7 @@ const Home: NextPage = () => {
       <Proyects />
       <NuestrosClientes />
       <Contactanos />
-    </div>
+    </>
   )
 }
 
