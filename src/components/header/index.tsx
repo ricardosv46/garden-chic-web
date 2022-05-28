@@ -7,21 +7,7 @@ import SidebarCart from '../sidebarCart'
 const Header = () => {
   const [navbar, setNavbar] = useState(false)
   const [isOpenCart, setIsOpenCart] = useState(false)
-  let lastScrollTop = 0
 
-  window.addEventListener(
-    'scroll',
-    function () {
-      var st = window.pageYOffset || document.documentElement.scrollTop
-      if (st > lastScrollTop) {
-        setNavbar(true)
-      } else {
-        setNavbar(false)
-      }
-      lastScrollTop = st
-    },
-    false
-  )
 
   return (
     <>

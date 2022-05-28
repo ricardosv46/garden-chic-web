@@ -17,7 +17,7 @@ export interface CarritoInitialState {
 }
 
 type Props = {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 };
 
 export interface CarritoContextValue extends CarritoInitialState {
