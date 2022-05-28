@@ -1,6 +1,8 @@
 import Contador from "../../components/contador"
+import { useInView } from "react-intersection-observer";
 
 const QuePodemosHacer = () => {
+  const { ref, inView } = useInView();
 
   return (
     <div className="py-32 bg-gray-50">
@@ -9,11 +11,12 @@ const QuePodemosHacer = () => {
           <h2 className="mb-4 text-center text-2xl text-primary-600 font-extralight md:text-4xl lg:text-6xl">¡Nosotros nos encargamos de todo por ti!</h2>
           <p className="text-gray-600 lg:w-8/12 lg:mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates totam nam dolores cum optio neque qui asperiores explicabo</p>
         </div>
-        <div className="grid gap-12 items-center md:grid-cols-3">
+        <div ref={ref} className="grid gap-12 items-center md:grid-cols-3">
           <div className="space-y-4 text-center">
             <div>
               <h2 className="text-7xl text-primary-600">
-                <Contador duration={1000} num={'10'} />
+                {inView ? <Contador duration={1000} num={'10'} /> : '10'}
+
               </h2>
               <h3 className="text-xl font-bold text-primary-600">Años</h3>
               <h4 className="text-lg">Experiencia</h4>
@@ -23,7 +26,7 @@ const QuePodemosHacer = () => {
           <div className="space-y-4 text-center">
             <div>
               <h2 className="text-7xl text-primary-600">
-                <Contador duration={2000} num={'30'} />
+                {inView ? <Contador duration={2000} num={'30'} /> : '30'}
               </h2>
               <h3 className="text-xl font-bold text-primary-600">Especialista</h3>
               <h4 className="text-lg">En diseño de paisajismo</h4>
@@ -32,7 +35,9 @@ const QuePodemosHacer = () => {
           </div>
           <div className="space-y-4 text-center">
             <div>
-              <h2 className="text-7xl text-primary-600">15</h2>
+              <h2 className="text-7xl text-primary-600">
+                {inView ? <Contador duration={2000} num={'15'} /> : '15'}
+              </h2>
               <h3 className="text-xl font-bold text-primary-600">Premios</h3>
               <h4 className="text-lg">Empresa ganadora</h4>
               <span className="block text-sm text-gray-500">Lorem ipsum dolor sit amet</span>
