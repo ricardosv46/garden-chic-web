@@ -25,7 +25,23 @@ const Home: NextPage = () => {
           property='og:image'
           content='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
         />
-        <meta name='twitter:card' content='summary_large_image' />
+        {/* <meta name='twitter:card' content='summary_large_image' />
+        <meta
+          name='twitter:image'
+          content='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
+        /> */}
+
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:site' content='website' />
+        <meta
+          name='twitter:title'
+          content='Small Island Developing States Photo Submission'
+        />
+        <meta name='twitter:description' content='View the album on Flickr.' />
+        <meta
+          name='twitter:image'
+          content='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
+        />
       </Head>
 
       <Banner />
