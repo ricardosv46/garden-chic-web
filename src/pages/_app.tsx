@@ -39,17 +39,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             images: [
               {
                 url: "/imgs/banner/banner__item1.jpg",
-                width: 800,
-                height: 420,
+                width: 400,
+                height: 220,
                 alt: "Garden Chic",
               },
             ],
           }}
-          twitter={{
+        /*   twitter={{
             handle: "@avneesh0612",
             site: "@avneesh0612",
             cardType: "summary_large_image",
-          }}
+          }} */
         />
         <Header />
         <Component {...pageProps} />

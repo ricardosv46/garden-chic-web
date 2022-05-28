@@ -1,5 +1,7 @@
+import Contador from "../../components/contador"
 
 const QuePodemosHacer = () => {
+
   return (
     <div className="py-32 bg-gray-50">
       <div className="container mx-auto px-6 md:px-12 xl:px-32">
@@ -10,7 +12,9 @@ const QuePodemosHacer = () => {
         <div className="grid gap-12 items-center md:grid-cols-3">
           <div className="space-y-4 text-center">
             <div>
-              <h2 className="text-7xl text-primary-600">40</h2>
+              <h2 className="text-7xl text-primary-600">
+                <Contador duration={1000} num={'10'} />
+              </h2>
               <h3 className="text-xl font-bold text-primary-600">Años</h3>
               <h4 className="text-lg">Experiencia</h4>
               <span className="block text-sm text-gray-500">Lorem ipsum dolor sit amet</span>
@@ -18,7 +22,9 @@ const QuePodemosHacer = () => {
           </div>
           <div className="space-y-4 text-center">
             <div>
-              <h2 className="text-7xl text-primary-600">30</h2>
+              <h2 className="text-7xl text-primary-600">
+                <Contador duration={2000} num={'30'} />
+              </h2>
               <h3 className="text-xl font-bold text-primary-600">Especialista</h3>
               <h4 className="text-lg">En diseño de paisajismo</h4>
               <span className="block text-sm text-gray-500">Lorem ipsum dolor sit amet</span>
