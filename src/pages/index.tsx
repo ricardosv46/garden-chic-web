@@ -39,11 +39,11 @@ const Home: NextPage = () => {
             }
           ]
         }}
-        twitter={{
-          handle: '@avneesh0612',
-          site: '@avneesh0612',
-          cardType: 'summary_large_image'
-        }}
+        // twitter={{
+        //   handle: '@avneesh0612',
+        //   site: '@avneesh0612',
+        //   cardType: 'summary_large_image'
+        // }}
       />
       <Banner />
       <QuePodemosHacer />
