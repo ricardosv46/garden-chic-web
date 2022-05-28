@@ -7,6 +7,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import CarritoState from '../context/carrito/CarritoState'
 import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false)
@@ -20,6 +21,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     <CarritoState>
       <>
+        <Head>
+          <title>Garden Chic - Inicio</title>
+          <meta
+            name='description'
+            content='Somos expertos en el cuidado de tu jardin.'
+          />
+          <meta name='keywords' content='jardines, jardin, plantas' />
+        </Head>
         <NextSeo
           title="Garden Chic - Inicio"
           titleTemplate="Garden Chic - Inicio"

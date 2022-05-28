@@ -39,31 +39,7 @@ const Home: NextPage = () => {
         }}
       /> */}
 
-      <NextSeo
-        title="Garden Chic - Inicio"
-        titleTemplate="Garden Chic - Inicio"
-        defaultTitle="Garden Chic - Inicio"
-        description="Somos expertos en el cuidado de tu jardin."
-        canonical="https://www.avneesh.tech/"
-        openGraph={{
-          url: "https://garden-chic-web.vercel.app",
-          title: "Garden Chic",
-          description: "Somos expertos en el cuidado de tu jardin.",
-          images: [
-            {
-              url: "/imgs/banner/banner__item1.jpg",
-              width: 800,
-              height: 420,
-              alt: "Garden Chic",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@avneesh0612",
-          site: "@avneesh0612",
-          cardType: "summary_large_image",
-        }}
-      />
+
       <Banner />
       <QuePodemosHacer />
       <Servicios />
