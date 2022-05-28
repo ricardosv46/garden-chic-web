@@ -40,24 +40,20 @@ const Home: NextPage = () => {
         /> */}
 
         {/* <!-- HTML Meta Tags --> */}
-        <title>
-          Buy best disposal products from Garima disposal and plastic in Jaipur
-        </title>
+
+        <title>Garden Chic - Inicio</title>
         <meta
           name='description'
-          content='Buy best disposal products at low prices. Paper, plastic and wooden products. Buy best thermocol products, bowls, cups, glasses, pattal, dona, food containers etc.'
+          content='Somos expertos en el cuidado de tu jardin.'
         />
 
         {/* <!-- Facebook Meta Tags --> */}
         <meta property='og:url' content='https://garden-chic-web.vercel.app/' />
         <meta property='og:type' content='website' />
-        <meta
-          property='og:title'
-          content='Buy best disposal products from Garima disposal and plastic in Jaipur'
-        />
+        <meta property='og:title' content='Garden Chic - Inicio' />
         <meta
           property='og:description'
-          content='Buy best disposal products at low prices. Paper, plastic and wooden products. Buy best thermocol products, bowls, cups, glasses, pattal, dona, food containers etc.'
+          content='Somos expertos en el cuidado de tu jardin.'
         />
         <meta
           property='og:image'
@@ -66,18 +62,15 @@ const Home: NextPage = () => {
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name='twitter:card' content='summary_large_image' />
-        {/* <meta property='twitter:domain' content='garimadisposal.in' /> */}
+        <meta property='twitter:domain' content='garden-chic-web.vercel.app' />
         <meta
           property='twitter:url'
           content='https://garden-chic-web.vercel.app/'
         />
-        <meta
-          name='twitter:title'
-          content='Buy best disposal products from Garima disposal and plastic in Jaipur'
-        />
+        <meta name='twitter:title' content='Garden Chic - Inicio' />
         <meta
           name='twitter:description'
-          content='Buy best disposal products at low prices. Paper, plastic and wooden products. Buy best thermocol products, bowls, cups, glasses, pattal, dona, food containers etc.'
+          content='Somos expertos en el cuidado de tu jardin.'
         />
         <meta
           name='twitter:image'
