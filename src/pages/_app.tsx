@@ -6,7 +6,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import CarritoState from '../context/carrito/CarritoState'
-import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,10 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     return null
   }
   return (
-
     <CarritoState>
       <>
-        <Head>
+        {/* <Head>
           <title>Garden Chic - Inicio</title>
           <meta
             name='description'
@@ -50,12 +48,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             site: "@avneesh0612",
             cardType: "summary_large_image",
           }}
-        />
+        /> */}
         <Header />
         <Component {...pageProps} />
       </>
     </CarritoState>
-
   )
 }
 
