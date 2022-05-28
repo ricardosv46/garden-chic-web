@@ -25,6 +25,7 @@ const Home: NextPage = () => {
           property='og:image'
           content='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
         />
+        <meta name='twitter:card' content='summary_large_image' />
       </Head>
 
       <Banner />
