@@ -9,7 +9,6 @@ import InputCheckbox from '../inputs/InputCheckbox'
 import CardProductosRelacionados from '../cards/cardProducto/cardProductosRelacionados'
 import { dataProductos } from '../../data/dataProductos'
 
-
 const variants = {
   open: {
     x: 0,
@@ -34,7 +33,6 @@ const fade = {
   }
 } as const
 
-
 interface SidebarFilterProps {
   isOpen: boolean
   range: number | Range
@@ -42,56 +40,57 @@ interface SidebarFilterProps {
   setRange: Dispatch<SetStateAction<number | Range>>
 }
 
-const SidebarFilter = ({ isOpen = false, range, onClose, setRange }: SidebarFilterProps) => {
-
+const SidebarFilter = ({
+  isOpen = false,
+  range,
+  onClose,
+  setRange
+}: SidebarFilterProps) => {
   return (
-    <div className="fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 ">
+    <div className='fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 '>
       <motion.div
         variants={fade}
         onClick={onClose}
         animate={isOpen ? 'open' : 'closed'}
         initial={{ opacity: 0, pointerEvents: 'none' }}
-        className="fixed top-0 w-full h-screen bg-black bg-opacity-50"
+        className='fixed top-0 w-full h-screen bg-black bg-opacity-50'
       />
       <motion.div
         variants={variants}
-        className="absolute top-0 z-50 h-screen  "
+        className='absolute top-0 z-50 h-screen  '
         initial={{ opacity: 0, x: '-100%' }}
         animate={isOpen ? 'open' : 'closed'}
       >
-        <div className="text-primary-600 w-[340px]  bg-white  min-h-screen border-r p-6 h-full overflow-y-scroll scroll">
-
-          <div className="flex gap-x-3 mt-5 items-center">
+        <div className='text-primary-600 w-[340px]  bg-white  min-h-screen border-r p-6 h-full overflow-y-scroll scroll'>
+          <div className='flex gap-x-3 mt-5 items-center'>
             <IconFilter height={22} width={22} />
             <h2 className='text-2xl font-light uppercase'>Filtros</h2>
           </div>
 
-          <div className="py-4 border-b">
-            <Accordion title="Marca">
-              <div className="w-full">
+          <div className='py-4 border-b'>
+            <Accordion title='Marca'>
+              <div className='w-full'>
                 <InputSearch placeholder='Buscar' />
-                <div className="mt-4">
+                <div className='mt-4'>
                   <InputCheckbox label='Marca 1' name='Marca 1' stock={1} />
                   <InputCheckbox label='Marca 2' name='Marca 2' stock={2} />
                   <InputCheckbox label='Marca 3' name='Marca 3' stock={3} />
                 </div>
               </div>
-
-
             </Accordion>
           </div>
-          <div className="py-4 border-b">
-            <Accordion title="Precio">
-              <div className="flex flex-col">
-                <div className="mb-10">
+          <div className='py-4 border-b'>
+            <Accordion title='Precio'>
+              <div className='flex flex-col'>
+                <div className='mb-10'>
                   <p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
                 </div>
-                <div className="pb-10">
+                <div className='pb-10'>
                   <InputRange
                     maxValue={200}
                     minValue={0}
                     value={range}
-                    formatLabel={range => `S./ ${range} `}
+                    formatLabel={(range) => `S./ ${range} `}
                     onChange={setRange}
                   />
                 </div>
@@ -99,9 +98,7 @@ const SidebarFilter = ({ isOpen = false, range, onClose, setRange }: SidebarFilt
             </Accordion>
           </div>
 
-          <button
-            className='w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800'
-          >
+          <button className='w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800'>
             Aplicar Filtros
           </button>
 
@@ -118,7 +115,6 @@ const SidebarFilter = ({ isOpen = false, range, onClose, setRange }: SidebarFilt
         </div>
       </motion.div>
     </div>
-
   )
 }
 export default SidebarFilter

@@ -6,7 +6,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body,
+html {
   overflow-x: hidden;
 }
 
@@ -131,10 +132,6 @@ textarea:focus-within ~ .label {
   height: 100%;
 }
 
-
-
-
-
 .input-range__track {
   background: #ddd;
 }
@@ -143,22 +140,20 @@ textarea:focus-within ~ .label {
   background: #445378 !important;
 }
 
-.input-range__label-container{
+.input-range__label-container {
   font-size: 0.65rem;
   display: none;
 }
 .input-range__label--value .input-range__label-container {
-
   color: #aaaaaa;
   font-size: 0.8rem;
 
   border-radius: 2px;
 }
 
-.input-range__slider{
+.input-range__slider {
   background: #fff !important;
-  border:  1px solid #445378;
-
+  border: 1px solid #445378;
 }
 
 .scroll::-webkit-scrollbar {
