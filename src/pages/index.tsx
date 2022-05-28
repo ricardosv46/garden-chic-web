@@ -11,14 +11,14 @@ import { NextSeo } from 'next-seo'
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Garden Chic - Inicio</title>
         <meta
           name='description'
           content='Somos expertos en el cuidado de tu jardin.'
         />
         <meta name='keywords' content='jardines, jardin, plantas' />
-      </Head>
+      </Head> */}
       <NextSeo
         openGraph={{
           type: 'website',
