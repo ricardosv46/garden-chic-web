@@ -28,13 +28,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             content='Somos expertos en el cuidado de tu jardin.'
           />
           <meta name='keywords' content='jardines, jardin, plantas' />
+
         </Head>
         <NextSeo
-          title="Garden Chic - Inicio"
-          titleTemplate="Garden Chic - Inicio"
-          defaultTitle="Garden Chic - Inicio"
-          description="Somos expertos en el cuidado de tu jardin."
-          canonical="https://garden-chic-web.vercel.app"
+
           openGraph={{
             url: "https://garden-chic-web.vercel.app",
             title: "Garden Chic",
