@@ -90,7 +90,7 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
                   </button>
                   <button
                     className='bg-primary-800 text-sm text-white font-bold py-2 px-4 rounded w-full uppercase'
-                    /* onClick={() => CalcularTotal(total)} */
+                  /* onClick={() => CalcularTotal(total)} */
                   >
                     Finalizar compra
                   </button>

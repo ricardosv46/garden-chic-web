@@ -5,7 +5,6 @@ import MenuMobile from '../menu/mobile'
 import SidebarCart from '../sidebarCart'
 
 const Header = () => {
-  const [navbar, setNavbar] = useState(false)
   const [isOpenCart, setIsOpenCart] = useState(false)
 
 
