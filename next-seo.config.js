@@ -1,6 +1,6 @@
 const ConfigSeo = {
   title: 'Garden Chic - Inicio',
-  /*   titleTemplate: '%s - Next SEO', */
+  titleTemplate: '%s - Next SEO',
   description: 'Somos expertos en el cuidado de tu jardin.',
   openGraph: {
     type: 'website',

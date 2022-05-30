@@ -38,7 +38,7 @@ const CarBlog = ({ img, title, subtitle, description }: IProps) => {
         </p>
         <p className='text-gray-900 text-md font-normal mt-5'>{description}</p>
         <div className='mt-5'>
-          <Compartir />
+          <Compartir ruta={img} />
         </div>
       </div>
     </div>

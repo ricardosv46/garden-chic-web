@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 
-const Compartir = () => {
+interface PropsCompartir {
+  ruta: string | undefined
+}
+const Compartir = ({ ruta }: PropsCompartir) => {
   const [hoverF, setHoverF] = useState(false)
   const [hoverT, setHoverT] = useState(false)
   const [hoverL, setHoverL] = useState(false)
   return (
     <div className='flex gap-2'>
       <div
+        onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=https://garden-chic-web.vercel.app/blogs/${ruta}/`, '_blank')}
         onMouseOver={() => setHoverF(true)}
         onMouseOut={() => setHoverF(false)}
         className='w-7 h-7 rounded-full border-2 border-primary-300 hover:bg-primary-300 ease-in-out duration-300 cursor-pointer flex justify-center items-center'
