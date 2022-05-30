@@ -11,13 +11,13 @@ const Home: NextPage = () => {
   return (
     <>
       <OpenGraph
-        title="Garden Chic - Inicio"
-        link="https://garden-chic-web.vercel.app/"
-        description="Somos expertos en el cuidado de tu jardin."
-        img="https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg"
-        url="https://garden-chic-web.vercel.app/"
+        title='Garden Chic - Inicio'
+        link='Garden Chic'
+        description='Somos expertos en el cuidado de tu jardin.'
+        domain='garden-chic-web.vercel.app'
+        img='https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg'
         keywords='jardines, jardin, plantas'
-        domain="https://garden-chic-web.vercel.app/"
+        url='https://garden-chic-web.vercel.app/'
       />
 
       <Banner />

@@ -2,11 +2,11 @@ import Head from 'next/head'
 import React from 'react'
 
 interface IProps {
-  title: string | undefined
+  title: string
   link: string
-  description: string | undefined
+  description: string
   url: string
-  img: string | undefined
+  img: string
   keywords: string
   domain: string
 }
