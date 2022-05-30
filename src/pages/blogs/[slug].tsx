@@ -33,7 +33,7 @@ const DetalleBlog = () => {
           title={blog.title}
           link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
           description={blog?.description}
-          img={blog?.img}
+          img={blog.img}
           url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
           keywords='jardines, jardin, plantas'
           domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
