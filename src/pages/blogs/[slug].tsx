@@ -25,7 +25,7 @@ const DetalleBlog = () => {
 
   return (
     <>
-      {/* <OpenGraph
+      <OpenGraph
         title={blog?.title}
         link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
         description={blog?.description}
@@ -33,7 +33,7 @@ const DetalleBlog = () => {
         url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
         keywords='jardines, jardin, plantas'
         domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-      /> */}
+      />
 
       <Container className='lg:flex py-10 gap-10'>
         <div className='w-full lg:w-9/12'>
