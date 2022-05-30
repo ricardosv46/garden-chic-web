@@ -21,19 +21,25 @@ const DetalleBlog = () => {
   const router = useRouter()
   let slug = router.query.slug
 
-  const blog = dataBlogs?.find((item) => item.img === slug)
+
+  const blog = dataBlogs.find((item) => item.img === slug)
+
+
 
   return (
     <>
-      <OpenGraph
-        title={blog?.title}
-        link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-        description={blog?.description}
-        img={blog?.img}
-        url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-        keywords='jardines, jardin, plantas'
-        domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-      />
+      {blog && (
+        <OpenGraph
+          title={blog.title}
+          link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
+          description={blog?.description}
+          img={blog?.img}
+          url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
+          keywords='jardines, jardin, plantas'
+          domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
+        />
+      )}
+
 
       <Container className='lg:flex py-10 gap-10'>
         <div className='w-full lg:w-9/12'>
