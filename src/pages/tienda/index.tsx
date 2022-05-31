@@ -13,9 +13,11 @@ import Accordion from '../../components/accordion'
 import InputCheckbox from '../../components/inputs/InputCheckbox'
 import IconFilter from '../../../public/icons/IconFilter'
 import Filtro from '../../components/sidebarFilter/filtro'
+import SidebarCart from '../../components/sidebarCart'
 
 const Tienda = () => {
   const router = useRouter()
+  const [isOpenCart, setIsOpenCart] = useState(false)
 
   const initialState = {
     min: 500,
@@ -53,7 +55,7 @@ const Tienda = () => {
         <div className='w-full lg:w-9/12'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-16 '>
             {dataProductos.map((item) => (
-              <CardProducto key={item.img} {...item} />
+              <CardProducto key={item.img} {...item} openModal={() => setIsOpenCart(true)} />
             ))}
           </div>
         </div>
@@ -63,7 +65,7 @@ const Tienda = () => {
       <div className="">
         <SidebarFilter isOpen={isOpenFilter} onClose={() => setIsOpenFilter(false)} />
       </div>
-
+      <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
     </div>
   )
 }

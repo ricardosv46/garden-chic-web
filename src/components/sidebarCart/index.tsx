@@ -70,31 +70,34 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
             </div>
 
             {carrito.length > 0 ? (
-              <div className='mt-5 h-[800px] scroll overflow-y-scroll pr-6'>
-                {carrito.map((item, index) => (
-                  <CardItemCarrito
-                    key={index}
-                    {...item}
-                    eliminarCarrito={eliminarCarrito}
-                    actualizarPrecioCarrito={actualizarPrecioCarrito}
-                  />
-                ))}
+              <div className='mt-5'>
+                <div className=" h-[500px] scroll overflow-y-scroll pr-6">
+                  {carrito.map((item, index) => (
+                    <CardItemCarrito
+                      key={index}
+                      {...item}
+                      eliminarCarrito={eliminarCarrito}
+                      actualizarPrecioCarrito={actualizarPrecioCarrito}
+                    />
+                  ))}
+                </div>
 
-                <div className='flex justify-between mb-4 mt-8'>
-                  <p className='font-semibold text-lg'>Subtotal</p>
-                  <p className='font-bold text-black'>S/ {total.toFixed(2)}</p>
+                <div className="pr-6">
+                  <div className='flex justify-between mb-4 mt-8'>
+                    <p className='font-semibold text-lg'>Subtotal</p>
+                    <p className='font-bold text-black'>S/ {total.toFixed(2)}</p>
+                  </div>
+                  <div className='flex flex-col gap-y-3 '>
+
+                    <button
+                      className='bg-primary-800 text-sm text-white font-bold py-2 px-4 rounded w-full uppercase'
+                    /* onClick={() => CalcularTotal(total)} */
+                    >
+                      Finalizar compra
+                    </button>
+                  </div>
                 </div>
-                <div className='flex flex-col gap-y-3 '>
-                  <button className='bg-white text-sm text-primary-800 border border-primary-800 font-bold py-2 px-4 rounded w-full uppercase hover:bg-primary-800 hover:text-white duration-300 ease-in'>
-                    Ver carrito
-                  </button>
-                  <button
-                    className='bg-primary-800 text-sm text-white font-bold py-2 px-4 rounded w-full uppercase'
-                  /* onClick={() => CalcularTotal(total)} */
-                  >
-                    Finalizar compra
-                  </button>
-                </div>
+
               </div>
             ) : (
               <div className='flex flex-col items-center justify-center mt-7'>

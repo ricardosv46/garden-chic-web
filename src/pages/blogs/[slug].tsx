@@ -33,7 +33,7 @@ const DetalleBlog = () => {
           title={blog.title}
           link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
           description={blog?.description}
-          img={blog.img}
+          img={blog?.img}
           url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
           keywords='jardines, jardin, plantas'
           domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
@@ -146,3 +146,34 @@ const DetalleBlog = () => {
 }
 
 export default DetalleBlog
+
+
+/* 
+
+
+interface IProps {
+
+  img: string;
+
+}
+
+interface IDataBlog {
+  params: IProps[];
+}
+export async function getStaticProps({ params }: IDataBlog) {
+
+  return {
+    props: {
+      params
+    },
+  }
+}
+
+export async function getStaticPaths() {
+
+  const paths = dataBlogs.map(post => ({ params: { img: post.img } }))
+  return {
+    paths,
+    fallback: false
+  }
+} */

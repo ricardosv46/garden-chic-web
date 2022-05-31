@@ -12,6 +12,7 @@ interface IProps {
   categoty2: string
   rebaja: boolean
   amount: number
+  openModal: () => void
 }
 
 const CardProducto = ({
@@ -23,7 +24,8 @@ const CardProducto = ({
   categoty1,
   categoty2,
   rebaja,
-  amount
+  amount,
+  openModal
 }: IProps) => {
 
   const { agregarCarrito } = useCarritoContext()
@@ -75,7 +77,7 @@ const CardProducto = ({
         </div>
 
         <button className='w-full py-2 border-primary-300 border-2 hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm mt-20'
-          onClick={() =>
+          onClick={() => {
             agregarCarrito({
               id,
               img,
@@ -86,12 +88,16 @@ const CardProducto = ({
               categoty2,
               rebaja,
               amount
-            })
+            });
+            openModal()
+          }
+
+
           }>
           AGREGAR AL CARRITO
         </button>
       </div>
-    </div>
+    </div >
   )
 }
 

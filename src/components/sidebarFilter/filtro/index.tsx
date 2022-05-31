@@ -5,6 +5,7 @@ import { dataProductos } from '../../../data/dataProductos'
 import Accordion from '../../accordion'
 import CardProductosRelacionados from '../../cards/cardProducto/cardProductosRelacionados'
 import InputCheckbox from '../../inputs/InputCheckbox'
+import InputRadio from '../../inputs/InputRadio'
 import InputSearch from '../../inputs/InputSearch'
 
 const Filtro = () => {
@@ -23,13 +24,14 @@ const Filtro = () => {
       </div>
 
       <div className="py-4 border-b">
-        <Accordion title="Marca">
+        <Accordion title="Categoria">
           <div className="w-full">
             <InputSearch placeholder='Buscar' />
             <div className="mt-4">
-              <InputCheckbox label='Marca 1' name='Marca 1' stock={1} />
-              <InputCheckbox label='Marca 2' name='Marca 2' stock={2} />
-              <InputCheckbox label='Marca 3' name='Marca 3' stock={3} />
+              <InputRadio label='Categoria 1' name='categoria' stock={1} id='categoria 1' />
+              <InputRadio label='Categoria 2' name='categoria' stock={2} id='categoria 2' />
+              <InputRadio label='Categoria 3' name='categoria' stock={3} id='categoria 3' />
+
             </div>
           </div>
 

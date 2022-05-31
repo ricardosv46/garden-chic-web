@@ -6,7 +6,7 @@ import Container from '../../components/container'
 
 const Servicios = () => {
   return (
-    <Container className='p-10  py-36' bgColor='bg-primary-100'>
+    <Container className='p-10  py-20' bgColor='bg-primary-100 bg-opacity-50'>
       {/*       <h2 className="text-4xl lg:text-5xl text-center font-normal mb-24 text-primary-800 ">
         Servicios
       </h2>
@@ -50,7 +50,7 @@ const Servicios = () => {
                 width={50}
                 height={50}
               />
-              <p className='font-semibold'>Lawr Moving</p>
+              <p className='text-xl font-semibold'>Lawr Moving</p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -61,7 +61,7 @@ const Servicios = () => {
                 width={50}
                 height={50}
               />
-              <p className='font-semibold'>Lawr Moving</p>
+              <p className='text-xl font-semibold'>Lawr Moving</p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -72,7 +72,7 @@ const Servicios = () => {
                 width={50}
                 height={50}
               />
-              <p className='font-semibold'>Lawr Moving</p>
+              <p className='text-xl font-semibold'>Lawr Moving</p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -83,7 +83,7 @@ const Servicios = () => {
                 width={50}
                 height={50}
               />
-              <p className='font-semibold'>Lawr Moving</p>
+              <p className='text-xl font-semibold'>Lawr Moving</p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -94,7 +94,7 @@ const Servicios = () => {
                 width={50}
                 height={50}
               />
-              <p className='font-semibold'>Lawr Moving</p>
+              <p className='text-xl font-semibold'>Lawr Moving</p>
             </div>
           </SwiperSlide>
         </Swiper>
