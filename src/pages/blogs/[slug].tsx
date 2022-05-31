@@ -17,28 +17,48 @@ const categorias = [
   'Plantas'
 ]
 
-const DetalleBlog = () => {
+interface PropsStatic {
+  blog: {
+    title: string
+    subtitle: string
+    description: string
+    img: string
+  }
+}
+interface IProps {
+
+  slug: string;
+
+}
+
+
+interface IDataBlog {
+  params: IProps;
+}
+
+const DetalleBlog = ({ blog }: PropsStatic) => {
+
   const router = useRouter()
   let slug = router.query.slug
 
 
-  const blog = dataBlogs.find((item) => item.img === slug)
+  console.log({ blog });
 
 
 
   return (
     <>
-      {blog && (
-        <OpenGraph
-          title={blog.title}
-          link={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-          description={blog?.description}
-          img={blog?.img}
-          url={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-          keywords='jardines, jardin, plantas'
-          domain={`https://garden-chic-web.vercel.app/blogs/${blog?.img}`}
-        />
-      )}
+
+      <OpenGraph
+        title={blog.title}
+        link={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
+        description={blog.description}
+        img={blog.img}
+        url={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
+        keywords='jardines, jardin, plantas'
+        domain={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
+      />
+
 
 
       <Container className='lg:flex py-10 gap-10'>
@@ -148,32 +168,27 @@ const DetalleBlog = () => {
 export default DetalleBlog
 
 
-/* 
 
 
-interface IProps {
 
-  img: string;
 
-}
-
-interface IDataBlog {
-  params: IProps[];
-}
 export async function getStaticProps({ params }: IDataBlog) {
+
+  const data = dataBlogs.find(item => item.img === params.slug)
+  console.log({ data });
 
   return {
     props: {
-      params
+      blog: data
     },
   }
 }
 
 export async function getStaticPaths() {
 
-  const paths = dataBlogs.map(post => ({ params: { img: post.img } }))
+  const paths = dataBlogs.map(post => ({ params: { slug: post.img } }))
   return {
     paths,
     fallback: false
   }
-} */
+}
