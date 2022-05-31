@@ -1,15 +1,16 @@
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useState } from 'react'
 import CardProducto from '../../components/cards/cardProducto'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
 import Container from '../../components/container'
 import Gallery from '../../components/gallery'
 import InputSearch from '../../components/inputs/InputSearch'
+import SidebarCart from '../../components/sidebarCart'
 import { dataProductos } from '../../data/dataProductos'
 
 const Productos = () => {
   const router = useRouter()
-
+  const [isOpenCart, setIsOpenCart] = useState(false)
   const producto = dataProductos.find((item) => item.img === router.query.slug)
 
   return (
@@ -85,16 +86,16 @@ const Productos = () => {
               También te puede interesar
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center py-10'>
-              <CardProducto {...dataProductos[0]} />
-              <CardProducto {...dataProductos[1]} />
+              <CardProducto {...dataProductos[0]} openModal={() => setIsOpenCart(true)} />
+              <CardProducto {...dataProductos[1]} openModal={() => setIsOpenCart(true)} />
             </div>
             <p className='text-gray-900 text-3xl  font-bold mt-10'>
               Productos relacionados
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center py-10'>
-              <CardProducto {...dataProductos[4]} />
-              <CardProducto {...dataProductos[5]} />
-              <CardProducto {...dataProductos[6]} />
+              <CardProducto {...dataProductos[4]} openModal={() => setIsOpenCart(true)} />
+              <CardProducto {...dataProductos[5]} openModal={() => setIsOpenCart(true)} />
+              <CardProducto {...dataProductos[6]} openModal={() => setIsOpenCart(true)} />
             </div>
 
             {/* Reseñas del procuto */}
@@ -186,6 +187,7 @@ const Productos = () => {
           })}
         </div>
       </Container>
+      <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
     </div>
   )
 }
