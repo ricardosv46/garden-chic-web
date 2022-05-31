@@ -53,7 +53,7 @@ const DetalleBlog = ({ blog }: PropsStatic) => {
         title={blog.title}
         link={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
         description={blog.description}
-        img={blog.img}
+        img={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
         url={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
         keywords='jardines, jardin, plantas'
         domain={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
