@@ -26,11 +26,8 @@ interface PropsStatic {
   }
 }
 interface IProps {
-
   slug: string;
-
 }
-
 
 interface IDataBlog {
   params: IProps;
@@ -41,14 +38,8 @@ const DetalleBlog = ({ blog }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
 
-
-  console.log({ blog });
-
-
-
   return (
     <>
-
       <OpenGraph
         title={blog.title}
         link={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
@@ -58,9 +49,6 @@ const DetalleBlog = ({ blog }: PropsStatic) => {
         keywords='jardines, jardin, plantas'
         domain={`https://garden-chic-web.vercel.app/blogs/${blog.img}`}
       />
-
-
-
       <Container className='lg:flex py-10 gap-10'>
         <div className='w-full lg:w-9/12'>
           <h1 className='text-gray-900 text-md font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'>

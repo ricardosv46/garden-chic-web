@@ -80,7 +80,7 @@ textarea:focus-within ~ .label {
 
 /* banner de para paginas */
 .banner {
-  background-image: url('/imgs/works/bannerproyecto.jpg');
+/*   background-image: url('/imgs/works/bannerproyecto.jpg'); */
   background-size: cover;
   width: 100%;
   height: 100%;
