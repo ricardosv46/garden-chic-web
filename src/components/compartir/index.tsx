@@ -24,41 +24,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 
   return (
     <>
-      {/* Version mobile */}
-      <div
-        className='md:hidden flex gap-2 items-center'
-        onClick={() =>
-          shareResponsive({ title, url: `https://garden-chic-web.vercel.app/blogs/${ruta}` })
-        }
-      >
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='32px' height='32px'>
-          <path
-            fill='#7E94C1'
-            d='M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z'
-          />
-          <path
-            fill='#FFF'
-            d='M154.4 203.09999999999997A53.8 53.8 0 1 0 154.4 310.7 53.8 53.8 0 1 0 154.4 203.09999999999997zM318.7 107.39999999999999A53.8 53.8 0 1 0 318.7 215 53.8 53.8 0 1 0 318.7 107.39999999999999zM318.7 297A53.8 53.8 0 1 0 318.7 404.6 53.8 53.8 0 1 0 318.7 297z'
-          />
-          <g>
-            <path
-              fill='#FFF'
-              d='M222.1 112.2H251V302.3H222.1z'
-              transform='rotate(59.786 236.552 207.272)'
-            />
-          </g>
-          <g>
-            <path
-              fill='#FFF'
-              d='M141.5 288.5H331.6V317.4H141.5z'
-              transform='rotate(30.214 236.576 302.965)'
-            />
-          </g>
-        </svg>
-        <p className='text-sm text-[#7E94C1]'>Compartir en redes sociales</p>
-      </div>
-      {/* version desktop */}
-      <div className='md:flex md:gap-2 hidden '>
+      <div className='flex items-center gap-2'>
         {/* Facebook */}
         <div
           onClick={() =>
@@ -129,6 +95,38 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
             xmlns='http://www.w3.org/2000/svg'
           >
             <path d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'></path>
+          </svg>
+        </div>
+        {/* Icon Mobile */}
+        <div
+          className='lg:hidden'
+          onClick={() =>
+            shareResponsive({ title, url: `https://garden-chic-web.vercel.app/blogs/${ruta}` })
+          }
+        >
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='32px' height='32px'>
+            <path
+              fill='#7E94C1'
+              d='M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z'
+            />
+            <path
+              fill='#FFF'
+              d='M154.4 203.09999999999997A53.8 53.8 0 1 0 154.4 310.7 53.8 53.8 0 1 0 154.4 203.09999999999997zM318.7 107.39999999999999A53.8 53.8 0 1 0 318.7 215 53.8 53.8 0 1 0 318.7 107.39999999999999zM318.7 297A53.8 53.8 0 1 0 318.7 404.6 53.8 53.8 0 1 0 318.7 297z'
+            />
+            <g>
+              <path
+                fill='#FFF'
+                d='M222.1 112.2H251V302.3H222.1z'
+                transform='rotate(59.786 236.552 207.272)'
+              />
+            </g>
+            <g>
+              <path
+                fill='#FFF'
+                d='M141.5 288.5H331.6V317.4H141.5z'
+                transform='rotate(30.214 236.576 302.965)'
+              />
+            </g>
           </svg>
         </div>
       </div>
