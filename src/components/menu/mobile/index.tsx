@@ -1,18 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import IconCart from '../../../../public/icons/IconCart'
+import IconUser from '../../../../public/icons/IconUser'
 import { useCarritoContext } from '../../../context/carrito/CarritoState'
 import BtnBurger from '../../btnBurger'
 import style from '../index.module.css'
 
 interface SidebarCartProps {
   onOpen: () => void
+  setModalLogin: (value: boolean) => void
 }
 
-const MenuMobile = ({ onOpen }: SidebarCartProps) => {
+const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
+
 
   const { carrito } = useCarritoContext()
 
@@ -31,15 +33,21 @@ const MenuMobile = ({ onOpen }: SidebarCartProps) => {
               />
             </div>
           </Link>
-          <div className="flex gap-x-10 text-primary-600">
-            <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
-              <IconCart height={25} width={25} />
-              {carrito.length > 0 && (
-                <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
-                  {carrito.length}
-                </div>
-              )}
+          <div className="flex gap-x-9 text-primary-600">
+            <div className="flex gap-x-4">
+              <div className="relative p-1 cursor-pointer" onClick={() => setModalLogin(true)}>
+                <IconUser height={25} width={25} />
+              </div>
+              <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
+                <IconCart height={25} width={25} />
+                {carrito.length > 0 && (
+                  <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
+                    {carrito.length}
+                  </div>
+                )}
+              </div>
             </div>
+
             <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
           <ul
@@ -102,6 +110,15 @@ const MenuMobile = ({ onOpen }: SidebarCartProps) => {
                 Contactos
               </Link>
             </li>
+            {/* <li
+              className='cursor-pointer text-white mt-4 py-2 font-semibold w-min mx-auto 
+              bg-primary-800 border border-primary-800
+              shadow-lg
+               hover:bg-white hover:text-primary-800 px-10 rounded-full transition-all duration-300'
+              onClick={() => setIsOpen(false)}
+            >
+              Login
+            </li> */}
           </ul>
 
         </div>

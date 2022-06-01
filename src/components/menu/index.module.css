@@ -17,7 +17,7 @@
 } */
 
 .menu-mobile {
-  position: absolute;
+  position: fixed;
   padding: 2rem 1rem;
   left: 0;
   background: white;

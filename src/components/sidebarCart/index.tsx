@@ -40,8 +40,6 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
     setTotal(calculoTotal)
   }, [carrito])
 
-  console.log(total)
-
   return (
     <div className='absolute top-0 text-primary-800   h-screen md:left-auto md:bottom-px z-40'>
       <motion.div

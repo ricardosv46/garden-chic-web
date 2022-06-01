@@ -8,8 +8,9 @@ import { useCarritoContext } from '../../../context/carrito/CarritoState'
 
 interface SidebarCartProps {
   onOpen: () => void
+  setModalLogin: (value: boolean) => void
 }
-const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
+const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
 
   const { carrito } = useCarritoContext()
   return (
@@ -77,9 +78,9 @@ const MenuDestokp = ({ onOpen }: SidebarCartProps) => {
               )}
             </div>
 
-            <button>
+            <div className='p-1 cursor-pointer' onClick={() => setModalLogin(true)}>
               <IconUser height={25} width={25} />
-            </button>
+            </div>
           </div>
         </div>
       </div>

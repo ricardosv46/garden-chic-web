@@ -15,7 +15,7 @@ const QuePodemosHacer = () => {
           <div className="space-y-4 text-center">
             <div>
               <h2 className="text-7xl text-primary-600">
-                {inView ? <Contador duration={1000} num={'10'} /> : '10'}
+                {inView ? <Contador duration={2000} num={'10'} /> : '10'}
 
               </h2>
               <h3 className="text-xl font-bold text-primary-600">Años</h3>
@@ -26,7 +26,7 @@ const QuePodemosHacer = () => {
           <div className="space-y-4 text-center">
             <div>
               <h2 className="text-7xl text-primary-600">
-                {inView ? <Contador duration={2000} num={'30'} /> : '30'}
+                {inView ? <Contador duration={1000} num={'30'} /> : '30'}
               </h2>
               <h3 className="text-xl font-bold text-primary-600">Especialista</h3>
               <h4 className="text-lg">En diseño de paisajismo</h4>
@@ -36,7 +36,7 @@ const QuePodemosHacer = () => {
           <div className="space-y-4 text-center">
             <div>
               <h2 className="text-7xl text-primary-600">
-                {inView ? <Contador duration={2000} num={'15'} /> : '15'}
+                {inView ? <Contador duration={1500} num={'15'} /> : '15'}
               </h2>
               <h3 className="text-xl font-bold text-primary-600">Premios</h3>
               <h4 className="text-lg">Empresa ganadora</h4>
