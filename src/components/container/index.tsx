@@ -9,9 +9,7 @@ interface Props {
 const Container = ({ children, bgColor = '', className = '' }: Props) => {
   return (
     <section className={bgColor}>
-      <div className={`mx-auto my-0 w-[90%] xl:w-[1280px] ${className}`}>
-        {children}
-      </div>
+      <div className={`mx-auto my-0 w-[90%] xl:w-[1280px] ${className}`}>{children}</div>
     </section>
   )
 }
