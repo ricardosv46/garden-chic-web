@@ -1,36 +1,15 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import Container from '../../components/container'
+import { servicios } from '../../data/dataServicios'
 import Contactanos from '../../sections/Home/contactanos'
 
-const servicios = [
-  {
-    title: 'Urbano',
-    position: 'l',
-    img: 'servicio1.jpg',
-    icon: ''
-  },
-  {
-    title: 'Gardines',
-    position: 'r',
-    img: 'servicio2.jpg',
-    icon: ''
-  },
-  {
-    title: 'Mantenimiento',
-    position: 'l',
-    img: 'servicio3.jpg',
-    icon: ''
-  },
-  {
-    title: 'Eventos',
-    position: 'r',
-    img: 'servicio4.jpg',
-    icon: ''
-  }
-]
+
 
 const Servicios = () => {
+  const router = useRouter()
+
   return (
     <Container className='py-10'>
       <h1 className='text-center text-5xl text-primary-300 font-bold'>
@@ -45,7 +24,8 @@ const Servicios = () => {
               }`}
           >
             <div className="lg:w-1/2">
-              <div style={{ backgroundImage: `url('/imgs/servicios/${item.img}')` }} className={`flex-auto  bg-cover bg-no-repeat w-full h-[500px] lg:h-[512px] `}>
+              <div style={{ backgroundImage: `url('/imgs/servicios/${item.img}')` }}
+                className={`flex-auto  bg-cover bg-no-repeat w-full h-[500px] lg:h-[512px] `}>
 
               </div>
             </div>
@@ -65,7 +45,9 @@ const Servicios = () => {
                 who have used any of our services, we can offer on-going advice
                 on design, styling and planting.
               </p>
-              <button className='bg-white text-primary-300 border-2 border-primary-300 px-10 py-3 rounded-full uppercase duration-300 ease-in-out   hover:text-white hover:bg-primary-300'>
+              <button
+                onClick={() => router.push(`/servicios/${item.url}`)}
+                className='bg-white text-primary-300 border-2 border-primary-300 px-10 py-3 rounded-full uppercase duration-300 ease-in-out   hover:text-white hover:bg-primary-300'>
                 Mas
               </button>
             </div>

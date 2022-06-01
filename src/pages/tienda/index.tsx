@@ -16,15 +16,7 @@ import Filtro from '../../components/sidebarFilter/filtro'
 import SidebarCart from '../../components/sidebarCart'
 
 const Tienda = () => {
-  const router = useRouter()
   const [isOpenCart, setIsOpenCart] = useState(false)
-
-  const initialState = {
-    min: 500,
-    max: 1000
-  }
-
-  const [range, setRange] = useState<number | Range>(initialState)
   const [isOpenFilter, setIsOpenFilter] = useState(false)
 
 
