@@ -12,7 +12,6 @@ interface CardItemCarritoProps {
   img: string
   firtsPrice: number
   categoty1: string
-  categoty2: string
   rebaja: boolean
   amount: number
   eliminarCarrito: (id: number) => void
@@ -25,7 +24,6 @@ const CardItemCarrito = ({
   img,
   firtsPrice,
   categoty1,
-  categoty2,
   rebaja,
   amount,
   eliminarCarrito,
@@ -43,7 +41,6 @@ const CardItemCarrito = ({
       firtsPrice,
       price,
       categoty1,
-      categoty2,
       rebaja,
       amount: amount + 1,
     })
@@ -57,7 +54,6 @@ const CardItemCarrito = ({
       firtsPrice,
       price,
       categoty1,
-      categoty2,
       rebaja,
       amount: amount > 1 ? amount - 1 : amount,
     })
