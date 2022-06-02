@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+
 import React, { useState } from 'react'
 import CardProducto from '../../components/cards/cardProducto'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
@@ -30,14 +30,10 @@ interface IDataProducto {
 }
 
 const Productos = ({ producto }: PropsStatic) => {
-  const router = useRouter()
+
   const [isOpenCart, setIsOpenCart] = useState(false)
-  // const producto = dataProductos.find((item) => item.img === router.query.slug)
 
 
-  console.log({
-    producto
-  });
 
   return (
     <div>
