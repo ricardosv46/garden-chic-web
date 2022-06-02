@@ -9,7 +9,6 @@ interface IProps {
   firtsPrice: number
   price: number
   categoty1: string
-  categoty2: string
   rebaja: boolean
   amount: number
   openModal: () => void
@@ -22,7 +21,6 @@ const CardProducto = ({
   firtsPrice,
   price,
   categoty1,
-  categoty2,
   rebaja,
   amount,
   openModal
@@ -54,10 +52,10 @@ const CardProducto = ({
           <p className='text-gray-900 text-md font-semibold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'>
             {categoty1}
           </p>
-          <span className='w-1 h-1 bg-primary-300 rounded-full'></span>
+          {/*  <span className='w-1 h-1 bg-primary-300 rounded-full'></span>
           <p className='text-gray-900 text-md font-semibold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'>
             {categoty2}
-          </p>
+          </p> */}
         </div>
         <div className='w-5 h-0.5 bg-primary-300 my-5'></div>
         <p
@@ -85,7 +83,6 @@ const CardProducto = ({
               firtsPrice,
               price,
               categoty1,
-              categoty2,
               rebaja,
               amount
             });

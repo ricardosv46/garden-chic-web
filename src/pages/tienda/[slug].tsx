@@ -8,10 +8,36 @@ import InputSearch from '../../components/inputs/InputSearch'
 import SidebarCart from '../../components/sidebarCart'
 import { dataProductos } from '../../data/dataProductos'
 
-const Productos = () => {
+
+interface PropsStatic {
+  producto: {
+    id: number;
+    img: string;
+    title: string;
+    firtsPrice: number;
+    price: number;
+    categoty1: string;
+    rebaja: boolean;
+    amount: number;
+  }
+}
+interface IProps {
+  slug: string
+}
+
+interface IDataProducto {
+  params: IProps
+}
+
+const Productos = ({ producto }: PropsStatic) => {
   const router = useRouter()
   const [isOpenCart, setIsOpenCart] = useState(false)
-  const producto = dataProductos.find((item) => item.img === router.query.slug)
+  // const producto = dataProductos.find((item) => item.img === router.query.slug)
+
+
+  console.log({
+    producto
+  });
 
   return (
     <div>
@@ -28,17 +54,17 @@ const Productos = () => {
                 <p className='text-gray-900 text-md font-semibold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'>
                   {producto?.categoty1}
                 </p>
-                <span className='w-1 h-1 bg-primary-300 rounded-full'></span>
+                {/*     <span className='w-1 h-1 bg-primary-300 rounded-full'></span>
                 <p className='text-gray-900 text-md font-semibold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'>
                   {producto?.categoty2}
-                </p>
+                </p> */}
               </div>
 
               <p className='text-gray-900 text-3xl  font-bold mt-3'>
                 {producto?.title}
               </p>
               <div className='w-5 h-0.5 bg-primary-300 my-5'></div>
-              <p className='text-gray-900 text-5xl  '> {producto?.price}</p>
+              <p className='text-gray-900 text-5xl  '> S/ {producto?.price.toFixed(2)}</p>
 
               <p className='text-gray-900 text-lg  my-5'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -54,8 +80,8 @@ const Productos = () => {
                 <div className='flex-1 flex justify-center items-center'>
                   <input
                     type='number'
-                    min='0'
-                    placeholder='0'
+                    min='1'
+                    placeholder='1'
                     className='w-16 p-2 focus:outline-none border-2 rounded-lg'
                   />
                 </div>
@@ -193,3 +219,21 @@ const Productos = () => {
 }
 
 export default Productos
+
+export async function getStaticProps({ params }: IDataProducto) {
+  const data = dataProductos.find((item) => item.img === params.slug)
+
+  return {
+    props: {
+      producto: data
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = dataProductos.map((post) => ({ params: { slug: post.img } }))
+  return {
+    paths,
+    fallback: false
+  }
+}

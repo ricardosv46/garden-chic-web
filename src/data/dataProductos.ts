@@ -6,7 +6,6 @@ export const dataProductos = [
     firtsPrice: 0,
     price: 35,
     categoty1: 'Flores',
-    categoty2: 'Exterior',
     rebaja: false,
     amount: 1
   },
@@ -17,7 +16,6 @@ export const dataProductos = [
     firtsPrice: 49,
     price: 39,
     categoty1: 'Medio',
-    categoty2: 'Plantas',
     rebaja: true,
     amount: 1
   },
@@ -28,7 +26,6 @@ export const dataProductos = [
     firtsPrice: 49,
     price: 39,
     categoty1: 'Flores',
-    categoty2: 'Interior',
     rebaja: true,
     amount: 1
   },
@@ -39,7 +36,6 @@ export const dataProductos = [
     firtsPrice: 20,
     price: 18,
     categoty1: 'Interior',
-    categoty2: 'Plantas',
     rebaja: true,
     amount: 1
   },
@@ -50,7 +46,6 @@ export const dataProductos = [
     firtsPrice: 20,
     price: 28,
     categoty1: 'Flores',
-    categoty2: 'Exterior',
     rebaja: true,
     amount: 1
   },
@@ -61,7 +56,6 @@ export const dataProductos = [
     firtsPrice: 0,
     price: 20,
     categoty1: 'Interior',
-    categoty2: 'Altos',
     rebaja: false,
     amount: 1
   },
@@ -72,7 +66,6 @@ export const dataProductos = [
     firtsPrice: 0,
     price: 20,
     categoty1: 'Interior',
-    categoty2: 'Altos',
     rebaja: false,
     amount: 1
   },
@@ -83,7 +76,6 @@ export const dataProductos = [
     firtsPrice: 0,
     price: 20,
     categoty1: 'Interior',
-    categoty2: 'Altos',
     rebaja: false,
     amount: 1
   },
@@ -94,7 +86,6 @@ export const dataProductos = [
     firtsPrice: 0,
     price: 20,
     categoty1: 'Flores',
-    categoty2: 'Interior',
     rebaja: false,
     amount: 1
   }

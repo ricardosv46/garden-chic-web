@@ -7,7 +7,6 @@ export interface CarritoProps {
   firtsPrice: number,
   price: number,
   categoty1: string,
-  categoty2: string,
   rebaja: boolean,
   amount: number,
 }
