@@ -7,13 +7,33 @@ import Container from '../../components/container'
 import { dataProductos } from '../../data/dataProductos'
 import { dataProyectos } from '../../data/dataProyectos'
 import { servicios } from '../../data/dataServicios'
-const DetalleServicios = () => {
+
+
+interface PropsStatic {
+  url: {
+    title: string;
+    position: string;
+    img: string;
+    icon: string;
+    url: string;
+  }
+}
+interface IProps {
+  slug: string
+}
+
+interface IDataBlog {
+  params: IProps
+}
+const DetalleServicios = ({ url }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
 
-  console.log(slug)
+  console.log({ url });
 
-  const res = servicios.filter(item => item.url === slug)
+
+  /*   const res = servicios.find((item) => item.url === slug) */
+  /*   const res = servicios.filter(item => item.url === slug) */
 
   const serviciosLat = [
     'Jardines',
@@ -24,7 +44,7 @@ const DetalleServicios = () => {
 
   return (
     <>
-      <BannerContactos titulo={slug} rutaImg={`servicios/${res[0].img}`} />
+      <BannerContactos titulo={slug} rutaImg={`servicios/${url.img}`} />
       <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10  '>
         <div className='flex flex-col gap-x-2 sm:gap-x-7 w-full lg:w-3/12 p-5 lg:px-3'>
           <p className='text-gray-900 text-2xl font-bold pb-5'>Servicios</p>
@@ -130,3 +150,22 @@ const DetalleServicios = () => {
 }
 
 export default DetalleServicios
+
+export async function getStaticProps({ params }: IDataBlog) {
+  const data = servicios.find((item) => item.url === params.slug)
+  console.log({ data })
+
+  return {
+    props: {
+      url: data
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = servicios.map((post) => ({ params: { slug: post.url } }))
+  return {
+    paths,
+    fallback: false
+  }
+}
