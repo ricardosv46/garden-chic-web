@@ -8,14 +8,13 @@ import { dataProductos } from '../../data/dataProductos'
 import { dataProyectos } from '../../data/dataProyectos'
 import { servicios } from '../../data/dataServicios'
 
-
 interface PropsStatic {
   url: {
-    title: string;
-    position: string;
-    img: string;
-    icon: string;
-    url: string;
+    title: string
+    position: string
+    img: string
+    icon: string
+    url: string
   }
 }
 interface IProps {
@@ -29,30 +28,40 @@ const DetalleServicios = ({ url }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
 
-  console.log({ url });
-
+  console.log({ url })
 
   /*   const res = servicios.find((item) => item.url === slug) */
   /*   const res = servicios.filter(item => item.url === slug) */
 
-  const serviciosLat = [
-    'Jardines',
-    'Urbano',
-    'Mantenimiento',
-    'Eventos'
-  ]
+  const serviciosLat = ['Jardines', 'Urbano', 'Mantenimiento', 'Eventos']
 
   return (
     <>
-      <BannerContactos titulo={slug} rutaImg={`servicios/${url.img}`} />
-      <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10  '>
+      <div className='relative w-full h-[600px]  '>
+        <Image
+          src={`/imgs/servicios/${url?.img}`}
+          width={'100%'}
+          height={'100%'}
+          objectPosition='top'
+          layout='fill'
+          objectFit='cover'
+        />
+        <span className='absolute top-0 w-full h-full  bg-black opacity-50'></span>
+        <div className='mx-auto my-0 w-[90%] xl:w-[1280px]  h-full flex  justify-center items-center text-white relative z-10    md:justify-start  '>
+          <h2 className='text-center text-5xl sm:text-8xl text-white font-bold relative z-10 capitalize'>
+            Servicios
+          </h2>
+        </div>
+      </div>
+      <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10 mt-10  '>
         <div className='flex flex-col gap-x-2 sm:gap-x-7 w-full lg:w-3/12 p-5 lg:px-3'>
           <p className='text-gray-900 text-2xl font-bold pb-5'>Servicios</p>
           {serviciosLat.map((item) => (
             <div key={item} className='border-b-2 border-b-gray-200 py-5'>
               <p
                 onClick={() => router.push(`/servicios/${item.toLowerCase()}`)}
-                className='text-gray-700 text-lg font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'>
+                className='text-gray-700 text-lg font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
+              >
                 {item}
               </p>
             </div>
@@ -70,35 +79,44 @@ const DetalleServicios = ({ url }: PropsStatic) => {
           })}
         </div>
         <div className='w-full lg:w-9/12'>
-          <article className="">
+          <article className=''>
             <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl '>
               ¿Cómo podemos ayudar?
             </h2>
             <div className='text-gray-700 text-lg font-light py-7'>
-              <p className='pb-4'>Desde el trabajo en el sitio hasta la mampostería de ladrillo y piedra personalizada, Gardeny
-                puede instalar su proyecto con sus propios artesanos talentosos y equipos de paisajismo de
-                calidad. Utilizando nuestro amplio conocimiento de suelos, plantas, materiales de jardinería y
-                técnicas de construcción, estamos bien calificados para proyectos de cualquier tamaño. Empleamos
-                todos nuestros recursos para lograr los mejores resultados posibles, sin importar la escala.
+              <p className='pb-4'>
+                Desde el trabajo en el sitio hasta la mampostería de ladrillo y
+                piedra personalizada, Gardeny puede instalar su proyecto con sus
+                propios artesanos talentosos y equipos de paisajismo de calidad.
+                Utilizando nuestro amplio conocimiento de suelos, plantas,
+                materiales de jardinería y técnicas de construcción, estamos
+                bien calificados para proyectos de cualquier tamaño. Empleamos
+                todos nuestros recursos para lograr los mejores resultados
+                posibles, sin importar la escala.
               </p>
               <p className='pb-4'>
-                Nuestras distintivas características de agua introducirán sonido y movimiento en su experiencia
-                de paisaje. El elemento agua liberará su estrés y le presentará la esencia de la naturaleza
-                misma. No hay dos jardines acuáticos iguales, pero la mayoría son similares. Construidas con
-                componentes de calidad y materiales naturales, nuestras fuentes de agua complementan cualquier
-                entorno.
+                Nuestras distintivas características de agua introducirán sonido
+                y movimiento en su experiencia de paisaje. El elemento agua
+                liberará su estrés y le presentará la esencia de la naturaleza
+                misma. No hay dos jardines acuáticos iguales, pero la mayoría
+                son similares. Construidas con componentes de calidad y
+                materiales naturales, nuestras fuentes de agua complementan
+                cualquier entorno.
               </p>
               <p className='pb-4'>
-                Las plantas y los árboles de Gardeny se cultivan en nuestro propio vivero certificado de Carolina
-                del Norte en Durham. Nuestro profesional de plantas certificado de Carolina del Norte y el
-                horticultor del personal han colaborado para crear uno de los mejores recursos de viveros en el
-                Triángulo. Ofrecemos plantas y árboles de inversión en jardines que generarán dividendos en
-                crecimiento, belleza y valor a lo largo de la vida de su jardín.
+                Las plantas y los árboles de Gardeny se cultivan en nuestro
+                propio vivero certificado de Carolina del Norte en Durham.
+                Nuestro profesional de plantas certificado de Carolina del Norte
+                y el horticultor del personal han colaborado para crear uno de
+                los mejores recursos de viveros en el Triángulo. Ofrecemos
+                plantas y árboles de inversión en jardines que generarán
+                dividendos en crecimiento, belleza y valor a lo largo de la vida
+                de su jardín.
               </p>
             </div>
           </article>
 
-          <div className="mt-3">
+          <div className='mt-3'>
             <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl '>
               Trabajos
             </h2>
@@ -142,8 +160,6 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             </div>
           </div>
         </div>
-
-
       </Container>
     </>
   )

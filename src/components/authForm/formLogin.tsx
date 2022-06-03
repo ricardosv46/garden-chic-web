@@ -1,12 +1,31 @@
 import React from 'react'
+import useForm from '../../hooks/useForm'
+import InputFloat from '../inputs/InputFloat'
 
 const FormLogin = () => {
- return (
-  <div className="flex flex-col gap-y-5 ">
-   <input type="text" className='border border-gray-400 rounded focus:outline-none focus:border-primary-600 focus:ring-primary-600 focus:ring-1 w-full h-10 px-4 placeholder:font-normal placeholder:text-sm' placeholder='Correo' />
-   <input type="text" className='border border-gray-400 rounded focus:outline-none focus:border-primary-600 focus:ring-primary-600 focus:ring-1 w-full h-10 px-4 placeholder:font-normal placeholder:text-sm' placeholder='Contraseña' />
-  </div>
- )
+  const { email, password, onChange } = useForm({
+    email: '',
+    password: ''
+  })
+
+  return (
+    <div className='flex flex-col gap-5 '>
+      <InputFloat
+        type='email'
+        label='E-mail'
+        name='email'
+        value={email}
+        onChange={onChange}
+      />
+      <InputFloat
+        type='password'
+        label='Contraseña'
+        name='password'
+        value={password}
+        onChange={onChange}
+      />
+    </div>
+  )
 }
 
 export default FormLogin

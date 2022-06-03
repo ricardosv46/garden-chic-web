@@ -6,7 +6,7 @@ import Contactanos from '../../sections/Home/contactanos'
 const Contactos = () => {
   return (
     <>
-      <BannerContactos titulo='Contacto' rutaImg='works/bannerproyecto.jpg' />
+      <BannerContactos />
       <Contactanos />
     </>
   )

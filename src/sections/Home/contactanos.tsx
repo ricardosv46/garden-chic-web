@@ -19,8 +19,8 @@ const Contactanos = () => {
   }
 
   return (
-    <Container bgColor=''>
-      <div className='flex flex-col lg:flex-row'>
+    <Container>
+      <div className='flex flex-col lg:flex-row '>
         <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto '>
           <h2 className='text-primary-300 font-bold text-4xl xl:text-6xl  pt-20'>
             Obtenga un estimado gratis
@@ -29,17 +29,20 @@ const Contactanos = () => {
             <h3 className='text-primary-300 font-bold text-xl mt-5 lg:mt-14'>
               Tu información
             </h3>
-            <form onSubmit={handleClick} className='flex flex-col gap-y-5 mt-6'>
+            <form
+              onSubmit={handleClick}
+              className='flex flex-col gap-y-5 mt-6  '
+            >
               <div className='flex flex-col lg:flex-row gap-5 '>
                 <InputFloat
-                  className='lg:flex-1'
+                  type='text'
                   label='Nombre'
                   name='nombre'
                   value={nombre}
                   onChange={onChange}
                 />
                 <InputFloat
-                  className='lg:flex-1'
+                  type='email'
                   label='E-mail'
                   name='email'
                   value={email}
@@ -48,22 +51,24 @@ const Contactanos = () => {
               </div>
               <div className='flex flex-col lg:flex-row  gap-5 '>
                 <InputFloat
-                  className='lg:flex-1'
+                  type='text'
                   label='Celular'
                   name='celular'
                   value={celular}
                   onChange={onChange}
                 />
-                <select
-                  className='lg:flex-1 border-2 border-slate-200 rounded h-12 px-3 focus:border-primary-300 focus:outline-primary-300 text-primary-300 font-semibold'
-                  name='service'
-                  defaultValue='0'
-                >
-                  <option value='0'>Seleccione una opcion</option>
-                  <option value='1'>Select 1</option>
-                  <option value='2'>Select 2</option>
-                  <option value='3'>Select 3</option>
-                </select>
+                <div className='w-full '>
+                  <select
+                    className='w-full px-2.5 text-primary-300   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
+                    name='service'
+                    defaultValue='0'
+                  >
+                    <option value='0'>Seleccione una opcion</option>
+                    <option value='1'>Select 1</option>
+                    <option value='2'>Select 2</option>
+                    <option value='3'>Select 3</option>
+                  </select>
+                </div>
               </div>
               <InputArea
                 label='Decripción'
@@ -83,22 +88,25 @@ const Contactanos = () => {
             </form>
           </div>
         </div>
-        <div className="w-full lg:w-1/2">
-          <div style={{ backgroundImage: `url('/imgs/contactos/formulario.jpg` }} className={`flex-auto mt-5 lg:mt-0 bg-center  bg-cover bg-no-repeat w-full h-[700px] lg:h-[750px] `}>
-          </div>
-        </div>
-        {/* la otra forma de hacer la imagen */}
-        {/*  <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2  '>
-          <div className='w-full h-auto lg:w-[650px]  lg:h-[900px] '>
+        <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2  '>
+          <div className='w-full h-auto lg:w-[650px]  lg:h-[830px] overflow-hidden'>
             <Image
-              layout='responsive'
               loading='lazy'
               src='/imgs/contactos/formulario.jpg'
               alt='manos'
+              objectFit='cover'
+              objectPosition='center'
               width={875}
               height={1350}
             />
           </div>
+        </div>
+        {/* la otra forma de hacer la imagen */}
+        {/* <div className='w-full lg:w-1/2'>
+          <div
+            style={{ backgroundImage: `url('/imgs/contactos/formulario.jpg` }}
+            className={`flex-auto mt-5 lg:mt-0 bg-center  bg-cover bg-no-repeat w-full h-[700px] lg:h-[750px] `}
+          ></div>
         </div> */}
       </div>
     </Container>

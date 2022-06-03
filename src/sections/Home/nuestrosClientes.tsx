@@ -6,7 +6,7 @@ import Container from '../../components/container'
 
 const NuestrosClientes = () => {
   return (
-    <Container className='p-10 py-2 lg:py-36'>
+    <Container className='p-10 py-2 lg:py-28 '>
       <div className='flex items-center gap-x-4 mb-10'>
         <hr className='w-[90%] h-[1px] border border-black  '></hr>
 
