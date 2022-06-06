@@ -4,6 +4,16 @@ import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Container from '../../components/container'
 
+const logos = [
+  '/imgs/carrouselNuestrosClientes/img1.svg',
+  '/imgs/carrouselNuestrosClientes/img2.svg',
+  '/imgs/carrouselNuestrosClientes/img3.svg',
+  '/imgs/carrouselNuestrosClientes/img4.svg',
+  '/imgs/carrouselNuestrosClientes/img5.svg',
+  '/imgs/carrouselNuestrosClientes/img6.svg',
+  '/imgs/carrouselNuestrosClientes/img7.svg'
+]
+
 const NuestrosClientes = () => {
   return (
     <Container className='p-10 py-2 lg:py-28 '>
@@ -46,76 +56,15 @@ const NuestrosClientes = () => {
         modules={[Navigation]}
         className='mySwiper'
       >
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img1.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img2.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img3.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img4.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img5.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img6.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-            <Image
-              src='/imgs/carrouselNuestrosClientes/img7.svg'
-              alt='manos'
-              width={350}
-              height={350}
-            />
-          </div>
-        </SwiperSlide>
+        {logos.map((item) => (
+          <SwiperSlide key={item}>
+            <div
+              className={`flex flex-col items-center gap-y-5 transition-all duration-500 grayscale hover:grayscale-0`}
+            >
+              <Image src={item} alt={item} width={350} height={350} />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Container>
   )

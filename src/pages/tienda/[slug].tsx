@@ -1,24 +1,23 @@
-
 import React, { useState } from 'react'
 import CardProducto from '../../components/cards/cardProducto'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
 import Container from '../../components/container'
 import Gallery from '../../components/gallery'
 import InputSearch from '../../components/inputs/InputSearch'
+import ModalProduct from '../../components/modal/modalProduct'
 import SidebarCart from '../../components/sidebarCart'
 import { dataProductos } from '../../data/dataProductos'
 
-
 interface PropsStatic {
   producto: {
-    id: number;
-    img: string;
-    title: string;
-    firtsPrice: number;
-    price: number;
-    categoty1: string;
-    rebaja: boolean;
-    amount: number;
+    id: number
+    img: string
+    title: string
+    firtsPrice: number
+    price: number
+    categoty1: string
+    rebaja: boolean
+    amount: number
   }
 }
 interface IProps {
@@ -30,18 +29,22 @@ interface IDataProducto {
 }
 
 const Productos = ({ producto }: PropsStatic) => {
-
   const [isOpenCart, setIsOpenCart] = useState(false)
-
-
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
+      <ModalProduct
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        data={[`${producto?.img}`, 'producto5.jpg', 'producto8.jpg']}
+      />
       <Container className='lg:flex py-10 gap-10'>
         <div className='w-full lg:w-9/12 '>
           <div className='lg:flex gap-5'>
             <div className='flex-1'>
               <Gallery
+                onClick={() => setIsOpen(true)}
                 data={[`${producto?.img}`, 'producto5.jpg', 'producto8.jpg']}
               />
             </div>
@@ -60,7 +63,10 @@ const Productos = ({ producto }: PropsStatic) => {
                 {producto?.title}
               </p>
               <div className='w-5 h-0.5 bg-primary-300 my-5'></div>
-              <p className='text-gray-900 text-5xl  '> S/ {producto?.price.toFixed(2)}</p>
+              <p className='text-gray-900 text-5xl  '>
+                {' '}
+                S/ {producto?.price.toFixed(2)}
+              </p>
 
               <p className='text-gray-900 text-lg  my-5'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -108,17 +114,36 @@ const Productos = ({ producto }: PropsStatic) => {
               También te puede interesar
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center py-10'>
-              <CardProducto {...dataProductos[0]} openModal={() => setIsOpenCart(true)} />
-              <CardProducto {...dataProductos[1]} openModal={() => setIsOpenCart(true)} />
+              <CardProducto
+                {...dataProductos[0]}
+                openModal={() => setIsOpenCart(true)}
+              />
+              <CardProducto
+                {...dataProductos[1]}
+                openModal={() => setIsOpenCart(true)}
+              />
+              <CardProducto
+                {...dataProductos[2]}
+                openModal={() => setIsOpenCart(true)}
+              />
             </div>
-            <p className='text-gray-900 text-3xl  font-bold mt-10'>
+            {/* <p className='text-gray-900 text-3xl  font-bold mt-10'>
               Productos relacionados
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center py-10'>
-              <CardProducto {...dataProductos[4]} openModal={() => setIsOpenCart(true)} />
-              <CardProducto {...dataProductos[5]} openModal={() => setIsOpenCart(true)} />
-              <CardProducto {...dataProductos[6]} openModal={() => setIsOpenCart(true)} />
-            </div>
+              <CardProducto
+                {...dataProductos[4]}
+                openModal={() => setIsOpenCart(true)}
+              />
+              <CardProducto
+                {...dataProductos[5]}
+                openModal={() => setIsOpenCart(true)}
+              />
+              <CardProducto
+                {...dataProductos[6]}
+                openModal={() => setIsOpenCart(true)}
+              />
+            </div> */}
 
             {/* Reseñas del procuto */}
 

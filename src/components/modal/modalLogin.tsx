@@ -51,19 +51,6 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
     return textos
   }
 
-  const variants = {
-    open: {
-      scale: 1,
-      opacity: 1,
-      transition: { ease: 'easeInOut' }
-    },
-    closed: {
-      scale: 0.9,
-      opacity: 0,
-      transition: { ease: 'easeOut' }
-    }
-  }
-
   return (
     <Modal
       isOpen={isOpen}
