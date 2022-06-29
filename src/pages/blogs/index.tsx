@@ -4,6 +4,7 @@ import BannerBlogs from '../../components/banner/bannerBlogs'
 import CarBlog from '../../components/cards/cardBlog'
 import Container from '../../components/container'
 import { dataBlogs } from '../../data/dataBlogs'
+import { useBlogs } from '../../services/useBlogs'
 
 const blogs = [
   'All',
@@ -17,6 +18,8 @@ const blogs = [
 ]
 
 const Blogs = () => {
+  const { db } = useBlogs()
+  console.log(db)
   return (
     <>
       <BannerBlogs />
