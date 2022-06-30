@@ -10,11 +10,11 @@ const useForm = <T>(initialState: T) => {
     })
   }
 
-  const reset = () => {
-    setState(initialState)
+  const resetForm = (reset?: T) => {
+    setState(reset ? reset : initialState)
   }
 
-  return { ...state, onChange, reset }
+  return { ...state, onChange, resetForm }
 }
 
 export default useForm
