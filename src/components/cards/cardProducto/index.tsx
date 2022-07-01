@@ -2,10 +2,12 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useCarritoContext } from '../../../context/carrito/CarritoState'
+import { Imagenes } from '../../../generated/graphql'
 interface IProps {
-  id: number,
-  img: string
-  title: string
+  id: number
+  img: Imagenes
+  slug: string
+  titulo: string
   firtsPrice: number
   price: number
   categoty1: string
@@ -17,26 +19,26 @@ interface IProps {
 const CardProducto = ({
   id,
   img,
-  title,
+  titulo,
   firtsPrice,
   price,
   categoty1,
+  slug,
   rebaja,
   amount,
   openModal
 }: IProps) => {
-
   const { agregarCarrito } = useCarritoContext()
   const router = useRouter()
   return (
     <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
       <div
-        onClick={() => router.push(`/tienda/${img}`)}
+        onClick={() => router.push(`/tienda/${slug}`)}
         className='border-b-2 cursor-pointer relative'
       >
         <Image
           loading='lazy'
-          src={`/imgs/productos/${img}`}
+          src={img.url!}
           width={540}
           height={540}
           alt='blogs'
@@ -59,10 +61,10 @@ const CardProducto = ({
         </div>
         <div className='w-5 h-0.5 bg-primary-300 my-5'></div>
         <p
-          onClick={() => router.push(`/tienda/${img}`)}
+          onClick={() => router.push(`/tienda/${slug}`)}
           className='text-gray-900 text-3xl  font-bold ease-in-out duration-300 hover:text-primary-300 cursor-pointer'
         >
-          {title}
+          {titulo}
         </p>
         <div className='flex gap-3 mt-5'>
           {price < firtsPrice && (
@@ -71,30 +73,31 @@ const CardProducto = ({
             </p>
           )}
 
-          <p className='text-gray-900 text-xl font-black '>S./ {price.toFixed(2)}</p>
+          <p className='text-gray-900 text-xl font-black '>
+            S./ {price.toFixed(2)}
+          </p>
         </div>
 
-        <button className='w-full py-2 border-primary-300 border-2 hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm mt-20'
+        <button
+          className='w-full py-2 border-primary-300 border-2 hover:bg-primary-300 ease-in-out duration-300 text-primary-300 hover:text-white font-bold text-sm mt-20'
           onClick={() => {
             agregarCarrito({
               id,
-              img,
-              title,
+              img: img.url!,
+              title: titulo,
               firtsPrice,
               price,
               categoty1,
               rebaja,
               amount
-            });
+            })
             openModal()
-          }
-
-
-          }>
+          }}
+        >
           AGREGAR AL CARRITO
         </button>
       </div>
-    </div >
+    </div>
   )
 }
 

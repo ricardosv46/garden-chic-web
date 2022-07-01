@@ -33,3 +33,46 @@ query GetBlogSlug($slug: String) {
   }
 }
 `
+
+export const GET_SLUG_PRODUCTO = `
+query GetProductoSlug($slug: String!) {
+  GetProductoSlug(slug: $slug) {
+    productoId
+    titulo
+    slug
+    descripcionCorta
+    descripcionLarga
+    precioReal
+    precioOferta
+    stockMinimo
+    stockReal
+    imagenPrincipal {
+      id
+      titulo
+      estado
+      url
+    }
+    imagenSecundaria {
+      id
+      titulo
+      estado
+      url
+    }
+    galeria {
+      id
+      titulo
+      estado
+      url
+    }
+    keywords
+    destacado
+    estado
+    categoriaProductoId
+    CategoriaProducto {
+      titulo
+    }
+    created_at
+    updated_at
+  }
+}
+`

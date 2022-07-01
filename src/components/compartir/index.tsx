@@ -40,7 +40,6 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
           <svg
             stroke='currentColor'
             fill={hoverF ? '#fff' : '#7E94C1'}
-            strokeWidth='0'
             viewBox='0 0 320 512'
             height='1em'
             width='1em'
@@ -64,7 +63,6 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
           <svg
             stroke='currentColor'
             fill={hoverT ? '#fff' : '#7E94C1'}
-            strokeWidth='0'
             viewBox='0 0 512 512'
             height='1em'
             width='1em'
@@ -88,7 +86,6 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
           <svg
             stroke='currentColor'
             fill={hoverL ? '#fff' : '#7E94C1'}
-            strokeWidth='0'
             viewBox='0 0 448 512'
             height='1em'
             width='1em'
@@ -101,10 +98,18 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
         <div
           className='lg:hidden'
           onClick={() =>
-            shareResponsive({ title, url: `https://garden-chic-web.vercel.app/blogs/${ruta}` })
+            shareResponsive({
+              title,
+              url: `https://garden-chic-web.vercel.app/blogs/${ruta}`
+            })
           }
         >
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='32px' height='32px'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 512 512'
+            width='32px'
+            height='32px'
+          >
             <path
               fill='#7E94C1'
               d='M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z'

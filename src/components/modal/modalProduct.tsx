@@ -7,11 +7,12 @@ import Modal from '.'
 import IconArrowLeft from '../../../public/icons/IconArrowLeft'
 import IconArrowRight from '../../../public/icons/IconArrowRight'
 import IconDelete from '../../../public/icons/IconDelete'
+import { Imagenes } from '../../generated/graphql'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
-  data: string[]
+  data: Imagenes[]
 }
 
 const ModalProduct = ({ isOpen, onClose, data }: Props) => {
@@ -45,9 +46,9 @@ const ModalProduct = ({ isOpen, onClose, data }: Props) => {
               className='mySwiper'
             >
               {data.map((item, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} className='flex'>
                   <Image
-                    src={`/imgs/productos/${item}`}
+                    src={item.url!}
                     loading='lazy'
                     width={800}
                     height={800}

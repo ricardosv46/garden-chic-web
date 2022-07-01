@@ -1344,6 +1344,22 @@ export type GetAllCategoriaBlogsQueryVariables = Exact<{
 
 export type GetAllCategoriaBlogsQuery = { __typename?: 'Query', GetAllCategoriaBlogs: { __typename?: 'GetAllCategoriaBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaBlog', categoriaBlogId?: string | null, titulo?: string | null, slug?: string | null, keywords?: string | null, descripcion?: string | null, estado?: string | null, created_at?: any | null, updated_at?: any | null, numeroBlogs?: number | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
 
+export type GetAllCategoriaProductosQueryVariables = Exact<{
+  estado?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetAllCategoriaProductosQuery = { __typename?: 'Query', GetAllCategoriaProductos: { __typename?: 'GetAllCategoriaProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaProducto', categoriaProductoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, keywords?: string | null, descripcion?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
+
+export type GetAllProductosQueryVariables = Exact<{
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetAllProductosQuery = { __typename?: 'Query', GetAllProductos: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', productoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, precioReal?: number | null, precioOferta?: number | null, stockMinimo?: number | null, stockReal?: number | null, keywords?: string | null, destacado?: string | null, categoriaProductoId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, galeria?: Array<{ __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null> | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null } | null }> | null } };
+
 export type GetBlogSlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
@@ -1476,6 +1492,139 @@ export function useGetAllCategoriaBlogsLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type GetAllCategoriaBlogsQueryHookResult = ReturnType<typeof useGetAllCategoriaBlogsQuery>;
 export type GetAllCategoriaBlogsLazyQueryHookResult = ReturnType<typeof useGetAllCategoriaBlogsLazyQuery>;
 export type GetAllCategoriaBlogsQueryResult = Apollo.QueryResult<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>;
+export const GetAllCategoriaProductosDocument = gql`
+    query GetAllCategoriaProductos($estado: String) {
+  GetAllCategoriaProductos(estado: $estado) {
+    numeroTotal
+    data {
+      categoriaProductoId
+      titulo
+      slug
+      estado
+      keywords
+      descripcion
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      imagenSecundaria {
+        id
+        titulo
+        estado
+        url
+      }
+      created_at
+      updated_at
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllCategoriaProductosQuery__
+ *
+ * To run a query within a React component, call `useGetAllCategoriaProductosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllCategoriaProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllCategoriaProductosQuery({
+ *   variables: {
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllCategoriaProductosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>(GetAllCategoriaProductosDocument, options);
+      }
+export function useGetAllCategoriaProductosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>(GetAllCategoriaProductosDocument, options);
+        }
+export type GetAllCategoriaProductosQueryHookResult = ReturnType<typeof useGetAllCategoriaProductosQuery>;
+export type GetAllCategoriaProductosLazyQueryHookResult = ReturnType<typeof useGetAllCategoriaProductosLazyQuery>;
+export type GetAllCategoriaProductosQueryResult = Apollo.QueryResult<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>;
+export const GetAllProductosDocument = gql`
+    query GetAllProductos($pagina: Int, $numeroPagina: Int, $estado: String) {
+  GetAllProductos(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {
+    numeroTotal
+    data {
+      productoId
+      titulo
+      slug
+      estado
+      descripcionCorta
+      descripcionLarga
+      precioReal
+      precioOferta
+      stockMinimo
+      stockReal
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      imagenSecundaria {
+        id
+        titulo
+        estado
+        url
+      }
+      galeria {
+        id
+        titulo
+        estado
+        url
+      }
+      keywords
+      destacado
+      estado
+      categoriaProductoId
+      CategoriaProducto {
+        titulo
+      }
+      created_at
+      updated_at
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllProductosQuery__
+ *
+ * To run a query within a React component, call `useGetAllProductosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllProductosQuery({
+ *   variables: {
+ *      pagina: // value for 'pagina'
+ *      numeroPagina: // value for 'numeroPagina'
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllProductosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllProductosQuery, GetAllProductosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllProductosQuery, GetAllProductosQueryVariables>(GetAllProductosDocument, options);
+      }
+export function useGetAllProductosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllProductosQuery, GetAllProductosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllProductosQuery, GetAllProductosQueryVariables>(GetAllProductosDocument, options);
+        }
+export type GetAllProductosQueryHookResult = ReturnType<typeof useGetAllProductosQuery>;
+export type GetAllProductosLazyQueryHookResult = ReturnType<typeof useGetAllProductosLazyQuery>;
+export type GetAllProductosQueryResult = Apollo.QueryResult<GetAllProductosQuery, GetAllProductosQueryVariables>;
 export const GetBlogSlugDocument = gql`
     query GetBlogSlug($slug: String) {
   GetBlogSlug(slug: $slug) {

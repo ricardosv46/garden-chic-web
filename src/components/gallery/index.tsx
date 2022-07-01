@@ -1,25 +1,32 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Imagenes, Maybe } from '../../generated/graphql'
 
 interface IProps {
-  data: string[]
+  data: Array<Maybe<Imagenes>>
   onClick: () => void
 }
 
 const Gallery = ({ data, onClick }: IProps) => {
   const [image, setImage] = useState<string>('')
+  useEffect(() => {
+    setImage(data[0]?.url!)
+  }, [])
   const [hover, setHover] = useState(false)
 
   return (
     <>
       <div className='border-2 border-gray-100 relative'>
-        <Image
-          src={`/imgs/productos/${image.length === 0 ? data[0] : image} `}
-          loading='lazy'
-          width={1000}
-          height={1000}
-          alt='productos'
-        />
+        {image && (
+          <Image
+            src={image}
+            loading='lazy'
+            width={1000}
+            height={1000}
+            alt='productos'
+          />
+        )}
+
         <button
           onClick={onClick}
           onMouseOver={() => setHover(true)}
@@ -38,19 +45,19 @@ const Gallery = ({ data, onClick }: IProps) => {
           </svg>
         </button>
       </div>
-      <div className='flex gap-5 mt-5'>
+      <div className='flex  gap-5 mt-5'>
         {data.map((item) => (
           <div
-            key={item}
-            onClick={() => setImage(item)}
-            className='border-2 border-gray-100 flex-1'
+            key={item?.url}
+            onClick={() => setImage(item?.url!)}
+            className='border-2 border-gray-100 flex-1 flex'
           >
             <Image
-              src={`/imgs/productos/${item}`}
+              src={item?.url!}
               loading='lazy'
               className='cursor-pointer'
-              width={250}
-              height={250}
+              width={130}
+              height={130}
               alt='blogs'
             />
           </div>
