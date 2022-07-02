@@ -4,9 +4,10 @@ import React from 'react'
 import BannerContactos from '../../components/banner/bannerContatcos'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
 import Container from '../../components/container'
-import { dataProductos } from '../../data/dataProductos'
+
 import { dataProyectos } from '../../data/dataProyectos'
 import { servicios } from '../../data/dataServicios'
+import { useProductos } from '../../services/useProducto'
 
 interface PropsStatic {
   url: {
@@ -30,8 +31,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
 
   console.log({ url })
 
-  /*   const res = servicios.find((item) => item.url === slug) */
-  /*   const res = servicios.filter(item => item.url === slug) */
+  const { db: productos, loading } = useProductos()
 
   const serviciosLat = ['Jardines', 'Urbano', 'Mantenimiento', 'Eventos']
 
@@ -70,13 +70,25 @@ const DetalleServicios = ({ url }: PropsStatic) => {
           <p className='text-gray-900 text-2xl font-bold py-5'>
             Productos similares
           </p>
-          {dataProductos.map((item, i) => {
-            if (i < 5) {
-              return <CardProductosRelacionados key={i} {...item} />
-            } else {
-              return null
-            }
-          })}
+
+          {!loading &&
+            productos.map((item, i) => {
+              if (i < 5) {
+                return (
+                  <CardProductosRelacionados
+                    slug={item?.slug!}
+                    img={item.imagenPrincipal?.url!}
+                    precioOferta={item?.precioOferta!}
+                    precioReal={item?.precioReal!}
+                    titulo={item?.titulo!}
+                    key={i}
+                    {...item}
+                  />
+                )
+              } else {
+                return null
+              }
+            })}
         </div>
         <div className='w-full lg:w-9/12'>
           <article className=''>

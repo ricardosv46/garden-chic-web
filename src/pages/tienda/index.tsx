@@ -68,17 +68,17 @@ const Tienda = () => {
             </div>
           </div>
           <div className='w-full lg:w-9/12'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-16 '>
+            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5  justify-items-center mt-16 '>
               {productos.map((item) => (
                 <CardProducto
                   key={item.slug}
                   slug={item.slug!}
                   titulo={item.titulo!}
-                  amount={14}
+                  amount={1}
                   firtsPrice={item.precioReal!}
                   categoty1={item.CategoriaProducto?.titulo!}
                   price={item.precioOferta!}
-                  id={14}
+                  id={Number(item.productoId!)}
                   img={item.imagenPrincipal!}
                   rebaja
                   openModal={() => setIsOpenCart(true)}

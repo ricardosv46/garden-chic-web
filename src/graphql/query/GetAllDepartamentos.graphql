@@ -1,0 +1,6 @@
+query GetAllDepartamentos {
+  GetAllDepartamentos {
+    DeparNom
+    DeparCodi
+  }
+}

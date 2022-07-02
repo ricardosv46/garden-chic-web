@@ -13,24 +13,8 @@ import { Imagenes } from '../../generated/graphql'
 import { GET_SLUG_PRODUCTO, URL } from '../../graphql/ssr/ssr'
 import { useProductos } from '../../services/useProducto'
 
-interface PropsStatic {
-  producto: {
-    id: number
-    img: string
-    title: string
-    firtsPrice: number
-    price: number
-    categoty1: string
-    rebaja: boolean
-    amount: number
-  }
-}
 interface IProps {
   slug: string
-}
-
-interface IDataProducto {
-  params: IProps
 }
 
 interface Producto {
@@ -129,7 +113,7 @@ const Productos = ({ producto }: Producto) => {
                       firtsPrice={item.precioReal!}
                       categoty1={item.CategoriaProducto?.titulo!}
                       price={item.precioOferta!}
-                      id={14}
+                      id={Number(item.productoId!)}
                       img={item.imagenPrincipal!}
                       rebaja
                       openModal={() => setIsOpenCart(true)}

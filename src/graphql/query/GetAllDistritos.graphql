@@ -1,0 +1,9 @@
+query GetAllDistritos($ProCode: String!) {
+  GetAllDistritos(ProCode: $ProCode) {
+    DistCodi
+    DistNom
+    ProvCodi
+    precioEnvio
+    estado
+  }
+}

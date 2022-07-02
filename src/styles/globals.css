@@ -12,6 +12,10 @@ html {
   box-sizing: border-box;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .image-block-hack > span {
   display: block !important;
 }

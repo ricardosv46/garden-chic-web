@@ -34,13 +34,13 @@ const CardProducto = ({
     <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
       <div
         onClick={() => router.push(`/tienda/${slug}`)}
-        className='border-b-2 cursor-pointer relative'
+        className='border-b-2 cursor-pointer relative flex'
       >
         <Image
           loading='lazy'
           src={img.url!}
-          width={540}
-          height={540}
+          width={1080}
+          height={1080}
           alt='blogs'
         />
         {rebaja && (

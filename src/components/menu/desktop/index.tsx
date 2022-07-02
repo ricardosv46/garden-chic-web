@@ -1,16 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import IconCart from '../../../../public/icons/IconCart'
 import IconUser from '../../../../public/icons/IconUser'
 import { useCarritoContext } from '../../../context/carrito/CarritoState'
-
 
 interface SidebarCartProps {
   onOpen: () => void
   setModalLogin: (value: boolean) => void
 }
 const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
+  const [user, setUser] = useState()
+  useEffect(() => {
+    if (localStorage) {
+      const data: any = JSON.parse(localStorage.getItem('user') || '')
+      setUser(data)
+    } else {
+      setUser(undefined)
+    }
+  }, [])
 
   const { carrito } = useCarritoContext()
   return (
@@ -69,16 +77,26 @@ const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
             </li>
           </ul>
           <div className='flex gap-10'>
-            <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
+            <div
+              className='relative p-1 cursor-pointer'
+              onClick={() => onOpen()}
+            >
               <IconCart height={25} width={25} />
               {carrito.length > 0 && (
-                <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
+                <div className='flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]'>
                   {carrito.length}
                 </div>
               )}
             </div>
 
-            <div className='p-1 cursor-pointer' onClick={() => setModalLogin(true)}>
+            <div
+              className='p-1 cursor-pointer'
+              onClick={() => {
+                if (!user) {
+                  setModalLogin(true)
+                }
+              }}
+            >
               <IconUser height={25} width={25} />
             </div>
           </div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import IconCart from '../../../public/icons/IconCart'
 import { useCarritoContext } from '../../context/carrito/CarritoState'
 import CardItemCarrito from '../cards/cardItemCarrito'
+import { useRouter } from 'next/router'
 
 const variants = {
   open: {
@@ -30,6 +31,8 @@ interface SidebarCartProps {
 const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
   const { carrito, eliminarCarrito, CalcularTotal, actualizarPrecioCarrito } =
     useCarritoContext()
+
+  const navigate = useRouter()
 
   const [total, setTotal] = useState(0)
   useEffect(() => {
@@ -68,11 +71,11 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
             </div>
 
             {carrito.length > 0 ? (
-              <div className='mt-5'>
-                <div className=" h-[500px] scroll overflow-y-scroll pr-6">
-                  {carrito.map((item, index) => (
+              <div className='mt-5 h-full scroll overflow-y-scroll pr-6'>
+                <div>
+                  {carrito.map((item) => (
                     <CardItemCarrito
-                      key={index}
+                      key={item.id}
                       {...item}
                       eliminarCarrito={eliminarCarrito}
                       actualizarPrecioCarrito={actualizarPrecioCarrito}
@@ -80,22 +83,25 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
                   ))}
                 </div>
 
-                <div className="pr-6">
+                <div className='fixed left-0 bg-white bottom-0 w-full p-3'>
                   <div className='flex justify-between mb-4 mt-8'>
                     <p className='font-semibold text-lg'>Subtotal</p>
-                    <p className='font-bold text-black'>S/ {total.toFixed(2)}</p>
+                    <p className='font-bold text-black'>
+                      S/ {total.toFixed(2)}
+                    </p>
                   </div>
                   <div className='flex flex-col gap-y-3 '>
-
                     <button
+                      onClick={() => {
+                        onClose()
+                        navigate.push('/comprar')
+                      }}
                       className='bg-primary-800 text-sm text-white font-bold py-2 px-4 rounded w-full uppercase'
-                    /* onClick={() => CalcularTotal(total)} */
                     >
                       Finalizar compra
                     </button>
                   </div>
                 </div>
-
               </div>
             ) : (
               <div className='flex flex-col items-center justify-center mt-7'>

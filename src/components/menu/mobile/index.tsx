@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import IconCart from '../../../../public/icons/IconCart'
 import IconUser from '../../../../public/icons/IconUser'
 import { useCarritoContext } from '../../../context/carrito/CarritoState'
@@ -14,7 +14,13 @@ interface SidebarCartProps {
 
 const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const [user, setUser] = useState()
+  useEffect(() => {
+    if (localStorage) {
+      const data: any = JSON.parse(localStorage.getItem('user') || '')
+      setUser(data)
+    }
+  }, [])
 
   const { carrito } = useCarritoContext()
 
@@ -33,15 +39,25 @@ const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
               />
             </div>
           </Link>
-          <div className="flex gap-x-9 text-primary-600">
-            <div className="flex gap-x-4">
-              <div className="relative p-1 cursor-pointer" onClick={() => setModalLogin(true)}>
+          <div className='flex gap-x-9 text-primary-600'>
+            <div className='flex gap-x-4'>
+              <div
+                className='relative p-1 cursor-pointer'
+                onClick={() => {
+                  if (user) {
+                    setModalLogin(true)
+                  }
+                }}
+              >
                 <IconUser height={25} width={25} />
               </div>
-              <div className="relative p-1 cursor-pointer" onClick={() => onOpen()}>
+              <div
+                className='relative p-1 cursor-pointer'
+                onClick={() => onOpen()}
+              >
                 <IconCart height={25} width={25} />
                 {carrito.length > 0 && (
-                  <div className="flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]">
+                  <div className='flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]'>
                     {carrito.length}
                   </div>
                 )}
@@ -51,8 +67,9 @@ const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
             <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
           <ul
-            className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']
-              } text-center `}
+            className={`${style['menu-mobile']} ${
+              isOpen && style['menu-mobile-active']
+            } text-center `}
           >
             <li
               className='cursor-pointer text-primary-600 py-2 font-semibold'
@@ -120,13 +137,9 @@ const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
               Login
             </li> */}
           </ul>
-
         </div>
-
       </nav>
-
     </>
-
   )
 }
 

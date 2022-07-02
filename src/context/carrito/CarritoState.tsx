@@ -1,14 +1,19 @@
-import React, { createContext, ReactElement, useContext, useReducer } from 'react'
+import React, {
+  createContext,
+  ReactElement,
+  useContext,
+  useReducer
+} from 'react'
 import CarritoReducer from './CarritoReducer'
 export interface CarritoProps {
-  id: number,
-  img: string,
-  title: string,
-  firtsPrice: number,
-  price: number,
-  categoty1: string,
-  rebaja: boolean,
-  amount: number,
+  id: number
+  img: string
+  title: string
+  firtsPrice: number
+  price: number
+  categoty1: string
+  rebaja: boolean
+  amount: number
 }
 export interface CarritoInitialState {
   carrito: CarritoProps[]
@@ -16,8 +21,8 @@ export interface CarritoInitialState {
 }
 
 type Props = {
-  children: JSX.Element | JSX.Element[];
-};
+  children: JSX.Element | JSX.Element[]
+}
 
 export interface CarritoContextValue extends CarritoInitialState {
   agregarCarrito: (payload: CarritoProps) => void
@@ -67,7 +72,8 @@ const CarritoState = ({ children }: Props) => {
         actualizarPrecioCarrito,
         eliminarCarrito,
         CalcularTotal
-      }}>
+      }}
+    >
       {children}
     </CarritoContext.Provider>
   )

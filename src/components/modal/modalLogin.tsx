@@ -1,7 +1,10 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 
 import Modal from '.'
+import useForm from '../../hooks/useForm'
+import { useLogin } from '../../services/useLogin'
+import { useUsuario } from '../../services/useUsuario'
 import FormLogin from '../authForm/formLogin'
 import FormRegister from '../authForm/formRegister'
 
@@ -11,15 +14,34 @@ interface Props {
 }
 
 const ModalLogin = ({ isOpen, onClose }: Props) => {
-  const [tipoForm, setTipoForm] = useState('registrate')
+  const [tipoForm, setTipoForm] = useState('ingresar')
+  const { createUsuario, loadingCreate } = useUsuario()
+  const { loginUsuario } = useLogin()
+  const [error, setError] = useState(false)
+  const { nombres, apellidos, email, password, onChange, resetForm } = useForm({
+    nombres: '',
+    apellidos: '',
+    email: '',
+    password: ''
+  })
 
   const asignarFormulario = () => {
     let component = null
 
     if (tipoForm === 'ingresar') {
-      component = <FormLogin />
+      component = (
+        <FormLogin email={email} password={password} onChange={onChange} />
+      )
     } else if (tipoForm === 'registrate') {
-      component = <FormRegister />
+      component = (
+        <FormRegister
+          nombre={nombres}
+          apellido={apellidos}
+          email={email}
+          password={password}
+          onChange={onChange}
+        />
+      )
     }
 
     return component
@@ -27,8 +49,10 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 
   const cambiarFormulario = () => {
     if (tipoForm === 'ingresar') {
+      resetForm()
       setTipoForm('registrate')
     } else if (tipoForm === 'registrate') {
+      resetForm()
       setTipoForm('ingresar')
     }
   }
@@ -49,6 +73,35 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
     }
 
     return textos
+  }
+
+  const handleRegister = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (tipoForm === 'registrate')
+      createUsuario({ apellidos, email, nombres, password }).then((res) => {
+        if (res.ok) {
+          setTipoForm('registrate')
+        } else {
+          setError(true)
+          setTimeout(() => {
+            setError(false)
+          }, 5000)
+        }
+      })
+    if (tipoForm === 'ingresar') {
+      loginUsuario({ email, password }).then((res) => {
+        if (res?.ok) {
+          onClose()
+        } else {
+          setError(true)
+
+          setTimeout(() => {
+            setError(false)
+          }, 5000)
+        }
+      })
+    }
   }
 
   return (
@@ -80,14 +133,26 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
                 alt='logo'
               />
             </div>
+            <form onSubmit={handleRegister}>
+              {asignarFormulario()}
 
-            {asignarFormulario()}
-            <div className='mt-7 flex justify-end'>
-              <button className=' bg-primary-600 text-white cursor-pointer w-full  py-3 rounded-lg'>
-                {textoBtnCambiarForm()[3]}
-              </button>
-            </div>
-            <div className='mt-7'>
+              <div className='mt-7 flex justify-end'>
+                <button
+                  type='submit'
+                  className=' bg-primary-600 text-white cursor-pointer w-full  py-3 rounded-lg'
+                >
+                  {textoBtnCambiarForm()[3]}
+                </button>
+              </div>
+            </form>
+            {error && (
+              <p className='text-center font-bold text-red-500 mt-3'>
+                {tipoForm === 'registrate' && 'No se pudo registrar la cuenta'}
+                {tipoForm === 'ingresar' && 'Correo o contraseña incorrecta'}
+              </p>
+            )}
+
+            <div className={`${error ? 'mt-2' : 'mt-7'}`}>
               <p className='text-base text-gray-400'>
                 {textoBtnCambiarForm()[0]}
                 <span

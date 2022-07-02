@@ -15,46 +15,6 @@ const Header = () => {
 
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>()
 
-  const [tipoForm, setTipoForm] = useState('registrate')
-
-  const asignarFormulario = () => {
-    let component = null
-
-    if (tipoForm === 'ingresar') {
-      component = <FormLogin />
-    } else if (tipoForm === 'registrate') {
-      component = <FormRegister />
-    }
-
-    return component
-  }
-
-  const cambiarFormulario = () => {
-    if (tipoForm === 'ingresar') {
-      setTipoForm('registrate')
-    } else if (tipoForm === 'registrate') {
-      setTipoForm('ingresar')
-    }
-  }
-
-  const textoBtnCambiarForm = () => {
-    const textos = []
-
-    if (tipoForm === 'ingresar') {
-      textos[0] = 'Si no tienes una cuenta '
-      textos[1] = 'regístrate aquí'
-      textos[2] = 'Iniciar sesión'
-      textos[3] = 'Ingresar'
-    } else if (tipoForm === 'registrate') {
-      textos[0] = 'Si ya tienes una cuenta '
-      textos[1] = 'ingrese por aquí'
-      textos[2] = 'Regístrate'
-      textos[3] = 'Regístrate'
-    }
-
-    return textos
-  }
-
   useEffect(() => {
     let lastScrollY = window.pageYOffset
     console.log(lastScrollY)
