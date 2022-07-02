@@ -1,11 +1,15 @@
 import React, {
+  ChangeEvent,
   Dispatch,
   InputHTMLAttributes,
+  RefObject,
   SetStateAction,
-  useEffect
+  useEffect,
+  useRef
 } from 'react'
 
 interface IProps extends InputHTMLAttributes<HTMLSelectElement> {
+  variant?: string
   value: string
   label: string
   onChangevalue: Dispatch<SetStateAction<string>>
@@ -17,38 +21,33 @@ interface Options {
   titulo: string
 }
 
-const Select = ({
+const SelectMercadoPago = ({
   value,
   label,
   onChangevalue,
   data,
-
+  variant = 'normal',
   ...props
 }: IProps) => {
-  useEffect(() => {
-    if (!data[0]) {
-      onChangevalue('')
-    }
-  }, [data])
+  const ref = useRef<any>()
 
-  console.log('fafaf', value)
+  useEffect(() => {
+    console.log('ref', ref.current.options.length)
+  }, [ref.current])
 
   return (
     <div className='relative w-full'>
       <select
         {...props}
+        ref={ref}
         className='w-full block px-2  pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
         name='service'
         value={value}
-        onChange={(e) => onChangevalue(e.target.value)}
-      >
-        <option value='' hidden></option>
-        {data.map((item) => (
-          <option key={item.value} value={item.value}>
-            {item.titulo}
-          </option>
-        ))}
-      </select>
+        onChange={(e) => {
+          console.log(e.target.value)
+          onChangevalue(e.target.value)
+        }}
+      ></select>
 
       <label
         className={`${
@@ -61,4 +60,4 @@ const Select = ({
   )
 }
 
-export default Select
+export default SelectMercadoPago

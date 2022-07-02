@@ -4,8 +4,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string
   name?: string
   className?: string
-  type?: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 const InputFloat = ({
   label,
@@ -21,7 +20,6 @@ const InputFloat = ({
       <input
         {...props}
         type={type}
-        id={name}
         name={name}
         value={value}
         onChange={onChange}
