@@ -18,10 +18,11 @@ export const useLogin = () => {
           }
         }
       })
-      console.log(res)
-      if (res.data?.Login.id) {
+
+      if (res.data?.Login?.apiToken) {
+        localStorage.setItem('token', res.data?.Login?.apiToken)
         localStorage.setItem('user', JSON.stringify(res.data?.Login))
-        return { ok: true }
+        return { ok: true, data: res.data?.Login }
       }
     } catch (error: any) {
       return { ok: false, error: error?.graphQLErrors[0]?.debugMessage }

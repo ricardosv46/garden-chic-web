@@ -41,6 +41,7 @@ const SidebarCart = ({ isOpen = false, onClose }: SidebarCartProps) => {
       0
     )
     setTotal(calculoTotal)
+    CalcularTotal(calculoTotal)
   }, [carrito])
 
   return (

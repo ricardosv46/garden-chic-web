@@ -1,4 +1,5 @@
 import React, {
+  ChangeEvent,
   Dispatch,
   InputHTMLAttributes,
   SetStateAction,
@@ -8,7 +9,7 @@ import React, {
 interface IProps extends InputHTMLAttributes<HTMLSelectElement> {
   value: string
   label: string
-  onChangevalue: Dispatch<SetStateAction<string>>
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
   data: Options[]
 }
 
@@ -20,27 +21,24 @@ interface Options {
 const Select = ({
   value,
   label,
-  onChangevalue,
+  onChange,
   data,
 
   ...props
 }: IProps) => {
-  useEffect(() => {
-    if (!data[0]) {
-      onChangevalue('')
-    }
-  }, [data])
-
-  console.log('fafaf', value)
+  // useEffect(() => {
+  //   if (!data[0]) {
+  //     value('')
+  //   }
+  // }, [data])
 
   return (
-    <div className='relative w-full'>
+    <div className='relative w-full '>
       <select
         {...props}
-        className='w-full block px-2  pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
-        name='service'
+        className='w-full block px-2 bg-transparent  pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
         value={value}
-        onChange={(e) => onChangevalue(e.target.value)}
+        onChange={onChange}
       >
         <option value='' hidden></option>
         {data.map((item) => (
@@ -52,8 +50,8 @@ const Select = ({
 
       <label
         className={`${
-          value.length ? 'top-0 text-xs ' : 'top-4 text-base '
-        } absolute text-sm text-primary-300  z-10 font-semibold duration-300 transform left-2.5 leading-5`}
+          value.length ? 'top-0 text-xs ' : 'top-4 text-base'
+        } absolute text-sm text-primary-300 bg-white -z-10 font-semibold duration-300 transform left-2.5 leading-5`}
       >
         {label}
       </label>

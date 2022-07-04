@@ -4,6 +4,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string
   name?: string
   className?: string
+  htmlFor?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 const InputFloat = ({
@@ -13,6 +14,7 @@ const InputFloat = ({
   onChange,
   className = 'w-full',
   type = 'text',
+  htmlFor,
   ...props
 }: IProps) => {
   return (
@@ -27,7 +29,7 @@ const InputFloat = ({
         placeholder=' '
       />
       <label
-        htmlFor={name}
+        htmlFor={htmlFor}
         className='absolute text-sm text-primary-300 font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75  peer-focus:-translate-y-4'
       >
         {label}

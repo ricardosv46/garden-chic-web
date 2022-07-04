@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import InputRange, { Range } from 'react-input-range'
 import IconFilter from '../../../../public/icons/IconFilter'
-import { dataProductos } from '../../../data/dataProductos'
 import { useProductos } from '../../../services/useProducto'
 import Accordion from '../../accordion'
 import CardProductosRelacionados from '../../cards/cardProducto/cardProductosRelacionados'
-import InputCheckbox from '../../inputs/InputCheckbox'
 import InputRadio from '../../inputs/InputRadio'
 import InputSearch from '../../inputs/InputSearch'
 

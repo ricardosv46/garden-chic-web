@@ -6,15 +6,18 @@ const useForm = <T>(initialState: T) => {
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value
+      [e.target.dataset.name || e.target.name]: e.target.value
     })
   }
 
   const resetForm = (reset?: T) => {
     setState(reset ? reset : initialState)
   }
+  const onFocus = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setState({ ...state, focus: e.target.dataset.name || e.target.name })
+  }
 
-  return { ...state, onChange, resetForm }
+  return { ...state, onChange, resetForm, onFocus }
 }
 
 export default useForm

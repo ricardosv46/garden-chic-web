@@ -31,10 +31,6 @@ const SelectMercadoPago = ({
 }: IProps) => {
   const ref = useRef<any>()
 
-  useEffect(() => {
-    console.log('ref', ref.current.options.length)
-  }, [ref.current])
-
   return (
     <div className='relative w-full'>
       <select
@@ -44,10 +40,11 @@ const SelectMercadoPago = ({
         name='service'
         value={value}
         onChange={(e) => {
-          console.log(e.target.value)
           onChangevalue(e.target.value)
         }}
-      ></select>
+      >
+        <option value='selecccione'>Seleccione</option>
+      </select>
 
       <label
         className={`${

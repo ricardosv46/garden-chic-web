@@ -29,6 +29,7 @@ export interface CarritoContextValue extends CarritoInitialState {
   actualizarPrecioCarrito: (payload: CarritoProps) => void
   eliminarCarrito: (payload: number) => void
   CalcularTotal: (payload: number) => void
+  VaciarCarrito: () => void
 }
 export const initialState: CarritoInitialState = { carrito: [], total: 0 }
 
@@ -42,16 +43,6 @@ const CarritoState = ({ children }: Props) => {
 
   const agregarCarrito = async (payload: CarritoProps) => {
     dispatch({ type: 'AddCarrito', payload })
-    /*  toast.show({
-       placement: 'top-right',
-       render: () => {
-         return (
-           <Box mx={3} bg="emerald.500" px="2" py="2" rounded="sm" mb={5}>
-             Producto añadido.
-           </Box>
-         )
-       }
-     }) */
   }
 
   const actualizarPrecioCarrito = async (payload: CarritoProps) => {
@@ -64,6 +55,10 @@ const CarritoState = ({ children }: Props) => {
     dispatch({ type: 'Total', payload })
   }
 
+  const VaciarCarrito = async () => {
+    dispatch({ type: 'Vaciar' })
+  }
+
   return (
     <CarritoContext.Provider
       value={{
@@ -71,7 +66,8 @@ const CarritoState = ({ children }: Props) => {
         agregarCarrito,
         actualizarPrecioCarrito,
         eliminarCarrito,
-        CalcularTotal
+        CalcularTotal,
+        VaciarCarrito
       }}
     >
       {children}

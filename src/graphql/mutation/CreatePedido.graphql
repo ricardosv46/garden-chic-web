@@ -1,0 +1,39 @@
+mutation CreatePedido(
+  $input1: PedidoInput!
+  $input2: [DetallePedidoInput!]
+  $input3: ReciboInput!
+  $input4: DireccionEnvioInput!
+  $input5: DatosTarjetaInput
+) {
+  CreatePedido(
+    input1: $input1
+    input2: $input2
+    input3: $input3
+    input4: $input4
+    input5: $input5
+  ) {
+    pedidoId
+    fechaPedido
+    estado
+    visto
+    tipoPago
+    medioPago
+    numeroOperacion
+    tipoEnvio
+    precioEnvio
+    precioTotal
+    ticketPdf
+    direccionEnvio
+    usuarioId
+    Usuario {
+      id
+      nombres
+      apellidos
+    }
+    DetallePedido {
+      pedidoId
+      cantidad
+      precio
+    }
+  }
+}
