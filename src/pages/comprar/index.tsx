@@ -99,7 +99,6 @@ const Comprar = () => {
       }
     })
   }
-  console.log(venta)
 
   return (
     <Container className='py-10'>
