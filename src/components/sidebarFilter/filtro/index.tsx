@@ -66,13 +66,13 @@ const Filtro = () => {
                 </div>
               </div>
               <div className='mx-2 mt-2'>
-                <InputRange
+                {/* <InputRange
                   maxValue={initialState.max as number}
                   minValue={initialState.min as number}
                   value={range}
                   formatLabel={(range) => `S./ ${range} `}
                   onChange={(value) => setRange(value)}
-                />
+                /> */}
               </div>
             </div>
           </div>
