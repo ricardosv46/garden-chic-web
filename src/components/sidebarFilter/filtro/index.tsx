@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import InputRange, { Range } from 'react-input-range'
+// import InputRange, { Range } from 'react-input-range'
 import IconFilter from '../../../../public/icons/IconFilter'
 import { useProductos } from '../../../services/useProducto'
 import Accordion from '../../accordion'
@@ -13,7 +13,7 @@ const Filtro = () => {
     max: 1000
   } as const
   const { db: productos, loading } = useProductos()
-  const [range, setRange] = useState<number | Range>(initialState)
+  // const [range, setRange] = useState<number | Range>(initialState)
   return (
     <div className=''>
       <div className='flex gap-x-3 mt-5 items-center'>
@@ -58,21 +58,21 @@ const Filtro = () => {
               <div className='flex justify-between text-primary-600'>
                 <div className='flex flex-col '>
                   <div className='text-base'>Minimo</div>
-                  <p className='text-sm'>S/ {(range as Range).min}</p>
+                  {/* <p className='text-sm'>S/ {(range as Range).min}</p> */}
                 </div>
                 <div className='flex flex-col '>
                   <div className='text-base'>Máximo</div>
-                  <p className='text-sm'>S/ {(range as Range).max}</p>
+                  {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
                 </div>
               </div>
               <div className='mx-2 mt-2'>
-                <InputRange
+                {/* <InputRange
                   maxValue={initialState.max as number}
                   minValue={initialState.min as number}
                   value={range}
                   formatLabel={(range) => `S./ ${range} `}
                   onChange={(value) => setRange(value)}
-                />
+                /> */}
               </div>
             </div>
           </div>

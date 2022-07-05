@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import 'react-credit-cards/es/styles-compiled.css'
-import Card from 'react-credit-cards'
+// import 'react-credit-cards/es/styles-compiled.css'
+// import Card from 'react-credit-cards'
 import useForm from '../../hooks/useForm'
 import useMercadoPago from '../../hooks/useMercadoPago'
 import InputFloat from '../inputs/InputFloat'
@@ -45,13 +45,13 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
       </h2>
       <div className='w-full md:w-[500px] h-auto '>
         <div className=' flex justify-center py-10'>
-          <Card
+          {/* <Card
             cvc={cvc}
             expiry={cardExpirationMonth + cardExpirationYear}
             name={cardholderName}
             number={cardNumber}
             focused={focus}
-          />
+          /> */}
         </div>
         <form id='form-checkout' className='flex flex-col gap-y-5   '>
           <InputFloat
