@@ -1,13 +1,5 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import IconCart from '../../../public/icons/IconCart'
-import InputRange, { Range } from 'react-input-range'
-import Accordion from '../accordion'
-import InputSearch from '../inputs/InputSearch'
-import IconFilter from '../../../public/icons/IconFilter'
-import InputCheckbox from '../inputs/InputCheckbox'
-import CardProductosRelacionados from '../cards/cardProducto/cardProductosRelacionados'
-import { dataProductos } from '../../data/dataProductos'
 import Filtro from './filtro'
 
 const variants = {
@@ -39,10 +31,7 @@ interface SidebarFilterProps {
   onClose: () => void
 }
 
-const SidebarFilter = ({
-  isOpen = false,
-  onClose,
-}: SidebarFilterProps) => {
+const SidebarFilter = ({ isOpen = false, onClose }: SidebarFilterProps) => {
   return (
     <div className='fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 '>
       <motion.div
