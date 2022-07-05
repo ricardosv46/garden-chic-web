@@ -12,8 +12,8 @@ interface SidebarCartProps {
 const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
   const [user, setUser] = useState()
   useEffect(() => {
-    if (localStorage) {
-      const data: any = JSON.parse(localStorage.getItem('user') || '')
+    if (window.localStorage) {
+      const data = JSON.parse(localStorage.getItem('user') || '')
       setUser(data)
     } else {
       setUser(undefined)
