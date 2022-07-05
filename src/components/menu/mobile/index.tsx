@@ -15,14 +15,14 @@ interface SidebarCartProps {
 const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState()
-  useEffect(() => {
-    if (window.localStorage) {
-      const data = JSON.parse(localStorage.getItem('user') || '')
-      setUser(data)
-    } else {
-      setUser(undefined)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (window.localStorage) {
+  //     const data = JSON.parse(localStorage.getItem('user') || '')
+  //     setUser(data)
+  //   } else {
+  //     setUser(undefined)
+  //   }
+  // }, [])
 
   const { carrito } = useCarritoContext()
 
