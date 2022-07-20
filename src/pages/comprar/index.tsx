@@ -10,7 +10,7 @@ import FormMercadopago from '../../components/forms/FormMercadopago'
 import { useRouter } from 'next/router'
 import CheckPago from '../../components/forms/CheckPago'
 import FormEnvio from '../../components/forms/FormEnvio'
-
+import { getSession } from 'next-auth/react'
 interface PayProps {
   payment_method_id: string
   token: string
@@ -24,17 +24,7 @@ const Comprar = () => {
 
   const [error, setError] = useState(false)
 
-  const {
-    ruc,
-    razonSocial,
-    celular,
-    direccion,
-    venta,
-    depa,
-    prov,
-    dist,
-    onChange
-  } = useForm({
+  const { ruc, razonSocial, celular, direccion, venta, depa, prov, dist, onChange } = useForm({
     ruc: '',
     razonSocial: '',
     celular: '',
@@ -119,18 +109,29 @@ const Comprar = () => {
         />
       )}
 
-      {show === 'pagar' && (
-        <FormMercadopago
-          pago={pago}
-          setShow={setShow}
-          total={total}
-          error={error}
-        />
-      )}
+      {show === 'pagar' && <FormMercadopago pago={pago} setShow={setShow} total={total} error={error} />}
 
       {show === 'pagado' && <CheckPago />}
     </Container>
   )
+}
+
+export const getServerSideProps = async (ctx: any) => {
+  const session = await getSession(ctx)
+
+  if (!session)
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
+
+  return {
+    props: {
+      session: session
+    }
+  }
 }
 
 export default Comprar

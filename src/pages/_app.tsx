@@ -8,14 +8,17 @@ import Header from '../components/header'
 import CarritoState from '../context/carrito/CarritoState'
 import { ApolloProvider } from '@apollo/client'
 import client from '../apollo'
+import { SessionProvider } from 'next-auth/react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <CarritoState>
-        <Header />
-        <Component {...pageProps} />
-      </CarritoState>
+      <SessionProvider session={session}>
+        <CarritoState>
+          <Header />
+          <Component {...pageProps} />
+        </CarritoState>
+      </SessionProvider>
     </ApolloProvider>
   )
 }

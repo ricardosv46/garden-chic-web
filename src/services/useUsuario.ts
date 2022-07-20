@@ -11,12 +11,7 @@ interface ICreate {
 export const useUsuario = () => {
   const [CreateUsuario, { loading: loadingCreate }] = useCreateUsuarioMutation()
 
-  const createUsuario = async ({
-    nombres,
-    apellidos,
-    email,
-    password
-  }: ICreate) => {
+  const createUsuario = async ({ nombres, apellidos, email, password }: ICreate) => {
     try {
       const res = await CreateUsuario({
         variables: {
@@ -36,7 +31,8 @@ export const useUsuario = () => {
       })
       return { ok: true }
     } catch (error: any) {
-      return { ok: false, error: 'Error no se pudo crear usuario' }
+      console.log(error?.graphQLErrors[0]?.debugMessage)
+      return { ok: false, error: error?.graphQLErrors[0]?.debugMessage }
     }
   }
 

@@ -49,13 +49,7 @@ export const usePedido = () => {
     }
   })
 
-  const createPedido = async ({
-    input1,
-    input2,
-    input3,
-    input4,
-    input5
-  }: ICreateProps) => {
+  const createPedido = async ({ input1, input2, input3, input4, input5 }: ICreateProps) => {
     try {
       const res = await CreatePedido({
         variables: {
@@ -66,6 +60,8 @@ export const usePedido = () => {
           input5
         }
       })
+
+      console.log(res.data?.CreatePedido)
 
       if (res.data?.CreatePedido) {
         return { ok: true }

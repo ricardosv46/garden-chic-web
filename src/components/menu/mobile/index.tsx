@@ -14,15 +14,6 @@ interface SidebarCartProps {
 
 const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [user, setUser] = useState()
-  // useEffect(() => {
-  //   if (window.localStorage) {
-  //     const data = JSON.parse(localStorage.getItem('user') || '')
-  //     setUser(data)
-  //   } else {
-  //     setUser(undefined)
-  //   }
-  // }, [])
 
   const { carrito } = useCarritoContext()
 
@@ -32,13 +23,7 @@ const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
         <div className='flex justify-between items-center  '>
           <Link href='/' passHref>
             <div className='flex'>
-              <Image
-                className='cursor-pointer'
-                src='/imgs/logos/logo-horizontal.svg'
-                width={175}
-                height={70}
-                alt='logo'
-              />
+              <Image className='cursor-pointer' src='/imgs/logos/logo-horizontal.svg' width={175} height={70} alt='logo' />
             </div>
           </Link>
           <div className='flex gap-x-9 text-primary-600'>
@@ -46,85 +31,50 @@ const MenuMobile = ({ onOpen, setModalLogin }: SidebarCartProps) => {
               <div
                 className='relative p-1 cursor-pointer'
                 onClick={() => {
-                  if (user) {
-                    setModalLogin(true)
-                  }
-                }}
-              >
+                  setModalLogin(true)
+                }}>
                 <IconUser height={25} width={25} />
               </div>
-              <div
-                className='relative p-1 cursor-pointer'
-                onClick={() => onOpen()}
-              >
+              <div className='relative p-1 cursor-pointer' onClick={() => onOpen()}>
                 <IconCart height={25} width={25} />
-                {carrito.length > 0 && (
-                  <div className='flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]'>
-                    {carrito.length}
-                  </div>
-                )}
+                {carrito.length > 0 && <div className='flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-primary-300 text-white text-[8px]'>{carrito.length}</div>}
               </div>
             </div>
 
             <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
-          <ul
-            className={`${style['menu-mobile']} ${
-              isOpen && style['menu-mobile-active']
-            } text-center `}
-          >
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+          <ul className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']} text-center `}>
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/' passHref>
                 Inicio
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/nosotros' passHref>
                 Nosotros
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/servicios' passHref>
                 Servicios
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/tienda' passHref>
                 Tienda
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/proyectos' passHref>
                 Proyectos
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/blogs' passHref>
                 Blogs
               </Link>
             </li>
-            <li
-              className='cursor-pointer text-primary-600 py-2 font-semibold'
-              onClick={() => setIsOpen(false)}
-            >
+            <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
               <Link href='/contactos' passHref>
                 Contactos
               </Link>

@@ -25,29 +25,19 @@ const useMercadoPago = ({ monto = 0, pago }: IProps) => {
     if (MercadoPago && monto != 0) {
       console.log('INIT_MERCADO_PAGO')
 
-      const mp = new MercadoPago('TEST-0ff678c6-d074-4dab-8b05-076734e5e8d2')
+      const mp = new MercadoPago('TEST-d34dc814-6f9b-4a58-b760-48583927613d')
       const cardForm = mp.cardForm({
         amount: monto.toString(),
         autoMount: true,
         form: mercadoPagoFormConfig,
         callbacks: {
           onFormMounted: (error: any) => {
-            if (error)
-              return console.warn('Form Mounted handling error: ', error)
+            if (error) return console.warn('Form Mounted handling error: ', error)
             console.log('Form mounted')
           },
           onSubmit: (event: ChangeEvent<HTMLFormElement>) => {
             event.preventDefault()
-            const {
-              paymentMethodId: payment_method_id,
-              issuerId: issuer_id,
-              cardholderEmail: email,
-              amount,
-              token,
-              installments,
-              identificationNumber,
-              identificationType
-            } = cardForm.getCardFormData()
+            const { paymentMethodId: payment_method_id, issuerId: issuer_id, cardholderEmail: email, amount, token, installments, identificationNumber, identificationType } = cardForm.getCardFormData()
 
             pago({
               token,

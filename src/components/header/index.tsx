@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import FormLogin from '../authForm/formLogin'
@@ -12,6 +13,19 @@ import SidebarCart from '../sidebarCart'
 const Header = () => {
   const [isOpenCart, setIsOpenCart] = useState(false)
   const [modalLogin, setModalLogin] = useState(false)
+  // const [aparecer, setAparecer] = useState(false)
+  const { status, data } = useSession()
+
+  console.log(status)
+
+  // useEffect(() => {
+  //   if (status !== 'loading' && status === 'authenticated') {
+  //     console.log(status)
+  //     setAparecer(true)
+  //   } else {
+  //     setAparecer(false)
+  //   }
+  // }, [status])
 
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>()
 
@@ -22,10 +36,7 @@ const Header = () => {
     const updateScrollDirection = () => {
       const scrollY = window.pageYOffset
       const direction = scrollY > lastScrollY ? 'down' : 'up'
-      if (
-        direction !== scrollDirection &&
-        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-      ) {
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
         setScrollDirection(direction)
       }
       lastScrollY = scrollY > 0 ? scrollY : 0
@@ -38,30 +49,15 @@ const Header = () => {
 
   return (
     <>
-      <div
-        className={`hidden sticky w-full  lg:block ${
-          scrollDirection === 'down' ? '-top-24' : 'top-0'
-        }  bg-white z-40 shadow-lg  transition-all duration-500`}
-      >
-        <MenuDestokp
-          onOpen={() => setIsOpenCart(true)}
-          setModalLogin={() => setModalLogin(true)}
-        />
+      <div className={`hidden sticky w-full  lg:block ${scrollDirection === 'down' ? '-top-24' : 'top-0'}  bg-white z-40 shadow-lg  transition-all duration-500`}>
+        <MenuDestokp onOpen={() => setIsOpenCart(true)} setModalLogin={() => setModalLogin(true)} />
       </div>
-      <div
-        className={`lg:hidden sticky w-full  ${
-          scrollDirection === 'down' ? '-top-24' : 'top-0'
-        }  bg-white z-40 shadow-lg  transition-all duration-500`}
-      >
-        <MenuMobile
-          onOpen={() => setIsOpenCart(true)}
-          setModalLogin={() => setModalLogin(true)}
-        />
+      <div className={`lg:hidden sticky w-full  ${scrollDirection === 'down' ? '-top-24' : 'top-0'}  bg-white z-40 shadow-lg  transition-all duration-500`}>
+        <MenuMobile onOpen={() => setIsOpenCart(true)} setModalLogin={() => setModalLogin(true)} />
       </div>
 
       <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
-
-      <ModalLogin isOpen={modalLogin} onClose={() => setModalLogin(false)} />
+      {status !== 'authenticated' && <ModalLogin isOpen={modalLogin} onClose={() => setModalLogin(false)} />}
     </>
   )
 }
