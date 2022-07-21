@@ -6,8 +6,22 @@ import QuePodemosHacer from '../sections/Home/quePodemosHacer'
 import Servicios from '../sections/Home/servicios'
 import Proyects from '../sections/Home/proyects'
 import OpenGraph from '../components/openGraph'
+import { useEffect } from 'react'
+import { getSession, useSession } from 'next-auth/react'
 
 const Home: NextPage = () => {
+  const { status, data } = useSession() as { status: string; data: { user: any } }
+  console.log('data', data)
+
+  useEffect(() => {
+    const sesion = async () => {
+      const res = await getSession()
+      console.log('sesion', res)
+    }
+
+    sesion()
+  }, [])
+
   return (
     <>
       <OpenGraph

@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import FormLogin from '../authForm/formLogin'
@@ -13,6 +13,15 @@ import SidebarCart from '../sidebarCart'
 const Header = () => {
   const [isOpenCart, setIsOpenCart] = useState(false)
   const [modalLogin, setModalLogin] = useState(false)
+  const [cerrar, setCerrar] = useState(false)
+
+  console.log(modalLogin)
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false })
+    localStorage.removeItem('token')
+  }
+
   // const [aparecer, setAparecer] = useState(false)
   const { status, data } = useSession()
 
@@ -49,12 +58,42 @@ const Header = () => {
 
   return (
     <>
-      <div className={`hidden sticky w-full  lg:block ${scrollDirection === 'down' ? '-top-24' : 'top-0'}  bg-white z-40 shadow-lg  transition-all duration-500`}>
-        <MenuDestokp onOpen={() => setIsOpenCart(true)} setModalLogin={() => setModalLogin(true)} />
+      <div className={`hidden sticky w-full   lg:block ${scrollDirection === 'down' ? '-top-24' : 'top-0'}  bg-white z-40 shadow-lg  transition-all duration-500`}>
+        <MenuDestokp
+          onOpen={() => setIsOpenCart(true)}
+          setModalLogin={() => {
+            setModalLogin(true)
+            setCerrar(!cerrar)
+          }}
+        />
       </div>
       <div className={`lg:hidden sticky w-full  ${scrollDirection === 'down' ? '-top-24' : 'top-0'}  bg-white z-40 shadow-lg  transition-all duration-500`}>
-        <MenuMobile onOpen={() => setIsOpenCart(true)} setModalLogin={() => setModalLogin(true)} />
+        <MenuMobile
+          onOpen={() => setIsOpenCart(true)}
+          setModalLogin={() => {
+            setModalLogin(true)
+            setCerrar(!cerrar)
+          }}
+        />
       </div>
+
+      {status === 'authenticated' && (
+        <>
+          {cerrar && (
+            <div className='relative mx-auto my-0 w-[90%] xl:w-[1280px]'>
+              <div className='absolute top-3 bg-slate-100 rounded-lg z-50 w-60 p-5 -right-[105px]'>
+                <div className=' justify-center w-full absolute -top-2.5 left-0 z-50 flex'>
+                  <div className='h-5 w-5 bg-slate-100 rotate-45'></div>
+                </div>
+
+                <button className='bg-red-500 mt-5 rounded-lg w-full py-3 text-white font-bold' onClick={handleSignOut}>
+                  Cerrar Sesión
+                </button>
+              </div>
+            </div>
+          )}
+        </>
+      )}
 
       <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
       {status !== 'authenticated' && <ModalLogin isOpen={modalLogin} onClose={() => setModalLogin(false)} />}

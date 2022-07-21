@@ -44,7 +44,6 @@ export default NextAuth({
           })
 
           if (res?.Login) {
-            // localStorage.setItem('token', res.data?.Login?.apiToken)
             // localStorage.setItem('user', JSON.stringify(res.data?.Login))
             // const user = res.data?.Login
             // console.log(user)
@@ -53,7 +52,7 @@ export default NextAuth({
           console.log('res', res)
         } catch (error: any) {
           console.log('res', error)
-          return { ok: false, error: error?.graphQLErrors[0]?.debugMessage }
+          throw new Error(error.response.errors[0].debugMessage)
         }
 
         // const res = await LoginUsuario({
@@ -68,15 +67,16 @@ export default NextAuth({
     })
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: '/login'
+  session: {
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    strategy: 'jwt'
   },
   callbacks: {
     async session({ session, token }: any) {
       session.user = token.user
       return session
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user }: any) {
       if (user) {
         token.user = user
       }

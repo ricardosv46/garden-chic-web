@@ -17,8 +17,9 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
   const [tipoForm, setTipoForm] = useState('ingresar')
   const { createUsuario, loadingCreate } = useUsuario()
   const [errorMessage, setErrorMessage] = useState('')
-  const { status, data } = useSession()
-  console.log('data', data)
+  const { status, data } = useSession() as { status: string; data: { user: any } }
+
+  console.log('datatoken', data)
   // const { loginUsuario } = useLogin()
   const [error, setError] = useState(false)
   const { nombres, apellidos, email, password, onChange, resetForm } = useForm({
@@ -89,12 +90,22 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
         redirect: false,
         email,
         password
-      }).then((res) => {
-        console.log('res', res)
-        if (res?.ok) {
-          onClose()
-        }
       })
+        .then((res) => {
+          console.log('res', res)
+          if (res?.ok) {
+            onClose()
+            localStorage.setItem('token', data?.user?.apiToken)
+          } else {
+            setError(true)
+            setErrorMessage(res?.error || '')
+            setTimeout(() => {
+              setError(false)
+              setErrorMessage('')
+            }, 5000)
+          }
+        })
+        .catch((err) => console.log('err', err))
 
       // loginUsuario({ email, password }).then((res) => {
       //   if (res?.ok) {
@@ -133,7 +144,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
             {error && (
               <p className='text-center font-bold text-red-500 mt-3'>
                 {tipoForm === 'registrate' && errorMessage}
-                {tipoForm === 'ingresar' && 'Correo o contraseña incorrecta'}
+                {tipoForm === 'ingresar' && errorMessage}
               </p>
             )}
 
