@@ -30,7 +30,7 @@ const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
         <Link href='/' passHref>
           <div className='flex'>
             <Image
-              className='cursor-pointer animate-spin'
+              className='cursor-pointer'
               src='/imgs/logos/logo-horizontal.svg'
               width={200}
               height={80}
