@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import FormLogin from '../authForm/formLogin'
 import FormRegister from '../authForm/formRegister'
-
 import MenuDestokp from '../menu/desktop/index'
 import MenuMobile from '../menu/mobile'
 import Modal from '../modal'
@@ -14,8 +13,6 @@ const Header = () => {
   const [isOpenCart, setIsOpenCart] = useState(false)
   const [modalLogin, setModalLogin] = useState(false)
   const [cerrar, setCerrar] = useState(false)
-
-  console.log(modalLogin)
 
   const handleSignOut = async () => {
     await signOut({ redirect: false })

@@ -31,7 +31,7 @@ const CardProducto = ({
   const { agregarCarrito } = useCarritoContext()
   const router = useRouter()
   return (
-    <div className='w-full lg:w-[280px] border-2 rounded hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
+    <div className='w-full border-2 rounded-2xl hover:shadow-2xl hover:-translate-y-2 ease-in-out duration-700 '>
       <div
         onClick={() => router.push(`/tienda/${slug}`)}
         className='border-b-2 cursor-pointer relative flex'
@@ -41,6 +41,7 @@ const CardProducto = ({
           src={img.url!}
           width={1080}
           height={1080}
+          className='rounded-t-2xl'
           alt='blogs'
         />
         {rebaja && (

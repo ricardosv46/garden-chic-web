@@ -33,7 +33,7 @@ interface SidebarFilterProps {
 
 const SidebarFilter = ({ isOpen = false, onClose }: SidebarFilterProps) => {
   return (
-    <div className='fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 '>
+    <div className='fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 block lg:hidden'>
       <motion.div
         variants={fade}
         onClick={onClose}

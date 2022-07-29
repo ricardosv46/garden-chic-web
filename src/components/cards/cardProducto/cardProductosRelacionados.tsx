@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -18,11 +19,11 @@ const CardProductosRelacionados = ({
   slug
 }: IProps) => {
   const [image, setImage] = useState<string>('')
+  const router = useRouter()
 
   useEffect(() => {
     setImage(img)
   }, [])
-  const router = useRouter()
   return (
     <div className='flex gap-3 border-b-2 border-b-gray-200 py-3'>
       {image && (
