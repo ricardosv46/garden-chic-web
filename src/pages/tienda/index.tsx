@@ -55,7 +55,7 @@ const Tienda = () => {
                 onClick={() => setIsOpenFilter(!isOpenFilter)}
                 className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
               >
-                Filtrar
+                Filtros
               </button>
             </div>
             <div className="w-1/2 lg:w-3/4">

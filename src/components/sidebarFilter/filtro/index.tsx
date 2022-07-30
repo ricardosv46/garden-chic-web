@@ -7,6 +7,12 @@ import CardProductosRelacionados from "../../cards/cardProducto/cardProductosRel
 import InputRadio from "../../inputs/InputRadio";
 import InputSearch from "../../inputs/InputSearch";
 import { InputRange } from "@components/inputs/InputRange";
+import { useCategoriaProductos } from "src/services/useCategoriaProductos";
+
+interface Ifilter {
+  categoriaProductoId: string;
+  precio: string;
+}
 
 const Filtro = () => {
   const initialState = {
@@ -14,6 +20,10 @@ const Filtro = () => {
     max: 1000,
   } as const;
   const { db: productos, loading } = useProductos();
+  const { db: dataCategoria, loading: loadingCategoria } =
+    useCategoriaProductos();
+
+  const [filter, setFilter] = useState();
   // const [range, setRange] = useState<number | Range>(initialState)
   return (
     <div className="">
@@ -27,24 +37,17 @@ const Filtro = () => {
           <div className="w-full">
             <InputSearch placeholder="Buscar" />
             <div className="mt-4">
-              <InputRadio
-                label="Categoria 1"
-                name="categoria"
-                stock={1}
-                id="categoria 1"
-              />
-              <InputRadio
-                label="Categoria 2"
-                name="categoria"
-                stock={2}
-                id="categoria 2"
-              />
-              <InputRadio
-                label="Categoria 3"
-                name="categoria"
-                stock={3}
-                id="categoria 3"
-              />
+              {/* Render input radios */}
+              {dataCategoria.map((obj, index) => (
+                <InputRadio
+                  label={obj.titulo || ""}
+                  name={"categoriaProductoId"}
+                  value={obj.categoriaProductoId || ""}
+                  stock={1}
+                  id={obj.titulo || ""}
+                  key={obj.categoriaProductoId}
+                />
+              ))}
             </div>
           </div>
         </Accordion>
@@ -69,8 +72,6 @@ const Filtro = () => {
               <div className="mx-2 mt-2">
                 <InputRange />
 
-
-                
                 {/* <InputRange
                   maxValue={initialState.max as number}
                   minValue={initialState.min as number}

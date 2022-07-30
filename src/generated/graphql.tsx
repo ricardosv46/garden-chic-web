@@ -1,1123 +1,1212 @@
-import { gql } from '@apollo/client'
-import * as Apollo from '@apollo/client'
-export type Maybe<T> = T | null
-export type InputMaybe<T> = Maybe<T>
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K]
-}
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>
-}
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>
-}
-const defaultOptions = {} as const
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
+export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string
-  String: string
-  Boolean: boolean
-  Int: number
-  Float: number
-  Date: any
-  DateTime: any
-  DateTimeTz: any
-  Upload: any
-}
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
+  /** A date string with format `Y-m-d`, e.g. `2011-05-23`. */
+  Date: any;
+  /** A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`. */
+  DateTime: any;
+  /** A datetime and timezone string in ISO 8601 format `Y-m-dTH:i:sO`, e.g. `2020-04-20T13:53:12+02:00`. */
+  DateTimeTz: any;
+  /** Can be used as an argument to upload files using https://github.com/jaydenseric/graphql-multipart-request-spec */
+  Upload: any;
+};
 
 export type Banco = {
-  __typename?: 'Banco'
-  bancoId?: Maybe<Scalars['ID']>
-  created_at?: Maybe<Scalars['DateTime']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  numeroCuenta?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'Banco';
+  bancoId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  numeroCuenta?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type BancoInput = {
-  bancoId?: InputMaybe<Scalars['ID']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  numeroCuenta?: InputMaybe<Scalars['String']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  bancoId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  numeroCuenta?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+};
 
 export type Blog = {
-  __typename?: 'Blog'
-  CategoriaBlog?: Maybe<CategoriaBlog>
-  User?: Maybe<User>
-  blogId?: Maybe<Scalars['ID']>
-  categoriaBlogId?: Maybe<Scalars['Int']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcionCorta?: Maybe<Scalars['String']>
-  descripcionLarga?: Maybe<Scalars['String']>
-  destacado?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  imagenSecundaria?: Maybe<Imagenes>
-  keywords?: Maybe<Scalars['String']>
-  slug?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-  usuarioId?: Maybe<Scalars['Int']>
-}
+  __typename?: 'Blog';
+  blogId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  descripcionCorta?: Maybe<Scalars['String']>;
+  descripcionLarga?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  imagenSecundaria?: Maybe<Imagenes>;
+  keywords?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  destacado?: Maybe<Scalars['String']>;
+  categoriaBlogId?: Maybe<Scalars['Int']>;
+  CategoriaBlog?: Maybe<CategoriaBlog>;
+  usuarioId?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+  User?: Maybe<User>;
+};
 
 export type BlogInput = {
-  blogId?: InputMaybe<Scalars['ID']>
-  categoriaBlogId?: InputMaybe<Scalars['Int']>
-  descripcionCorta?: InputMaybe<Scalars['String']>
-  descripcionLarga?: InputMaybe<Scalars['String']>
-  destacado?: InputMaybe<Scalars['String']>
-  estado?: InputMaybe<Scalars['String']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  imagenSecundaria?: InputMaybe<Scalars['Int']>
-  keywords?: InputMaybe<Scalars['String']>
-  slug?: InputMaybe<Scalars['String']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  blogId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  descripcionCorta?: InputMaybe<Scalars['String']>;
+  descripcionLarga?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+  imagenSecundaria?: InputMaybe<Scalars['Int']>;
+  keywords?: InputMaybe<Scalars['String']>;
+  estado?: InputMaybe<Scalars['String']>;
+  destacado?: InputMaybe<Scalars['String']>;
+  categoriaBlogId?: InputMaybe<Scalars['Int']>;
+};
 
 export type CategoriaBlog = {
-  __typename?: 'CategoriaBlog'
-  categoriaBlogId?: Maybe<Scalars['ID']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcion?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  imagenSecundaria?: Maybe<Imagenes>
-  keywords?: Maybe<Scalars['String']>
-  numeroBlogs?: Maybe<Scalars['Int']>
-  slug?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'CategoriaBlog';
+  categoriaBlogId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  keywords?: Maybe<Scalars['String']>;
+  descripcion?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  imagenSecundaria?: Maybe<Imagenes>;
+  estado?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+  numeroBlogs?: Maybe<Scalars['Int']>;
+};
 
 export type CategoriaBlogInput = {
-  categoriaBlogId?: InputMaybe<Scalars['ID']>
-  descripcion?: InputMaybe<Scalars['String']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  imagenSecundaria?: InputMaybe<Scalars['Int']>
-  keywords?: InputMaybe<Scalars['String']>
-  slug?: InputMaybe<Scalars['String']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  categoriaBlogId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  keywords?: InputMaybe<Scalars['String']>;
+  descripcion?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+  imagenSecundaria?: InputMaybe<Scalars['Int']>;
+};
 
 export type CategoriaProducto = {
-  __typename?: 'CategoriaProducto'
-  categoriaProductoId?: Maybe<Scalars['ID']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcion?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  imagenSecundaria?: Maybe<Imagenes>
-  keywords?: Maybe<Scalars['String']>
-  slug?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'CategoriaProducto';
+  categoriaProductoId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  keywords?: Maybe<Scalars['String']>;
+  descripcion?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  imagenSecundaria?: Maybe<Imagenes>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type CategoriaProductoInput = {
-  categoriaProductoId?: InputMaybe<Scalars['ID']>
-  created_at?: InputMaybe<Scalars['DateTime']>
-  descripcion?: InputMaybe<Scalars['String']>
-  estado?: InputMaybe<Scalars['String']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  imagenSecundaria?: InputMaybe<Scalars['Int']>
-  keywords?: InputMaybe<Scalars['String']>
-  slug?: InputMaybe<Scalars['String']>
-  titulo?: InputMaybe<Scalars['String']>
-  updated_at?: InputMaybe<Scalars['DateTime']>
-}
+  categoriaProductoId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  estado?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+  imagenSecundaria?: InputMaybe<Scalars['Int']>;
+  keywords?: InputMaybe<Scalars['String']>;
+  descripcion?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['DateTime']>;
+  updated_at?: InputMaybe<Scalars['DateTime']>;
+};
 
 export type ComentarioBlog = {
-  __typename?: 'ComentarioBlog'
-  User?: Maybe<User>
-  blogId?: Maybe<Scalars['Int']>
-  comentarioBlogId?: Maybe<Scalars['ID']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcion?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-  usuarioId?: Maybe<Scalars['Int']>
-}
+  __typename?: 'ComentarioBlog';
+  comentarioBlogId?: Maybe<Scalars['ID']>;
+  descripcion?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  blogId?: Maybe<Scalars['Int']>;
+  usuarioId?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+  User?: Maybe<User>;
+};
 
 export type ComentarioBlogInput = {
-  blogId?: InputMaybe<Scalars['Int']>
-  descripcion?: InputMaybe<Scalars['String']>
-  estado?: InputMaybe<Scalars['String']>
-  id?: InputMaybe<Scalars['ID']>
-  usuarioId?: InputMaybe<Scalars['Int']>
-}
+  id?: InputMaybe<Scalars['ID']>;
+  descripcion?: InputMaybe<Scalars['String']>;
+  estado?: InputMaybe<Scalars['String']>;
+  blogId?: InputMaybe<Scalars['Int']>;
+  usuarioId?: InputMaybe<Scalars['Int']>;
+};
 
 export type Contacto = {
-  __typename?: 'Contacto'
-  celular?: Maybe<Scalars['String']>
-  contactoId?: Maybe<Scalars['Int']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcion?: Maybe<Scalars['String']>
-  email?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  nombre?: Maybe<Scalars['String']>
-  tipoServicio?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'Contacto';
+  contactoId?: Maybe<Scalars['Int']>;
+  nombre?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  celular?: Maybe<Scalars['String']>;
+  tipoServicio?: Maybe<Scalars['String']>;
+  descripcion?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type ContactoInput = {
-  celular?: InputMaybe<Scalars['String']>
-  created_at?: InputMaybe<Scalars['DateTime']>
-  descripcion?: InputMaybe<Scalars['String']>
-  email?: InputMaybe<Scalars['String']>
-  nombre?: InputMaybe<Scalars['String']>
-  tipoServicio?: InputMaybe<Scalars['String']>
-  updated_at?: InputMaybe<Scalars['DateTime']>
-}
+  nombre?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  celular?: InputMaybe<Scalars['String']>;
+  tipoServicio?: InputMaybe<Scalars['String']>;
+  descripcion?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['DateTime']>;
+  updated_at?: InputMaybe<Scalars['DateTime']>;
+};
 
 export type DatosEmpresa = {
-  __typename?: 'DatosEmpresa'
-  departamento?: Maybe<Scalars['String']>
-  direccion?: Maybe<Scalars['String']>
-  distrito?: Maybe<Scalars['String']>
-  emailContacto?: Maybe<Scalars['String']>
-  logo?: Maybe<Scalars['String']>
-  nomEmpresa?: Maybe<Scalars['String']>
-  provincia?: Maybe<Scalars['String']>
-  ruc?: Maybe<Scalars['String']>
-}
+  __typename?: 'DatosEmpresa';
+  nomEmpresa?: Maybe<Scalars['String']>;
+  direccion?: Maybe<Scalars['String']>;
+  logo?: Maybe<Scalars['String']>;
+  emailContacto?: Maybe<Scalars['String']>;
+  ruc?: Maybe<Scalars['String']>;
+  departamento?: Maybe<Scalars['String']>;
+  provincia?: Maybe<Scalars['String']>;
+  distrito?: Maybe<Scalars['String']>;
+};
 
 export type DatosEmpresaInput = {
-  departamento?: InputMaybe<Scalars['String']>
-  direccion?: InputMaybe<Scalars['String']>
-  distrito?: InputMaybe<Scalars['String']>
-  emailContacto?: InputMaybe<Scalars['String']>
-  logo?: InputMaybe<Scalars['String']>
-  nomEmpresa?: InputMaybe<Scalars['String']>
-  provincia?: InputMaybe<Scalars['String']>
-  ruc?: InputMaybe<Scalars['String']>
-}
+  nomEmpresa?: InputMaybe<Scalars['String']>;
+  direccion?: InputMaybe<Scalars['String']>;
+  logo?: InputMaybe<Scalars['String']>;
+  emailContacto?: InputMaybe<Scalars['String']>;
+  ruc?: InputMaybe<Scalars['String']>;
+  departamento?: InputMaybe<Scalars['String']>;
+  provincia?: InputMaybe<Scalars['String']>;
+  distrito?: InputMaybe<Scalars['String']>;
+};
 
 export type DatosTarjetaInput = {
-  installments?: InputMaybe<Scalars['Int']>
-  payment_method_id?: InputMaybe<Scalars['String']>
-  source_id?: InputMaybe<Scalars['String']>
-  tipo_tarjeta?: InputMaybe<Scalars['Int']>
-  type_save?: InputMaybe<Scalars['Int']>
-}
+  type_save?: InputMaybe<Scalars['Int']>;
+  source_id?: InputMaybe<Scalars['String']>;
+  installments?: InputMaybe<Scalars['Int']>;
+  payment_method_id?: InputMaybe<Scalars['String']>;
+  tipo_tarjeta?: InputMaybe<Scalars['Int']>;
+};
 
 export type Departamento = {
-  __typename?: 'Departamento'
-  DeparCodi?: Maybe<Scalars['ID']>
-  DeparNom?: Maybe<Scalars['String']>
-}
+  __typename?: 'Departamento';
+  DeparCodi?: Maybe<Scalars['ID']>;
+  DeparNom?: Maybe<Scalars['String']>;
+};
 
 export type DetallePedido = {
-  __typename?: 'DetallePedido'
-  cantidad?: Maybe<Scalars['Int']>
-  detallePedidoId?: Maybe<Scalars['ID']>
-  imagenPrincipal?: Maybe<Scalars['String']>
-  pedidoId?: Maybe<Scalars['Int']>
-  precio?: Maybe<Scalars['Float']>
-  productoId?: Maybe<Scalars['Int']>
-  titulo?: Maybe<Scalars['String']>
-  total?: Maybe<Scalars['Float']>
-}
+  __typename?: 'DetallePedido';
+  detallePedidoId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Scalars['String']>;
+  cantidad?: Maybe<Scalars['Int']>;
+  precio?: Maybe<Scalars['Float']>;
+  total?: Maybe<Scalars['Float']>;
+  pedidoId?: Maybe<Scalars['Int']>;
+  productoId?: Maybe<Scalars['Int']>;
+};
 
 export type DetallePedidoInput = {
-  cantidad?: InputMaybe<Scalars['Int']>
-  detallePedidoId?: InputMaybe<Scalars['ID']>
-  imagenPrincipal?: InputMaybe<Scalars['String']>
-  pedidoId?: InputMaybe<Scalars['Int']>
-  precio?: InputMaybe<Scalars['Float']>
-  productoId?: InputMaybe<Scalars['Int']>
-  titulo?: InputMaybe<Scalars['String']>
-  total?: InputMaybe<Scalars['Float']>
-}
+  detallePedidoId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['String']>;
+  cantidad?: InputMaybe<Scalars['Int']>;
+  precio?: InputMaybe<Scalars['Float']>;
+  total?: InputMaybe<Scalars['Float']>;
+  pedidoId?: InputMaybe<Scalars['Int']>;
+  productoId?: InputMaybe<Scalars['Int']>;
+};
 
 export type DireccionEnvio = {
-  __typename?: 'DireccionEnvio'
-  DeparCodi?: Maybe<Scalars['Int']>
-  DistCodi?: Maybe<Scalars['Int']>
-  ProvCodi?: Maybe<Scalars['Int']>
-  celular?: Maybe<Scalars['String']>
-  direccion?: Maybe<Scalars['String']>
-  direccionEnvioId?: Maybe<Scalars['ID']>
-  email?: Maybe<Scalars['String']>
-  nombreAgencia?: Maybe<Scalars['String']>
-  pedidoId?: Maybe<Scalars['Int']>
-}
+  __typename?: 'DireccionEnvio';
+  direccionEnvioId?: Maybe<Scalars['ID']>;
+  email?: Maybe<Scalars['String']>;
+  celular?: Maybe<Scalars['String']>;
+  DeparCodi?: Maybe<Scalars['Int']>;
+  ProvCodi?: Maybe<Scalars['Int']>;
+  DistCodi?: Maybe<Scalars['Int']>;
+  direccion?: Maybe<Scalars['String']>;
+  nombreAgencia?: Maybe<Scalars['String']>;
+  pedidoId?: Maybe<Scalars['Int']>;
+};
 
 export type DireccionEnvioInput = {
-  DeparCodi?: InputMaybe<Scalars['Int']>
-  DistCodi?: InputMaybe<Scalars['Int']>
-  ProvCodi?: InputMaybe<Scalars['Int']>
-  celular?: InputMaybe<Scalars['String']>
-  direccion?: InputMaybe<Scalars['String']>
-  direccionEnvioId?: InputMaybe<Scalars['ID']>
-  email?: InputMaybe<Scalars['String']>
-  nombreAgencia?: InputMaybe<Scalars['String']>
-}
+  direccionEnvioId?: InputMaybe<Scalars['ID']>;
+  email?: InputMaybe<Scalars['String']>;
+  celular?: InputMaybe<Scalars['String']>;
+  DeparCodi?: InputMaybe<Scalars['Int']>;
+  ProvCodi?: InputMaybe<Scalars['Int']>;
+  DistCodi?: InputMaybe<Scalars['Int']>;
+  direccion?: InputMaybe<Scalars['String']>;
+  nombreAgencia?: InputMaybe<Scalars['String']>;
+};
 
 export type DireccionUsuario = {
-  __typename?: 'DireccionUsuario'
-  DeparCodi?: Maybe<Scalars['Int']>
-  DeparNom?: Maybe<Scalars['String']>
-  DistCodi?: Maybe<Scalars['Int']>
-  DistNom?: Maybe<Scalars['String']>
-  ProvCodi?: Maybe<Scalars['Int']>
-  ProvNom?: Maybe<Scalars['String']>
-  alias?: Maybe<Scalars['String']>
-  created_at?: Maybe<Scalars['DateTime']>
-  direccion?: Maybe<Scalars['String']>
-  direccionUsuarioId?: Maybe<Scalars['Int']>
-  nombreAgencia?: Maybe<Scalars['String']>
-  tipoDireccion?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-  usuarioId?: Maybe<Scalars['Int']>
-}
+  __typename?: 'DireccionUsuario';
+  direccionUsuarioId?: Maybe<Scalars['Int']>;
+  tipoDireccion?: Maybe<Scalars['String']>;
+  DeparCodi?: Maybe<Scalars['Int']>;
+  DeparNom?: Maybe<Scalars['String']>;
+  ProvCodi?: Maybe<Scalars['Int']>;
+  ProvNom?: Maybe<Scalars['String']>;
+  DistCodi?: Maybe<Scalars['Int']>;
+  DistNom?: Maybe<Scalars['String']>;
+  nombreAgencia?: Maybe<Scalars['String']>;
+  direccion?: Maybe<Scalars['String']>;
+  alias?: Maybe<Scalars['String']>;
+  usuarioId?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type DireccionUsuarioInput = {
-  DeparCodi?: InputMaybe<Scalars['Int']>
-  DistCodi?: InputMaybe<Scalars['Int']>
-  ProvCodi?: InputMaybe<Scalars['Int']>
-  alias?: InputMaybe<Scalars['String']>
-  direccion?: InputMaybe<Scalars['String']>
-  direccionUsuarioId?: InputMaybe<Scalars['Int']>
-  nombreAgencia?: InputMaybe<Scalars['String']>
-  tipoDireccion?: InputMaybe<Scalars['String']>
-  usuarioId?: InputMaybe<Scalars['Int']>
-}
+  direccionUsuarioId?: InputMaybe<Scalars['Int']>;
+  tipoDireccion?: InputMaybe<Scalars['String']>;
+  DeparCodi?: InputMaybe<Scalars['Int']>;
+  ProvCodi?: InputMaybe<Scalars['Int']>;
+  DistCodi?: InputMaybe<Scalars['Int']>;
+  nombreAgencia?: InputMaybe<Scalars['String']>;
+  direccion?: InputMaybe<Scalars['String']>;
+  alias?: InputMaybe<Scalars['String']>;
+  usuarioId?: InputMaybe<Scalars['Int']>;
+};
 
 export type Distrito = {
-  __typename?: 'Distrito'
-  DistCodi?: Maybe<Scalars['ID']>
-  DistNom?: Maybe<Scalars['String']>
-  ProvCodi?: Maybe<Scalars['Int']>
-  estado?: Maybe<Scalars['String']>
-  precioEnvio?: Maybe<Scalars['Float']>
-}
+  __typename?: 'Distrito';
+  DistCodi?: Maybe<Scalars['ID']>;
+  DistNom?: Maybe<Scalars['String']>;
+  ProvCodi?: Maybe<Scalars['Int']>;
+  precioEnvio?: Maybe<Scalars['Float']>;
+  estado?: Maybe<Scalars['String']>;
+};
 
 export type DistritoInput = {
-  DistCodi?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-  precioEnvio?: InputMaybe<Scalars['Float']>
-}
+  DistCodi?: InputMaybe<Scalars['ID']>;
+  precioEnvio?: InputMaybe<Scalars['Float']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type EfectivoMovil = {
-  __typename?: 'EfectivoMovil'
-  created_at?: Maybe<Scalars['DateTime']>
-  efectivoMovilId?: Maybe<Scalars['ID']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  imagenQr?: Maybe<Imagenes>
-  numeroCelular?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'EfectivoMovil';
+  efectivoMovilId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  imagenQr?: Maybe<Imagenes>;
+  numeroCelular?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type EfectivoMovilInput = {
-  efectivoMovilId?: InputMaybe<Scalars['ID']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  imagenQr?: InputMaybe<Scalars['Int']>
-  numeroCelular?: InputMaybe<Scalars['String']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  efectivoMovilId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+  imagenQr?: InputMaybe<Scalars['Int']>;
+  numeroCelular?: InputMaybe<Scalars['String']>;
+};
 
 export type Filtros = {
-  __typename?: 'Filtros'
-  categorias?: Maybe<Array<Scalars['String']>>
-  precios?: Maybe<Array<Scalars['Float']>>
-}
+  __typename?: 'Filtros';
+  categorias?: Maybe<Array<Scalars['String']>>;
+  precios?: Maybe<Array<Scalars['Float']>>;
+};
 
 export type GetAllBancos = {
-  __typename?: 'GetAllBancos'
-  data?: Maybe<Array<Banco>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllBancos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Banco>>;
+};
 
 export type GetAllBlogs = {
-  __typename?: 'GetAllBlogs'
-  data?: Maybe<Array<Blog>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllBlogs';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Blog>>;
+};
 
 export type GetAllCategoriaBlogs = {
-  __typename?: 'GetAllCategoriaBlogs'
-  data?: Maybe<Array<CategoriaBlog>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllCategoriaBlogs';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<CategoriaBlog>>;
+};
 
 export type GetAllCategoriaProductos = {
-  __typename?: 'GetAllCategoriaProductos'
-  data?: Maybe<Array<CategoriaProducto>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllCategoriaProductos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<CategoriaProducto>>;
+};
 
 export type GetAllContactos = {
-  __typename?: 'GetAllContactos'
-  data?: Maybe<Array<Contacto>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllContactos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Contacto>>;
+};
 
 export type GetAllDireccionesUsuarios = {
-  __typename?: 'GetAllDireccionesUsuarios'
-  data?: Maybe<Array<DireccionUsuario>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllDireccionesUsuarios';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<DireccionUsuario>>;
+};
 
 export type GetAllEfectivoMovil = {
-  __typename?: 'GetAllEfectivoMovil'
-  data?: Maybe<Array<EfectivoMovil>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllEfectivoMovil';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<EfectivoMovil>>;
+};
 
 export type GetAllNotificacionPedidos = {
-  __typename?: 'GetAllNotificacionPedidos'
-  data?: Maybe<Array<Maybe<NotificacionPedido>>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllNotificacionPedidos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Maybe<NotificacionPedido>>>;
+};
 
 export type GetAllPedidos = {
-  __typename?: 'GetAllPedidos'
-  data?: Maybe<Array<Pedido>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllPedidos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Pedido>>;
+};
 
 export type GetAllProductos = {
-  __typename?: 'GetAllProductos'
-  data?: Maybe<Array<Producto>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllProductos';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Producto>>;
+};
 
 export type GetAllSliders = {
-  __typename?: 'GetAllSliders'
-  data?: Maybe<Array<Slider>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllSliders';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Slider>>;
+};
 
 export type GetAllVendedoras = {
-  __typename?: 'GetAllVendedoras'
-  data?: Maybe<Array<Vendedora>>
-  numeroTotal?: Maybe<Scalars['Int']>
-}
+  __typename?: 'GetAllVendedoras';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Vendedora>>;
+};
 
 export type GetDatosAdicionalesPedido = {
-  __typename?: 'GetDatosAdicionalesPedido'
-  DireccionEnvio?: Maybe<DireccionEnvio>
-  Recibo?: Maybe<Recibo>
-  User?: Maybe<User>
-}
+  __typename?: 'GetDatosAdicionalesPedido';
+  DireccionEnvio?: Maybe<DireccionEnvio>;
+  Recibo?: Maybe<Recibo>;
+  User?: Maybe<User>;
+};
 
 export type Imagenes = {
-  __typename?: 'Imagenes'
-  estado?: Maybe<Scalars['String']>
-  id?: Maybe<Scalars['ID']>
-  titulo?: Maybe<Scalars['String']>
-  url?: Maybe<Scalars['String']>
-}
+  __typename?: 'Imagenes';
+  id?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
 
 export type LoginInput = {
-  email?: InputMaybe<Scalars['String']>
-  password?: InputMaybe<Scalars['String']>
-}
+  email?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+};
 
 export type Mutation = {
-  __typename?: 'Mutation'
-  AsignarDatosEmpresa: DatosEmpresa
-  CreateBancos: Banco
-  CreateBlog: Blog
-  CreateCategoriaBlog: CategoriaBlog
-  CreateCategoriaProducto: CategoriaProducto
-  CreateContactos: Contacto
-  CreateDireccionUsuario: DireccionUsuario
-  CreateEfectivoMovil: EfectivoMovil
-  CreateImagen: Scalars['String']
-  CreatePedido: Pedido
-  CreatePrecioEnvioDistrito: Distrito
-  CreateProducto: Producto
-  CreateSlider: Slider
-  CreateUsuario: User
-  CreateVendedora: Vendedora
-  DeleteBancos: Scalars['String']
-  DeleteBlog: Scalars['String']
-  DeleteCategoriaBlog: Scalars['String']
-  DeleteCategoriaProducto: Scalars['String']
-  DeleteDireccionUsuario: Scalars['String']
-  DeleteEfectivoMovil: Scalars['String']
-  DeleteImagen: Scalars['String']
-  DeleteProducto: Scalars['String']
-  DeleteSlider: Scalars['String']
-  DeleteVendedora: Scalars['String']
-  Login: User
-  RecoverPasswordUsuario: User
-  UpdateBancos: Banco
-  UpdateCategoriaBlog: CategoriaBlog
-  UpdateCategoriaProducto: CategoriaProducto
-  UpdateDestacadoBlog: Blog
-  UpdateDestacadoProducto: Producto
-  UpdateDireccionUsuario: DireccionUsuario
-  UpdateEfectivoMovil: EfectivoMovil
-  UpdateEstadoBanco: Banco
-  UpdateEstadoBlog: Blog
-  UpdateEstadoCategoriaBlog: CategoriaBlog
-  UpdateEstadoCategoriaProducto: CategoriaProducto
-  UpdateEstadoContacto: Contacto
-  UpdateEstadoDistrito: Distrito
-  UpdateEstadoEfectivoMovil: EfectivoMovil
-  UpdateEstadoPedido: Pedido
-  UpdateEstadoProducto: Producto
-  UpdateEstadoSlider: Slider
-  UpdateEstadoVendedora: Vendedora
-  UpdateImagen: Imagenes
-  UpdatePasswordUsuario: User
-  UpdateProducto: Producto
-  UpdateSlider: Slider
-  UpdateUsuario: User
-  UpdateVendedora: Vendedora
-  UpdateVistoNotificacionPedido: NotificacionPedido
-  UpdateVistoPedido: Pedido
-  UploadVoucher: Pedido
-  updateBlog: Blog
-}
+  __typename?: 'Mutation';
+  CreatePrecioEnvioDistrito: Distrito;
+  UpdateEstadoDistrito: Distrito;
+  CreateImagen: Scalars['String'];
+  UpdateImagen: Imagenes;
+  DeleteImagen: Scalars['String'];
+  CreateSlider: Slider;
+  UpdateSlider: Slider;
+  UpdateEstadoSlider: Slider;
+  DeleteSlider: Scalars['String'];
+  CreateVendedora: Vendedora;
+  UpdateVendedora: Vendedora;
+  UpdateEstadoVendedora: Vendedora;
+  DeleteVendedora: Scalars['String'];
+  CreateBancos: Banco;
+  UpdateBancos: Banco;
+  UpdateEstadoBanco: Banco;
+  DeleteBancos: Scalars['String'];
+  CreateContactos: Contacto;
+  UpdateEstadoContacto: Contacto;
+  CreateEfectivoMovil: EfectivoMovil;
+  UpdateEfectivoMovil: EfectivoMovil;
+  UpdateEstadoEfectivoMovil: EfectivoMovil;
+  DeleteEfectivoMovil: Scalars['String'];
+  CreateCategoriaBlog: CategoriaBlog;
+  UpdateCategoriaBlog: CategoriaBlog;
+  UpdateEstadoCategoriaBlog: CategoriaBlog;
+  DeleteCategoriaBlog: Scalars['String'];
+  CreateBlog: Blog;
+  updateBlog: Blog;
+  UpdateEstadoBlog: Blog;
+  UpdateDestacadoBlog: Blog;
+  DeleteBlog: Scalars['String'];
+  CreateCategoriaProducto: CategoriaProducto;
+  UpdateCategoriaProducto: CategoriaProducto;
+  UpdateEstadoCategoriaProducto: CategoriaProducto;
+  DeleteCategoriaProducto: Scalars['String'];
+  CreateProducto: Producto;
+  UpdateProducto: Producto;
+  UpdateEstadoProducto: Producto;
+  UpdateDestacadoProducto: Producto;
+  DeleteProducto: Scalars['String'];
+  CreatePedido: Pedido;
+  UpdateEstadoPedido: Pedido;
+  UpdateVistoPedido: Pedido;
+  UploadVoucher: Pedido;
+  UpdateVistoNotificacionPedido: NotificacionPedido;
+  CreateUsuario: User;
+  UpdateUsuario: User;
+  UpdatePasswordUsuario: User;
+  RecoverPasswordUsuario: User;
+  Login: User;
+  CreateDireccionUsuario: DireccionUsuario;
+  UpdateDireccionUsuario: DireccionUsuario;
+  DeleteDireccionUsuario: Scalars['String'];
+  AsignarDatosEmpresa: DatosEmpresa;
+};
 
-export type MutationAsignarDatosEmpresaArgs = {
-  input: DatosEmpresaInput
-  logo?: InputMaybe<Scalars['Upload']>
-}
-
-export type MutationCreateBancosArgs = {
-  input?: InputMaybe<BancoInput>
-}
-
-export type MutationCreateBlogArgs = {
-  input: BlogInput
-}
-
-export type MutationCreateCategoriaBlogArgs = {
-  input: CategoriaBlogInput
-}
-
-export type MutationCreateCategoriaProductoArgs = {
-  input: CategoriaProductoInput
-}
-
-export type MutationCreateContactosArgs = {
-  input?: InputMaybe<ContactoInput>
-}
-
-export type MutationCreateDireccionUsuarioArgs = {
-  input: DireccionUsuarioInput
-}
-
-export type MutationCreateEfectivoMovilArgs = {
-  input?: InputMaybe<EfectivoMovilInput>
-}
-
-export type MutationCreateImagenArgs = {
-  imagen: Scalars['Upload']
-}
-
-export type MutationCreatePedidoArgs = {
-  input1: PedidoInput
-  input2?: InputMaybe<Array<DetallePedidoInput>>
-  input3: ReciboInput
-  input4: DireccionEnvioInput
-  input5?: InputMaybe<DatosTarjetaInput>
-  voucher?: InputMaybe<Scalars['Upload']>
-}
 
 export type MutationCreatePrecioEnvioDistritoArgs = {
-  input: DistritoInput
-}
+  input: DistritoInput;
+};
 
-export type MutationCreateProductoArgs = {
-  input: ProductoInput
-}
-
-export type MutationCreateSliderArgs = {
-  input: SliderInput
-}
-
-export type MutationCreateUsuarioArgs = {
-  input: UserInput
-  photo?: InputMaybe<Scalars['Upload']>
-}
-
-export type MutationCreateVendedoraArgs = {
-  input: VendedoraInput
-}
-
-export type MutationDeleteBancosArgs = {
-  bancoId: Scalars['Int']
-}
-
-export type MutationDeleteBlogArgs = {
-  blogId: Scalars['Int']
-}
-
-export type MutationDeleteCategoriaBlogArgs = {
-  categoriaBlogId: Scalars['Int']
-}
-
-export type MutationDeleteCategoriaProductoArgs = {
-  categoriaProductoId: Scalars['Int']
-}
-
-export type MutationDeleteDireccionUsuarioArgs = {
-  direccionUsuarioId: Scalars['Int']
-}
-
-export type MutationDeleteEfectivoMovilArgs = {
-  efectivoMovilId: Scalars['Int']
-}
-
-export type MutationDeleteImagenArgs = {
-  id: Scalars['Int']
-}
-
-export type MutationDeleteProductoArgs = {
-  productoId: Scalars['Int']
-}
-
-export type MutationDeleteSliderArgs = {
-  sliderId: Scalars['Int']
-}
-
-export type MutationDeleteVendedoraArgs = {
-  vendedoraId: Scalars['Int']
-}
-
-export type MutationLoginArgs = {
-  input: LoginInput
-}
-
-export type MutationRecoverPasswordUsuarioArgs = {
-  input: UserInput
-}
-
-export type MutationUpdateBancosArgs = {
-  input?: InputMaybe<BancoInput>
-}
-
-export type MutationUpdateCategoriaBlogArgs = {
-  input: CategoriaBlogInput
-}
-
-export type MutationUpdateCategoriaProductoArgs = {
-  input: CategoriaProductoInput
-}
-
-export type MutationUpdateDestacadoBlogArgs = {
-  input: UpdateDestacadoBlogInput
-}
-
-export type MutationUpdateDestacadoProductoArgs = {
-  input: UpdateDestacadoProductoInput
-}
-
-export type MutationUpdateDireccionUsuarioArgs = {
-  input: DireccionUsuarioInput
-}
-
-export type MutationUpdateEfectivoMovilArgs = {
-  input?: InputMaybe<EfectivoMovilInput>
-}
-
-export type MutationUpdateEstadoBancoArgs = {
-  input?: InputMaybe<UpdateEstadoBancoInput>
-}
-
-export type MutationUpdateEstadoBlogArgs = {
-  input: UpdateEstadoBlogInput
-}
-
-export type MutationUpdateEstadoCategoriaBlogArgs = {
-  input: UpdateEstadoCategoriaBlogInput
-}
-
-export type MutationUpdateEstadoCategoriaProductoArgs = {
-  input: UpdateEstadoCategoriaProductoInput
-}
-
-export type MutationUpdateEstadoContactoArgs = {
-  input?: InputMaybe<UpdateEstadoContactoInput>
-}
 
 export type MutationUpdateEstadoDistritoArgs = {
-  input: DistritoInput
-}
+  input: DistritoInput;
+};
 
-export type MutationUpdateEstadoEfectivoMovilArgs = {
-  input?: InputMaybe<UpdateEstadoEfectivoMovilInput>
-}
 
-export type MutationUpdateEstadoPedidoArgs = {
-  input: UpdateEstadoPedidoInput
-}
+export type MutationCreateImagenArgs = {
+  imagen: Scalars['Upload'];
+};
 
-export type MutationUpdateEstadoProductoArgs = {
-  input: UpdateEstadoProductoInput
-}
-
-export type MutationUpdateEstadoSliderArgs = {
-  input?: InputMaybe<UpdateEstadoSliderInput>
-}
-
-export type MutationUpdateEstadoVendedoraArgs = {
-  input?: InputMaybe<UpdateEstadoVendedoraInput>
-}
 
 export type MutationUpdateImagenArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  id?: InputMaybe<Scalars['Int']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  titulo?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
-export type MutationUpdatePasswordUsuarioArgs = {
-  input: UpdatePasswordInput
-}
 
-export type MutationUpdateProductoArgs = {
-  input: ProductoInput
-}
+export type MutationDeleteImagenArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type MutationCreateSliderArgs = {
+  input: SliderInput;
+};
+
 
 export type MutationUpdateSliderArgs = {
-  input?: InputMaybe<SliderInput>
-}
+  input?: InputMaybe<SliderInput>;
+};
 
-export type MutationUpdateUsuarioArgs = {
-  input?: InputMaybe<UserInput>
-  photo?: InputMaybe<Scalars['Upload']>
-}
+
+export type MutationUpdateEstadoSliderArgs = {
+  input?: InputMaybe<UpdateEstadoSliderInput>;
+};
+
+
+export type MutationDeleteSliderArgs = {
+  sliderId: Scalars['Int'];
+};
+
+
+export type MutationCreateVendedoraArgs = {
+  input: VendedoraInput;
+};
+
 
 export type MutationUpdateVendedoraArgs = {
-  input?: InputMaybe<VendedoraInput>
-}
+  input?: InputMaybe<VendedoraInput>;
+};
 
-export type MutationUpdateVistoNotificacionPedidoArgs = {
-  input: UpdateVistoNotificacionPedidoInput
-}
 
-export type MutationUpdateVistoPedidoArgs = {
-  input: UpdateVistoPedidoInput
-}
+export type MutationUpdateEstadoVendedoraArgs = {
+  input?: InputMaybe<UpdateEstadoVendedoraInput>;
+};
 
-export type MutationUploadVoucherArgs = {
-  idPedido: Scalars['Int']
-  voucher?: InputMaybe<Scalars['Upload']>
-}
+
+export type MutationDeleteVendedoraArgs = {
+  vendedoraId: Scalars['Int'];
+};
+
+
+export type MutationCreateBancosArgs = {
+  input?: InputMaybe<BancoInput>;
+};
+
+
+export type MutationUpdateBancosArgs = {
+  input?: InputMaybe<BancoInput>;
+};
+
+
+export type MutationUpdateEstadoBancoArgs = {
+  input?: InputMaybe<UpdateEstadoBancoInput>;
+};
+
+
+export type MutationDeleteBancosArgs = {
+  bancoId: Scalars['Int'];
+};
+
+
+export type MutationCreateContactosArgs = {
+  input?: InputMaybe<ContactoInput>;
+};
+
+
+export type MutationUpdateEstadoContactoArgs = {
+  input?: InputMaybe<UpdateEstadoContactoInput>;
+};
+
+
+export type MutationCreateEfectivoMovilArgs = {
+  input?: InputMaybe<EfectivoMovilInput>;
+};
+
+
+export type MutationUpdateEfectivoMovilArgs = {
+  input?: InputMaybe<EfectivoMovilInput>;
+};
+
+
+export type MutationUpdateEstadoEfectivoMovilArgs = {
+  input?: InputMaybe<UpdateEstadoEfectivoMovilInput>;
+};
+
+
+export type MutationDeleteEfectivoMovilArgs = {
+  efectivoMovilId: Scalars['Int'];
+};
+
+
+export type MutationCreateCategoriaBlogArgs = {
+  input: CategoriaBlogInput;
+};
+
+
+export type MutationUpdateCategoriaBlogArgs = {
+  input: CategoriaBlogInput;
+};
+
+
+export type MutationUpdateEstadoCategoriaBlogArgs = {
+  input: UpdateEstadoCategoriaBlogInput;
+};
+
+
+export type MutationDeleteCategoriaBlogArgs = {
+  categoriaBlogId: Scalars['Int'];
+};
+
+
+export type MutationCreateBlogArgs = {
+  input: BlogInput;
+};
+
 
 export type MutationUpdateBlogArgs = {
-  input: BlogInput
-}
+  input: BlogInput;
+};
+
+
+export type MutationUpdateEstadoBlogArgs = {
+  input: UpdateEstadoBlogInput;
+};
+
+
+export type MutationUpdateDestacadoBlogArgs = {
+  input: UpdateDestacadoBlogInput;
+};
+
+
+export type MutationDeleteBlogArgs = {
+  blogId: Scalars['Int'];
+};
+
+
+export type MutationCreateCategoriaProductoArgs = {
+  input: CategoriaProductoInput;
+};
+
+
+export type MutationUpdateCategoriaProductoArgs = {
+  input: CategoriaProductoInput;
+};
+
+
+export type MutationUpdateEstadoCategoriaProductoArgs = {
+  input: UpdateEstadoCategoriaProductoInput;
+};
+
+
+export type MutationDeleteCategoriaProductoArgs = {
+  categoriaProductoId: Scalars['Int'];
+};
+
+
+export type MutationCreateProductoArgs = {
+  input: ProductoInput;
+};
+
+
+export type MutationUpdateProductoArgs = {
+  input: ProductoInput;
+};
+
+
+export type MutationUpdateEstadoProductoArgs = {
+  input: UpdateEstadoProductoInput;
+};
+
+
+export type MutationUpdateDestacadoProductoArgs = {
+  input: UpdateDestacadoProductoInput;
+};
+
+
+export type MutationDeleteProductoArgs = {
+  productoId: Scalars['Int'];
+};
+
+
+export type MutationCreatePedidoArgs = {
+  input1: PedidoInput;
+  input2?: InputMaybe<Array<DetallePedidoInput>>;
+  input3: ReciboInput;
+  voucher?: InputMaybe<Scalars['Upload']>;
+  input4: DireccionEnvioInput;
+  input5?: InputMaybe<DatosTarjetaInput>;
+};
+
+
+export type MutationUpdateEstadoPedidoArgs = {
+  input: UpdateEstadoPedidoInput;
+};
+
+
+export type MutationUpdateVistoPedidoArgs = {
+  input: UpdateVistoPedidoInput;
+};
+
+
+export type MutationUploadVoucherArgs = {
+  idPedido: Scalars['Int'];
+  voucher?: InputMaybe<Scalars['Upload']>;
+};
+
+
+export type MutationUpdateVistoNotificacionPedidoArgs = {
+  input: UpdateVistoNotificacionPedidoInput;
+};
+
+
+export type MutationCreateUsuarioArgs = {
+  input: UserInput;
+  photo?: InputMaybe<Scalars['Upload']>;
+};
+
+
+export type MutationUpdateUsuarioArgs = {
+  input?: InputMaybe<UserInput>;
+  photo?: InputMaybe<Scalars['Upload']>;
+};
+
+
+export type MutationUpdatePasswordUsuarioArgs = {
+  input: UpdatePasswordInput;
+};
+
+
+export type MutationRecoverPasswordUsuarioArgs = {
+  input: UserInput;
+};
+
+
+export type MutationLoginArgs = {
+  input: LoginInput;
+};
+
+
+export type MutationCreateDireccionUsuarioArgs = {
+  input: DireccionUsuarioInput;
+};
+
+
+export type MutationUpdateDireccionUsuarioArgs = {
+  input: DireccionUsuarioInput;
+};
+
+
+export type MutationDeleteDireccionUsuarioArgs = {
+  direccionUsuarioId: Scalars['Int'];
+};
+
+
+export type MutationAsignarDatosEmpresaArgs = {
+  input: DatosEmpresaInput;
+  logo?: InputMaybe<Scalars['Upload']>;
+};
 
 export type NotificacionComentarioBlog = {
-  __typename?: 'NotificacionComentarioBlog'
-  Blog?: Maybe<Blog>
-  blogId?: Maybe<Scalars['Int']>
-  created_at?: Maybe<Scalars['DateTime']>
-  estado?: Maybe<Scalars['String']>
-  notificacionComentarioBlogId?: Maybe<Scalars['ID']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'NotificacionComentarioBlog';
+  notificacionComentarioBlogId?: Maybe<Scalars['ID']>;
+  estado?: Maybe<Scalars['String']>;
+  blogId?: Maybe<Scalars['Int']>;
+  Blog?: Maybe<Blog>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type NotificacionComentarioBlogInput = {
-  blogId?: InputMaybe<Scalars['Int']>
-  estado?: InputMaybe<Scalars['String']>
-  id?: InputMaybe<Scalars['ID']>
-}
+  id?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+  blogId?: InputMaybe<Scalars['Int']>;
+};
 
 export type NotificacionPedido = {
-  __typename?: 'NotificacionPedido'
-  created_at?: Maybe<Scalars['DateTime']>
-  notificacionPedidoId?: Maybe<Scalars['Int']>
-  pedidoId?: Maybe<Scalars['Int']>
-  visto?: Maybe<Scalars['Int']>
-}
+  __typename?: 'NotificacionPedido';
+  notificacionPedidoId?: Maybe<Scalars['Int']>;
+  visto?: Maybe<Scalars['Int']>;
+  pedidoId?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['DateTime']>;
+};
 
 /** Allows ordering a list of records. */
 export type OrderByClause = {
   /** The column that is used for ordering. */
-  field: Scalars['String']
+  field: Scalars['String'];
   /** The direction that is used for ordering. */
-  order: SortOrder
-}
+  order: SortOrder;
+};
 
 /** Pagination information about the corresponding list of items. */
 export type PageInfo = {
-  __typename?: 'PageInfo'
-  /** Count of nodes in current request. */
-  count?: Maybe<Scalars['Int']>
-  /** Current page of request. */
-  currentPage?: Maybe<Scalars['Int']>
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']>
+  __typename?: 'PageInfo';
   /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']
+  hasNextPage: Scalars['Boolean'];
   /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']
-  /** Last page in connection. */
-  lastPage?: Maybe<Scalars['Int']>
+  hasPreviousPage: Scalars['Boolean'];
   /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']>
+  startCursor?: Maybe<Scalars['String']>;
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']>;
   /** Total number of node in connection. */
-  total?: Maybe<Scalars['Int']>
-}
+  total?: Maybe<Scalars['Int']>;
+  /** Count of nodes in current request. */
+  count?: Maybe<Scalars['Int']>;
+  /** Current page of request. */
+  currentPage?: Maybe<Scalars['Int']>;
+  /** Last page in connection. */
+  lastPage?: Maybe<Scalars['Int']>;
+};
 
 /** Pagination information about the corresponding list of items. */
 export type PaginatorInfo = {
-  __typename?: 'PaginatorInfo'
+  __typename?: 'PaginatorInfo';
   /** Total count of available items in the page. */
-  count: Scalars['Int']
+  count: Scalars['Int'];
   /** Current pagination page. */
-  currentPage: Scalars['Int']
+  currentPage: Scalars['Int'];
   /** Index of first item in the current page. */
-  firstItem?: Maybe<Scalars['Int']>
+  firstItem?: Maybe<Scalars['Int']>;
   /** If collection has more pages. */
-  hasMorePages: Scalars['Boolean']
+  hasMorePages: Scalars['Boolean'];
   /** Index of last item in the current page. */
-  lastItem?: Maybe<Scalars['Int']>
+  lastItem?: Maybe<Scalars['Int']>;
   /** Last page number of the collection. */
-  lastPage: Scalars['Int']
+  lastPage: Scalars['Int'];
   /** Number of items per page in the collection. */
-  perPage: Scalars['Int']
+  perPage: Scalars['Int'];
   /** Total items available in the collection. */
-  total: Scalars['Int']
-}
+  total: Scalars['Int'];
+};
 
 export type Pedido = {
-  __typename?: 'Pedido'
-  DetallePedido?: Maybe<Array<DetallePedido>>
-  DireccionEnvio?: Maybe<DireccionEnvio>
-  Recibo?: Maybe<Recibo>
-  Usuario?: Maybe<User>
-  direccionEnvio?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  fechaPedido?: Maybe<Scalars['DateTime']>
-  medioPago?: Maybe<Scalars['String']>
-  numeroOperacion?: Maybe<Scalars['String']>
-  pedidoId?: Maybe<Scalars['ID']>
-  precioEnvio?: Maybe<Scalars['Float']>
-  precioTotal?: Maybe<Scalars['Float']>
-  ticketPdf?: Maybe<Scalars['String']>
-  tipoEnvio?: Maybe<Scalars['String']>
-  tipoPago?: Maybe<Scalars['Int']>
-  tipoVenta?: Maybe<Scalars['String']>
-  usuarioId?: Maybe<Scalars['Int']>
-  visto?: Maybe<Scalars['Int']>
-  voucher?: Maybe<Scalars['String']>
-}
+  __typename?: 'Pedido';
+  pedidoId?: Maybe<Scalars['ID']>;
+  fechaPedido?: Maybe<Scalars['DateTime']>;
+  estado?: Maybe<Scalars['String']>;
+  visto?: Maybe<Scalars['Int']>;
+  tipoPago?: Maybe<Scalars['Int']>;
+  tipoVenta?: Maybe<Scalars['String']>;
+  medioPago?: Maybe<Scalars['String']>;
+  numeroOperacion?: Maybe<Scalars['String']>;
+  tipoEnvio?: Maybe<Scalars['String']>;
+  precioEnvio?: Maybe<Scalars['Float']>;
+  precioTotal?: Maybe<Scalars['Float']>;
+  voucher?: Maybe<Scalars['String']>;
+  ticketPdf?: Maybe<Scalars['String']>;
+  direccionEnvio?: Maybe<Scalars['String']>;
+  usuarioId?: Maybe<Scalars['Int']>;
+  Usuario?: Maybe<User>;
+  DetallePedido?: Maybe<Array<DetallePedido>>;
+  DireccionEnvio?: Maybe<DireccionEnvio>;
+  Recibo?: Maybe<Recibo>;
+};
 
 export type PedidoInput = {
-  direccionEnvio?: InputMaybe<Scalars['String']>
-  estado?: InputMaybe<Scalars['String']>
-  fechaPedido?: InputMaybe<Scalars['Date']>
-  medioPago?: InputMaybe<Scalars['String']>
-  numeroOperacion?: InputMaybe<Scalars['String']>
-  pedidoId?: InputMaybe<Scalars['ID']>
-  precioEnvio?: InputMaybe<Scalars['Float']>
-  precioTotal?: InputMaybe<Scalars['Float']>
-  tipoEnvio?: InputMaybe<Scalars['Int']>
-  tipoPago?: InputMaybe<Scalars['Int']>
-  tipoVenta?: InputMaybe<Scalars['String']>
-  visto?: InputMaybe<Scalars['Int']>
-}
+  pedidoId?: InputMaybe<Scalars['ID']>;
+  fechaPedido?: InputMaybe<Scalars['Date']>;
+  estado?: InputMaybe<Scalars['String']>;
+  visto?: InputMaybe<Scalars['Int']>;
+  tipoPago?: InputMaybe<Scalars['Int']>;
+  tipoVenta?: InputMaybe<Scalars['String']>;
+  medioPago?: InputMaybe<Scalars['String']>;
+  numeroOperacion?: InputMaybe<Scalars['String']>;
+  tipoEnvio?: InputMaybe<Scalars['Int']>;
+  precioEnvio?: InputMaybe<Scalars['Float']>;
+  precioTotal?: InputMaybe<Scalars['Float']>;
+  direccionEnvio?: InputMaybe<Scalars['String']>;
+};
 
 export type Producto = {
-  __typename?: 'Producto'
-  CategoriaProducto?: Maybe<CategoriaProducto>
-  categoriaProductoId?: Maybe<Scalars['Int']>
-  created_at?: Maybe<Scalars['DateTime']>
-  descripcionCorta?: Maybe<Scalars['String']>
-  descripcionLarga?: Maybe<Scalars['String']>
-  destacado?: Maybe<Scalars['String']>
-  estado?: Maybe<Scalars['String']>
-  galeria?: Maybe<Array<Maybe<Imagenes>>>
-  imagenPrincipal?: Maybe<Imagenes>
-  imagenSecundaria?: Maybe<Imagenes>
-  keywords?: Maybe<Scalars['String']>
-  precioOferta?: Maybe<Scalars['Float']>
-  precioReal?: Maybe<Scalars['Float']>
-  productoId?: Maybe<Scalars['ID']>
-  slug?: Maybe<Scalars['String']>
-  stockMinimo?: Maybe<Scalars['Float']>
-  stockReal?: Maybe<Scalars['Float']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'Producto';
+  productoId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  descripcionCorta?: Maybe<Scalars['String']>;
+  descripcionLarga?: Maybe<Scalars['String']>;
+  precioReal?: Maybe<Scalars['Float']>;
+  precioOferta?: Maybe<Scalars['Float']>;
+  stockMinimo?: Maybe<Scalars['Float']>;
+  stockReal?: Maybe<Scalars['Float']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  imagenSecundaria?: Maybe<Imagenes>;
+  galeria?: Maybe<Array<Maybe<Imagenes>>>;
+  keywords?: Maybe<Scalars['String']>;
+  destacado?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  categoriaProductoId?: Maybe<Scalars['Int']>;
+  CategoriaProducto?: Maybe<CategoriaProducto>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type ProductoInput = {
-  categoriaProductoId?: InputMaybe<Scalars['Int']>
-  descripcionCorta?: InputMaybe<Scalars['String']>
-  descripcionLarga?: InputMaybe<Scalars['String']>
-  destacado?: InputMaybe<Scalars['String']>
-  estado?: InputMaybe<Scalars['String']>
-  galeria?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  imagenSecundaria?: InputMaybe<Scalars['Int']>
-  keywords?: InputMaybe<Scalars['String']>
-  precioOferta?: InputMaybe<Scalars['Float']>
-  precioReal?: InputMaybe<Scalars['Float']>
-  productoId?: InputMaybe<Scalars['ID']>
-  slug?: InputMaybe<Scalars['String']>
-  stockMinimo?: InputMaybe<Scalars['Float']>
-  stockReal?: InputMaybe<Scalars['Float']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  productoId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  descripcionCorta?: InputMaybe<Scalars['String']>;
+  descripcionLarga?: InputMaybe<Scalars['String']>;
+  precioReal?: InputMaybe<Scalars['Float']>;
+  precioOferta?: InputMaybe<Scalars['Float']>;
+  stockMinimo?: InputMaybe<Scalars['Float']>;
+  stockReal?: InputMaybe<Scalars['Float']>;
+  destacado?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+  imagenSecundaria?: InputMaybe<Scalars['Int']>;
+  galeria?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  keywords?: InputMaybe<Scalars['String']>;
+  estado?: InputMaybe<Scalars['String']>;
+  categoriaProductoId?: InputMaybe<Scalars['Int']>;
+};
 
 export type Provincia = {
-  __typename?: 'Provincia'
-  DeparCodi?: Maybe<Scalars['Int']>
-  ProvCodi?: Maybe<Scalars['ID']>
-  ProvNom?: Maybe<Scalars['String']>
-}
+  __typename?: 'Provincia';
+  ProvCodi?: Maybe<Scalars['ID']>;
+  ProvNom?: Maybe<Scalars['String']>;
+  DeparCodi?: Maybe<Scalars['Int']>;
+};
 
 export type Query = {
-  __typename?: 'Query'
-  EmitirTicket: Scalars['String']
-  GetAllBancos: GetAllBancos
-  GetAllBlogs: GetAllBlogs
-  GetAllBlogsCategoriaSlug: GetAllBlogs
-  GetAllBlogsDestacados: GetAllBlogs
-  GetAllCategoriaBlogs: GetAllCategoriaBlogs
-  GetAllCategoriaProductos: GetAllCategoriaProductos
-  GetAllContactos: GetAllContactos
-  GetAllDepartamentos?: Maybe<Array<Departamento>>
-  GetAllDireccionUsuarios: GetAllDireccionesUsuarios
-  GetAllDistritos?: Maybe<Array<Distrito>>
-  GetAllEfectivoMovil: GetAllEfectivoMovil
-  GetAllImagenes?: Maybe<Array<Imagenes>>
-  GetAllNotificacionPedidos: GetAllNotificacionPedidos
-  GetAllPedidoUser: GetAllPedidos
-  GetAllPedidos: GetAllPedidos
-  GetAllProductos: GetAllProductos
-  GetAllProductosCategoriaSlug: GetAllProductos
-  GetAllProductosDestacados: GetAllProductos
-  GetAllProductosRelacionados: GetAllProductos
-  GetAllProvincias?: Maybe<Array<Provincia>>
-  GetAllSliders: GetAllSliders
-  GetAllTarjetaUsuario?: Maybe<Array<TarjetasUsuarios>>
-  GetAllVendedoras: GetAllVendedoras
-  GetBancoId: Banco
-  GetBlogSlug: Blog
-  GetBusquedaAvanzada: GetAllProductos
-  GetCategoriaBlogSlug: CategoriaBlog
-  GetCategoriaProductoSlug: CategoriaProducto
-  GetDatosEmpresa: DatosEmpresa
-  GetDireccionUsuarioId: DireccionUsuario
-  GetEfectivoMovilId: EfectivoMovil
-  GetFiltrosPalabraClave: Filtros
-  GetPedidoId: Pedido
-  GetPrecios?: Maybe<Array<Maybe<Scalars['Float']>>>
-  GetProductoSlug: Producto
-  GetReniec: Reniec
-  GetSliderId: Slider
-  GetVendedoraId: Vendedora
-}
+  __typename?: 'Query';
+  GetAllDepartamentos?: Maybe<Array<Departamento>>;
+  GetAllProvincias?: Maybe<Array<Provincia>>;
+  GetAllDistritos?: Maybe<Array<Distrito>>;
+  GetAllImagenes?: Maybe<Array<Imagenes>>;
+  GetAllSliders: GetAllSliders;
+  GetSliderId: Slider;
+  GetAllVendedoras: GetAllVendedoras;
+  GetVendedoraId: Vendedora;
+  GetAllBancos: GetAllBancos;
+  GetBancoId: Banco;
+  GetAllEfectivoMovil: GetAllEfectivoMovil;
+  GetEfectivoMovilId: EfectivoMovil;
+  GetAllCategoriaBlogs: GetAllCategoriaBlogs;
+  GetCategoriaBlogSlug: CategoriaBlog;
+  GetAllBlogs: GetAllBlogs;
+  GetBlogSlug: Blog;
+  GetAllBlogsCategoriaSlug: GetAllBlogs;
+  GetAllBlogsDestacados: GetAllBlogs;
+  GetAllCategoriaProductos: GetAllCategoriaProductos;
+  GetCategoriaProductoSlug: CategoriaProducto;
+  GetAllProductos: GetAllProductos;
+  GetAllProductosDestacados: GetAllProductos;
+  GetProductoSlug: Producto;
+  GetAllProductosRelacionados: GetAllProductos;
+  GetBusquedaAvanzada: GetAllProductos;
+  GetAllProductosCategoriaSlug: GetAllProductos;
+  GetAllPedidos: GetAllPedidos;
+  GetPedidoId: Pedido;
+  GetAllPedidoUser: GetAllPedidos;
+  GetAllNotificacionPedidos: GetAllNotificacionPedidos;
+  GetAllTarjetaUsuario?: Maybe<Array<TarjetasUsuarios>>;
+  GetDireccionUsuarioId: DireccionUsuario;
+  GetAllDireccionUsuarios: GetAllDireccionesUsuarios;
+  EmitirTicket: Scalars['String'];
+  GetDatosEmpresa: DatosEmpresa;
+  GetAllContactos: GetAllContactos;
+  GetFiltrosPalabraClave: Filtros;
+  GetPrecios?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  GetReniec: Reniec;
+};
 
-export type QueryEmitirTicketArgs = {
-  pedidoId?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllBancosArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllBlogsArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllBlogsCategoriaSlugArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllBlogsDestacadosArgs = {
-  destacado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllCategoriaBlogsArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllCategoriaProductosArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllContactosArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllDireccionUsuariosArgs = {
-  usuarioId: Scalars['Int']
-}
-
-export type QueryGetAllDistritosArgs = {
-  ProCode?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllEfectivoMovilArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllImagenesArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllNotificacionPedidosArgs = {
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-  visto?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllPedidoUserArgs = {
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllPedidosArgs = {
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllProductosArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllProductosCategoriaSlugArgs = {
-  estado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllProductosDestacadosArgs = {
-  destacado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetAllProductosRelacionadosArgs = {
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-  palabraClave?: InputMaybe<Scalars['String']>
-}
 
 export type QueryGetAllProvinciasArgs = {
-  DepCode?: InputMaybe<Scalars['String']>
-}
+  DepCode?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllDistritosArgs = {
+  ProCode?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllImagenesArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
 
 export type QueryGetAllSlidersArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
+  estado?: InputMaybe<Scalars['String']>;
+};
 
-export type QueryGetAllTarjetaUsuarioArgs = {
-  customer_id?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetAllVendedorasArgs = {
-  estado?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetBancoIdArgs = {
-  bancoId?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetBlogSlugArgs = {
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetBusquedaAvanzadaArgs = {
-  categoriaSlug?: InputMaybe<Scalars['String']>
-  destacado?: InputMaybe<Scalars['String']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  pagina?: InputMaybe<Scalars['Int']>
-  precio?: InputMaybe<Array<Scalars['Float']>>
-  tipoOrdenacion?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetCategoriaBlogSlugArgs = {
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetCategoriaProductoSlugArgs = {
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetDireccionUsuarioIdArgs = {
-  direccionesUsuariosId: Scalars['Int']
-}
-
-export type QueryGetEfectivoMovilIdArgs = {
-  efectivoMovilId?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetFiltrosPalabraClaveArgs = {
-  palabraClave?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetPedidoIdArgs = {
-  pedidoId?: InputMaybe<Scalars['Int']>
-}
-
-export type QueryGetProductoSlugArgs = {
-  slug?: InputMaybe<Scalars['String']>
-}
-
-export type QueryGetReniecArgs = {
-  dni?: InputMaybe<Scalars['String']>
-}
 
 export type QueryGetSliderIdArgs = {
-  sliderId?: InputMaybe<Scalars['Int']>
-}
+  sliderId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllVendedorasArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
 
 export type QueryGetVendedoraIdArgs = {
-  vendedoraId?: InputMaybe<Scalars['Int']>
-}
+  vendedoraId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllBancosArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetBancoIdArgs = {
+  bancoId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllEfectivoMovilArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetEfectivoMovilIdArgs = {
+  efectivoMovilId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllCategoriaBlogsArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetCategoriaBlogSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllBlogsArgs = {
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetBlogSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllBlogsCategoriaSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllBlogsDestacadosArgs = {
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllCategoriaProductosArgs = {
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetCategoriaProductoSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllProductosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllProductosDestacadosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetProductoSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllProductosRelacionadosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  palabraClave?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetBusquedaAvanzadaArgs = {
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  precio?: InputMaybe<Array<Scalars['Float']>>;
+  categoriaSlug?: InputMaybe<Scalars['String']>;
+  tipoOrdenacion?: InputMaybe<Scalars['String']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllProductosCategoriaSlugArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllPedidosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetPedidoIdArgs = {
+  pedidoId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllPedidoUserArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllNotificacionPedidosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  visto?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllTarjetaUsuarioArgs = {
+  customer_id?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetDireccionUsuarioIdArgs = {
+  direccionesUsuariosId: Scalars['Int'];
+};
+
+
+export type QueryGetAllDireccionUsuariosArgs = {
+  usuarioId: Scalars['Int'];
+};
+
+
+export type QueryEmitirTicketArgs = {
+  pedidoId?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryGetAllContactosArgs = {
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetFiltrosPalabraClaveArgs = {
+  palabraClave?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetReniecArgs = {
+  dni?: InputMaybe<Scalars['String']>;
+};
 
 export type Recibo = {
-  __typename?: 'Recibo'
-  pedidoId?: Maybe<Scalars['Int']>
-  razonSocial?: Maybe<Scalars['String']>
-  reciboId?: Maybe<Scalars['ID']>
-  ruc?: Maybe<Scalars['String']>
-}
+  __typename?: 'Recibo';
+  reciboId?: Maybe<Scalars['ID']>;
+  ruc?: Maybe<Scalars['String']>;
+  razonSocial?: Maybe<Scalars['String']>;
+  pedidoId?: Maybe<Scalars['Int']>;
+};
 
 export type ReciboInput = {
-  pedidoId?: InputMaybe<Scalars['Int']>
-  razonSocial?: InputMaybe<Scalars['String']>
-  reciboId?: InputMaybe<Scalars['ID']>
-  ruc?: InputMaybe<Scalars['String']>
-}
+  reciboId?: InputMaybe<Scalars['ID']>;
+  ruc?: InputMaybe<Scalars['String']>;
+  razonSocial?: InputMaybe<Scalars['String']>;
+  pedidoId?: InputMaybe<Scalars['Int']>;
+};
 
 export type Slider = {
-  __typename?: 'Slider'
-  created_at?: Maybe<Scalars['DateTime']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  link?: Maybe<Scalars['String']>
-  sliderId?: Maybe<Scalars['ID']>
-  tipoLink?: Maybe<Scalars['String']>
-  titulo?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-}
+  __typename?: 'Slider';
+  sliderId?: Maybe<Scalars['ID']>;
+  titulo?: Maybe<Scalars['String']>;
+  tipoLink?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type SliderInput = {
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  link?: InputMaybe<Scalars['String']>
-  sliderId?: InputMaybe<Scalars['ID']>
-  tipoLink?: InputMaybe<Scalars['Int']>
-  titulo?: InputMaybe<Scalars['String']>
-}
+  sliderId?: InputMaybe<Scalars['ID']>;
+  titulo?: InputMaybe<Scalars['String']>;
+  tipoLink?: InputMaybe<Scalars['Int']>;
+  link?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+};
 
 /** The available directions for ordering a list of records. */
 export enum SortOrder {
@@ -1128,14 +1217,14 @@ export enum SortOrder {
 }
 
 export type TarjetasUsuarios = {
-  __typename?: 'TarjetasUsuarios'
-  customer_id?: Maybe<Scalars['String']>
-  expiration_month?: Maybe<Scalars['Int']>
-  expiration_year?: Maybe<Scalars['Int']>
-  first_six_digits?: Maybe<Scalars['String']>
-  id?: Maybe<Scalars['String']>
-  last_four_digits?: Maybe<Scalars['String']>
-}
+  __typename?: 'TarjetasUsuarios';
+  id?: Maybe<Scalars['String']>;
+  customer_id?: Maybe<Scalars['String']>;
+  expiration_month?: Maybe<Scalars['Int']>;
+  expiration_year?: Maybe<Scalars['Int']>;
+  first_six_digits?: Maybe<Scalars['String']>;
+  last_four_digits?: Maybe<Scalars['String']>;
+};
 
 /** Specify if you want to include or exclude trashed results from a query. */
 export enum Trashed {
@@ -1148,527 +1237,263 @@ export enum Trashed {
 }
 
 export type UpdateDestacadoBlogInput = {
-  blogId?: InputMaybe<Scalars['Int']>
-  destacado?: InputMaybe<Scalars['String']>
-}
+  blogId?: InputMaybe<Scalars['Int']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateDestacadoProductoInput = {
-  destacado?: InputMaybe<Scalars['String']>
-  productoId?: InputMaybe<Scalars['ID']>
-}
+  productoId?: InputMaybe<Scalars['ID']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoBancoInput = {
-  bancoId?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  bancoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoBlogInput = {
-  blogId?: InputMaybe<Scalars['Int']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  blogId?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoCategoriaBlogInput = {
-  categoriaBlogId?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  categoriaBlogId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoCategoriaProductoInput = {
-  categoriaProductoId?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  categoriaProductoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoContactoInput = {
-  contactoId?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  contactoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoEfectivoMovilInput = {
-  efectivoMovilId?: InputMaybe<Scalars['ID']>
-  estado?: InputMaybe<Scalars['String']>
-}
+  efectivoMovilId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoPedidoInput = {
-  estado?: InputMaybe<Scalars['String']>
-  pedidoId?: InputMaybe<Scalars['ID']>
-}
+  pedidoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoProductoInput = {
-  estado?: InputMaybe<Scalars['String']>
-  productoId?: InputMaybe<Scalars['ID']>
-}
+  productoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoSliderInput = {
-  estado?: InputMaybe<Scalars['String']>
-  sliderId?: InputMaybe<Scalars['ID']>
-}
+  sliderId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateEstadoVendedoraInput = {
-  estado?: InputMaybe<Scalars['String']>
-  vendedoraId?: InputMaybe<Scalars['ID']>
-}
+  vendedoraId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdatePasswordInput = {
-  id?: InputMaybe<Scalars['ID']>
-  passwordAntiguo?: InputMaybe<Scalars['String']>
-  passwordNuevo?: InputMaybe<Scalars['String']>
-}
+  id?: InputMaybe<Scalars['ID']>;
+  passwordNuevo?: InputMaybe<Scalars['String']>;
+  passwordAntiguo?: InputMaybe<Scalars['String']>;
+};
 
 export type UpdateVistoNotificacionPedidoInput = {
-  created_at?: InputMaybe<Scalars['DateTime']>
-  notificacionPedidoId?: InputMaybe<Scalars['Int']>
-  visto?: InputMaybe<Scalars['Int']>
-}
+  notificacionPedidoId?: InputMaybe<Scalars['Int']>;
+  visto?: InputMaybe<Scalars['Int']>;
+  created_at?: InputMaybe<Scalars['DateTime']>;
+};
 
 export type UpdateVistoPedidoInput = {
-  pedidoId?: InputMaybe<Scalars['ID']>
-  visto?: InputMaybe<Scalars['String']>
-}
+  pedidoId?: InputMaybe<Scalars['ID']>;
+  visto?: InputMaybe<Scalars['String']>;
+};
 
 export type User = {
-  __typename?: 'User'
-  apellidos?: Maybe<Scalars['String']>
-  apiToken?: Maybe<Scalars['String']>
-  celular?: Maybe<Scalars['String']>
-  customer_id?: Maybe<Scalars['String']>
-  email?: Maybe<Scalars['String']>
-  fechaNacimiento?: Maybe<Scalars['DateTime']>
-  foto?: Maybe<Scalars['String']>
-  genero?: Maybe<Scalars['Int']>
-  id?: Maybe<Scalars['ID']>
-  nombres?: Maybe<Scalars['String']>
-  numeroDocumento?: Maybe<Scalars['String']>
-  tipoDocumento?: Maybe<Scalars['String']>
-  tipoUsuario?: Maybe<Scalars['Int']>
-}
+  __typename?: 'User';
+  id?: Maybe<Scalars['ID']>;
+  tipoUsuario?: Maybe<Scalars['Int']>;
+  tipoDocumento?: Maybe<Scalars['String']>;
+  numeroDocumento?: Maybe<Scalars['String']>;
+  genero?: Maybe<Scalars['Int']>;
+  nombres?: Maybe<Scalars['String']>;
+  apellidos?: Maybe<Scalars['String']>;
+  celular?: Maybe<Scalars['String']>;
+  fechaNacimiento?: Maybe<Scalars['DateTime']>;
+  foto?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  apiToken?: Maybe<Scalars['String']>;
+  customer_id?: Maybe<Scalars['String']>;
+};
 
 export type UserInput = {
-  apellidos?: InputMaybe<Scalars['String']>
-  celular?: InputMaybe<Scalars['String']>
-  email?: InputMaybe<Scalars['String']>
-  fechaNacimiento?: InputMaybe<Scalars['Date']>
-  foto?: InputMaybe<Scalars['String']>
-  genero?: InputMaybe<Scalars['Int']>
-  id?: InputMaybe<Scalars['ID']>
-  nombres?: InputMaybe<Scalars['String']>
-  numeroDocumento?: InputMaybe<Scalars['String']>
-  password?: InputMaybe<Scalars['String']>
-  tipoDocumento?: InputMaybe<Scalars['String']>
-  tipoUsuario?: InputMaybe<Scalars['Int']>
-}
+  id?: InputMaybe<Scalars['ID']>;
+  tipoUsuario?: InputMaybe<Scalars['Int']>;
+  tipoDocumento?: InputMaybe<Scalars['String']>;
+  numeroDocumento?: InputMaybe<Scalars['String']>;
+  genero?: InputMaybe<Scalars['Int']>;
+  nombres?: InputMaybe<Scalars['String']>;
+  apellidos?: InputMaybe<Scalars['String']>;
+  celular?: InputMaybe<Scalars['String']>;
+  fechaNacimiento?: InputMaybe<Scalars['Date']>;
+  foto?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+};
 
 export type Vendedora = {
-  __typename?: 'Vendedora'
-  apellidos?: Maybe<Scalars['String']>
-  created_at?: Maybe<Scalars['DateTime']>
-  estado?: Maybe<Scalars['String']>
-  imagenPrincipal?: Maybe<Imagenes>
-  link?: Maybe<Scalars['String']>
-  nombres?: Maybe<Scalars['String']>
-  updated_at?: Maybe<Scalars['DateTime']>
-  vendedoraId?: Maybe<Scalars['ID']>
-}
+  __typename?: 'Vendedora';
+  vendedoraId?: Maybe<Scalars['ID']>;
+  nombres?: Maybe<Scalars['String']>;
+  apellidos?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+  estado?: Maybe<Scalars['String']>;
+  imagenPrincipal?: Maybe<Imagenes>;
+  created_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['DateTime']>;
+};
 
 export type VendedoraInput = {
-  apellidos?: InputMaybe<Scalars['String']>
-  imagenPrincipal?: InputMaybe<Scalars['Int']>
-  link?: InputMaybe<Scalars['String']>
-  nombres?: InputMaybe<Scalars['String']>
-  vendedoraId?: InputMaybe<Scalars['ID']>
-}
+  vendedoraId?: InputMaybe<Scalars['ID']>;
+  nombres?: InputMaybe<Scalars['String']>;
+  apellidos?: InputMaybe<Scalars['String']>;
+  link?: InputMaybe<Scalars['String']>;
+  imagenPrincipal?: InputMaybe<Scalars['Int']>;
+};
 
 export type Reniec = {
-  __typename?: 'reniec'
-  ApellidoMaterno?: Maybe<Scalars['String']>
-  ApellidoPaterno?: Maybe<Scalars['String']>
-  DNI?: Maybe<Scalars['String']>
-  FechaNacimiento?: Maybe<Scalars['String']>
-  Nombres?: Maybe<Scalars['String']>
-}
+  __typename?: 'reniec';
+  DNI?: Maybe<Scalars['String']>;
+  ApellidoPaterno?: Maybe<Scalars['String']>;
+  ApellidoMaterno?: Maybe<Scalars['String']>;
+  Nombres?: Maybe<Scalars['String']>;
+  FechaNacimiento?: Maybe<Scalars['String']>;
+};
 
 export type CreatePedidoMutationVariables = Exact<{
-  input1: PedidoInput
-  input2?: InputMaybe<Array<DetallePedidoInput> | DetallePedidoInput>
-  input3: ReciboInput
-  input4: DireccionEnvioInput
-  input5?: InputMaybe<DatosTarjetaInput>
-}>
+  input1: PedidoInput;
+  input2?: InputMaybe<Array<DetallePedidoInput> | DetallePedidoInput>;
+  input3: ReciboInput;
+  input4: DireccionEnvioInput;
+  input5?: InputMaybe<DatosTarjetaInput>;
+}>;
 
-export type CreatePedidoMutation = {
-  __typename?: 'Mutation'
-  CreatePedido: {
-    __typename?: 'Pedido'
-    pedidoId?: string | null
-    fechaPedido?: any | null
-    estado?: string | null
-    visto?: number | null
-    tipoPago?: number | null
-    medioPago?: string | null
-    numeroOperacion?: string | null
-    tipoEnvio?: string | null
-    precioEnvio?: number | null
-    precioTotal?: number | null
-    ticketPdf?: string | null
-    direccionEnvio?: string | null
-    usuarioId?: number | null
-    Usuario?: {
-      __typename?: 'User'
-      id?: string | null
-      nombres?: string | null
-      apellidos?: string | null
-    } | null
-    DetallePedido?: Array<{
-      __typename?: 'DetallePedido'
-      pedidoId?: number | null
-      cantidad?: number | null
-      precio?: number | null
-    }> | null
-  }
-}
+
+export type CreatePedidoMutation = { __typename?: 'Mutation', CreatePedido: { __typename?: 'Pedido', pedidoId?: string | null, fechaPedido?: any | null, estado?: string | null, visto?: number | null, tipoPago?: number | null, medioPago?: string | null, numeroOperacion?: string | null, tipoEnvio?: string | null, precioEnvio?: number | null, precioTotal?: number | null, ticketPdf?: string | null, direccionEnvio?: string | null, usuarioId?: number | null, Usuario?: { __typename?: 'User', id?: string | null, nombres?: string | null, apellidos?: string | null } | null, DetallePedido?: Array<{ __typename?: 'DetallePedido', pedidoId?: number | null, cantidad?: number | null, precio?: number | null }> | null } };
 
 export type CreateUsuarioMutationVariables = Exact<{
-  input: UserInput
-}>
+  input: UserInput;
+}>;
 
-export type CreateUsuarioMutation = {
-  __typename?: 'Mutation'
-  CreateUsuario: {
-    __typename?: 'User'
-    nombres?: string | null
-    apellidos?: string | null
-    email?: string | null
-  }
-}
+
+export type CreateUsuarioMutation = { __typename?: 'Mutation', CreateUsuario: { __typename?: 'User', nombres?: string | null, apellidos?: string | null, email?: string | null } };
 
 export type LoginMutationVariables = Exact<{
-  input: LoginInput
-}>
+  input: LoginInput;
+}>;
 
-export type LoginMutation = {
-  __typename?: 'Mutation'
-  Login: {
-    __typename?: 'User'
-    id?: string | null
-    tipoUsuario?: number | null
-    tipoDocumento?: string | null
-    numeroDocumento?: string | null
-    genero?: number | null
-    nombres?: string | null
-    apellidos?: string | null
-    celular?: string | null
-    fechaNacimiento?: any | null
-    foto?: string | null
-    email?: string | null
-    apiToken?: string | null
-    customer_id?: string | null
-  }
-}
+
+export type LoginMutation = { __typename?: 'Mutation', Login: { __typename?: 'User', id?: string | null, tipoUsuario?: number | null, tipoDocumento?: string | null, numeroDocumento?: string | null, genero?: number | null, nombres?: string | null, apellidos?: string | null, celular?: string | null, fechaNacimiento?: any | null, foto?: string | null, email?: string | null, apiToken?: string | null, customer_id?: string | null } };
 
 export type GetAllBlogsQueryVariables = Exact<{
-  pagina?: InputMaybe<Scalars['Int']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  estado?: InputMaybe<Scalars['String']>
-}>
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+}>;
 
-export type GetAllBlogsQuery = {
-  __typename?: 'Query'
-  GetAllBlogs: {
-    __typename?: 'GetAllBlogs'
-    numeroTotal?: number | null
-    data?: Array<{
-      __typename?: 'Blog'
-      blogId?: string | null
-      titulo?: string | null
-      slug?: string | null
-      descripcionCorta?: string | null
-      descripcionLarga?: string | null
-      keywords?: string | null
-      estado?: string | null
-      destacado?: string | null
-      categoriaBlogId?: number | null
-      usuarioId?: number | null
-      created_at?: any | null
-      updated_at?: any | null
-      imagenPrincipal?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      imagenSecundaria?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      CategoriaBlog?: {
-        __typename?: 'CategoriaBlog'
-        titulo?: string | null
-      } | null
-    }> | null
-  }
-}
+
+export type GetAllBlogsQuery = { __typename?: 'Query', GetAllBlogs: { __typename?: 'GetAllBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null }> | null } };
 
 export type GetAllCategoriaBlogsQueryVariables = Exact<{
-  estado?: InputMaybe<Scalars['String']>
-}>
+  estado?: InputMaybe<Scalars['String']>;
+}>;
 
-export type GetAllCategoriaBlogsQuery = {
-  __typename?: 'Query'
-  GetAllCategoriaBlogs: {
-    __typename?: 'GetAllCategoriaBlogs'
-    numeroTotal?: number | null
-    data?: Array<{
-      __typename?: 'CategoriaBlog'
-      categoriaBlogId?: string | null
-      titulo?: string | null
-      slug?: string | null
-      keywords?: string | null
-      descripcion?: string | null
-      estado?: string | null
-      created_at?: any | null
-      updated_at?: any | null
-      numeroBlogs?: number | null
-      imagenPrincipal?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      imagenSecundaria?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-    }> | null
-  }
-}
+
+export type GetAllCategoriaBlogsQuery = { __typename?: 'Query', GetAllCategoriaBlogs: { __typename?: 'GetAllCategoriaBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaBlog', categoriaBlogId?: string | null, titulo?: string | null, slug?: string | null, keywords?: string | null, descripcion?: string | null, estado?: string | null, created_at?: any | null, updated_at?: any | null, numeroBlogs?: number | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
 
 export type GetAllCategoriaProductosQueryVariables = Exact<{
-  estado?: InputMaybe<Scalars['String']>
-}>
+  estado?: InputMaybe<Scalars['String']>;
+}>;
 
-export type GetAllCategoriaProductosQuery = {
-  __typename?: 'Query'
-  GetAllCategoriaProductos: {
-    __typename?: 'GetAllCategoriaProductos'
-    numeroTotal?: number | null
-    data?: Array<{
-      __typename?: 'CategoriaProducto'
-      categoriaProductoId?: string | null
-      titulo?: string | null
-      slug?: string | null
-      estado?: string | null
-      keywords?: string | null
-      descripcion?: string | null
-      created_at?: any | null
-      updated_at?: any | null
-      imagenPrincipal?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      imagenSecundaria?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-    }> | null
-  }
-}
 
-export type GetAllDepartamentosQueryVariables = Exact<{ [key: string]: never }>
+export type GetAllCategoriaProductosQuery = { __typename?: 'Query', GetAllCategoriaProductos: { __typename?: 'GetAllCategoriaProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaProducto', categoriaProductoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, keywords?: string | null, descripcion?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
 
-export type GetAllDepartamentosQuery = {
-  __typename?: 'Query'
-  GetAllDepartamentos?: Array<{
-    __typename?: 'Departamento'
-    DeparNom?: string | null
-    DeparCodi?: string | null
-  }> | null
-}
+export type GetAllDepartamentosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllDepartamentosQuery = { __typename?: 'Query', GetAllDepartamentos?: Array<{ __typename?: 'Departamento', DeparNom?: string | null, DeparCodi?: string | null }> | null };
 
 export type GetAllDistritosQueryVariables = Exact<{
-  ProCode: Scalars['String']
-}>
+  ProCode: Scalars['String'];
+}>;
 
-export type GetAllDistritosQuery = {
-  __typename?: 'Query'
-  GetAllDistritos?: Array<{
-    __typename?: 'Distrito'
-    DistCodi?: string | null
-    DistNom?: string | null
-    ProvCodi?: number | null
-    precioEnvio?: number | null
-    estado?: string | null
-  }> | null
-}
+
+export type GetAllDistritosQuery = { __typename?: 'Query', GetAllDistritos?: Array<{ __typename?: 'Distrito', DistCodi?: string | null, DistNom?: string | null, ProvCodi?: number | null, precioEnvio?: number | null, estado?: string | null }> | null };
 
 export type GetAllProductosQueryVariables = Exact<{
-  pagina?: InputMaybe<Scalars['Int']>
-  numeroPagina?: InputMaybe<Scalars['Int']>
-  estado?: InputMaybe<Scalars['String']>
-}>
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  estado?: InputMaybe<Scalars['String']>;
+}>;
 
-export type GetAllProductosQuery = {
-  __typename?: 'Query'
-  GetAllProductos: {
-    __typename?: 'GetAllProductos'
-    numeroTotal?: number | null
-    data?: Array<{
-      __typename?: 'Producto'
-      productoId?: string | null
-      titulo?: string | null
-      slug?: string | null
-      estado?: string | null
-      descripcionCorta?: string | null
-      descripcionLarga?: string | null
-      precioReal?: number | null
-      precioOferta?: number | null
-      stockMinimo?: number | null
-      stockReal?: number | null
-      keywords?: string | null
-      destacado?: string | null
-      categoriaProductoId?: number | null
-      created_at?: any | null
-      updated_at?: any | null
-      imagenPrincipal?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      imagenSecundaria?: {
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null
-      galeria?: Array<{
-        __typename?: 'Imagenes'
-        id?: string | null
-        titulo?: string | null
-        estado?: string | null
-        url?: string | null
-      } | null> | null
-      CategoriaProducto?: {
-        __typename?: 'CategoriaProducto'
-        titulo?: string | null
-      } | null
-    }> | null
-  }
-}
+
+export type GetAllProductosQuery = { __typename?: 'Query', GetAllProductos: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', productoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, precioReal?: number | null, precioOferta?: number | null, stockMinimo?: number | null, stockReal?: number | null, keywords?: string | null, destacado?: string | null, categoriaProductoId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, galeria?: Array<{ __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null> | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null } | null }> | null } };
 
 export type GetAllProvinciasQueryVariables = Exact<{
-  DepCode: Scalars['String']
-}>
+  DepCode: Scalars['String'];
+}>;
 
-export type GetAllProvinciasQuery = {
-  __typename?: 'Query'
-  GetAllProvincias?: Array<{
-    __typename?: 'Provincia'
-    ProvNom?: string | null
-    DeparCodi?: number | null
-    ProvCodi?: string | null
-  }> | null
-}
+
+export type GetAllProvinciasQuery = { __typename?: 'Query', GetAllProvincias?: Array<{ __typename?: 'Provincia', ProvNom?: string | null, DeparCodi?: number | null, ProvCodi?: string | null }> | null };
 
 export type GetBlogSlugQueryVariables = Exact<{
-  slug?: InputMaybe<Scalars['String']>
-}>
+  slug?: InputMaybe<Scalars['String']>;
+}>;
 
-export type GetBlogSlugQuery = {
-  __typename?: 'Query'
-  GetBlogSlug: {
-    __typename?: 'Blog'
-    blogId?: string | null
-    titulo?: string | null
-    slug?: string | null
-    descripcionCorta?: string | null
-    descripcionLarga?: string | null
-    keywords?: string | null
-    estado?: string | null
-    destacado?: string | null
-    categoriaBlogId?: number | null
-    usuarioId?: number | null
-    created_at?: any | null
-    updated_at?: any | null
-    imagenPrincipal?: {
-      __typename?: 'Imagenes'
-      id?: string | null
-      titulo?: string | null
-      estado?: string | null
-      url?: string | null
-    } | null
-    imagenSecundaria?: {
-      __typename?: 'Imagenes'
-      id?: string | null
-      titulo?: string | null
-      estado?: string | null
-      url?: string | null
-    } | null
-    CategoriaBlog?: {
-      __typename?: 'CategoriaBlog'
-      titulo?: string | null
-    } | null
-  }
-}
+
+export type GetBlogSlugQuery = { __typename?: 'Query', GetBlogSlug: { __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null } };
+
 
 export const CreatePedidoDocument = gql`
-  mutation CreatePedido(
-    $input1: PedidoInput!
-    $input2: [DetallePedidoInput!]
-    $input3: ReciboInput!
-    $input4: DireccionEnvioInput!
-    $input5: DatosTarjetaInput
+    mutation CreatePedido($input1: PedidoInput!, $input2: [DetallePedidoInput!], $input3: ReciboInput!, $input4: DireccionEnvioInput!, $input5: DatosTarjetaInput) {
+  CreatePedido(
+    input1: $input1
+    input2: $input2
+    input3: $input3
+    input4: $input4
+    input5: $input5
   ) {
-    CreatePedido(
-      input1: $input1
-      input2: $input2
-      input3: $input3
-      input4: $input4
-      input5: $input5
-    ) {
+    pedidoId
+    fechaPedido
+    estado
+    visto
+    tipoPago
+    medioPago
+    numeroOperacion
+    tipoEnvio
+    precioEnvio
+    precioTotal
+    ticketPdf
+    direccionEnvio
+    usuarioId
+    Usuario {
+      id
+      nombres
+      apellidos
+    }
+    DetallePedido {
       pedidoId
-      fechaPedido
-      estado
-      visto
-      tipoPago
-      medioPago
-      numeroOperacion
-      tipoEnvio
-      precioEnvio
-      precioTotal
-      ticketPdf
-      direccionEnvio
-      usuarioId
-      Usuario {
-        id
-        nombres
-        apellidos
-      }
-      DetallePedido {
-        pedidoId
-        cantidad
-        precio
-      }
+      cantidad
+      precio
     }
   }
-`
-export type CreatePedidoMutationFn = Apollo.MutationFunction<
-  CreatePedidoMutation,
-  CreatePedidoMutationVariables
->
+}
+    `;
+export type CreatePedidoMutationFn = Apollo.MutationFunction<CreatePedidoMutation, CreatePedidoMutationVariables>;
 
 /**
  * __useCreatePedidoMutation__
@@ -1691,40 +1516,23 @@ export type CreatePedidoMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useCreatePedidoMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    CreatePedidoMutation,
-    CreatePedidoMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    CreatePedidoMutation,
-    CreatePedidoMutationVariables
-  >(CreatePedidoDocument, options)
-}
-export type CreatePedidoMutationHookResult = ReturnType<
-  typeof useCreatePedidoMutation
->
-export type CreatePedidoMutationResult =
-  Apollo.MutationResult<CreatePedidoMutation>
-export type CreatePedidoMutationOptions = Apollo.BaseMutationOptions<
-  CreatePedidoMutation,
-  CreatePedidoMutationVariables
->
+export function useCreatePedidoMutation(baseOptions?: Apollo.MutationHookOptions<CreatePedidoMutation, CreatePedidoMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreatePedidoMutation, CreatePedidoMutationVariables>(CreatePedidoDocument, options);
+      }
+export type CreatePedidoMutationHookResult = ReturnType<typeof useCreatePedidoMutation>;
+export type CreatePedidoMutationResult = Apollo.MutationResult<CreatePedidoMutation>;
+export type CreatePedidoMutationOptions = Apollo.BaseMutationOptions<CreatePedidoMutation, CreatePedidoMutationVariables>;
 export const CreateUsuarioDocument = gql`
-  mutation CreateUsuario($input: UserInput!) {
-    CreateUsuario(input: $input) {
-      nombres
-      apellidos
-      email
-    }
+    mutation CreateUsuario($input: UserInput!) {
+  CreateUsuario(input: $input) {
+    nombres
+    apellidos
+    email
   }
-`
-export type CreateUsuarioMutationFn = Apollo.MutationFunction<
-  CreateUsuarioMutation,
-  CreateUsuarioMutationVariables
->
+}
+    `;
+export type CreateUsuarioMutationFn = Apollo.MutationFunction<CreateUsuarioMutation, CreateUsuarioMutationVariables>;
 
 /**
  * __useCreateUsuarioMutation__
@@ -1743,50 +1551,33 @@ export type CreateUsuarioMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useCreateUsuarioMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    CreateUsuarioMutation,
-    CreateUsuarioMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    CreateUsuarioMutation,
-    CreateUsuarioMutationVariables
-  >(CreateUsuarioDocument, options)
-}
-export type CreateUsuarioMutationHookResult = ReturnType<
-  typeof useCreateUsuarioMutation
->
-export type CreateUsuarioMutationResult =
-  Apollo.MutationResult<CreateUsuarioMutation>
-export type CreateUsuarioMutationOptions = Apollo.BaseMutationOptions<
-  CreateUsuarioMutation,
-  CreateUsuarioMutationVariables
->
+export function useCreateUsuarioMutation(baseOptions?: Apollo.MutationHookOptions<CreateUsuarioMutation, CreateUsuarioMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateUsuarioMutation, CreateUsuarioMutationVariables>(CreateUsuarioDocument, options);
+      }
+export type CreateUsuarioMutationHookResult = ReturnType<typeof useCreateUsuarioMutation>;
+export type CreateUsuarioMutationResult = Apollo.MutationResult<CreateUsuarioMutation>;
+export type CreateUsuarioMutationOptions = Apollo.BaseMutationOptions<CreateUsuarioMutation, CreateUsuarioMutationVariables>;
 export const LoginDocument = gql`
-  mutation Login($input: LoginInput!) {
-    Login(input: $input) {
-      id
-      tipoUsuario
-      tipoDocumento
-      numeroDocumento
-      genero
-      nombres
-      apellidos
-      celular
-      fechaNacimiento
-      foto
-      email
-      apiToken
-      customer_id
-    }
+    mutation Login($input: LoginInput!) {
+  Login(input: $input) {
+    id
+    tipoUsuario
+    tipoDocumento
+    numeroDocumento
+    genero
+    nombres
+    apellidos
+    celular
+    fechaNacimiento
+    foto
+    email
+    apiToken
+    customer_id
   }
-`
-export type LoginMutationFn = Apollo.MutationFunction<
-  LoginMutation,
-  LoginMutationVariables
->
+}
+    `;
+export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutationVariables>;
 
 /**
  * __useLoginMutation__
@@ -1805,558 +1596,18 @@ export type LoginMutationFn = Apollo.MutationFunction<
  *   },
  * });
  */
-export function useLoginMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    LoginMutation,
-    LoginMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<LoginMutation, LoginMutationVariables>(
-    LoginDocument,
-    options
-  )
-}
-export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>
-export type LoginMutationResult = Apollo.MutationResult<LoginMutation>
-export type LoginMutationOptions = Apollo.BaseMutationOptions<
-  LoginMutation,
-  LoginMutationVariables
->
+export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
+      }
+export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
+export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
+export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
 export const GetAllBlogsDocument = gql`
-  query GetAllBlogs($pagina: Int, $numeroPagina: Int, $estado: String) {
-    GetAllBlogs(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {
-      numeroTotal
-      data {
-        blogId
-        titulo
-        slug
-        descripcionCorta
-        descripcionLarga
-        imagenPrincipal {
-          id
-          titulo
-          estado
-          url
-        }
-        imagenSecundaria {
-          id
-          titulo
-          estado
-          url
-        }
-        keywords
-        estado
-        destacado
-        categoriaBlogId
-        CategoriaBlog {
-          titulo
-        }
-        usuarioId
-        created_at
-        updated_at
-      }
-    }
-  }
-`
-
-/**
- * __useGetAllBlogsQuery__
- *
- * To run a query within a React component, call `useGetAllBlogsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllBlogsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllBlogsQuery({
- *   variables: {
- *      pagina: // value for 'pagina'
- *      numeroPagina: // value for 'numeroPagina'
- *      estado: // value for 'estado'
- *   },
- * });
- */
-export function useGetAllBlogsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllBlogsQuery,
-    GetAllBlogsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetAllBlogsQuery, GetAllBlogsQueryVariables>(
-    GetAllBlogsDocument,
-    options
-  )
-}
-export function useGetAllBlogsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllBlogsQuery,
-    GetAllBlogsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<GetAllBlogsQuery, GetAllBlogsQueryVariables>(
-    GetAllBlogsDocument,
-    options
-  )
-}
-export type GetAllBlogsQueryHookResult = ReturnType<typeof useGetAllBlogsQuery>
-export type GetAllBlogsLazyQueryHookResult = ReturnType<
-  typeof useGetAllBlogsLazyQuery
->
-export type GetAllBlogsQueryResult = Apollo.QueryResult<
-  GetAllBlogsQuery,
-  GetAllBlogsQueryVariables
->
-export const GetAllCategoriaBlogsDocument = gql`
-  query GetAllCategoriaBlogs($estado: String) {
-    GetAllCategoriaBlogs(estado: $estado) {
-      numeroTotal
-      data {
-        categoriaBlogId
-        titulo
-        slug
-        keywords
-        descripcion
-        imagenPrincipal {
-          id
-          titulo
-          estado
-          url
-        }
-        imagenSecundaria {
-          id
-          titulo
-          estado
-          url
-        }
-        estado
-        created_at
-        updated_at
-        numeroBlogs
-      }
-    }
-  }
-`
-
-/**
- * __useGetAllCategoriaBlogsQuery__
- *
- * To run a query within a React component, call `useGetAllCategoriaBlogsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllCategoriaBlogsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllCategoriaBlogsQuery({
- *   variables: {
- *      estado: // value for 'estado'
- *   },
- * });
- */
-export function useGetAllCategoriaBlogsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllCategoriaBlogsQuery,
-    GetAllCategoriaBlogsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<
-    GetAllCategoriaBlogsQuery,
-    GetAllCategoriaBlogsQueryVariables
-  >(GetAllCategoriaBlogsDocument, options)
-}
-export function useGetAllCategoriaBlogsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllCategoriaBlogsQuery,
-    GetAllCategoriaBlogsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllCategoriaBlogsQuery,
-    GetAllCategoriaBlogsQueryVariables
-  >(GetAllCategoriaBlogsDocument, options)
-}
-export type GetAllCategoriaBlogsQueryHookResult = ReturnType<
-  typeof useGetAllCategoriaBlogsQuery
->
-export type GetAllCategoriaBlogsLazyQueryHookResult = ReturnType<
-  typeof useGetAllCategoriaBlogsLazyQuery
->
-export type GetAllCategoriaBlogsQueryResult = Apollo.QueryResult<
-  GetAllCategoriaBlogsQuery,
-  GetAllCategoriaBlogsQueryVariables
->
-export const GetAllCategoriaProductosDocument = gql`
-  query GetAllCategoriaProductos($estado: String) {
-    GetAllCategoriaProductos(estado: $estado) {
-      numeroTotal
-      data {
-        categoriaProductoId
-        titulo
-        slug
-        estado
-        keywords
-        descripcion
-        imagenPrincipal {
-          id
-          titulo
-          estado
-          url
-        }
-        imagenSecundaria {
-          id
-          titulo
-          estado
-          url
-        }
-        created_at
-        updated_at
-      }
-    }
-  }
-`
-
-/**
- * __useGetAllCategoriaProductosQuery__
- *
- * To run a query within a React component, call `useGetAllCategoriaProductosQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllCategoriaProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllCategoriaProductosQuery({
- *   variables: {
- *      estado: // value for 'estado'
- *   },
- * });
- */
-export function useGetAllCategoriaProductosQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllCategoriaProductosQuery,
-    GetAllCategoriaProductosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<
-    GetAllCategoriaProductosQuery,
-    GetAllCategoriaProductosQueryVariables
-  >(GetAllCategoriaProductosDocument, options)
-}
-export function useGetAllCategoriaProductosLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllCategoriaProductosQuery,
-    GetAllCategoriaProductosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllCategoriaProductosQuery,
-    GetAllCategoriaProductosQueryVariables
-  >(GetAllCategoriaProductosDocument, options)
-}
-export type GetAllCategoriaProductosQueryHookResult = ReturnType<
-  typeof useGetAllCategoriaProductosQuery
->
-export type GetAllCategoriaProductosLazyQueryHookResult = ReturnType<
-  typeof useGetAllCategoriaProductosLazyQuery
->
-export type GetAllCategoriaProductosQueryResult = Apollo.QueryResult<
-  GetAllCategoriaProductosQuery,
-  GetAllCategoriaProductosQueryVariables
->
-export const GetAllDepartamentosDocument = gql`
-  query GetAllDepartamentos {
-    GetAllDepartamentos {
-      DeparNom
-      DeparCodi
-    }
-  }
-`
-
-/**
- * __useGetAllDepartamentosQuery__
- *
- * To run a query within a React component, call `useGetAllDepartamentosQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllDepartamentosQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllDepartamentosQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetAllDepartamentosQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllDepartamentosQuery,
-    GetAllDepartamentosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<
-    GetAllDepartamentosQuery,
-    GetAllDepartamentosQueryVariables
-  >(GetAllDepartamentosDocument, options)
-}
-export function useGetAllDepartamentosLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllDepartamentosQuery,
-    GetAllDepartamentosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllDepartamentosQuery,
-    GetAllDepartamentosQueryVariables
-  >(GetAllDepartamentosDocument, options)
-}
-export type GetAllDepartamentosQueryHookResult = ReturnType<
-  typeof useGetAllDepartamentosQuery
->
-export type GetAllDepartamentosLazyQueryHookResult = ReturnType<
-  typeof useGetAllDepartamentosLazyQuery
->
-export type GetAllDepartamentosQueryResult = Apollo.QueryResult<
-  GetAllDepartamentosQuery,
-  GetAllDepartamentosQueryVariables
->
-export const GetAllDistritosDocument = gql`
-  query GetAllDistritos($ProCode: String!) {
-    GetAllDistritos(ProCode: $ProCode) {
-      DistCodi
-      DistNom
-      ProvCodi
-      precioEnvio
-      estado
-    }
-  }
-`
-
-/**
- * __useGetAllDistritosQuery__
- *
- * To run a query within a React component, call `useGetAllDistritosQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllDistritosQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllDistritosQuery({
- *   variables: {
- *      ProCode: // value for 'ProCode'
- *   },
- * });
- */
-export function useGetAllDistritosQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetAllDistritosQuery,
-    GetAllDistritosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetAllDistritosQuery, GetAllDistritosQueryVariables>(
-    GetAllDistritosDocument,
-    options
-  )
-}
-export function useGetAllDistritosLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllDistritosQuery,
-    GetAllDistritosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllDistritosQuery,
-    GetAllDistritosQueryVariables
-  >(GetAllDistritosDocument, options)
-}
-export type GetAllDistritosQueryHookResult = ReturnType<
-  typeof useGetAllDistritosQuery
->
-export type GetAllDistritosLazyQueryHookResult = ReturnType<
-  typeof useGetAllDistritosLazyQuery
->
-export type GetAllDistritosQueryResult = Apollo.QueryResult<
-  GetAllDistritosQuery,
-  GetAllDistritosQueryVariables
->
-export const GetAllProductosDocument = gql`
-  query GetAllProductos($pagina: Int, $numeroPagina: Int, $estado: String) {
-    GetAllProductos(
-      pagina: $pagina
-      numeroPagina: $numeroPagina
-      estado: $estado
-    ) {
-      numeroTotal
-      data {
-        productoId
-        titulo
-        slug
-        estado
-        descripcionCorta
-        descripcionLarga
-        precioReal
-        precioOferta
-        stockMinimo
-        stockReal
-        imagenPrincipal {
-          id
-          titulo
-          estado
-          url
-        }
-        imagenSecundaria {
-          id
-          titulo
-          estado
-          url
-        }
-        galeria {
-          id
-          titulo
-          estado
-          url
-        }
-        keywords
-        destacado
-        estado
-        categoriaProductoId
-        CategoriaProducto {
-          titulo
-        }
-        created_at
-        updated_at
-      }
-    }
-  }
-`
-
-/**
- * __useGetAllProductosQuery__
- *
- * To run a query within a React component, call `useGetAllProductosQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllProductosQuery({
- *   variables: {
- *      pagina: // value for 'pagina'
- *      numeroPagina: // value for 'numeroPagina'
- *      estado: // value for 'estado'
- *   },
- * });
- */
-export function useGetAllProductosQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllProductosQuery,
-    GetAllProductosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetAllProductosQuery, GetAllProductosQueryVariables>(
-    GetAllProductosDocument,
-    options
-  )
-}
-export function useGetAllProductosLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllProductosQuery,
-    GetAllProductosQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllProductosQuery,
-    GetAllProductosQueryVariables
-  >(GetAllProductosDocument, options)
-}
-export type GetAllProductosQueryHookResult = ReturnType<
-  typeof useGetAllProductosQuery
->
-export type GetAllProductosLazyQueryHookResult = ReturnType<
-  typeof useGetAllProductosLazyQuery
->
-export type GetAllProductosQueryResult = Apollo.QueryResult<
-  GetAllProductosQuery,
-  GetAllProductosQueryVariables
->
-export const GetAllProvinciasDocument = gql`
-  query GetAllProvincias($DepCode: String!) {
-    GetAllProvincias(DepCode: $DepCode) {
-      ProvNom
-      DeparCodi
-      ProvCodi
-    }
-  }
-`
-
-/**
- * __useGetAllProvinciasQuery__
- *
- * To run a query within a React component, call `useGetAllProvinciasQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllProvinciasQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllProvinciasQuery({
- *   variables: {
- *      DepCode: // value for 'DepCode'
- *   },
- * });
- */
-export function useGetAllProvinciasQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetAllProvinciasQuery,
-    GetAllProvinciasQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>(
-    GetAllProvinciasDocument,
-    options
-  )
-}
-export function useGetAllProvinciasLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllProvinciasQuery,
-    GetAllProvinciasQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    GetAllProvinciasQuery,
-    GetAllProvinciasQueryVariables
-  >(GetAllProvinciasDocument, options)
-}
-export type GetAllProvinciasQueryHookResult = ReturnType<
-  typeof useGetAllProvinciasQuery
->
-export type GetAllProvinciasLazyQueryHookResult = ReturnType<
-  typeof useGetAllProvinciasLazyQuery
->
-export type GetAllProvinciasQueryResult = Apollo.QueryResult<
-  GetAllProvinciasQuery,
-  GetAllProvinciasQueryVariables
->
-export const GetBlogSlugDocument = gql`
-  query GetBlogSlug($slug: String) {
-    GetBlogSlug(slug: $slug) {
+    query GetAllBlogs($pagina: Int, $numeroPagina: Int, $estado: String) {
+  GetAllBlogs(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {
+    numeroTotal
+    data {
       blogId
       titulo
       slug
@@ -2386,7 +1637,373 @@ export const GetBlogSlugDocument = gql`
       updated_at
     }
   }
-`
+}
+    `;
+
+/**
+ * __useGetAllBlogsQuery__
+ *
+ * To run a query within a React component, call `useGetAllBlogsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllBlogsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllBlogsQuery({
+ *   variables: {
+ *      pagina: // value for 'pagina'
+ *      numeroPagina: // value for 'numeroPagina'
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllBlogsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllBlogsQuery, GetAllBlogsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllBlogsQuery, GetAllBlogsQueryVariables>(GetAllBlogsDocument, options);
+      }
+export function useGetAllBlogsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllBlogsQuery, GetAllBlogsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllBlogsQuery, GetAllBlogsQueryVariables>(GetAllBlogsDocument, options);
+        }
+export type GetAllBlogsQueryHookResult = ReturnType<typeof useGetAllBlogsQuery>;
+export type GetAllBlogsLazyQueryHookResult = ReturnType<typeof useGetAllBlogsLazyQuery>;
+export type GetAllBlogsQueryResult = Apollo.QueryResult<GetAllBlogsQuery, GetAllBlogsQueryVariables>;
+export const GetAllCategoriaBlogsDocument = gql`
+    query GetAllCategoriaBlogs($estado: String) {
+  GetAllCategoriaBlogs(estado: $estado) {
+    numeroTotal
+    data {
+      categoriaBlogId
+      titulo
+      slug
+      keywords
+      descripcion
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      imagenSecundaria {
+        id
+        titulo
+        estado
+        url
+      }
+      estado
+      created_at
+      updated_at
+      numeroBlogs
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllCategoriaBlogsQuery__
+ *
+ * To run a query within a React component, call `useGetAllCategoriaBlogsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllCategoriaBlogsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllCategoriaBlogsQuery({
+ *   variables: {
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllCategoriaBlogsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>(GetAllCategoriaBlogsDocument, options);
+      }
+export function useGetAllCategoriaBlogsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>(GetAllCategoriaBlogsDocument, options);
+        }
+export type GetAllCategoriaBlogsQueryHookResult = ReturnType<typeof useGetAllCategoriaBlogsQuery>;
+export type GetAllCategoriaBlogsLazyQueryHookResult = ReturnType<typeof useGetAllCategoriaBlogsLazyQuery>;
+export type GetAllCategoriaBlogsQueryResult = Apollo.QueryResult<GetAllCategoriaBlogsQuery, GetAllCategoriaBlogsQueryVariables>;
+export const GetAllCategoriaProductosDocument = gql`
+    query GetAllCategoriaProductos($estado: String) {
+  GetAllCategoriaProductos(estado: $estado) {
+    numeroTotal
+    data {
+      categoriaProductoId
+      titulo
+      slug
+      estado
+      keywords
+      descripcion
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      imagenSecundaria {
+        id
+        titulo
+        estado
+        url
+      }
+      created_at
+      updated_at
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllCategoriaProductosQuery__
+ *
+ * To run a query within a React component, call `useGetAllCategoriaProductosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllCategoriaProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllCategoriaProductosQuery({
+ *   variables: {
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllCategoriaProductosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>(GetAllCategoriaProductosDocument, options);
+      }
+export function useGetAllCategoriaProductosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>(GetAllCategoriaProductosDocument, options);
+        }
+export type GetAllCategoriaProductosQueryHookResult = ReturnType<typeof useGetAllCategoriaProductosQuery>;
+export type GetAllCategoriaProductosLazyQueryHookResult = ReturnType<typeof useGetAllCategoriaProductosLazyQuery>;
+export type GetAllCategoriaProductosQueryResult = Apollo.QueryResult<GetAllCategoriaProductosQuery, GetAllCategoriaProductosQueryVariables>;
+export const GetAllDepartamentosDocument = gql`
+    query GetAllDepartamentos {
+  GetAllDepartamentos {
+    DeparNom
+    DeparCodi
+  }
+}
+    `;
+
+/**
+ * __useGetAllDepartamentosQuery__
+ *
+ * To run a query within a React component, call `useGetAllDepartamentosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllDepartamentosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllDepartamentosQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllDepartamentosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllDepartamentosQuery, GetAllDepartamentosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllDepartamentosQuery, GetAllDepartamentosQueryVariables>(GetAllDepartamentosDocument, options);
+      }
+export function useGetAllDepartamentosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllDepartamentosQuery, GetAllDepartamentosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllDepartamentosQuery, GetAllDepartamentosQueryVariables>(GetAllDepartamentosDocument, options);
+        }
+export type GetAllDepartamentosQueryHookResult = ReturnType<typeof useGetAllDepartamentosQuery>;
+export type GetAllDepartamentosLazyQueryHookResult = ReturnType<typeof useGetAllDepartamentosLazyQuery>;
+export type GetAllDepartamentosQueryResult = Apollo.QueryResult<GetAllDepartamentosQuery, GetAllDepartamentosQueryVariables>;
+export const GetAllDistritosDocument = gql`
+    query GetAllDistritos($ProCode: String!) {
+  GetAllDistritos(ProCode: $ProCode) {
+    DistCodi
+    DistNom
+    ProvCodi
+    precioEnvio
+    estado
+  }
+}
+    `;
+
+/**
+ * __useGetAllDistritosQuery__
+ *
+ * To run a query within a React component, call `useGetAllDistritosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllDistritosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllDistritosQuery({
+ *   variables: {
+ *      ProCode: // value for 'ProCode'
+ *   },
+ * });
+ */
+export function useGetAllDistritosQuery(baseOptions: Apollo.QueryHookOptions<GetAllDistritosQuery, GetAllDistritosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllDistritosQuery, GetAllDistritosQueryVariables>(GetAllDistritosDocument, options);
+      }
+export function useGetAllDistritosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllDistritosQuery, GetAllDistritosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllDistritosQuery, GetAllDistritosQueryVariables>(GetAllDistritosDocument, options);
+        }
+export type GetAllDistritosQueryHookResult = ReturnType<typeof useGetAllDistritosQuery>;
+export type GetAllDistritosLazyQueryHookResult = ReturnType<typeof useGetAllDistritosLazyQuery>;
+export type GetAllDistritosQueryResult = Apollo.QueryResult<GetAllDistritosQuery, GetAllDistritosQueryVariables>;
+export const GetAllProductosDocument = gql`
+    query GetAllProductos($pagina: Int, $numeroPagina: Int, $estado: String) {
+  GetAllProductos(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {
+    numeroTotal
+    data {
+      productoId
+      titulo
+      slug
+      estado
+      descripcionCorta
+      descripcionLarga
+      precioReal
+      precioOferta
+      stockMinimo
+      stockReal
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      imagenSecundaria {
+        id
+        titulo
+        estado
+        url
+      }
+      galeria {
+        id
+        titulo
+        estado
+        url
+      }
+      keywords
+      destacado
+      estado
+      categoriaProductoId
+      CategoriaProducto {
+        titulo
+      }
+      created_at
+      updated_at
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllProductosQuery__
+ *
+ * To run a query within a React component, call `useGetAllProductosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllProductosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllProductosQuery({
+ *   variables: {
+ *      pagina: // value for 'pagina'
+ *      numeroPagina: // value for 'numeroPagina'
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllProductosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllProductosQuery, GetAllProductosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllProductosQuery, GetAllProductosQueryVariables>(GetAllProductosDocument, options);
+      }
+export function useGetAllProductosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllProductosQuery, GetAllProductosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllProductosQuery, GetAllProductosQueryVariables>(GetAllProductosDocument, options);
+        }
+export type GetAllProductosQueryHookResult = ReturnType<typeof useGetAllProductosQuery>;
+export type GetAllProductosLazyQueryHookResult = ReturnType<typeof useGetAllProductosLazyQuery>;
+export type GetAllProductosQueryResult = Apollo.QueryResult<GetAllProductosQuery, GetAllProductosQueryVariables>;
+export const GetAllProvinciasDocument = gql`
+    query GetAllProvincias($DepCode: String!) {
+  GetAllProvincias(DepCode: $DepCode) {
+    ProvNom
+    DeparCodi
+    ProvCodi
+  }
+}
+    `;
+
+/**
+ * __useGetAllProvinciasQuery__
+ *
+ * To run a query within a React component, call `useGetAllProvinciasQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllProvinciasQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllProvinciasQuery({
+ *   variables: {
+ *      DepCode: // value for 'DepCode'
+ *   },
+ * });
+ */
+export function useGetAllProvinciasQuery(baseOptions: Apollo.QueryHookOptions<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>(GetAllProvinciasDocument, options);
+      }
+export function useGetAllProvinciasLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>(GetAllProvinciasDocument, options);
+        }
+export type GetAllProvinciasQueryHookResult = ReturnType<typeof useGetAllProvinciasQuery>;
+export type GetAllProvinciasLazyQueryHookResult = ReturnType<typeof useGetAllProvinciasLazyQuery>;
+export type GetAllProvinciasQueryResult = Apollo.QueryResult<GetAllProvinciasQuery, GetAllProvinciasQueryVariables>;
+export const GetBlogSlugDocument = gql`
+    query GetBlogSlug($slug: String) {
+  GetBlogSlug(slug: $slug) {
+    blogId
+    titulo
+    slug
+    descripcionCorta
+    descripcionLarga
+    imagenPrincipal {
+      id
+      titulo
+      estado
+      url
+    }
+    imagenSecundaria {
+      id
+      titulo
+      estado
+      url
+    }
+    keywords
+    estado
+    destacado
+    categoriaBlogId
+    CategoriaBlog {
+      titulo
+    }
+    usuarioId
+    created_at
+    updated_at
+  }
+}
+    `;
 
 /**
  * __useGetBlogSlugQuery__
@@ -2404,35 +2021,14 @@ export const GetBlogSlugDocument = gql`
  *   },
  * });
  */
-export function useGetBlogSlugQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetBlogSlugQuery,
-    GetBlogSlugQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetBlogSlugQuery, GetBlogSlugQueryVariables>(
-    GetBlogSlugDocument,
-    options
-  )
-}
-export function useGetBlogSlugLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetBlogSlugQuery,
-    GetBlogSlugQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<GetBlogSlugQuery, GetBlogSlugQueryVariables>(
-    GetBlogSlugDocument,
-    options
-  )
-}
-export type GetBlogSlugQueryHookResult = ReturnType<typeof useGetBlogSlugQuery>
-export type GetBlogSlugLazyQueryHookResult = ReturnType<
-  typeof useGetBlogSlugLazyQuery
->
-export type GetBlogSlugQueryResult = Apollo.QueryResult<
-  GetBlogSlugQuery,
-  GetBlogSlugQueryVariables
->
+export function useGetBlogSlugQuery(baseOptions?: Apollo.QueryHookOptions<GetBlogSlugQuery, GetBlogSlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetBlogSlugQuery, GetBlogSlugQueryVariables>(GetBlogSlugDocument, options);
+      }
+export function useGetBlogSlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBlogSlugQuery, GetBlogSlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetBlogSlugQuery, GetBlogSlugQueryVariables>(GetBlogSlugDocument, options);
+        }
+export type GetBlogSlugQueryHookResult = ReturnType<typeof useGetBlogSlugQuery>;
+export type GetBlogSlugLazyQueryHookResult = ReturnType<typeof useGetBlogSlugLazyQuery>;
+export type GetBlogSlugQueryResult = Apollo.QueryResult<GetBlogSlugQuery, GetBlogSlugQueryVariables>;
