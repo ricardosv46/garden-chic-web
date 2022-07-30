@@ -64,11 +64,11 @@ const Filtro = () => {
             <div className="pb-10">
               <div className="flex justify-between text-primary-600">
                 <div className="flex flex-col ">
-                  <div className="text-base">Minimo</div>
+                  <div className="text-base">S/. 0</div>
                   {/* <p className='text-sm'>S/ {(range as Range).min}</p> */}
                 </div>
                 <div className="flex flex-col ">
-                  <div className="text-base">Máximo</div>
+                  <div className="text-base">S/. 10,000</div>
                   {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
                 </div>
               </div>
@@ -112,10 +112,7 @@ const Filtro = () => {
       <div className="py-4 border-b">
         <Accordion title="Destacado">
           <div className="w-full">
-            <InputCheckbox
-              label="Producto Destacado"
-              name="destacado"
-            />
+            <InputCheckbox label="Producto Destacado" name="destacado" />
           </div>
         </Accordion>
       </div>
