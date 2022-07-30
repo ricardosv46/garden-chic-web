@@ -6,7 +6,8 @@ import Accordion from "../../accordion";
 import CardProductosRelacionados from "../../cards/cardProducto/cardProductosRelacionados";
 import InputRadio from "../../inputs/InputRadio";
 import InputSearch from "../../inputs/InputSearch";
-import { InputRange } from "@components/inputs/InputRange";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 import { useCategoriaProductos } from "src/services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
 
@@ -26,6 +27,10 @@ const Filtro = () => {
 
   const [filter, setFilter] = useState();
   // const [range, setRange] = useState<number | Range>(initialState)
+  const [range, setRange] = useState({
+    min: 0,
+    max: 10000,
+  });
   return (
     <div className="">
       <div className="flex gap-x-3 mt-5 items-center">
@@ -64,25 +69,28 @@ const Filtro = () => {
             <div className="pb-10">
               <div className="flex justify-between text-primary-600">
                 <div className="flex flex-col ">
-                  <div className="text-base">S/. 0</div>
+                  <div className="text-base">S/. {range.min}</div>
                   {/* <p className='text-sm'>S/ {(range as Range).min}</p> */}
                 </div>
                 <div className="flex flex-col ">
-                  <div className="text-base">S/. 10,000</div>
+                  <div className="text-base">S/. {range.max}</div>
                   {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
                 </div>
               </div>
-              <div className="mx-2 mt-2">
-                <InputRange />
-
-                {/* <InputRange
-                  maxValue={initialState.max as number}
-                  minValue={initialState.min as number}
+              <div className="mx-2 mt-2 ">
+                <InputRange
+                  maxValue={10000}
+                  minValue={0}
                   value={range}
-                  formatLabel={(range) => `S./ ${range} `}
-                  onChange={(value) => setRange(value)}
-                /> */}
+                  onChange={(value: any) => {
+                    setRange({ ...value });
+                  }}
+                />
               </div>
+              {/* <div className="mx-2 flex justify-between items-center border">
+                <div className="w-14 text-sm flex justify-center items-center h-8 border">{range.min}</div>
+                <div>pepe</div>
+              </div> */}
             </div>
           </div>
         </Accordion>
