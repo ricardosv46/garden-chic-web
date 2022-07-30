@@ -2,7 +2,7 @@ import { useState } from "react";
 import IconAngleDown from "../../../public/icons/IconAngleDown";
 
 const Accordion = ({ title, children, className = "text-xs " }) => {
-  const [watch, setWatch] = useState(true);
+  const [watch, setWatch] = useState(false);
   const handleWatch = () => {
     setWatch(!watch);
   };
@@ -14,6 +14,7 @@ const Accordion = ({ title, children, className = "text-xs " }) => {
       >
         <p className="text-gray-900 text-md font-semibold text-xl mb-2">
           {title}
+          {/* <input type={"checkbox"} className=''/> */}
         </p>
 
         <div className="">
@@ -34,9 +35,15 @@ const Accordion = ({ title, children, className = "text-xs " }) => {
           )}
         </div>
       </div>
-      {watch && (
-        <div className={`flex w-full pt-3`}>{children}</div>
-      )}
+      {watch && <div className={`flex w-full pt-3`}>{children}</div>}
+
+      {/* <div
+        className={`${
+          watch ? "block translate-x-0" : "hidden -translate-x-7 "
+        } flex w-full pt-3 duration-300 transition-all`}
+      >
+        {children}
+      </div> */}
     </div>
   );
 };

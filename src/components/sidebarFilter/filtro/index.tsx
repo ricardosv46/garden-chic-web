@@ -8,6 +8,7 @@ import InputRadio from "../../inputs/InputRadio";
 import InputSearch from "../../inputs/InputSearch";
 import { InputRange } from "@components/inputs/InputRange";
 import { useCategoriaProductos } from "src/services/useCategoriaProductos";
+import InputCheckbox from "@components/inputs/InputCheckbox";
 
 interface Ifilter {
   categoriaProductoId: string;
@@ -32,6 +33,7 @@ const Filtro = () => {
         <h2 className="text-2xl font-light uppercase">Filtros</h2>
       </div>
 
+      {/* accordion radio button */}
       <div className="py-4 border-b">
         <Accordion title="Categoria">
           <div className="w-full">
@@ -42,8 +44,8 @@ const Filtro = () => {
                 <InputRadio
                   label={obj.titulo || ""}
                   name={"categoriaProductoId"}
-                  value={obj.categoriaProductoId || ""}
-                  stock={1}
+                  value={obj.slug || ""}
+                  // stock={1}
                   id={obj.titulo || ""}
                   key={obj.categoriaProductoId}
                 />
@@ -52,6 +54,7 @@ const Filtro = () => {
           </div>
         </Accordion>
       </div>
+      {/* accordion precio */}
       <div className="py-4 border-b">
         <Accordion title="Precio">
           <div className="flex flex-col">
@@ -81,6 +84,38 @@ const Filtro = () => {
                 /> */}
               </div>
             </div>
+          </div>
+        </Accordion>
+      </div>
+
+      {/* accordion ordenamiento */}
+      <div className="py-4 border-b">
+        <Accordion title="Ordenar">
+          <div className="w-full">
+            <InputRadio
+              label="Ascendente"
+              id="ascedente"
+              value="asc"
+              name="typeOrder"
+            />
+            <InputRadio
+              label="Descendente"
+              id="descedente"
+              value="desc"
+              name="typeOrder"
+            />
+          </div>
+        </Accordion>
+      </div>
+
+      {/* producto destacado */}
+      <div className="py-4 border-b">
+        <Accordion title="Destacado">
+          <div className="w-full">
+            <InputCheckbox
+              label="Producto Destacado"
+              name="destacado"
+            />
           </div>
         </Accordion>
       </div>

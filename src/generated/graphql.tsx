@@ -1457,6 +1457,18 @@ export type GetBlogSlugQueryVariables = Exact<{
 
 export type GetBlogSlugQuery = { __typename?: 'Query', GetBlogSlug: { __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null } };
 
+export type GetBusquedaAvanzadaQueryVariables = Exact<{
+  categoriaSlug?: InputMaybe<Scalars['String']>;
+  destacado?: InputMaybe<Scalars['String']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  precio?: InputMaybe<Array<Scalars['Float']> | Scalars['Float']>;
+  tipoOrdenacion?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetBusquedaAvanzadaQuery = { __typename?: 'Query', GetBusquedaAvanzada: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', categoriaProductoId?: number | null, created_at?: any | null, descripcionCorta?: string | null, descripcionLarga?: string | null, destacado?: string | null, estado?: string | null, keywords?: string | null, precioOferta?: number | null, precioReal?: number | null, productoId?: string | null, slug?: string | null, stockMinimo?: number | null, stockReal?: number | null, titulo?: string | null, imagenPrincipal?: { __typename?: 'Imagenes', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null, slug?: string | null, estado?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null }> | null } };
+
 
 export const CreatePedidoDocument = gql`
     mutation CreatePedido($input1: PedidoInput!, $input2: [DetallePedidoInput!], $input3: ReciboInput!, $input4: DireccionEnvioInput!, $input5: DatosTarjetaInput) {
@@ -2032,3 +2044,83 @@ export function useGetBlogSlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetBlogSlugQueryHookResult = ReturnType<typeof useGetBlogSlugQuery>;
 export type GetBlogSlugLazyQueryHookResult = ReturnType<typeof useGetBlogSlugLazyQuery>;
 export type GetBlogSlugQueryResult = Apollo.QueryResult<GetBlogSlugQuery, GetBlogSlugQueryVariables>;
+export const GetBusquedaAvanzadaDocument = gql`
+    query GetBusquedaAvanzada($categoriaSlug: String, $destacado: String, $numeroPagina: Int, $pagina: Int, $precio: [Float!], $tipoOrdenacion: String) {
+  GetBusquedaAvanzada(
+    categoriaSlug: $categoriaSlug
+    destacado: $destacado
+    numeroPagina: $numeroPagina
+    pagina: $pagina
+    precio: $precio
+    tipoOrdenacion: $tipoOrdenacion
+  ) {
+    data {
+      imagenPrincipal {
+        estado
+        id
+        titulo
+        url
+      }
+      CategoriaProducto {
+        titulo
+        slug
+        estado
+      }
+      categoriaProductoId
+      created_at
+      descripcionCorta
+      descripcionLarga
+      destacado
+      estado
+      imagenSecundaria {
+        estado
+        id
+        titulo
+        url
+      }
+      keywords
+      precioOferta
+      precioReal
+      productoId
+      slug
+      stockMinimo
+      stockReal
+      titulo
+    }
+    numeroTotal
+  }
+}
+    `;
+
+/**
+ * __useGetBusquedaAvanzadaQuery__
+ *
+ * To run a query within a React component, call `useGetBusquedaAvanzadaQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetBusquedaAvanzadaQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetBusquedaAvanzadaQuery({
+ *   variables: {
+ *      categoriaSlug: // value for 'categoriaSlug'
+ *      destacado: // value for 'destacado'
+ *      numeroPagina: // value for 'numeroPagina'
+ *      pagina: // value for 'pagina'
+ *      precio: // value for 'precio'
+ *      tipoOrdenacion: // value for 'tipoOrdenacion'
+ *   },
+ * });
+ */
+export function useGetBusquedaAvanzadaQuery(baseOptions?: Apollo.QueryHookOptions<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>(GetBusquedaAvanzadaDocument, options);
+      }
+export function useGetBusquedaAvanzadaLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>(GetBusquedaAvanzadaDocument, options);
+        }
+export type GetBusquedaAvanzadaQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaQuery>;
+export type GetBusquedaAvanzadaLazyQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaLazyQuery>;
+export type GetBusquedaAvanzadaQueryResult = Apollo.QueryResult<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>;

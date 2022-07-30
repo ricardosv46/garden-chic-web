@@ -1,9 +1,10 @@
+import { Show } from "@components/show";
 import React from "react";
 
 interface Radio {
   label: string;
   name: string;
-  stock: number;
+  stock?: number;
   id: string;
   value: string;
 }
@@ -22,9 +23,11 @@ const InputRadio = ({ label, name, stock, id, value }: Radio) => {
           {label}
         </label>
       </div>
-      {/* <div className="rounded-full text-[12px] flex justify-center items-center h-7 w-7  bg-primary-600 text-white">
-        {stock}
-      </div> */}
+      <Show condition={typeof stock !== "undefined"}>
+        <div className="rounded-full text-[12px] flex justify-center items-center h-7 w-7  bg-primary-600 text-white">
+          {stock}
+        </div>
+      </Show>
     </div>
   );
 };

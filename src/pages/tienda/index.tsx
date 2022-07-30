@@ -63,9 +63,9 @@ const Tienda = () => {
             </div>
           </div>
         </Container>
-
+        
         <Container
-          className={`flex flex-row  w-full
+          className={`flex flex-row  w-full 
         ${isOpenFilter ? "gap-10" : "gap-0"}
         `}
         >
@@ -85,7 +85,7 @@ const Tienda = () => {
                 isOpenFilter
                   ? " xl:grid-cols-3"
                   : " xl:grid-cols-4 lg:grid-cols-3 "
-              } gap-5 justify-items-center mt-16 sm:grid-cols-2`}
+              } gap-5 justify-items-center  sm:grid-cols-2`}
             >
               {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-5 xl:grid-cols-3 2xl:grid-cols-4 justify-items-center mt-16  "> */}
               {productos.map((item) => (
