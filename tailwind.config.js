@@ -127,6 +127,7 @@ module.exports = {
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
+      swing: "baile 2s ease-in-out infinite",
     },
     aspectRatio: {
       auto: "auto",
@@ -608,12 +609,21 @@ module.exports = {
           animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
         },
       },
-      swing: {
-        "0%,100%": {
-          transform: "rotate(-30deg)",
+      baile: {
+        "20%": {
+          transform: "rotate3d(0, 0, 1 , 15deg)",
         },
-        "50%": {
-          transform: "rotate(30deg)",
+        "40%": {
+          transform: "rotate3d(0, 0, 1 , -10deg)",
+        },
+        "60%": {
+          transform: "rotate3d(0, 0, 1 , 5deg)",
+        },
+        "80%": {
+          transform: "rotate3d(0, 0, 1 , -5deg)",
+        },
+        to: {
+          transform: "rotate3d(0, 0, 1, 0deg)",
         },
       },
     },

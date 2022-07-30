@@ -19,7 +19,7 @@ const Tienda = () => {
   return (
     <div>
       <BannerTienda />
-      <Container className="lg:flex py-10 gap-10 p-5">hola</Container>
+      {/* <Container className="lg:flex py-10 gap-10 p-5">hola</Container> */}
       <Show
         condition={!loading}
         isDefault={
