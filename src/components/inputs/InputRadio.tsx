@@ -7,6 +7,7 @@ interface Radio {
   stock?: number;
   id: string;
   value: string;
+  // onchange: (e: any) => void;
 }
 const InputRadio = ({ label, name, stock, id, value }: Radio) => {
   return (

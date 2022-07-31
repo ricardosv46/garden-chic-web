@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 // import InputRange, { Range } from 'react-input-range'
 import IconFilter from "../../../../public/icons/IconFilter";
 import { useProductos } from "../../../services/useProducto";
@@ -10,27 +11,57 @@ import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import { useCategoriaProductos } from "src/services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
+import { useBusquedaAvanzada } from "src/services/useBusquedaAvanzada";
 
 interface Ifilter {
-  categoriaProductoId: string;
-  precio: string;
+  categoriaSlug?: string | null;
+  destacado: string;
+  numeroPagina: number;
+  pagina: number;
+  precio: {
+    min: number;
+    max: number;
+  };
+  tipoOrdenacion: string;
 }
 
 const Filtro = () => {
-  const initialState = {
-    min: 500,
-    max: 1000,
-  } as const;
   const { db: productos, loading } = useProductos();
   const { db: dataCategoria, loading: loadingCategoria } =
     useCategoriaProductos();
-
-  const [filter, setFilter] = useState();
-  // const [range, setRange] = useState<number | Range>(initialState)
-  const [range, setRange] = useState({
-    min: 0,
-    max: 10000,
+  const {
+    FiltrarBusqueda,
+    data,
+    loading: loadingBusqueda,
+  } = useBusquedaAvanzada();
+  const [filter, setFilter] = useState<Ifilter>({
+    categoriaSlug: null,
+    destacado: "1",
+    numeroPagina: 10,
+    pagina: 1,
+    precio: { min: 0, max: 10000 },
+    tipoOrdenacion: "desc",
   });
+
+  const [currentPro, setCurrentPro] = useState({});
+  // const {} = useBusquedaAvanzada(filter);
+  // const [range, setRange] = useState({
+  //   min: 0,
+  //   max: 10000,
+  // });
+
+  const FilterAction = async () => {
+    const newPrecio = { precio: Object.values(filter.precio) };
+    await FiltrarBusqueda(Object.assign(filter, newPrecio));
+  };
+  useEffect(() => {
+    setCurrentPro(dataCategoria);
+  }, [loadingCategoria]);
+
+  useEffect(() => {
+    setCurrentPro(productos);
+  }, []);
+
   return (
     <div className="">
       <div className="flex gap-x-3 mt-5 items-center">
@@ -69,11 +100,11 @@ const Filtro = () => {
             <div className="pb-10">
               <div className="flex justify-between text-primary-600">
                 <div className="flex flex-col ">
-                  <div className="text-base">S/. {range.min}</div>
+                  <div className="text-base">S/. {filter.precio?.min}</div>
                   {/* <p className='text-sm'>S/ {(range as Range).min}</p> */}
                 </div>
                 <div className="flex flex-col ">
-                  <div className="text-base">S/. {range.max}</div>
+                  <div className="text-base">S/. {filter.precio?.max}</div>
                   {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
                 </div>
               </div>
@@ -81,9 +112,9 @@ const Filtro = () => {
                 <InputRange
                   maxValue={10000}
                   minValue={0}
-                  value={range}
+                  value={filter.precio}
                   onChange={(value: any) => {
-                    setRange({ ...value });
+                    setFilter({ ...filter, precio: { ...value } });
                   }}
                 />
               </div>
@@ -105,6 +136,9 @@ const Filtro = () => {
               id="ascedente"
               value="asc"
               name="typeOrder"
+              // onchange={()=>{
+
+              // }}
             />
             <InputRadio
               label="Descendente"
@@ -124,7 +158,10 @@ const Filtro = () => {
           </div>
         </Accordion>
       </div>
-      <button className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800">
+      <button
+        className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
+        onClick={() => FilterAction()}
+      >
         Aplicar Filtros
       </button>
 
