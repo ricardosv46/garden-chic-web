@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef, useState } from 'react'
 // import 'react-credit-cards/es/styles-compiled.css'
 // import Card from 'react-credit-cards'
 import useForm from '../../hooks/useForm'
@@ -20,10 +20,13 @@ const cardType = {
   mastercard: "5"
 }
 
+
+
 const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
   const [bank, setBank] = useState('selecccione')
   const [tipoDocu, setTipoDocu] = useState('selecccione')
   const [cuotas, setCuotas] = useState('selecccione')
+  const [disabledSelect, setDisabledSelect] = useState(false)
 
   const [cardRotate, setCardRotate] = useState(false)
   const [imgLogo, setImgLogo] = useState("")
@@ -32,6 +35,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
   const {
     cardNumber,
     expiration,
+    cardExpirationMonth,
     cardExpirationYear,
     cvc,
     cardholderName,
@@ -42,10 +46,37 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
     cardNumber: '',
     expiration: '',
     cardExpirationYear: '',
+    cardExpirationMonth: '',  
     cvc: '',
     cardholderName: '',
     focus: 'cardNumber' as any
   })
+
+useEffect(() => {
+
+  const select = document.getElementById("form-checkout__installments") as any;
+
+  const myOptions = Array.prototype.slice.call(select?.options)
+
+  const cantSelect = myOptions.filter(i=>i.disabled === false).map(i=>i.value)
+
+  if(cantSelect.length > 1 && cardNumber.length > 15){
+    setDisabledSelect(false)
+  } else{
+    setDisabledSelect(true)
+  } 
+
+  
+
+
+}, [cardNumber])
+  
+ 
+ 
+
+
+
+
 
   const bgImage = () => {
     if (imgLogo === cardType.amex) return "bg-backg-amex"
@@ -55,6 +86,10 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
   }
 
   const resultPayment = useMercadoPago({ monto: total, pago })
+
+
+
+ 
 
   return (
     <div className='flex flex-col items-center justify-center '>
@@ -137,7 +172,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
                     <p className="text-sm text-gray-700">Expiration</p>
                     <p className="uppercase">
                       {/* {"MM/YY"} */}
-                      {expiration || "MM/YY"}
+                      {cardExpirationMonth ?  cardExpirationMonth+"/"+cardExpirationYear : "MM/YY"}
                     </p>
                   </div>
                 </div>
@@ -209,25 +244,45 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             className="uppercase w-full"
           />
           <div className='flex flex-col md:flex-row  gap-5 '>
+
             <InputFloat
               required
               type='text'
-              label='Fecha de expiracion'
-              name='expiration'
-              id='form-checkout__expiration'
-              htmlFor='form-checkout__expiration'
+              label='Mes de vencimiento'
+              name='cardExpirationMonth'
+              id='form-checkout__cardExpirationMonth'
+              htmlFor='form-checkout__cardExpirationMonth'
               onChange={e => {
-                const valor = e.target.value.replace(/\s/g, '').replace(/\D/g, '').replace(/([0-9]{2})/g, '$1/')
-                const val = valor.length === 6 ? valor.replace(/.$/, '') : valor
-                e.target.value = val
+                const valor = e.target.value.replace(/\s/g, '').replace(/\D/g, '').replace(/([0-9]{4})/g, '$1 ').trim()
+                e.target.value = valor
                 onChange(e)
               }}
               onFocus={e => {
                 setCardRotate(false)
                 onFocus(e)
               }}
-              maxLength={5}
+              maxLength={2}
             />
+            <InputFloat
+              required
+              type='text'
+              name='cardExpirationYear'
+              id='form-checkout__cardExpirationYear'
+              htmlFor='form-checkout__cardExpirationYear'
+              label='Año de vencimiento'
+              maxLength={2}
+              onChange={e => {
+                const valor = e.target.value.replace(/\s/g, '').replace(/\D/g, '').replace(/([0-9]{4})/g, '$1 ').trim()
+                e.target.value = valor
+                onChange(e)
+              }}
+              onFocus={e => {
+                setCardRotate(false)
+                onFocus(e)
+              }}
+            />
+
+
             <InputFloat
               required
               type='text'
@@ -259,6 +314,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             /> */}
           </div>
           <InputFloat
+         
             required
             type='email'
             name='cardholderEmail'
@@ -269,7 +325,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             onFocus={onFocus}
           />
           <SelectMercadoPago
-            required
+          hidden={disabledSelect}
             label='Banco emisor'
             id='form-checkout__issuer'
             value={bank}
@@ -277,7 +333,6 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             data={[]}
           />
           <SelectMercadoPago
-            required
             label='Tipo Documento'
             id='form-checkout__identificationType'
             value={tipoDocu}
@@ -285,7 +340,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             data={[]}
           />
           <InputFloat
-            required
+            
             type='number'
             name='identificationNumber'
             id='form-checkout__identificationNumber'
@@ -295,6 +350,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
             onFocus={onFocus}
           />
           <SelectMercadoPago
+            hidden={disabledSelect}
             required
             label='Cuotas'
             id='form-checkout__installments'

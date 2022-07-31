@@ -5,7 +5,8 @@ import React, {
   RefObject,
   SetStateAction,
   useEffect,
-  useRef
+  useRef,
+  useState
 } from 'react'
 
 interface IProps extends InputHTMLAttributes<HTMLSelectElement> {
@@ -14,6 +15,7 @@ interface IProps extends InputHTMLAttributes<HTMLSelectElement> {
   label: string
   onChangevalue: Dispatch<SetStateAction<string>>
   data: Options[]
+  hidden?: boolean
 }
 
 interface Options {
@@ -26,16 +28,17 @@ const SelectMercadoPago = ({
   label,
   onChangevalue,
   data,
-  variant = 'normal',
+  hidden,
+  variant = '',
   ...props
 }: IProps) => {
-  const ref = useRef<any>()
+
+
 
   return (
-    <div className='relative w-full'>
+    <div className={`relative w-full ${hidden ? 'hidden' : 'block'}`}>
       <select
         {...props}
-        ref={ref}
         className='w-full block px-2  pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
         name='service'
         value={value}

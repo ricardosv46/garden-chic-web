@@ -1,10 +1,11 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import useScript from './useScript'
 import { mercadoPagoFormConfig } from '../data/mercadoPagoformConfig'
 
 interface IProps {
   monto: number
   pago: any
+ 
 }
 
 interface Pago {
