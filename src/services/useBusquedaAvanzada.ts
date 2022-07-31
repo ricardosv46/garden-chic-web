@@ -1,4 +1,4 @@
-import { useGetBusquedaAvanzadaLazyQuery } from "./../generated/graphql";
+import { useGetBusquedaAvanzadaLazyQuery, useGetBusquedaAvanzadaQuery } from "./../generated/graphql";
 
 interface Iprops {
   categoriaSlug?: string | null;
@@ -9,29 +9,18 @@ interface Iprops {
   tipoOrdenacion: string;
 }
 
-export const useBusquedaAvanzada = () => {
-  const [FiltrarBusquedaMutation, { data, loading, error }] =
-    useGetBusquedaAvanzadaLazyQuery();
+export const useBusquedaAvanzada = (inputs:Iprops) => {
+  const {loading,data} =
+    useGetBusquedaAvanzadaQuery({
+      fetchPolicy: "network-only",
+      variables:{
+        ...inputs
+      }
+    });
 
-  const FiltrarBusqueda = async (payload: Iprops) => {
-    try {
-      const res = await FiltrarBusquedaMutation({
-        variables: payload,
-        fetchPolicy: "network-only",
-        onError: (err) => {
-          console.log("onError Create Pedido", err?.graphQLErrors[0]);
-        },
-      });
-      return { res, status: true, code: 201 };
-    } catch (error) {
-      console.log("error");
-      console.log(error);
-    }
-  };
 
   return {
-    FiltrarBusqueda,
     loading,
-    data,
+    data
   };
 };

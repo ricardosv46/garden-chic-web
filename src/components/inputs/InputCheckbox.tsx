@@ -1,12 +1,14 @@
 import { Show } from "@components/show";
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 
 interface CheckboxProps {
   label: string;
   name: string;
   stock?: number;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  value:any
 }
-const InputCheckbox = ({ label, name, stock }: CheckboxProps) => {
+const InputCheckbox = ({ label, name, stock,onChange,value }: CheckboxProps) => {
   return (
     <div className="flex items-center justify-between py-1 ">
       <div className="flex items-center gap-x-3">
@@ -15,6 +17,8 @@ const InputCheckbox = ({ label, name, stock }: CheckboxProps) => {
           id={name}
           name={name}
           className="w-5 h-5 rounded border  checked:bg-primary-800 "
+          onChange={onChange}
+          value={value}
         />
         <label htmlFor={name} className="text-[18px]">
           {label}

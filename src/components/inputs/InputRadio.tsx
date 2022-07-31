@@ -1,5 +1,5 @@
 import { Show } from "@components/show";
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 
 interface Radio {
   label: string;
@@ -7,9 +7,18 @@ interface Radio {
   stock?: number;
   id: string;
   value: string;
-  // onchange: (e: any) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  defaultChecked?: boolean;
 }
-const InputRadio = ({ label, name, stock, id, value }: Radio) => {
+const InputRadio = ({
+  label,
+  name,
+  stock,
+  id,
+  value,
+  onChange,
+  defaultChecked = false,
+}: Radio) => {
   return (
     <div className="flex items-center justify-between py-1 ">
       <div className="flex items-center gap-x-3">
@@ -19,6 +28,8 @@ const InputRadio = ({ label, name, stock, id, value }: Radio) => {
           name={name}
           className="w-5 h-5 rounded border  checked:bg-primary-800"
           value={value}
+          onChange={onChange}
+          defaultChecked={defaultChecked}
         />
         <label htmlFor={id} className="text-[18px]">
           {label}

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 // import InputRange, { Range } from 'react-input-range'
 import IconFilter from "../../../../public/icons/IconFilter";
 import { useProductos } from "../../../services/useProducto";
@@ -13,54 +13,48 @@ import { useCategoriaProductos } from "src/services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
 import { useBusquedaAvanzada } from "src/services/useBusquedaAvanzada";
 
-interface Ifilter {
-  categoriaSlug?: string | null;
-  destacado: string;
-  numeroPagina: number;
-  pagina: number;
-  precio: {
-    min: number;
-    max: number;
-  };
-  tipoOrdenacion: string;
-}
-
-const Filtro = () => {
+const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
   const { db: productos, loading } = useProductos();
+
   const { db: dataCategoria, loading: loadingCategoria } =
     useCategoriaProductos();
-  const {
-    FiltrarBusqueda,
-    data,
-    loading: loadingBusqueda,
-  } = useBusquedaAvanzada();
-  const [filter, setFilter] = useState<Ifilter>({
-    categoriaSlug: null,
-    destacado: "1",
-    numeroPagina: 10,
-    pagina: 1,
-    precio: { min: 0, max: 10000 },
-    tipoOrdenacion: "desc",
+  // const {} = useBusquedaAvanzada(filter);
+  const [range, setRange] = useState<any>({
+    min: 0,
+    max: 10000,
   });
 
-  const [currentPro, setCurrentPro] = useState({});
-  // const {} = useBusquedaAvanzada(filter);
-  // const [range, setRange] = useState({
-  //   min: 0,
-  //   max: 10000,
-  // });
+  const [form, setForm] = useState({
+    destacado: false,
+    categoriaSlug: "",
+    tipoOrdenacion: "asc",
+  });
 
-  const FilterAction = async () => {
-    const newPrecio = { precio: Object.values(filter.precio) };
-    await FiltrarBusqueda(Object.assign(filter, newPrecio));
+  const { data } = useBusquedaAvanzada({
+    destacado: form.destacado ? "1" : "0",
+    categoriaSlug: form.categoriaSlug,
+    tipoOrdenacion: form.tipoOrdenacion,
+    precio: [range.min, range.max],
+    pagina: 1,
+    numeroPagina: 10,
+  });
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    setCurrentPro(dataCategoria);
-  }, [loadingCategoria]);
 
-  useEffect(() => {
-    setCurrentPro(productos);
-  }, []);
+  const handleChecked = (e: ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.checked });
+  };
+
+  const handleFilter = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const db = data ? data?.GetBusquedaAvanzada?.data : [];
+    setLoadind(true);
+    setDataFilter(db);
+    setTimeout(() => {
+      setLoadind(false)
+    }, 750);
+  };
 
   return (
     <div className="">
@@ -68,103 +62,104 @@ const Filtro = () => {
         <IconFilter height={22} width={22} fill="#35405E" />
         <h2 className="text-2xl font-light uppercase">Filtros</h2>
       </div>
+      <form action="" onSubmit={handleFilter}>
+        {/* accordion categorias */}
+        <div className="py-4 border-b">
+          <Accordion title="Categoria">
+            <div className="w-full">
+              {/* <InputSearch placeholder="Buscar" /> */}
+              <div className="mt-4">
+                {/* Render input radios */}
+                {!loadingCategoria &&
+                  dataCategoria.map((category) => (
+                    <InputRadio
+                      label={category.titulo || ""}
+                      name={"categoriaSlug"}
+                      value={category.slug || ""}
+                      id={category.titulo || ""}
+                      key={category.categoriaProductoId}
+                      onChange={handleChange}
+                    />
+                  ))}
+              </div>
+            </div>
+          </Accordion>
+        </div>
 
-      {/* accordion radio button */}
-      <div className="py-4 border-b">
-        <Accordion title="Categoria">
-          <div className="w-full">
-            <InputSearch placeholder="Buscar" />
-            <div className="mt-4">
-              {/* Render input radios */}
-              {dataCategoria.map((obj, index) => (
-                <InputRadio
-                  label={obj.titulo || ""}
-                  name={"categoriaProductoId"}
-                  value={obj.slug || ""}
-                  // stock={1}
-                  id={obj.titulo || ""}
-                  key={obj.categoriaProductoId}
-                />
-              ))}
-            </div>
-          </div>
-        </Accordion>
-      </div>
-      {/* accordion precio */}
-      <div className="py-4 border-b">
-        <Accordion title="Precio">
-          <div className="flex flex-col">
-            <div className="mb-10">
-              <p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
-            </div>
-            <div className="pb-10">
-              <div className="flex justify-between text-primary-600">
-                <div className="flex flex-col ">
-                  <div className="text-base">S/. {filter.precio?.min}</div>
-                  {/* <p className='text-sm'>S/ {(range as Range).min}</p> */}
+        {/* accordion rango de precios */}
+        <div className="py-4 border-b">
+          <Accordion title="Precio">
+            <div className="flex flex-col">
+              <div className="mb-10">
+                <p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
+              </div>
+              <div className="pb-10">
+                <div className="flex justify-between text-primary-600">
+                  <div className="flex flex-col ">
+                    <div className="text-base">S/. {range.min}</div>
+                  </div>
+                  <div className="flex flex-col ">
+                    <div className="text-base">S/. {range.max}</div>
+                  </div>
                 </div>
-                <div className="flex flex-col ">
-                  <div className="text-base">S/. {filter.precio?.max}</div>
-                  {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
+                <div className="mx-2 mt-2  border-transparent border max-h-6">
+                  <InputRange
+                    maxValue={10000}
+                    minValue={0}
+                    value={range}
+                    onChange={(value: any) => {
+                      setRange({ ...range, ...value });
+                    }}
+                  />
                 </div>
               </div>
-              <div className="mx-2 mt-2  border-transparent border max-h-6">
-                <InputRange
-                  maxValue={10000}
-                  minValue={0}
-                  value={filter.precio}
-                  onChange={(value: any) => {
-                    setFilter({ ...filter, precio: { ...value } });
-                  }}
-                />
-              </div>
-              {/* <div className="mx-2 flex justify-between items-center border">
-                <div className="w-14 text-sm flex justify-center items-center h-8 border">{range.min}</div>
-                <div>pepe</div>
-              </div> */}
             </div>
-          </div>
-        </Accordion>
-      </div>
+          </Accordion>
+        </div>
 
-      {/* accordion ordenamiento */}
-      <div className="py-4 border-b">
-        <Accordion title="Ordenar">
-          <div className="w-full">
-            <InputRadio
-              label="Ascendente"
-              id="ascedente"
-              value="asc"
-              name="typeOrder"
-              // onchange={()=>{
+        {/* accordion ordenamiento */}
+        <div className="py-4 border-b">
+          <Accordion title="Ordenar">
+            <div className="w-full">
+              <InputRadio
+                label="Ascendente"
+                id="ascedente"
+                value="asc"
+                name="tipoOrdenacion"
+                onChange={handleChange}
+                defaultChecked={true}
+              />
+              <InputRadio
+                label="Descendente"
+                id="descedente"
+                value="desc"
+                name="tipoOrdenacion"
+                onChange={handleChange}
+              />
+            </div>
+          </Accordion>
+        </div>
 
-              // }}
-            />
-            <InputRadio
-              label="Descendente"
-              id="descedente"
-              value="desc"
-              name="typeOrder"
-            />
-          </div>
-        </Accordion>
-      </div>
-
-      {/* producto destacado */}
-      <div className="py-4 border-b">
-        <Accordion title="Destacado">
-          <div className="w-full">
-            <InputCheckbox label="Producto Destacado" name="destacado" />
-          </div>
-        </Accordion>
-      </div>
-      <button
-        className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
-        onClick={() => FilterAction()}
-      >
-        Aplicar Filtros
-      </button>
-
+        {/* producto destacado */}
+        <div className="py-4 border-b">
+          <Accordion title="Destacado">
+            <div className="w-full">
+              <InputCheckbox
+                label="Producto Destacado"
+                name="destacado"
+                onChange={handleChecked}
+                value={form.destacado}
+              />
+            </div>
+          </Accordion>
+        </div>
+        <button
+          className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
+          type="submit"
+        >
+          Filtrar
+        </button>
+      </form>
       <p className="text-gray-900 text-2xl font-bold py-10">
         Productos similares
       </p>
