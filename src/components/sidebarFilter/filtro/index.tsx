@@ -77,7 +77,7 @@ const Filtro = () => {
                   {/* <p className='text-sm'>S/ {(range as Range).max}</p> */}
                 </div>
               </div>
-              <div className="mx-2 mt-2 ">
+              <div className="mx-2 mt-2  border-transparent border max-h-6">
                 <InputRange
                   maxValue={10000}
                   minValue={0}
