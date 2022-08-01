@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import IconArrowBottom from "public/icons/IconArrowBottom";
 import IconClose from "public/icons/IconClose";
 import IconLupa from "public/icons/IconLupa";
@@ -12,6 +12,7 @@ interface Iprops {
   disabled?: boolean;
   value: string;
   setStateMutation: (key: string, value: string | number) => void;
+  inputSearch?: boolean;
 }
 export const SelectSearch = ({
   tittle,
@@ -20,21 +21,51 @@ export const SelectSearch = ({
   value,
   disabled,
   setStateMutation,
+  inputSearch = false,
 }: Iprops) => {
   const [open, setOpen] = useState(false);
   const [textFilter, setTextFilter] = useState("");
+  const WrapperDropdown = useRef<HTMLDivElement>(null);
 
-  //   useEffect(() => {
-  //     if ((data.length > 0) && (value.length > 0))
-  //       setTextFilter(data[Number(value)].titulo);
-  //   }, [data]);
+  const handleHideDropdown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  const handleClickOutside = (event: Event) => {
+    if (
+      WrapperDropdown.current &&
+      !WrapperDropdown.current.contains(event.target as Node)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleHideDropdown, true);
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("keydown", handleHideDropdown, true);
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  });
 
   return (
     <div
       className="flex flex-col w-full relative min-w-max"
+      ref={WrapperDropdown}
     >
+      <label
+        className={`absolute text-[11px] block bg-white rounded-full px-2 transition-all transform duration-300 ${
+          textFilter ? " opacity-100 -top-2 left-4" : "opacity-0 top-4 left-6 " 
+        }`}
+      >
+        {tittle}
+      </label>
+
       <button
-        className="text-white px-8 h-12 bg-primary-600 w-full hover:bg-primary- focus:ring-2 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-sm  py-2.5 text-center inline-flex items-center"
+        className=" px-8 h-12 text-primary-800 border border-primary-100 w-full hover:bg-primary- focus:ring-2 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-sm  py-2.5 text-center inline-flex items-center"
         type="button"
         disabled={disabled}
         onClick={() => setOpen(!open)}
@@ -47,8 +78,10 @@ export const SelectSearch = ({
       <div
         className={`absolute  ${
           open ? "block" : "hidden"
-        }  bg-white rounded shadow overflow-y-scroll z-30 top-14`}
+        }  bg-white rounded shadow overflow-y-scroll z-30 top-14 w-full`}
       >
+        {/* Input Search */}
+        {/* <Show condition={inputSearch}> */}
         <div className="p-3">
           <label className="sr-only">Buscar</label>
           <div className="relative">
@@ -75,8 +108,9 @@ export const SelectSearch = ({
             />
           </div>
         </div>
+        {/* </Show> */}
 
-        <ul className=" px-3 pb-3 max-h-[192px]  text-sm text-gray-700 dark:text-gray-200 ">
+        <ul className="px-3 pb-3 max-h-[192px] text-sm text-gray-700 dark:text-gray-200">
           {data.map((obj, index) =>
             obj.titulo.startsWith(textFilter.toUpperCase()) ? (
               <li key={index}>
@@ -93,12 +127,7 @@ export const SelectSearch = ({
                   </label>
                 </div>
               </li>
-            ) : //   <div className="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-            //     <label className="py-2 ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-            //       {"No existe"}
-            //     </label>
-            //   </div>
-            null
+            ) : null
           )}
         </ul>
       </div>

@@ -85,6 +85,17 @@ const FormEnvio = ({
               ]}
             />
 
+            {/* <SelectSearch
+              tittle="Tipo de recibo"
+              data={[
+                { value: "boleta", titulo: "Boleta" },
+                { value: "factura", titulo: "Factura" },
+              ]}
+              name="venta"
+              value={venta}
+              setStateMutation={setStateMutation}
+            /> */}
+
             {venta === "factura" && (
               <>
                 <InputFloat
@@ -169,12 +180,13 @@ const FormEnvio = ({
 
             <InputFloat
               required
-              type="text"
+              type="number"
               label="Celular"
               name="celular"
               id="celular"
               htmlFor="celular"
               value={celular}
+              maxLength={9}
               onChange={onChange}
             />
             <InputFloat
@@ -184,6 +196,7 @@ const FormEnvio = ({
               name="direccion"
               id="direccion"
               htmlFor="direccion"
+              maxLength={255}
               value={direccion}
               onChange={onChange}
             />
