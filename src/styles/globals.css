@@ -16,6 +16,22 @@ html {
   display: none;
 }
 
+::-webkit-scrollbar
+    {
+      width: 6px;  /* for vertical scrollbars */
+      height: 8px; /* for horizontal scrollbars */
+    }
+    
+    ::-webkit-scrollbar-track
+    {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    
+    ::-webkit-scrollbar-thumb
+    {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
 .image-block-hack > span {
   display: block !important;
 }

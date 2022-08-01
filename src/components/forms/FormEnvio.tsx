@@ -1,5 +1,6 @@
+import { SelectSearch } from "@components/SelectSearch";
 import { useRouter } from "next/router";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { useCarritoContext } from "../../context/carrito/CarritoState";
 import useForm from "../../hooks/useForm";
 import { useDepartamentos } from "../../services/useDepartamentos";
@@ -26,6 +27,7 @@ interface IProps {
   celular: string;
   direccion: string;
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  setStateMutation: (key: string, value: string | number) => void;
 }
 
 const FormEnvio = ({
@@ -39,6 +41,7 @@ const FormEnvio = ({
   prov,
   dist,
   onChange,
+  setStateMutation,
 }: IProps) => {
   const { db: departamentos } = useDepartamentos();
 
@@ -81,6 +84,7 @@ const FormEnvio = ({
                 { value: "factura", titulo: "Factura" },
               ]}
             />
+
             {venta === "factura" && (
               <>
                 <InputFloat
@@ -106,16 +110,16 @@ const FormEnvio = ({
               </>
             )}
 
-            <div className="flex flex-col md:flex-row  gap-5 ">
-              <Select
+            <div className="flex flex-col xl:flex-row gap-5 ">
+              {/* <Select
                 required
                 label="Departamento"
                 name="depa"
                 value={depa}
                 onChange={onChange}
                 data={dataDepartamentos!}
-              />
-
+              /> 
+              
               <Select
                 required
                 disabled={depa ? false : true}
@@ -134,6 +138,32 @@ const FormEnvio = ({
                 onChange={onChange}
                 data={dataDistritos!}
                 required
+              />
+              */}
+
+              <SelectSearch
+                tittle="Departamento"
+                data={dataDepartamentos}
+                name="depa"
+                value={depa}
+                setStateMutation={setStateMutation}
+              />
+
+              <SelectSearch
+                tittle="Provincia"
+                data={dataProvincias}
+                name="prov"
+                value={prov}
+                disabled={depa ? false : true}
+                setStateMutation={setStateMutation}
+              />
+              <SelectSearch
+                tittle="Distrito"
+                data={dataDistritos}
+                name="dist"
+                value={dist}
+                disabled={prov ? false : true}
+                setStateMutation={setStateMutation}
               />
             </div>
 
