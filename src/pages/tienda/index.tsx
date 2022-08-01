@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import BannerTienda from "../../components/banner/bannerTienda";
 import CardProducto from "../../components/cards/cardProducto";
@@ -26,11 +27,8 @@ const Tienda = () => {
 
   return (
     <div>
-      {/* <BannerTienda /> */}
-      {/* <Container className="lg:flex py-10 gap-10 p-5">hola</Container> */}
-
       <Container className="lg:flex py-10 gap-10 ">
-        <div className="flex flex-row gap-x-2 sm:gap-x-7 w-full p-5 lg:px-3">
+        <div className="flex flex-row gap-x-2 sm:gap-x-7 w-full py-5 ">
           {/* Grupo buscar y filtrar */}
           <div className="w-1/2 lg:w-1/4">
             <button
@@ -47,21 +45,29 @@ const Tienda = () => {
       </Container>
 
       <Container
-        className={`flex flex-row  w-full 
+        className={`flex flex-row  w-full  
         ${isOpenFilter ? "gap-10" : "gap-0"}
         `}
       >
         <div
           className={`duration-300 transition-all -translate-x-32 opacity-0 w-0 invisible  ${
             isOpenFilter
-              ? "lg:translate-x-0 lg:visible lg:opacity-100 lg:w-[40%] xl:w-[25%] "
+              ? "lg:translate-x-0 lg:visible lg:opacity-100 lg:w-1/4"
               : ""
           }`}
         >
-          <Filtro setDataFilter={setDataFilter} setLoadind={setLoadingDataFilter}/>
+          <Filtro
+            setDataFilter={setDataFilter}
+            setLoadind={setLoadingDataFilter}
+          />
         </div>
         {/* </Show> */}
-        <motion.div className="w-full flex justify-center items-start" layout>
+        <motion.div
+          className={`flex justify-center items-start w-full ${
+            isOpenFilter ? " lg:w-3/4 " : "lg:w-full"
+          }`}
+          layout
+        >
           <div
             className={`grid grid-cols-1  delay-200 ${
               isOpenFilter

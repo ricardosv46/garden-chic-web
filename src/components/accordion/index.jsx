@@ -18,7 +18,7 @@ const Accordion = ({ title, children, className = "text-xs " }) => {
         </p>
 
         <div className="">
-          {watch ? (
+          {!watch ? (
             <div
               className="w-full p-2 cursor-pointer rotate-0 duration-300"
               onClick={handleWatch}
