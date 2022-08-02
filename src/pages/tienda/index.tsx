@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import BannerTienda from "@components/banner/bannerTienda";
 import CardProducto from "@components/cards/cardProducto";
 import Container from "@components/container";
 import InputSearch from "@components/inputs/InputSearch";
@@ -11,7 +10,7 @@ import SidebarCart from "@components/sidebarCart";
 import { Show } from "@components/show";
 import { useProductos } from "@services/useProducto";
 import Spinner from "@components/Sppinner";
-import { CardProducto2 } from "@components/cards/CardProducto2";
+import { BreadCrumb } from "@components/breadcrumb";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -22,13 +21,19 @@ const Tienda = () => {
   const [dataFilter, setDataFilter] = useState<any[]>([]);
 
   useEffect(() => {
-    setDataFilter(productos);
-    setLoadingDataFilter(loadingProductos);
+    if (productos.length > 0) {
+      setDataFilter(productos);
+      setLoadingDataFilter(loadingProductos);
+    }
   }, [productos]);
 
   return (
     <div>
-      <Container className="lg:flex py-10 gap-10 ">
+      <Container className="mt-6 py-4">
+        <BreadCrumb />
+      </Container>
+      
+      <Container className="lg:flex py-6 gap-10 ">
         <div className="flex flex-row gap-x-2 sm:gap-x-7 w-full py-5 ">
           {/* Grupo buscar y filtrar */}
           <div className="w-1/2 lg:w-1/4">
@@ -70,15 +75,14 @@ const Tienda = () => {
           layout
         >
           <div
-            className={`grid grid-cols-1  delay-200 ${
+            className={`grid grid-cols-1 delay-200 ${
               isOpenFilter
                 ? " xl:grid-cols-3"
                 : " xl:grid-cols-4 lg:grid-cols-3 "
-            } gap-5 justify-items-center  sm:grid-cols-2`}
+            } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}
           >
             <Show condition={!loadingDataFilter} isDefault={<Spinner />}>
               {dataFilter.map((item) => (
-                // <CardProducto2 key={item.slug} img={item.imagenPrincipal} />
                 <CardProducto
                   key={item.slug}
                   slug={item.slug!}
