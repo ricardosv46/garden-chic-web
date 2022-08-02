@@ -1,5 +1,4 @@
 const colors = require("tailwindcss/colors");
-
 const secondary = {};
 
 module.exports = {
@@ -9,6 +8,7 @@ module.exports = {
     "./src/sections/**/*.{js,ts,jsx,tsx}",
   ],
   presets: [],
+
   darkMode: "media", // or 'class'
   theme: {
     screens: {
@@ -24,6 +24,9 @@ module.exports = {
         300: "#7E94C1",
         600: "#445378",
         800: "#35405E",
+      },
+      gradiant: {
+        primary: "rgba(0,0,0,0.3)",
       },
       secondary: secondary,
       inherit: colors.inherit,
@@ -998,5 +1001,6 @@ module.exports = {
     "active",
     "disabled",
   ],
-  plugins: [],
+
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

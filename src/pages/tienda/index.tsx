@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import BannerTienda from "../../components/banner/bannerTienda";
-import CardProducto from "../../components/cards/cardProducto";
-import Container from "../../components/container";
-import InputSearch from "../../components/inputs/InputSearch";
+import BannerTienda from "@components/banner/bannerTienda";
+import CardProducto from "@components/cards/cardProducto";
+import Container from "@components/container";
+import InputSearch from "@components/inputs/InputSearch";
 import { motion } from "framer-motion";
-import SidebarFilter from "../../components/sidebarFilter";
-import Filtro from "../../components/sidebarFilter/filtro";
-import SidebarCart from "../../components/sidebarCart";
+import SidebarFilter from "@components/sidebarFilter";
+import Filtro from "@components/sidebarFilter/filtro";
+import SidebarCart from "@components/sidebarCart";
 import { Show } from "@components/show";
-import { useProductos } from "../../services/useProducto";
+import { useProductos } from "@services/useProducto";
 import Spinner from "@components/Sppinner";
+import { CardProducto2 } from "@components/cards/CardProducto2";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -75,10 +76,9 @@ const Tienda = () => {
                 : " xl:grid-cols-4 lg:grid-cols-3 "
             } gap-5 justify-items-center  sm:grid-cols-2`}
           >
-            {loadingDataFilter ? (
-              <Spinner />
-            ) : (
-              dataFilter.map((item) => (
+            <Show condition={!loadingDataFilter} isDefault={<Spinner />}>
+              {dataFilter.map((item) => (
+                // <CardProducto2 key={item.slug} img={item.imagenPrincipal} />
                 <CardProducto
                   key={item.slug}
                   slug={item.slug!}
@@ -92,8 +92,8 @@ const Tienda = () => {
                   rebaja
                   openModal={() => setIsOpenCart(true)}
                 />
-              ))
-            )}
+              ))}
+            </Show>
           </div>
         </motion.div>
       </Container>
