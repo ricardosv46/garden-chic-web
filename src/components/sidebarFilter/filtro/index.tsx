@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
-// import InputRange, { Range } from 'react-input-range'
 import IconFilter from "../../../../public/icons/IconFilter";
 import { useProductos } from "../../../services/useProducto";
 import Accordion from "../../accordion";
@@ -12,6 +11,7 @@ import "react-input-range/lib/css/index.css";
 import { useCategoriaProductos } from "src/services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
 import { useBusquedaAvanzada } from "src/services/useBusquedaAvanzada";
+import { FiTrash2 } from "react-icons/fi";
 
 const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
   const { db: productos, loading } = useProductos();
@@ -52,7 +52,7 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
     setLoadind(true);
     setDataFilter(db);
     setTimeout(() => {
-      setLoadind(false)
+      setLoadind(false);
     }, 750);
   };
 
@@ -153,17 +153,22 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
             </div>
           </Accordion>
         </div>
-        <button
-          className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
-          type="submit"
-        >
-          Filtrar
-        </button>
+
+        <div className="py-4 flex flex-row gap-2">
+          <button
+            className="w-5/6 bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
+            type="submit"
+          >
+            Filtrar
+          </button>
+          <button className="w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ase-out ">
+            <FiTrash2 className="mx-auto" />
+          </button>
+        </div>
       </form>
       <p className="text-gray-900 text-2xl font-bold py-10">
         Productos similares
       </p>
-
       {!loading &&
         productos.map((item, i) => {
           if (i < 5) {
