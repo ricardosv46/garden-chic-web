@@ -5,7 +5,6 @@ import { useProductos } from "../../../services/useProducto";
 import Accordion from "../../accordion";
 import CardProductosRelacionados from "../../cards/cardProducto/cardProductosRelacionados";
 import InputRadio from "../../inputs/InputRadio";
-import InputSearch from "../../inputs/InputSearch";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import { useCategoriaProductos } from "src/services/useCategoriaProductos";
@@ -67,7 +66,6 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
         <div className="py-4 border-b">
           <Accordion title="Categoria">
             <div className="w-full">
-              {/* <InputSearch placeholder="Buscar" /> */}
               <div className="mt-4">
                 {/* Render input radios */}
                 {!loadingCategoria &&

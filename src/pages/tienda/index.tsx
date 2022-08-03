@@ -11,6 +11,8 @@ import { Show } from "@components/show";
 import { useProductos } from "@services/useProducto";
 import Spinner from "@components/Sppinner";
 import { BreadCrumb } from "@components/breadcrumb";
+import { LayoutTienda } from "@components/modules/tienda";
+import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -28,37 +30,24 @@ const Tienda = () => {
   }, [productos]);
 
   return (
-    <div>
-      <Container className="mt-6 py-4">
-        <BreadCrumb />
-      </Container>
-      
-      <Container className="lg:flex py-6 gap-10 ">
-        <div className="flex flex-row gap-x-2 sm:gap-x-7 w-full py-5 ">
-          {/* Grupo buscar y filtrar */}
-          <div className="w-1/2 lg:w-1/4">
-            <button
-              onClick={() => setIsOpenFilter(!isOpenFilter)}
-              className="w-full bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800"
-            >
-              Filtros
-            </button>
-          </div>
-          <div className="w-1/2 lg:w-3/4">
-            <InputSearch placeholder="Buscar" />
-          </div>
-        </div>
-      </Container>
+    <LayoutTienda>
+      {/*Wrapper Search and bottom filter */}
+      <WrapperFiltrosBuscar
+        setIsOpenFilter={setIsOpenFilter}
+        isOpenFilter={isOpenFilter}
+      />
 
+      {/* Wrapper sidebar filter desktop and card´s*/}
       <Container
-        className={`flex flex-row  w-full  
-        ${isOpenFilter ? "gap-10" : "gap-0"}
+        className={`flex flex-row w-full   relative
+      ${isOpenFilter ? "gap-x-7" : ""}
         `}
       >
+        {/* sidebar filter desktop */}
         <div
-          className={`duration-300 transition-all -translate-x-32 opacity-0 w-0 invisible  ${
+          className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${
             isOpenFilter
-              ? "lg:translate-x-0 lg:visible lg:opacity-100 lg:w-1/4"
+              ? "lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative"
               : ""
           }`}
         >
@@ -67,9 +56,10 @@ const Tienda = () => {
             setLoadind={setLoadingDataFilter}
           />
         </div>
-        {/* </Show> */}
+
+        {/* wrapper card´s */}
         <motion.div
-          className={`flex justify-center items-start w-full ${
+          className={`flex justify-center items-start w-full  ${
             isOpenFilter ? " lg:w-3/4 " : "lg:w-full"
           }`}
           layout
@@ -102,7 +92,7 @@ const Tienda = () => {
         </motion.div>
       </Container>
 
-      {/* sidebar filtro */}
+      {/* sidebar filtro mobile*/}
       <div className="">
         <SidebarFilter
           isOpen={isOpenFilter}
@@ -110,7 +100,7 @@ const Tienda = () => {
         />
       </div>
       <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
-    </div>
+    </LayoutTienda>
   );
 };
 
