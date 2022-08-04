@@ -87,7 +87,22 @@ const Productos = ({ producto }: Producto) => {
                 <p className="flex-1 p-5 border-l-2">$20.00</p>
               </div>
 
-              <button className="mt-5 py-3 px-5 border-primary-300 bg-primary-300 border-2 hover:bg-white ease-in-out duration-300 text-white hover:text-primary-300 font-bold text-sm rounded-lg">
+              <button
+                className="mt-5 py-3 px-5 border-primary-300 bg-primary-300 border-2 hover:bg-white ease-in-out duration-300 text-white hover:text-primary-300 font-bold text-sm rounded-lg"
+                // onClick={() => {
+                //   agregarCarrito({
+                //     id,
+                //     img: img.url!,
+                //     title: titulo,
+                //     firtsPrice,
+                //     price,
+                //     categoty1,
+                //     rebaja,
+                //     amount,
+                //   });
+                //   openModal();
+                // }}
+              >
                 AGREGAR AL CARRITO
               </button>
             </div>

@@ -6,7 +6,7 @@ import { useCarritoContext } from "../../../context/carrito/CarritoState";
 import { Imagenes } from "../../../generated/graphql";
 import { FiShoppingCart, FiEye, FiHeart } from "react-icons/fi";
 import { formatPercent } from "@utils";
-
+import Link from "next/link";
 interface IProps {
   id: number;
   img: Imagenes;
@@ -37,15 +37,13 @@ const CardProducto = ({
   const router = useRouter();
   return (
     <div>
-   
-
       <div className="w-full  rounded-xl  ">
         <div
-          onClick={() => router.push(`/tienda/${slug}`)}
-          className="border-b-2 cursor-pointer relative flex"
+          className="border-b-2 cursor-pointer relative flex z-0"
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
         >
+          <div className="absolute inset-0 md:hidden md:invisible z-20 md:z-0" onClick={() => router.push(`/tienda/${slug}`)} />
           <Image
             loading="lazy"
             src={img.url!}
@@ -54,20 +52,35 @@ const CardProducto = ({
             className="rounded-t-2xl"
             alt="blogs"
           />
+          {/* hover images buttons */}
           <div
-            className={`absolute transition-all ease-in duration-300 bg-gray-500 flex flex-row justify-center items-center gap-2 ${
+            className={`hidden md:flex absolute transition-all ease-in duration-300 bg-gray-500  flex-row justify-center items-center gap-2 z-0 ${
               hover
                 ? "bg-gradiant-primary inset-0 rounded-t-xl scale-100"
-                : " inset-[50%]  rounded-full scale-0"
+                : " inset-[50%] rounded-full scale-0"
             } `}
           >
-            <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
-              <button className="">
+            <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center z-40">
+              <button
+                onClick={() => {
+                  agregarCarrito({
+                    id,
+                    img: img.url!,
+                    title: titulo,
+                    firtsPrice,
+                    price,
+                    categoty1,
+                    rebaja,
+                    amount,
+                  });
+                  openModal();
+                }}
+              >
                 <FiShoppingCart />
               </button>
             </div>
-            <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center">
-              <button className="">
+            <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center z-40">
+              <button onClick={() => router.push(`/tienda/${slug}`)}>
                 <FiEye />
               </button>
             </div>
@@ -90,7 +103,7 @@ const CardProducto = ({
           </Show>
         </div>
         <div className="p-2 border-b-2 border-x-2 rounded-b-xl flex flex-col  md:flex-row">
-          <div className="w-full md:w-5/6">
+          <div className="w-full ">
             {/* title product */}
             <p
               onClick={() => router.push(`/tienda/${slug}`)}
@@ -98,7 +111,7 @@ const CardProducto = ({
             >
               {titulo}
             </p>
-            <div className="flex flex-col h-32 justify-between">
+            <div className="flex flex-col h-24 justify-between">
               {/* Price old and current */}
               <div className="flex flex-col">
                 {price < firtsPrice && (
@@ -118,7 +131,7 @@ const CardProducto = ({
             </div>
           </div>
           {/* group button bottom */}
-          <div className="w-full my-2 md:w-1/6  flex flex-row md:flex-col gap-4 justify-center items-center">
+          <div className="w-full my-2 md:hidden flex flex-row md:flex-col gap-4 justify-center items-center">
             <button
               className="w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] "
               onClick={() => {
@@ -137,7 +150,9 @@ const CardProducto = ({
             >
               <FiShoppingCart className="mx-auto my-auto" />
             </button>
-            <button className="w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7]">
+            {/* onClick={() => router.push(`/tienda/${slug}`)} */}
+
+            <button className="w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] ">
               <FiEye className="mx-auto my-auto" />
             </button>
           </div>

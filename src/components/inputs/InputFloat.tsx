@@ -1,4 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from "react";
+import { ReactElement } from "react";
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   value?: string;
@@ -6,6 +7,8 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   htmlFor?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  ref?: any;
+  rightElement?: ReactElement;
 }
 const InputFloat = ({
   label,
@@ -15,6 +18,8 @@ const InputFloat = ({
   className = "w-full",
   type = "text",
   htmlFor,
+  ref,
+  rightElement,
   ...props
 }: IProps) => {
   return (
@@ -27,6 +32,7 @@ const InputFloat = ({
         onChange={onChange}
         className={`${className} block px-2.5  pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md`}
         placeholder=""
+        ref={ref}
       />
       <label
         htmlFor={htmlFor}
@@ -34,6 +40,10 @@ const InputFloat = ({
       >
         {label}
       </label>
+
+      {rightElement && (
+        <div className="absolute right-3 top-[13px]">{rightElement}</div>
+      )}
     </div>
   );
 };

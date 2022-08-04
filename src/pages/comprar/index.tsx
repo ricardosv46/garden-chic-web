@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Container from "../../components/container";
 import useForm from "../../hooks/useForm";
@@ -19,9 +20,7 @@ interface PayProps {
 
 const Comprar = () => {
   const { createPedido } = usePedido();
-
   const [show, setShow] = useState("formulario");
-
   const [error, setError] = useState(false);
 
   const {
@@ -34,7 +33,7 @@ const Comprar = () => {
     prov,
     dist,
     onChange,
-    setStateMutation
+    setStateMutation,
   } = useForm({
     ruc: "",
     razonSocial: "",
@@ -101,6 +100,7 @@ const Comprar = () => {
     });
   };
 
+
   return (
     <Container className="py-10">
       {show === "formulario" && (
@@ -116,7 +116,7 @@ const Comprar = () => {
             prov,
             dist,
             onChange,
-            setStateMutation
+            setStateMutation,
           }}
         />
       )}
@@ -138,13 +138,13 @@ const Comprar = () => {
 export const getServerSideProps = async (ctx: any) => {
   const session = await getSession(ctx);
 
-  if (!session)
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
+  // if (!session)
+  //   return {
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false
+  //     }
+  //   }
 
   return {
     props: {

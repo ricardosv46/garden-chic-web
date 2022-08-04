@@ -1,6 +1,7 @@
 import { SelectSearch } from "@components/SelectSearch";
 import { useRouter } from "next/router";
 import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { useEffect } from "react";
 import { useCarritoContext } from "../../context/carrito/CarritoState";
 import useForm from "../../hooks/useForm";
 import { useDepartamentos } from "../../services/useDepartamentos";
@@ -44,7 +45,6 @@ const FormEnvio = ({
   setStateMutation,
 }: IProps) => {
   const { db: departamentos } = useDepartamentos();
-
   const { db: provincias } = useProvincias({ DepCode: depa.toString() });
   const { db: distritos } = useDistritos({ ProCode: prov.toString() });
 
@@ -61,6 +61,8 @@ const FormEnvio = ({
     value: prov?.DistCodi!,
     titulo: prov?.DistNom!,
   }));
+
+  useEffect(() => {}, [depa, prov, dist]);
 
   return (
     <div className="flex justify-center ">
