@@ -23,7 +23,7 @@ const Tienda = () => {
   const { db: productos, loading: loadingProductos } = useProductos();
   const [loadingDataFilter, setLoadingDataFilter] = useState(false);
   const [dataFilter, setDataFilter] = useState<any[]>([]);
-  const { DispatchProducts } = useContext(ProductsContext);
+  const { DispatchProducts,DataProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     if (productos.length > 0) {
@@ -79,13 +79,13 @@ const Tienda = () => {
             } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}
           >
             <Show condition={!loadingDataFilter} isDefault={<Spinner />}>
-              {dataFilter.map((item) => (
+              {DataProducts.Products.map((item) => (
                 <CardProducto
                   key={item.slug}
                   slug={item.slug!}
                   titulo={item.titulo!}
                   amount={1}
-                  firtsPrice={item.precioReal!}
+                  firtsPrice={Number(item.precioReal)!}
                   categoty1={item.CategoriaProducto?.titulo!}
                   price={item.precioOferta!}
                   id={Number(item.productoId!)}
