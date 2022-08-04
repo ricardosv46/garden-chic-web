@@ -100,6 +100,13 @@ const Comprar = () => {
     });
   };
 
+  useEffect(() => {
+    setStateMutation("prov", "");
+  }, [depa]);
+
+  useEffect(() => {
+    setStateMutation("dist", "");
+  }, [prov]);
 
   return (
     <Container className="py-10">
