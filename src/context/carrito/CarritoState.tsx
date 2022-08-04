@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Show } from "@components/show";
-import { useRouter } from "next/router";
 import React, {
   createContext,
   ReactElement,
@@ -45,7 +44,6 @@ const CarritoContext = createContext<CarritoContextValue>(
 const CarritoState = ({ children }: Props) => {
   const [state, dispatch] = useReducer(CarritoReducer, initialState);
   const { DispatchScreen, Screen } = useContext(ScreenContext);
-  const router = useRouter();
   /*   const toast = useToast() */
 
   const agregarCarrito = async (payload: CarritoProps) => {
@@ -66,22 +64,6 @@ const CarritoState = ({ children }: Props) => {
     dispatch({ type: "Vaciar" });
   };
 
-  useEffect(() => {
-    const handleStart = () => {
-      DispatchScreen({ type: "ChangeLoadingPage", payload: true });
-    };
-    const handleComplete = () => {
-      DispatchScreen({ type: "ChangeLoadingPage", payload: false });
-    };
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeError", handleStart);
-    router.events.on("routeChangeComplete", handleComplete);
-    return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeError", handleStart);
-      router.events.off("routeChangeComplete", handleComplete);
-    };
-  }, [router]);
 
   return (
     <CarritoContext.Provider
@@ -94,12 +76,7 @@ const CarritoState = ({ children }: Props) => {
         VaciarCarrito,
       }}
     >
-      <Show
-        condition={!Screen.loadingPage || false}
-        isDefault={<h3 className="bg-primary-600">loading</h3>}
-      >
-        {children}
-      </Show>
+      {children}
     </CarritoContext.Provider>
   );
 };
