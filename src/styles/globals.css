@@ -16,21 +16,18 @@ html {
   display: none;
 }
 
-::-webkit-scrollbar
-    {
-      width: 6px;  /* for vertical scrollbars */
-      height: 8px; /* for horizontal scrollbars */
-    }
-    
-    ::-webkit-scrollbar-track
-    {
-      background: rgba(0, 0, 0, 0.1);
-    }
-    
-    ::-webkit-scrollbar-thumb
-    {
-      background: rgba(0, 0, 0, 0.5);
-    }
+::-webkit-scrollbar {
+  width: 6px; /* for vertical scrollbars */
+  height: 8px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+}
 
 .image-block-hack > span {
   display: block !important;
@@ -84,13 +81,13 @@ textarea:focus-within ~ .label {
   }
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -103,7 +100,7 @@ input[type='number'] {
   position: relative;
 }
 .banner::before {
-  content: '';
+  content: "";
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   position: absolute;
@@ -123,23 +120,23 @@ input[type='number'] {
 
 /* banner de para proyectos */
 .banner-proyectos {
-  background-image: url('/imgs/banner/bannerproyecto.webp');
+  background-image: url("/imgs/banner/bannerproyecto.webp");
 }
 /* banner de para contactos */
 .banner-contactos {
-  background-image: url('/imgs/banner/bannercontacto.webp');
+  background-image: url("/imgs/banner/bannercontacto.webp");
 }
 /* banner de para blogs */
 .banner-blogs {
-  background-image: url('/imgs/banner/bg-blog.webp');
+  background-image: url("/imgs/banner/bg-blog.webp");
 }
 /* banner de para tienda */
 .banner-tienda {
-  background-image: url('/imgs/banner/bg-tienda.webp');
+  background-image: url("/imgs/banner/bg-tienda.webp");
 }
 
 .img-cover {
-  background-image: url('/imgs/nosotros/about2.jpg');
+  background-image: url("/imgs/nosotros/about2.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -180,7 +177,6 @@ input[type='number'] {
   border-radius: 5px;
 }
 
-
 /* range selected */
 
 .form {
@@ -201,7 +197,7 @@ input[type='number'] {
 /* CREDIT CARD STYLES ANIMATION */
 
 .card-container {
-  transition: .5s ease all;
+  transition: 0.5s ease all;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -217,23 +213,54 @@ input[type='number'] {
 }
 
 .info {
-  background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+  background: repeating-linear-gradient(
+    skyblue 0,
+    skyblue 5px,
+    orange 5px,
+    orange 10px
+  );
 }
 
 @layer components {
   .background-img {
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0f2027; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #2c5364,
+      #203a43,
+      #0f2027
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #2c5364,
+      #203a43,
+      #0f2027
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   .background-visa {
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #000046; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #1cb5e0,
+      #000046
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #1cb5e0,
+      #000046
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   .background-mastercard {
-    background: #141E30;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #243b55,
+      #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }

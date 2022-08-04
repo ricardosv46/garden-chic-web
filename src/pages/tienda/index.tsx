@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import CardProducto from "@components/cards/cardProducto";
 import Container from "@components/container";
 import InputSearch from "@components/inputs/InputSearch";
+import { ProductsContext } from "src/context/products/ProductsContext";
+import { EntityProduct } from "src/context/products/entity/EntityProducts";
 import { motion } from "framer-motion";
 import SidebarFilter from "@components/sidebarFilter";
 import Filtro from "@components/sidebarFilter/filtro";
@@ -13,18 +15,23 @@ import Spinner from "@components/Sppinner";
 import { BreadCrumb } from "@components/breadcrumb";
 import { LayoutTienda } from "@components/modules/tienda";
 import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
+import { useContext } from "react";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
-
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const { db: productos, loading: loadingProductos } = useProductos();
   const [loadingDataFilter, setLoadingDataFilter] = useState(false);
   const [dataFilter, setDataFilter] = useState<any[]>([]);
+  const { DispatchProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     if (productos.length > 0) {
-      setDataFilter(productos);
+      DispatchProducts({
+        type: "AddProducts",
+        payload: productos as EntityProduct[],
+      });
+      // setDataFilter(productos);
       setLoadingDataFilter(loadingProductos);
     }
   }, [productos]);
