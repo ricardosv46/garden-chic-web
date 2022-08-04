@@ -11,6 +11,10 @@ import { useCategoriaProductos } from "src/services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
 import { useBusquedaAvanzada } from "src/services/useBusquedaAvanzada";
 import { FiTrash2 } from "react-icons/fi";
+import {
+  useGetAllProductosRelacionadosQuery,
+  useGetPreciosQuery,
+} from "src/generated/graphql";
 
 const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
   const { db: productos, loading } = useProductos();
@@ -18,6 +22,12 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
   const { db: dataCategoria, loading: loadingCategoria } =
     useCategoriaProductos();
   // const {} = useBusquedaAvanzada(filter);
+  const { data: dataPriceMinMax } = useGetPreciosQuery({
+    fetchPolicy: "network-only",
+  });
+  const minPrice: any = dataPriceMinMax?.GetPrecios?.minimo;
+  const maxPrice: any = dataPriceMinMax?.GetPrecios?.maximo;
+
   const [range, setRange] = useState<any>({
     min: 0,
     max: 10000,
@@ -28,7 +38,17 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
     categoriaSlug: "",
     tipoOrdenacion: "asc",
   });
-
+  const { data: dataRelatedProducts,loading:loadingRelatedProducts } = useGetAllProductosRelacionadosQuery({
+    fetchPolicy: "network-only",
+    variables: {
+      slug: "iphone-14",
+      numeroPagina: 5,
+      pagina: 1,
+    },
+  });
+  console.log('pr', dataRelatedProducts);
+  
+  const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const { data } = useBusquedaAvanzada({
     destacado: form.destacado ? "1" : "0",
     categoriaSlug: form.categoriaSlug,
@@ -37,6 +57,17 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
     pagina: 1,
     numeroPagina: 10,
   });
+
+  useEffect(() => {
+    setRelatedProducts(
+      dataRelatedProducts?.GetAllProductosRelacionados.data ?? []
+    );
+  }, [dataRelatedProducts]);
+
+  useEffect(() => {
+    setRange({ min: minPrice, max: maxPrice });
+  }, [dataPriceMinMax]);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -102,8 +133,8 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
                 </div>
                 <div className="mx-2 mt-2  border-transparent border max-h-6">
                   <InputRange
-                    maxValue={10000}
-                    minValue={0}
+                    maxValue={maxPrice}
+                    minValue={minPrice}
                     value={range}
                     onChange={(value: any) => {
                       setRange({ ...range, ...value });
@@ -167,8 +198,8 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
       <p className="text-gray-900 text-2xl font-bold py-10">
         Productos similares
       </p>
-      {!loading &&
-        productos.map((item, i) => {
+      {!loadingRelatedProducts &&
+        relatedProducts.map((item, i) => {
           if (i < 5) {
             return (
               <CardProductosRelacionados

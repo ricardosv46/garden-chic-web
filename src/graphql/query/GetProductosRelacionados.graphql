@@ -1,0 +1,10 @@
+query GetAllProductosRelacionados($slug:String,$pagina:Int,$numeroPagina:Int){
+  GetAllProductosRelacionados(slug:$slug,pagina:$pagina, numeroPagina:$numeroPagina){
+    numeroTotal
+    data{
+      titulo
+      slug
+      categoriaProductoId
+    }
+  }
+}

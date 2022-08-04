@@ -1,0 +1,9 @@
+query GetAllProductosPalabraClave($numeroPagina:Int,$pagina:Int,$palabraClave:String){
+  GetAllProductosPalabraClave(numeroPagina:$numeroPagina,pagina:$pagina, palabraClave:$palabraClave){
+    numeroTotal
+    data{
+      titulo
+      slug
+    }
+  }
+}

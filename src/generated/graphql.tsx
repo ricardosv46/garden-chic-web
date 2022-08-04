@@ -29,7 +29,7 @@ export type Banco = {
   titulo?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
   numeroCuenta?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
 };
@@ -48,8 +48,8 @@ export type Blog = {
   slug?: Maybe<Scalars['String']>;
   descripcionCorta?: Maybe<Scalars['String']>;
   descripcionLarga?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
-  imagenSecundaria?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
+  imagenSecundaria?: Maybe<Imagen>;
   keywords?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
   destacado?: Maybe<Scalars['String']>;
@@ -82,8 +82,8 @@ export type CategoriaBlog = {
   slug?: Maybe<Scalars['String']>;
   keywords?: Maybe<Scalars['String']>;
   descripcion?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
-  imagenSecundaria?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
+  imagenSecundaria?: Maybe<Imagen>;
   estado?: Maybe<Scalars['String']>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
@@ -108,8 +108,8 @@ export type CategoriaProducto = {
   estado?: Maybe<Scalars['String']>;
   keywords?: Maybe<Scalars['String']>;
   descripcion?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
-  imagenSecundaria?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
+  imagenSecundaria?: Maybe<Imagen>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
 };
@@ -304,8 +304,8 @@ export type EfectivoMovil = {
   efectivoMovilId?: Maybe<Scalars['ID']>;
   titulo?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
-  imagenQr?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
+  imagenQr?: Maybe<Imagen>;
   numeroCelular?: Maybe<Scalars['String']>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
@@ -367,6 +367,12 @@ export type GetAllEfectivoMovil = {
   data?: Maybe<Array<EfectivoMovil>>;
 };
 
+export type GetAllImagenes = {
+  __typename?: 'GetAllImagenes';
+  numeroTotal?: Maybe<Scalars['Int']>;
+  data?: Maybe<Array<Imagen>>;
+};
+
 export type GetAllNotificacionPedidos = {
   __typename?: 'GetAllNotificacionPedidos';
   numeroTotal?: Maybe<Scalars['Int']>;
@@ -404,8 +410,8 @@ export type GetDatosAdicionalesPedido = {
   User?: Maybe<User>;
 };
 
-export type Imagenes = {
-  __typename?: 'Imagenes';
+export type Imagen = {
+  __typename?: 'Imagen';
   id?: Maybe<Scalars['ID']>;
   titulo?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
@@ -422,7 +428,7 @@ export type Mutation = {
   CreatePrecioEnvioDistrito: Distrito;
   UpdateEstadoDistrito: Distrito;
   CreateImagen: Scalars['String'];
-  UpdateImagen: Imagenes;
+  UpdateImagen: Imagen;
   DeleteImagen: Scalars['String'];
   CreateSlider: Slider;
   UpdateSlider: Slider;
@@ -874,6 +880,12 @@ export type PedidoInput = {
   direccionEnvio?: InputMaybe<Scalars['String']>;
 };
 
+export type Precio = {
+  __typename?: 'Precio';
+  minimo?: Maybe<Scalars['Float']>;
+  maximo?: Maybe<Scalars['Float']>;
+};
+
 export type Producto = {
   __typename?: 'Producto';
   productoId?: Maybe<Scalars['ID']>;
@@ -885,9 +897,9 @@ export type Producto = {
   precioOferta?: Maybe<Scalars['Float']>;
   stockMinimo?: Maybe<Scalars['Float']>;
   stockReal?: Maybe<Scalars['Float']>;
-  imagenPrincipal?: Maybe<Imagenes>;
-  imagenSecundaria?: Maybe<Imagenes>;
-  galeria?: Maybe<Array<Maybe<Imagenes>>>;
+  imagenPrincipal?: Maybe<Imagen>;
+  imagenSecundaria?: Maybe<Imagen>;
+  galeria?: Maybe<Array<Maybe<Imagen>>>;
   keywords?: Maybe<Scalars['String']>;
   destacado?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
@@ -928,7 +940,7 @@ export type Query = {
   GetAllDepartamentos?: Maybe<Array<Departamento>>;
   GetAllProvincias?: Maybe<Array<Provincia>>;
   GetAllDistritos?: Maybe<Array<Distrito>>;
-  GetAllImagenes?: Maybe<Array<Imagenes>>;
+  GetAllImagenes?: Maybe<GetAllImagenes>;
   GetAllSliders: GetAllSliders;
   GetSliderId: Slider;
   GetAllVendedoras: GetAllVendedoras;
@@ -948,9 +960,10 @@ export type Query = {
   GetAllProductos: GetAllProductos;
   GetAllProductosDestacados: GetAllProductos;
   GetProductoSlug: Producto;
-  GetAllProductosRelacionados: GetAllProductos;
+  GetAllProductosPalabraClave: GetAllProductos;
   GetBusquedaAvanzada: GetAllProductos;
   GetAllProductosCategoriaSlug: GetAllProductos;
+  GetAllProductosRelacionados: GetAllProductos;
   GetAllPedidos: GetAllPedidos;
   GetPedidoId: Pedido;
   GetAllPedidoUser: GetAllPedidos;
@@ -962,7 +975,7 @@ export type Query = {
   GetDatosEmpresa: DatosEmpresa;
   GetAllContactos: GetAllContactos;
   GetFiltrosPalabraClave: Filtros;
-  GetPrecios?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  GetPrecios?: Maybe<Precio>;
   GetReniec: Reniec;
 };
 
@@ -978,7 +991,8 @@ export type QueryGetAllDistritosArgs = {
 
 
 export type QueryGetAllImagenesArgs = {
-  estado?: InputMaybe<Scalars['String']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -1088,7 +1102,7 @@ export type QueryGetProductoSlugArgs = {
 };
 
 
-export type QueryGetAllProductosRelacionadosArgs = {
+export type QueryGetAllProductosPalabraClaveArgs = {
   numeroPagina?: InputMaybe<Scalars['Int']>;
   pagina?: InputMaybe<Scalars['Int']>;
   palabraClave?: InputMaybe<Scalars['String']>;
@@ -1110,6 +1124,13 @@ export type QueryGetAllProductosCategoriaSlugArgs = {
   numeroPagina?: InputMaybe<Scalars['Int']>;
   pagina?: InputMaybe<Scalars['Int']>;
   estado?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryGetAllProductosRelacionadosArgs = {
+  slug?: InputMaybe<Scalars['String']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -1195,7 +1216,7 @@ export type Slider = {
   tipoLink?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
 };
@@ -1352,7 +1373,7 @@ export type Vendedora = {
   apellidos?: Maybe<Scalars['String']>;
   link?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
-  imagenPrincipal?: Maybe<Imagenes>;
+  imagenPrincipal?: Maybe<Imagen>;
   created_at?: Maybe<Scalars['DateTime']>;
   updated_at?: Maybe<Scalars['DateTime']>;
 };
@@ -1406,21 +1427,21 @@ export type GetAllBlogsQueryVariables = Exact<{
 }>;
 
 
-export type GetAllBlogsQuery = { __typename?: 'Query', GetAllBlogs: { __typename?: 'GetAllBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null }> | null } };
+export type GetAllBlogsQuery = { __typename?: 'Query', GetAllBlogs: { __typename?: 'GetAllBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null }> | null } };
 
 export type GetAllCategoriaBlogsQueryVariables = Exact<{
   estado?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetAllCategoriaBlogsQuery = { __typename?: 'Query', GetAllCategoriaBlogs: { __typename?: 'GetAllCategoriaBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaBlog', categoriaBlogId?: string | null, titulo?: string | null, slug?: string | null, keywords?: string | null, descripcion?: string | null, estado?: string | null, created_at?: any | null, updated_at?: any | null, numeroBlogs?: number | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
+export type GetAllCategoriaBlogsQuery = { __typename?: 'Query', GetAllCategoriaBlogs: { __typename?: 'GetAllCategoriaBlogs', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaBlog', categoriaBlogId?: string | null, titulo?: string | null, slug?: string | null, keywords?: string | null, descripcion?: string | null, estado?: string | null, created_at?: any | null, updated_at?: any | null, numeroBlogs?: number | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
 
 export type GetAllCategoriaProductosQueryVariables = Exact<{
   estado?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetAllCategoriaProductosQuery = { __typename?: 'Query', GetAllCategoriaProductos: { __typename?: 'GetAllCategoriaProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaProducto', categoriaProductoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, keywords?: string | null, descripcion?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
+export type GetAllCategoriaProductosQuery = { __typename?: 'Query', GetAllCategoriaProductos: { __typename?: 'GetAllCategoriaProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'CategoriaProducto', categoriaProductoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, keywords?: string | null, descripcion?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
 
 export type GetAllDepartamentosQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1441,7 +1462,7 @@ export type GetAllProductosQueryVariables = Exact<{
 }>;
 
 
-export type GetAllProductosQuery = { __typename?: 'Query', GetAllProductos: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', productoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, precioReal?: number | null, precioOferta?: number | null, stockMinimo?: number | null, stockReal?: number | null, keywords?: string | null, destacado?: string | null, categoriaProductoId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, galeria?: Array<{ __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null> | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null } | null }> | null } };
+export type GetAllProductosQuery = { __typename?: 'Query', GetAllProductos: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', productoId?: string | null, titulo?: string | null, slug?: string | null, estado?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, precioReal?: number | null, precioOferta?: number | null, stockMinimo?: number | null, stockReal?: number | null, keywords?: string | null, destacado?: string | null, categoriaProductoId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, galeria?: Array<{ __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null> | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null } | null }> | null } };
 
 export type GetAllProvinciasQueryVariables = Exact<{
   DepCode: Scalars['String'];
@@ -1455,7 +1476,7 @@ export type GetBlogSlugQueryVariables = Exact<{
 }>;
 
 
-export type GetBlogSlugQuery = { __typename?: 'Query', GetBlogSlug: { __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null } };
+export type GetBlogSlugQuery = { __typename?: 'Query', GetBlogSlug: { __typename?: 'Blog', blogId?: string | null, titulo?: string | null, slug?: string | null, descripcionCorta?: string | null, descripcionLarga?: string | null, keywords?: string | null, estado?: string | null, destacado?: string | null, categoriaBlogId?: number | null, usuarioId?: number | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null, CategoriaBlog?: { __typename?: 'CategoriaBlog', titulo?: string | null } | null } };
 
 export type GetBusquedaAvanzadaQueryVariables = Exact<{
   categoriaSlug?: InputMaybe<Scalars['String']>;
@@ -1467,7 +1488,30 @@ export type GetBusquedaAvanzadaQueryVariables = Exact<{
 }>;
 
 
-export type GetBusquedaAvanzadaQuery = { __typename?: 'Query', GetBusquedaAvanzada: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', categoriaProductoId?: number | null, created_at?: any | null, descripcionCorta?: string | null, descripcionLarga?: string | null, destacado?: string | null, estado?: string | null, keywords?: string | null, precioOferta?: number | null, precioReal?: number | null, productoId?: string | null, slug?: string | null, stockMinimo?: number | null, stockReal?: number | null, titulo?: string | null, imagenPrincipal?: { __typename?: 'Imagenes', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null, slug?: string | null, estado?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagenes', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null }> | null } };
+export type GetBusquedaAvanzadaQuery = { __typename?: 'Query', GetBusquedaAvanzada: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', categoriaProductoId?: number | null, created_at?: any | null, descripcionCorta?: string | null, descripcionLarga?: string | null, destacado?: string | null, estado?: string | null, keywords?: string | null, precioOferta?: number | null, precioReal?: number | null, productoId?: string | null, slug?: string | null, stockMinimo?: number | null, stockReal?: number | null, titulo?: string | null, imagenPrincipal?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null, slug?: string | null, estado?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null }> | null } };
+
+export type GetPreciosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPreciosQuery = { __typename?: 'Query', GetPrecios?: { __typename?: 'Precio', minimo?: number | null, maximo?: number | null } | null };
+
+export type GetAllProductosPalabraClaveQueryVariables = Exact<{
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  palabraClave?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetAllProductosPalabraClaveQuery = { __typename?: 'Query', GetAllProductosPalabraClave: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', titulo?: string | null, slug?: string | null }> | null } };
+
+export type GetAllProductosRelacionadosQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+  pagina?: InputMaybe<Scalars['Int']>;
+  numeroPagina?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type GetAllProductosRelacionadosQuery = { __typename?: 'Query', GetAllProductosRelacionados: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', titulo?: string | null, slug?: string | null, categoriaProductoId?: number | null }> | null } };
 
 
 export const CreatePedidoDocument = gql`
@@ -2124,3 +2168,129 @@ export function useGetBusquedaAvanzadaLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type GetBusquedaAvanzadaQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaQuery>;
 export type GetBusquedaAvanzadaLazyQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaLazyQuery>;
 export type GetBusquedaAvanzadaQueryResult = Apollo.QueryResult<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>;
+export const GetPreciosDocument = gql`
+    query getPrecios {
+  GetPrecios {
+    minimo
+    maximo
+  }
+}
+    `;
+
+/**
+ * __useGetPreciosQuery__
+ *
+ * To run a query within a React component, call `useGetPreciosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPreciosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPreciosQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetPreciosQuery(baseOptions?: Apollo.QueryHookOptions<GetPreciosQuery, GetPreciosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPreciosQuery, GetPreciosQueryVariables>(GetPreciosDocument, options);
+      }
+export function useGetPreciosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPreciosQuery, GetPreciosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPreciosQuery, GetPreciosQueryVariables>(GetPreciosDocument, options);
+        }
+export type GetPreciosQueryHookResult = ReturnType<typeof useGetPreciosQuery>;
+export type GetPreciosLazyQueryHookResult = ReturnType<typeof useGetPreciosLazyQuery>;
+export type GetPreciosQueryResult = Apollo.QueryResult<GetPreciosQuery, GetPreciosQueryVariables>;
+export const GetAllProductosPalabraClaveDocument = gql`
+    query GetAllProductosPalabraClave($numeroPagina: Int, $pagina: Int, $palabraClave: String) {
+  GetAllProductosPalabraClave(
+    numeroPagina: $numeroPagina
+    pagina: $pagina
+    palabraClave: $palabraClave
+  ) {
+    numeroTotal
+    data {
+      titulo
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllProductosPalabraClaveQuery__
+ *
+ * To run a query within a React component, call `useGetAllProductosPalabraClaveQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllProductosPalabraClaveQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllProductosPalabraClaveQuery({
+ *   variables: {
+ *      numeroPagina: // value for 'numeroPagina'
+ *      pagina: // value for 'pagina'
+ *      palabraClave: // value for 'palabraClave'
+ *   },
+ * });
+ */
+export function useGetAllProductosPalabraClaveQuery(baseOptions?: Apollo.QueryHookOptions<GetAllProductosPalabraClaveQuery, GetAllProductosPalabraClaveQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllProductosPalabraClaveQuery, GetAllProductosPalabraClaveQueryVariables>(GetAllProductosPalabraClaveDocument, options);
+      }
+export function useGetAllProductosPalabraClaveLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllProductosPalabraClaveQuery, GetAllProductosPalabraClaveQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllProductosPalabraClaveQuery, GetAllProductosPalabraClaveQueryVariables>(GetAllProductosPalabraClaveDocument, options);
+        }
+export type GetAllProductosPalabraClaveQueryHookResult = ReturnType<typeof useGetAllProductosPalabraClaveQuery>;
+export type GetAllProductosPalabraClaveLazyQueryHookResult = ReturnType<typeof useGetAllProductosPalabraClaveLazyQuery>;
+export type GetAllProductosPalabraClaveQueryResult = Apollo.QueryResult<GetAllProductosPalabraClaveQuery, GetAllProductosPalabraClaveQueryVariables>;
+export const GetAllProductosRelacionadosDocument = gql`
+    query GetAllProductosRelacionados($slug: String, $pagina: Int, $numeroPagina: Int) {
+  GetAllProductosRelacionados(
+    slug: $slug
+    pagina: $pagina
+    numeroPagina: $numeroPagina
+  ) {
+    numeroTotal
+    data {
+      titulo
+      slug
+      categoriaProductoId
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllProductosRelacionadosQuery__
+ *
+ * To run a query within a React component, call `useGetAllProductosRelacionadosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllProductosRelacionadosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllProductosRelacionadosQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      pagina: // value for 'pagina'
+ *      numeroPagina: // value for 'numeroPagina'
+ *   },
+ * });
+ */
+export function useGetAllProductosRelacionadosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllProductosRelacionadosQuery, GetAllProductosRelacionadosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllProductosRelacionadosQuery, GetAllProductosRelacionadosQueryVariables>(GetAllProductosRelacionadosDocument, options);
+      }
+export function useGetAllProductosRelacionadosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllProductosRelacionadosQuery, GetAllProductosRelacionadosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllProductosRelacionadosQuery, GetAllProductosRelacionadosQueryVariables>(GetAllProductosRelacionadosDocument, options);
+        }
+export type GetAllProductosRelacionadosQueryHookResult = ReturnType<typeof useGetAllProductosRelacionadosQuery>;
+export type GetAllProductosRelacionadosLazyQueryHookResult = ReturnType<typeof useGetAllProductosRelacionadosLazyQuery>;
+export type GetAllProductosRelacionadosQueryResult = Apollo.QueryResult<GetAllProductosRelacionadosQuery, GetAllProductosRelacionadosQueryVariables>;
