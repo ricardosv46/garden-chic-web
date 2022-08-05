@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Show } from "@components/show";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useCarritoContext } from "../../../context/carrito/CarritoState";
+import { useCarritoContext } from "@context/carrito/CarritoState";
 import { Imagenes } from "../../../generated/graphql";
 import { FiShoppingCart, FiEye, FiHeart } from "react-icons/fi";
 import { formatPercent } from "@utils";
@@ -17,7 +17,6 @@ interface IProps {
   categoty1: string;
   rebaja: boolean;
   amount: number;
-  openModal: () => void;
 }
 
 const CardProducto = ({
@@ -30,9 +29,8 @@ const CardProducto = ({
   slug,
   rebaja,
   amount,
-  openModal,
 }: IProps) => {
-  const { agregarCarrito } = useCarritoContext();
+  const { agregarCarrito, OpenCarrito } = useCarritoContext();
   const [hover, setHover] = useState(false);
   const router = useRouter();
   return (
@@ -43,7 +41,10 @@ const CardProducto = ({
           onMouseOver={() => setHover(true)}
           onMouseOut={() => setHover(false)}
         >
-          <div className="absolute inset-0 md:hidden md:invisible z-20 md:z-0" onClick={() => router.push(`/tienda/${slug}`)} />
+          <div
+            className="absolute inset-0 md:hidden md:invisible z-20 md:z-0"
+            onClick={() => router.push(`/tienda/${slug}`)}
+          />
           <Image
             loading="lazy"
             src={img.url!}
@@ -62,6 +63,7 @@ const CardProducto = ({
           >
             <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center z-40">
               <button
+                className="w-full h-full"
                 onClick={() => {
                   agregarCarrito({
                     id,
@@ -73,15 +75,18 @@ const CardProducto = ({
                     rebaja,
                     amount,
                   });
-                  openModal();
+                  OpenCarrito(true);
                 }}
               >
-                <FiShoppingCart />
+                <FiShoppingCart className="m-auto" />
               </button>
             </div>
             <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center z-40">
-              <button onClick={() => router.push(`/tienda/${slug}`)}>
-                <FiEye />
+              <button
+                onClick={() => router.push(`/tienda/${slug}`)}
+                className="w-full h-full"
+              >
+                <FiEye className="m-auto" />
               </button>
             </div>
           </div>
@@ -145,7 +150,7 @@ const CardProducto = ({
                   rebaja,
                   amount,
                 });
-                openModal();
+                OpenCarrito(true);
               }}
             >
               <FiShoppingCart className="mx-auto my-auto" />

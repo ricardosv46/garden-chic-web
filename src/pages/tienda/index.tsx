@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react";
 import CardProducto from "@components/cards/cardProducto";
 import Container from "@components/container";
-import InputSearch from "@components/inputs/InputSearch";
-import { ProductsContext } from "src/context/products/ProductsContext";
-import { EntityProduct } from "src/context/products/entity/EntityProducts";
+import { useProductContext } from "@context/products/ProductsContext";
+import { EntityProduct } from "@context/products/entity/EntityProducts";
 import { motion } from "framer-motion";
 import SidebarFilter from "@components/sidebarFilter";
 import Filtro from "@components/sidebarFilter/filtro";
@@ -12,10 +11,8 @@ import SidebarCart from "@components/sidebarCart";
 import { Show } from "@components/show";
 import { useProductos } from "@services/useProducto";
 import Spinner from "@components/Sppinner";
-import { BreadCrumb } from "@components/breadcrumb";
 import { LayoutTienda } from "@components/modules/tienda";
 import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
-import { useContext } from "react";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -23,7 +20,7 @@ const Tienda = () => {
   const { db: productos, loading: loadingProductos } = useProductos();
   const [loadingDataFilter, setLoadingDataFilter] = useState(false);
   const [dataFilter, setDataFilter] = useState<any[]>([]);
-  const { DispatchProducts,DataProducts } = useContext(ProductsContext);
+  const { DispatchProducts, DataProducts } = useProductContext();
 
   useEffect(() => {
     if (productos.length > 0) {
@@ -85,13 +82,12 @@ const Tienda = () => {
                   slug={item.slug!}
                   titulo={item.titulo!}
                   amount={1}
-                  firtsPrice={Number(item.precioReal)!}
+                  firtsPrice={item.precioReal!}
                   categoty1={item.CategoriaProducto?.titulo!}
                   price={item.precioOferta!}
                   id={Number(item.productoId!)}
                   img={item.imagenPrincipal!}
                   rebaja
-                  openModal={() => setIsOpenCart(true)}
                 />
               ))}
             </Show>
@@ -106,7 +102,7 @@ const Tienda = () => {
           onClose={() => setIsOpenFilter(false)}
         />
       </div>
-      <SidebarCart isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} />
+      <SidebarCart />
     </LayoutTienda>
   );
 };

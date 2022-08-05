@@ -7,9 +7,9 @@ import CardProductosRelacionados from "../../cards/cardProducto/cardProductosRel
 import InputRadio from "../../inputs/InputRadio";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
-import { useCategoriaProductos } from "src/services/useCategoriaProductos";
+import { useCategoriaProductos } from "@services/useCategoriaProductos";
 import InputCheckbox from "@components/inputs/InputCheckbox";
-import { useBusquedaAvanzada } from "src/services/useBusquedaAvanzada";
+import { useBusquedaAvanzada } from "@services/useBusquedaAvanzada";
 import { FiTrash2 } from "react-icons/fi";
 import {
   useGetAllProductosRelacionadosQuery,

@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
-      "@utils": ["./src/utils/index"],
+      "@context/*": ["./src/context/*"],
+      "@utils": ["./src/utils/index"]
     }
   },
   "include": [
