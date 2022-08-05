@@ -19,7 +19,7 @@ export interface EntityProduct {
   estado?: string | null;
   descripcionCorta?: string | null;
   descripcionLarga?: string | null;
-  precioReal?: string | null;
+  precioReal?: number | null;
   precioOferta?: number | null;
   stockMinimo?: number | null;
   stockReal?: number | null;

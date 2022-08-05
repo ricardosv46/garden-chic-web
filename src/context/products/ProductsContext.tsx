@@ -1,4 +1,4 @@
-import { createContext, Dispatch } from "react";
+import { createContext, Dispatch, useContext } from "react";
 import { EntityProduct } from "./entity/EntityProducts";
 import { ProductsAction } from "./ProductsReducer";
 
@@ -15,3 +15,5 @@ interface WrapperEntityProducts {
 export const ProductsContext = createContext<WrapperEntityProducts>(
   {} as WrapperEntityProducts
 );
+
+export const useProductContext = () => useContext(ProductsContext);

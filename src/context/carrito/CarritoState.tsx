@@ -1,13 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Show } from "@components/show";
-import React, {
-  createContext,
-  ReactElement,
-  useContext,
-  useEffect,
-  useReducer,
-} from "react";
-import { ScreenContext } from "../screen/ScreenContext";
+import React, { createContext, useContext, useReducer } from "react";
 import CarritoReducer from "./CarritoReducer";
 export interface CarritoProps {
   id: number;
@@ -22,6 +14,7 @@ export interface CarritoProps {
 export interface CarritoInitialState {
   carrito: CarritoProps[];
   total: number;
+  ViewCarrito: boolean;
 }
 
 type Props = {
@@ -34,8 +27,13 @@ export interface CarritoContextValue extends CarritoInitialState {
   eliminarCarrito: (payload: number) => void;
   CalcularTotal: (payload: number) => void;
   VaciarCarrito: () => void;
+  OpenCarrito: (payload: boolean) => void;
 }
-export const initialState: CarritoInitialState = { carrito: [], total: 0 };
+export const initialState: CarritoInitialState = {
+  carrito: [],
+  total: 0,
+  ViewCarrito: false,
+};
 
 const CarritoContext = createContext<CarritoContextValue>(
   {} as CarritoContextValue
@@ -43,7 +41,6 @@ const CarritoContext = createContext<CarritoContextValue>(
 
 const CarritoState = ({ children }: Props) => {
   const [state, dispatch] = useReducer(CarritoReducer, initialState);
-  const { DispatchScreen, Screen } = useContext(ScreenContext);
   /*   const toast = useToast() */
 
   const agregarCarrito = async (payload: CarritoProps) => {
@@ -60,10 +57,12 @@ const CarritoState = ({ children }: Props) => {
     dispatch({ type: "Total", payload });
   };
 
+  const OpenCarrito = (payload: boolean) => {
+    dispatch({ type: "OpenCarrito", payload });
+  };
   const VaciarCarrito = async () => {
     dispatch({ type: "Vaciar" });
   };
-
 
   return (
     <CarritoContext.Provider
@@ -74,6 +73,7 @@ const CarritoState = ({ children }: Props) => {
         eliminarCarrito,
         CalcularTotal,
         VaciarCarrito,
+        OpenCarrito,
       }}
     >
       {children}
