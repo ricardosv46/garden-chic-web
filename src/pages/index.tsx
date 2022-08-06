@@ -28,8 +28,8 @@ const Home: NextPage = () => {
   return (
     <>
       <OpenGraph
-        title="Garden Chic - Inicio"
-        link="Garden Chic"
+        title="GardenChic - Inicio"
+        link="GardenChic"
         description="Somos expertos en el cuidado de tu jardin."
         domain="garden-chic-web.vercel.app"
         img="https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg"
