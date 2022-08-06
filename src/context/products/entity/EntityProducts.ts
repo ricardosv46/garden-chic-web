@@ -1,13 +1,7 @@
-export interface typeImg {
-  __typename?: 'Imagenes'
-  estado?: string | null;
-  id?: string | null;
-  titulo?: string | null;
-  url?: string | null;
-}
+import { Imagen } from "../../../generated/graphql";
 
 export interface CategoriaProduct {
-  __typename?: 'CategoriaProducto'
+  __typename?: "CategoriaProducto";
   titulo?: string | null;
 }
 
@@ -23,9 +17,9 @@ export interface EntityProduct {
   precioOferta?: number | null;
   stockMinimo?: number | null;
   stockReal?: number | null;
-  imagenPrincipal?: typeImg | null;
-  imagenSecundaria?: typeImg | null;
-  galeria?: typeImg[] | null;
+  imagenPrincipal?: Imagen | null;
+  imagenSecundaria?: Imagen | null;
+  galeria?: Imagen[] | null;
   keywords?: string | null;
   destacado?: string | null;
   categoriaProductoId?: number | null;

@@ -1,8 +1,6 @@
 import { useProductos } from "@services/useProducto";
 import {
   EntityProduct,
-  typeImg,
-  CategoriaProduct,
 } from "../entity/EntityProducts";
 
 interface WrapperProducts {

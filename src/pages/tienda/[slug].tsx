@@ -9,7 +9,7 @@ import Gallery from "@components/gallery";
 import InputSearch from "@components/inputs/InputSearch";
 import ModalProduct from "@components/modal/modalProduct";
 import SidebarCart from "@components/sidebarCart";
-import { Imagenes } from "../../generated/graphql";
+import { Imagen } from "../../generated/graphql";
 import { GET_SLUG_PRODUCTO, URL } from "../../graphql/ssr/ssr";
 import { useProductos } from "@services/useProducto";
 import { BreadCrumb } from "@components/breadcrumb";
@@ -22,7 +22,7 @@ interface IProps {
 
 interface Producto {
   producto: {
-    galeria: Imagenes[];
+    galeria: Imagen[];
     CategoriaProducto: { titulo: string };
     titulo: string;
     precioOferta: number;

@@ -12,12 +12,6 @@ import client from "../apollo";
 import { SessionProvider } from "next-auth/react";
 import { ScreenProvider } from "src/context/screen/ScreenProvider";
 import ProgressBar from "nextjs-progressbar";
-
-import { ScreenContext } from "../context/screen/ScreenContext";
-import { Show } from "@components/show";
-import { useRouter } from "next/router";
-import { SCREEN_DATA } from "src/context/screen/data/ScreenData";
-import { ScreenReducer } from "src/context/screen/ScreenReducer";
 import { ProductsProvider } from "src/context/products/ProductsProvider";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
