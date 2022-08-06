@@ -36,7 +36,6 @@ const Home: NextPage = () => {
         keywords="jardines, jardin, plantas"
         url="https://garden-chic-web.vercel.app/"
       />
-
       <Banner />
       <QuePodemosHacer />
       <Servicios />
