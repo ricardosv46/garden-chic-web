@@ -6,7 +6,7 @@ export interface CategoriaProduct {
 }
 
 export interface EntityProduct {
-  __typename?: "Producto";
+  // __typename?: "Producto";
   productoId?: string | null;
   titulo?: string | null;
   slug?: string | null;
@@ -24,4 +24,14 @@ export interface EntityProduct {
   destacado?: string | null;
   categoriaProductoId?: number | null;
   CategoriaProducto?: CategoriaProduct | null;
+}
+
+export interface EntityFilterOptions {
+  destacado: string,
+  categoriaSlug?: string,
+  tipoOrdenacion: string,
+  precio: number[]
+  pagina: number,
+  numeroPagina: number,
+
 }

@@ -13,6 +13,8 @@ import { useProductos } from "@services/useProducto";
 import Spinner from "@components/Sppinner";
 import { LayoutTienda } from "@components/modules/tienda";
 import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
+import { useGetPreciosQuery } from "src/generated/graphql";
+import { useBusquedaAvanzada, useBusquedaAvanzadaLazy } from "@services/useBusquedaAvanzada";
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -21,7 +23,21 @@ const Tienda = () => {
   const [loadingDataFilter, setLoadingDataFilter] = useState(false);
   const [dataFilter, setDataFilter] = useState<any[]>([]);
   const { DispatchProducts, DataProducts } = useProductContext();
+  const { FilterOptions } = DataProducts
+  const { data: dataPriceMinMax } = useGetPreciosQuery({
+    fetchPolicy: "network-only",
+  });
+  const { FunctionBusquedaAvanzada, loading } = useBusquedaAvanzadaLazy()
+  const minPrice: any = dataPriceMinMax?.GetPrecios?.minimo;
+  const maxPrice: any = dataPriceMinMax?.GetPrecios?.maximo;
 
+  const TraendoProductosFiltrados = async () => {
+    const data = await FunctionBusquedaAvanzada({
+      ...FilterOptions
+    });
+    DispatchProducts({ type: 'AddProducts', payload: data as EntityProduct[] })
+  }
+  {/* Agregando todos los productos al contexto */ }
   useEffect(() => {
     if (productos.length > 0) {
       DispatchProducts({
@@ -33,6 +49,18 @@ const Tienda = () => {
     }
   }, [productos]);
 
+  useEffect(() => {
+    dataPriceMinMax?.GetPrecios?.minimo
+    DispatchProducts({ type: 'ChangePrecio', payload: [minPrice, maxPrice] });
+    // { min: minPrice, max: maxPrice }
+  }, [dataPriceMinMax])
+
+
+  useEffect(() => {
+    if (FilterOptions.precio.some((obj) => typeof obj !== "undefined")) {
+      TraendoProductosFiltrados()
+    }
+  }, [FilterOptions])
   return (
     <LayoutTienda>
       {/*Wrapper Search and bottom filter */}
@@ -49,11 +77,10 @@ const Tienda = () => {
       >
         {/* sidebar filter desktop */}
         <div
-          className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${
-            isOpenFilter
-              ? "lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative"
-              : ""
-          }`}
+          className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${isOpenFilter
+            ? "lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative"
+            : ""
+            }`}
         >
           <Filtro
             setDataFilter={setDataFilter}
@@ -63,17 +90,15 @@ const Tienda = () => {
 
         {/* wrapper card´s */}
         <motion.div
-          className={`flex justify-center items-start w-full  ${
-            isOpenFilter ? " lg:w-3/4 " : "lg:w-full"
-          }`}
+          className={`flex justify-center items-start w-full  ${isOpenFilter ? " lg:w-3/4 " : "lg:w-full"
+            }`}
           layout
         >
           <div
-            className={`grid grid-cols-1 delay-200 ${
-              isOpenFilter
-                ? " xl:grid-cols-3"
-                : " xl:grid-cols-4 lg:grid-cols-3 "
-            } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}
+            className={`grid grid-cols-1 delay-200 ${isOpenFilter
+              ? " xl:grid-cols-3"
+              : " xl:grid-cols-4 lg:grid-cols-3 "
+              } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}
           >
             <Show condition={!loadingDataFilter} isDefault={<Spinner />}>
               {DataProducts.Products.map((item) => (

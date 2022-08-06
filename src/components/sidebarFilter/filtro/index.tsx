@@ -15,8 +15,9 @@ import {
   useGetAllProductosRelacionadosQuery,
   useGetPreciosQuery,
 } from "src/generated/graphql";
+import { useProductContext } from "@context/products/ProductsContext";
 
-const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
+const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
   const { db: productos, loading } = useProductos();
 
   const { db: dataCategoria, loading: loadingCategoria } =
@@ -28,6 +29,9 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
   const minPrice: any = dataPriceMinMax?.GetPrecios?.minimo;
   const maxPrice: any = dataPriceMinMax?.GetPrecios?.maximo;
 
+  const { DataProducts, DispatchProducts } = useProductContext()
+  const { FilterOptions } = DataProducts
+
   const [range, setRange] = useState<any>({
     min: 0,
     max: 10000,
@@ -38,7 +42,7 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
     categoriaSlug: "",
     tipoOrdenacion: "asc",
   });
-  const { data: dataRelatedProducts,loading:loadingRelatedProducts } = useGetAllProductosRelacionadosQuery({
+  const { data: dataRelatedProducts, loading: loadingRelatedProducts } = useGetAllProductosRelacionadosQuery({
     fetchPolicy: "network-only",
     variables: {
       slug: "iphone-14",
@@ -47,7 +51,7 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
     },
   });
   console.log('pr', dataRelatedProducts);
-  
+
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const { data } = useBusquedaAvanzada({
     destacado: form.destacado ? "1" : "0",
@@ -107,7 +111,13 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
                       value={category.slug || ""}
                       id={category.titulo || ""}
                       key={category.categoriaProductoId}
-                      onChange={handleChange}
+                      onChange={({ target }) =>
+                        DispatchProducts({
+                          type: "ChangeCategoriaSlug",
+                          payload: target.value,
+                        })
+                      }
+
                     />
                   ))}
               </div>
@@ -125,20 +135,24 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
               <div className="pb-10">
                 <div className="flex justify-between text-primary-600">
                   <div className="flex flex-col ">
-                    <div className="text-base">S/. {range.min}</div>
+                    <div className="text-base">S/. {FilterOptions.precio[0]}</div>
                   </div>
                   <div className="flex flex-col ">
-                    <div className="text-base">S/. {range.max}</div>
+                    <div className="text-base">S/. {FilterOptions.precio[1]}</div>
                   </div>
                 </div>
                 <div className="mx-2 mt-2  border-transparent border max-h-6">
                   <InputRange
                     maxValue={maxPrice}
                     minValue={minPrice}
-                    value={range}
-                    onChange={(value: any) => {
-                      setRange({ ...range, ...value });
+                    value={{
+                      min: FilterOptions.precio[0],
+                      max: FilterOptions.precio[1]
                     }}
+                    onChange={(value: any) => { DispatchProducts({ type: 'ChangePrecio', payload: [value.min, value.max] }) }}
+                  // onChange={(value: any) => {
+                  //   setRange({ ...range, ...value });
+                  // }}
                   />
                 </div>
               </div>
@@ -155,15 +169,27 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
                 id="ascedente"
                 value="asc"
                 name="tipoOrdenacion"
-                onChange={handleChange}
-                defaultChecked={true}
+                // onChange={handleChange}
+                onChange={() =>
+                  DispatchProducts({
+                    type: "ChangeTipoOrdenacion",
+                    payload: "asc",
+                  })
+                }
               />
               <InputRadio
                 label="Descendente"
                 id="descedente"
                 value="desc"
                 name="tipoOrdenacion"
-                onChange={handleChange}
+                onChange={() =>
+                  DispatchProducts({
+                    type: "ChangeTipoOrdenacion",
+                    payload: "desc",
+                  })
+                }
+
+              // onChange={handleChange}
               />
             </div>
           </Accordion>
@@ -176,8 +202,15 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
               <InputCheckbox
                 label="Producto Destacado"
                 name="destacado"
-                onChange={handleChecked}
-                value={form.destacado}
+                onChange={({ target }) =>
+                  DispatchProducts({
+                    type: "ChangeDestacado",
+                    payload: target.checked ? "1" : "0",
+                  })
+                }
+
+                // onChange={handleChecked}
+                value={FilterOptions.destacado}
               />
             </div>
           </Accordion>
@@ -190,7 +223,9 @@ const Filtro = ({ setDataFilter = () => {}, setLoadind = () => {} }: any) => {
           >
             Filtrar
           </button>
-          <button className="w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ase-out ">
+          <button className="w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ease-out"
+            onClick={() => DispatchProducts({ type: 'ClearFilterOptions' })}
+          >
             <FiTrash2 className="mx-auto" />
           </button>
         </div>
