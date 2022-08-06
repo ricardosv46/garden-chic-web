@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { Imagenes } from '../../../generated/graphql'
+import { Imagen } from '../../../generated/graphql'
 
 interface IProps {
-  imagenPrincipal: Imagenes
+  imagenPrincipal: Imagen
   titulo: string
   slug: string
 }

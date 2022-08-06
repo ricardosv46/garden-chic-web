@@ -7,12 +7,12 @@ import Modal from '.'
 import IconArrowLeft from '../../../public/icons/IconArrowLeft'
 import IconArrowRight from '../../../public/icons/IconArrowRight'
 import IconDelete from '../../../public/icons/IconDelete'
-import { Imagenes } from '../../generated/graphql'
+import { Imagen } from '../../generated/graphql'
 
 interface Props {
   isOpen: boolean
   onClose: () => void
-  data: Imagenes[]
+  data: Imagen[]
 }
 
 const ModalProduct = ({ isOpen, onClose, data }: Props) => {

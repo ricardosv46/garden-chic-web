@@ -2,10 +2,10 @@
 import { Show } from "@components/show";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Imagenes, Maybe } from "../../generated/graphql";
+import { Imagen, Maybe } from "../../generated/graphql";
 
 interface IProps {
-  data: Array<Maybe<Imagenes>>;
+  data: Array<Maybe<Imagen>>;
   onClick: () => void;
 }
 

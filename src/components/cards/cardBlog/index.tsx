@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import { CategoriaBlog, Imagenes } from '../../../generated/graphql'
+import { CategoriaBlog, Imagen } from '../../../generated/graphql'
 import Compartir from '../../compartir'
 interface IProps {
-  imagenPrincipal: Imagenes
+  imagenPrincipal: Imagen
   CategoriaBlog: CategoriaBlog
   titulo: string | null | undefined
   descripcionCorta: string | null | undefined

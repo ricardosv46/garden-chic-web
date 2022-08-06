@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import { Imagenes } from "../../../generated/graphql";
+import { Imagen } from "../../../generated/graphql";
 interface Iprops {
   // id: number
-  img: Imagenes;
+  img: Imagen;
   // slug: string
   // titulo: string
   // firtsPrice: number

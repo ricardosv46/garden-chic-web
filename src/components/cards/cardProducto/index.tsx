@@ -3,13 +3,13 @@ import { Show } from "@components/show";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCarritoContext } from "@context/carrito/CarritoState";
-import { Imagenes } from "../../../generated/graphql";
+import { Imagen } from "../../../generated/graphql";
 import { FiShoppingCart, FiEye, FiHeart } from "react-icons/fi";
 import { formatPercent } from "@utils";
 import Link from "next/link";
 interface IProps {
   id: number;
-  img: Imagenes;
+  img: Imagen;
   slug: string;
   titulo: string;
   firtsPrice: number;
