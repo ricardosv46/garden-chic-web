@@ -15,13 +15,25 @@ const CarritoReducer = (
   switch (action.type) {
     case "AddCarrito":
       if (state.carrito.some((item) => item.id === action.payload.id)) {
-        return state;
+        const currentdata: any[] = []
+        state.carrito.map((item2) => item2.id === action.payload.id ? (
+          currentdata.push({ ...item2, 'amount': item2.amount + 1 })
+        ) : currentdata.push(item2))
+        return { ...state, carrito: currentdata };
       } else {
         return {
           ...state,
           carrito: [...state.carrito, action.payload],
         };
       }
+      // if (state.carrito.some((item) => item.id === action.payload.id)) {
+      //   return { ...state, carrito: [...state.carrito, action.payload] };
+      // } else {
+      //   return {
+      //     ...state,
+      //     carrito: [...state.carrito, action.payload],
+      //   };
+      // }
       break;
     case "UpAmount":
       return {

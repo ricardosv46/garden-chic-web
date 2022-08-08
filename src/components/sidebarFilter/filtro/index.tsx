@@ -20,7 +20,7 @@ import { HeaderFiltro } from "./components/HeaderFiltro";
 
 const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
   const { db: productos, loading } = useProductos();
-
+  const [resetFilter, setResetFilter] = useState(false)
   const { db: dataCategoria, loading: loadingCategoria } =
     useCategoriaProductos();
   // const {} = useBusquedaAvanzada(filter);
@@ -97,7 +97,7 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
       <form action="" onSubmit={handleFilter}>
         {/* accordion categorias */}
         <div className="py-4 border-b">
-          <Accordion title="Categoria">
+          <Accordion title="Categoria" reset={resetFilter}>
             <div className="w-full">
               <div className="mt-4">
                 {/* Render input radios */}
@@ -125,7 +125,7 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
 
         {/* accordion rango de precios */}
         <div className="py-4 border-b">
-          <Accordion title="Precio">
+          <Accordion title="Precio" reset={resetFilter}>
             <div className="flex flex-col">
               <div className="mb-10">
                 <p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
@@ -160,7 +160,7 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
 
         {/* accordion ordenamiento */}
         <div className="py-4 border-b">
-          <Accordion title="Ordenar">
+          <Accordion title="Ordenar" reset={resetFilter}>
             <div className="w-full">
               <InputRadio
                 label="Ascendente"
@@ -195,7 +195,7 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
 
         {/* producto destacado */}
         <div className="py-4 border-b">
-          <Accordion title="Destacado">
+          <Accordion title="Destacado" reset={resetFilter}>
             <div className="w-full">
               <InputCheckbox
                 label="Producto Destacado"
@@ -221,17 +221,21 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
           >
             Filtrar
           </button>
-          <button className="w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ease-out"
-            onClick={() => DispatchProducts({ type: 'ClearFilterOptions' })}
+          <div className="w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ease-out"
+            onClick={() => {
+              DispatchProducts({ type: 'ClearFilterOptions' })
+              setResetFilter(!resetFilter)
+            }}
           >
-            <FiTrash2 className="mx-auto" />
-          </button>
+            <FiTrash2 className="block m-auto my-3" />
+          </div>
         </div>
-      </form>
+      </form >
       <p className="text-gray-900 text-2xl font-bold py-10">
         Productos similares
       </p>
-      {!loadingRelatedProducts &&
+      {
+        !loadingRelatedProducts &&
         relatedProducts.map((item, i) => {
           if (i < 5) {
             return (
@@ -248,8 +252,9 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
           } else {
             return null;
           }
-        })}
-    </div>
+        })
+      }
+    </div >
   );
 };
 

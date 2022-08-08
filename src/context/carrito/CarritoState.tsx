@@ -12,7 +12,7 @@ export interface CarritoProps {
   amount: number;
 }
 export interface CarritoInitialState {
-  carrito: CarritoProps[];
+  carrito: CarritoProps[] ;
   total: number;
   ViewCarrito: boolean;
 }

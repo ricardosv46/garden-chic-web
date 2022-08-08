@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IconAngleDown from "../../../public/icons/IconAngleDown";
 
-const Accordion = ({ title, children, className = "text-xs " }) => {
+const Accordion = ({ title, children, className = "text-xs ", reset = false }) => {
   const [watch, setWatch] = useState(false);
   const handleWatch = () => {
     setWatch(!watch);
   };
+
+  useEffect(() => {
+    setWatch(false);
+  }, [reset]);
 
   return (
     <div className="w-full">

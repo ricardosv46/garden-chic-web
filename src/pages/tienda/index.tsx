@@ -15,6 +15,7 @@ import { LayoutTienda } from "@components/modules/tienda";
 import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
 import { useGetPreciosQuery } from "src/generated/graphql";
 import { useBusquedaAvanzada, useBusquedaAvanzadaLazy } from "@services/useBusquedaAvanzada";
+import { useRouter } from 'next/router'
 
 const Tienda = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -55,10 +56,13 @@ const Tienda = () => {
     // { min: minPrice, max: maxPrice }
   }, [dataPriceMinMax])
 
-
+  {/*  */ }
   useEffect(() => {
     if (FilterOptions.precio.some((obj) => typeof obj !== "undefined")) {
       TraendoProductosFiltrados()
+      // console.log(FilterOptions)
+      // Router.push(`tienda/?categoriaSlug=`)
+      // console.log(Router)
     }
   }, [FilterOptions])
   return (
