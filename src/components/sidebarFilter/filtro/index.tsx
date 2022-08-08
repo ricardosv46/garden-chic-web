@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
-import IconFilter from "../../../../public/icons/IconFilter";
-import { useProductos } from "../../../services/useProducto";
+import IconFilter from "public/icons/IconFilter";
+import { useProductos } from "@services/useProducto";
 import Accordion from "../../accordion";
 import CardProductosRelacionados from "../../cards/cardProducto/cardProductosRelacionados";
 import InputRadio from "../../inputs/InputRadio";
@@ -16,6 +16,7 @@ import {
   useGetPreciosQuery,
 } from "src/generated/graphql";
 import { useProductContext } from "@context/products/ProductsContext";
+import { HeaderFiltro } from "./components/HeaderFiltro";
 
 const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
   const { db: productos, loading } = useProductos();
@@ -92,10 +93,7 @@ const Filtro = ({ setDataFilter = () => { }, setLoadind = () => { } }: any) => {
 
   return (
     <div className="">
-      <div className="flex gap-x-3 mt-5 items-center">
-        <IconFilter height={22} width={22} fill="#35405E" />
-        <h2 className="text-2xl font-light uppercase">Filtros</h2>
-      </div>
+      <HeaderFiltro />
       <form action="" onSubmit={handleFilter}>
         {/* accordion categorias */}
         <div className="py-4 border-b">

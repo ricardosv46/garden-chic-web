@@ -15,7 +15,7 @@ export const DefaultFilterOprion: EntityFilterOptions = {
   destacado: "0",
   numeroPagina: 10,
   pagina: 1,
-  precio: [0, 10000],
+  precio: [0, 5000],
 };
 
 
@@ -23,5 +23,5 @@ export const DefaultFilterOprion: EntityFilterOptions = {
 export const Initial_value: WrapperProducts = {
   Product: {} as EntityProduct,
   Products: [],
-  FilterOptions: { destacado: "0", tipoOrdenacion: "", pagina: 1, numeroPagina: 10, precio: [0, 10000], categoriaSlug: "" }
+  FilterOptions: { destacado: "0", tipoOrdenacion: "", pagina: 1, numeroPagina: 10, precio: [0, 5000], categoriaSlug: "" }
 };
