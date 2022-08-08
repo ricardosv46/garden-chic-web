@@ -18,7 +18,6 @@ import { useBusquedaAvanzada, useBusquedaAvanzadaLazy } from "@services/useBusqu
 import { useRouter } from 'next/router'
 
 const Tienda = () => {
-  const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const { db: productos, loading: loadingProductos } = useProductos();
   const [loadingDataFilter, setLoadingDataFilter] = useState(false);

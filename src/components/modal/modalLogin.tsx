@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { ChangeEvent, useState } from 'react'
-
+import Swal from 'sweetalert2'
 import Modal from '.'
 import useForm from '../../hooks/useForm'
 // import { useLogin } from '../../services/useLogin'
@@ -71,20 +71,31 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 
   const handleRegister = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('register')
 
-    if (tipoForm === 'registrate')
-      createUsuario({ apellidos, email, nombres, password }).then((res) => {
-        if (res.ok) {
-          setTipoForm('registrate')
-        } else {
-          setError(true)
-          setErrorMessage(res.error)
-          setTimeout(() => {
-            setError(false)
-            setErrorMessage('')
-          }, 5000)
+    if (tipoForm === 'registrate') {
+      await Swal.fire({
+        title: '¿Seguro quieres registrarte?', icon: 'question', showCancelButton: true, cancelButtonText: 'No', confirmButtonText: 'Si!'
+      }).then(async (res) => {
+        if (res.isConfirmed) {
+          createUsuario({ apellidos, email, nombres, password }).then((res) => {
+            if (res.ok) {
+              setTipoForm('registrate')
+              Swal.fire({ title: 'Registro con exito', icon: 'success' })
+            } else {
+              setError(true)
+              setErrorMessage(res.error)
+              Swal.fire({ title: res.error, icon: 'error' })
+              setTimeout(() => {
+                setError(false)
+                setErrorMessage('')
+              }, 5000)
+            }
+          })
         }
       })
+    }
+
     if (tipoForm === 'ingresar') {
       await signIn('credentials', {
         redirect: false,
