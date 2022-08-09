@@ -13,7 +13,7 @@ import SidebarCart from "../sidebarCart";
 const Header = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [modalLogin, setModalLogin] = useState(false);
-  const [cerrar, setCerrar] = useState(false);
+  const [cerrar, setCerrar] = useState(false);//vista logout o cerrar sesion
   const { OpenCarrito } = useCarritoContext();
 
   const handleSignOut = async () => {
@@ -24,7 +24,6 @@ const Header = () => {
   // const [aparecer, setAparecer] = useState(false)
   const { status, data } = useSession();
 
-  console.log(status);
 
   // useEffect(() => {
   //   if (status !== 'loading' && status === 'authenticated') {
@@ -58,60 +57,43 @@ const Header = () => {
     };
   }, [scrollDirection]);
 
+  useEffect(() => {
+    console.log(cerrar)
+  }, [cerrar])
+
   return (
     <>
       <div
-        className={`hidden sticky w-full   lg:block ${
-          scrollDirection === "down" ? "-top-24" : "top-0"
-        }  bg-white z-40 shadow-lg  transition-all duration-500`}
+        className={`hidden  sticky w-full lg:block ${scrollDirection === "down" ? "-top-24" : "top-0"
+          }  bg-white z-40 shadow-lg  transition-all duration-500`}
       >
         <MenuDestokp
           onOpen={() => OpenCarrito(true)}
-          setModalLogin={() => {
-            setModalLogin(true);
-            setCerrar(!cerrar);
-          }}
+          setModalLogin={setModalLogin}
+          setCerrar={setCerrar}
+          cerrar={cerrar}
+          handleSignOut={handleSignOut}
         />
       </div>
       <div
-        className={`lg:hidden sticky w-full  ${
-          scrollDirection === "down" ? "-top-24" : "top-0"
-        }  bg-white z-40 shadow-lg  transition-all duration-500`}
+        className={`lg:hidden sticky w-full  ${scrollDirection === "down" ? "-top-24" : "top-0"
+          }  bg-white z-40 shadow-lg  transition-all duration-500`}
       >
         <MenuMobile
           onOpen={() => OpenCarrito(true)}
-          setModalLogin={() => {
-            setModalLogin(true);
-            setCerrar(!cerrar);
-          }}
+          setModalLogin={setModalLogin}
+          setCerrar={setCerrar}
+          cerrar={cerrar}
+          handleSignOut={handleSignOut}
         />
       </div>
 
-      {status === "authenticated" && (
-        <>
-          {cerrar && (
-            <div className="relative mx-auto my-0 w-[90%] xl:w-[1280px]">
-              <div className="absolute top-3 bg-slate-100 rounded-lg z-50 w-60 p-5 -right-[105px]">
-                <div className=" justify-center w-full absolute -top-2.5 left-0 z-50 flex">
-                  <div className="h-5 w-5 bg-slate-100 rotate-45"></div>
-                </div>
 
-                <button
-                  className="bg-red-500 mt-5 rounded-lg w-full py-3 text-white font-bold"
-                  onClick={handleSignOut}
-                >
-                  Cerrar Sesión
-                </button>
-              </div>
-            </div>
-          )}
-        </>
-      )}
       {/* isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} */}
-      <SidebarCart />
+      {/* <SidebarCart />
       {status !== "authenticated" && (
         <ModalLogin isOpen={modalLogin} onClose={() => setModalLogin(false)} />
-      )}
+      )} */}
     </>
   );
 };

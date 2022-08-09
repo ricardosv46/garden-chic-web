@@ -1,28 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import IconCart from "../../../../public/icons/IconCart";
 import IconUser from "../../../../public/icons/IconUser";
 import { useCarritoContext } from "../../../context/carrito/CarritoState";
+import { DivUser } from "../components/DivUser";
 
 interface SidebarCartProps {
   onOpen: () => void;
   setModalLogin: (value: boolean) => void;
+  setCerrar: Dispatch<SetStateAction<boolean>>
+  cerrar: boolean
+  handleSignOut: () => void
 }
-const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
+const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }: SidebarCartProps) => {
   const [user, setUser] = useState();
-  // useEffect(() => {
-  //   if (window.localStorage) {
-  //     const data = JSON.parse(localStorage.getItem('user') || '')
-  //     setUser(data)
-  //   } else {
-  //     setUser(undefined)
-  //   }
-  // }, [])
+
 
   const { carrito } = useCarritoContext();
   return (
-    <nav className="mx-auto my-0 w-[90%] xl:w-[1280px]">
+    <nav className="mx-auto my-0 w-[90%] xl:w-[1280px] lg:block hidden">
       <div
         className={`w-full hidden  
             text-primary-600  md:flex items-center justify-between`}
@@ -89,20 +86,28 @@ const MenuDestokp = ({ onOpen, setModalLogin }: SidebarCartProps) => {
               )}
             </div>
 
-            <div
+            {/* <div
               className="p-1 cursor-pointer"
+              ref={WrapperShowLogout}
               onClick={() => {
                 if (!user) {
-                  setModalLogin(true);
+                  setModalLogin(true)
+                  setCerrar(!cerrar)
                 }
               }}
             >
               <IconUser height={25} width={25} />
-            </div>
+            </div> */}
+            <DivUser
+              setModalLogin={setModalLogin}
+              cerrar={cerrar}
+              setCerrar={setCerrar}
+              handleSignOut={handleSignOut}
+            />
           </div>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
