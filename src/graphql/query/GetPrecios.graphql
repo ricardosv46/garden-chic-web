@@ -1,6 +1,6 @@
-query getPrecios{
-  GetPrecios{
-    minimo
-    maximo
-  }
+query GetPrecios {
+	GetPrecios {
+		minimo
+		maximo
+	}
 }

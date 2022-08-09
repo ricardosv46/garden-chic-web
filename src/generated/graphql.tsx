@@ -71,7 +71,6 @@ export type BlogInput = {
   imagenSecundaria?: InputMaybe<Scalars['Int']>;
   keywords?: InputMaybe<Scalars['String']>;
   estado?: InputMaybe<Scalars['String']>;
-  destacado?: InputMaybe<Scalars['String']>;
   categoriaBlogId?: InputMaybe<Scalars['Int']>;
 };
 
@@ -106,6 +105,7 @@ export type CategoriaProducto = {
   titulo?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
+  destacado?: Maybe<Scalars['String']>;
   keywords?: Maybe<Scalars['String']>;
   descripcion?: Maybe<Scalars['String']>;
   imagenPrincipal?: Maybe<Imagen>;
@@ -451,6 +451,7 @@ export type Mutation = {
   CreateCategoriaBlog: CategoriaBlog;
   UpdateCategoriaBlog: CategoriaBlog;
   UpdateEstadoCategoriaBlog: CategoriaBlog;
+  UpdateDestacadoCategoriaBlog: CategoriaBlog;
   DeleteCategoriaBlog: Scalars['String'];
   CreateBlog: Blog;
   updateBlog: Blog;
@@ -460,6 +461,7 @@ export type Mutation = {
   CreateCategoriaProducto: CategoriaProducto;
   UpdateCategoriaProducto: CategoriaProducto;
   UpdateEstadoCategoriaProducto: CategoriaProducto;
+  UpdateDestacadoCategoriaProducto: CategoriaProducto;
   DeleteCategoriaProducto: Scalars['String'];
   CreateProducto: Producto;
   UpdateProducto: Producto;
@@ -615,6 +617,11 @@ export type MutationUpdateEstadoCategoriaBlogArgs = {
 };
 
 
+export type MutationUpdateDestacadoCategoriaBlogArgs = {
+  input: UpdateDestacadoCategoriaBlogInput;
+};
+
+
 export type MutationDeleteCategoriaBlogArgs = {
   categoriaBlogId: Scalars['Int'];
 };
@@ -657,6 +664,11 @@ export type MutationUpdateCategoriaProductoArgs = {
 
 export type MutationUpdateEstadoCategoriaProductoArgs = {
   input: UpdateEstadoCategoriaProductoInput;
+};
+
+
+export type MutationUpdateDestacadoCategoriaProductoArgs = {
+  input: UpdateDestacadoCategoriaProductoInput;
 };
 
 
@@ -919,7 +931,6 @@ export type ProductoInput = {
   precioOferta?: InputMaybe<Scalars['Float']>;
   stockMinimo?: InputMaybe<Scalars['Float']>;
   stockReal?: InputMaybe<Scalars['Float']>;
-  destacado?: InputMaybe<Scalars['String']>;
   imagenPrincipal?: InputMaybe<Scalars['Int']>;
   imagenSecundaria?: InputMaybe<Scalars['Int']>;
   galeria?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -950,12 +961,14 @@ export type Query = {
   GetAllEfectivoMovil: GetAllEfectivoMovil;
   GetEfectivoMovilId: EfectivoMovil;
   GetAllCategoriaBlogs: GetAllCategoriaBlogs;
+  GetAllCategoriaBlogsDestacados: GetAllCategoriaBlogs;
   GetCategoriaBlogSlug: CategoriaBlog;
   GetAllBlogs: GetAllBlogs;
   GetBlogSlug: Blog;
   GetAllBlogsCategoriaSlug: GetAllBlogs;
   GetAllBlogsDestacados: GetAllBlogs;
   GetAllCategoriaProductos: GetAllCategoriaProductos;
+  GetAllCategoriaProductosDestacados: GetAllCategoriaProductos;
   GetCategoriaProductoSlug: CategoriaProducto;
   GetAllProductos: GetAllProductos;
   GetAllProductosDestacados: GetAllProductos;
@@ -1069,7 +1082,6 @@ export type QueryGetAllBlogsCategoriaSlugArgs = {
 export type QueryGetAllBlogsDestacadosArgs = {
   pagina?: InputMaybe<Scalars['Int']>;
   numeroPagina?: InputMaybe<Scalars['Int']>;
-  destacado?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -1093,7 +1105,6 @@ export type QueryGetAllProductosArgs = {
 export type QueryGetAllProductosDestacadosArgs = {
   numeroPagina?: InputMaybe<Scalars['Int']>;
   pagina?: InputMaybe<Scalars['Int']>;
-  destacado?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -1224,7 +1235,7 @@ export type Slider = {
 export type SliderInput = {
   sliderId?: InputMaybe<Scalars['ID']>;
   titulo?: InputMaybe<Scalars['String']>;
-  tipoLink?: InputMaybe<Scalars['Int']>;
+  tipoLink?: InputMaybe<Scalars['String']>;
   link?: InputMaybe<Scalars['String']>;
   imagenPrincipal?: InputMaybe<Scalars['Int']>;
 };
@@ -1260,6 +1271,16 @@ export enum Trashed {
 export type UpdateDestacadoBlogInput = {
   blogId?: InputMaybe<Scalars['Int']>;
   destacado?: InputMaybe<Scalars['String']>;
+};
+
+export type UpdateDestacadoCategoriaBlogInput = {
+  categoriaBlogId?: InputMaybe<Scalars['ID']>;
+  destacado?: InputMaybe<Scalars['String']>;
+};
+
+export type UpdateDestacadoCategoriaProductoInput = {
+  categoriaProductoId?: InputMaybe<Scalars['ID']>;
+  estado?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdateDestacadoProductoInput = {
@@ -2098,6 +2119,7 @@ export const GetBusquedaAvanzadaDocument = gql`
     precio: $precio
     tipoOrdenacion: $tipoOrdenacion
   ) {
+    numeroTotal
     data {
       imagenPrincipal {
         estado
@@ -2169,7 +2191,7 @@ export type GetBusquedaAvanzadaQueryHookResult = ReturnType<typeof useGetBusqued
 export type GetBusquedaAvanzadaLazyQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaLazyQuery>;
 export type GetBusquedaAvanzadaQueryResult = Apollo.QueryResult<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>;
 export const GetPreciosDocument = gql`
-    query getPrecios {
+    query GetPrecios {
   GetPrecios {
     minimo
     maximo

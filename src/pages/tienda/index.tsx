@@ -1,139 +1,162 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
-import CardProducto from "@components/cards/cardProducto";
-import Container from "@components/container";
-import { useProductContext } from "@context/products/ProductsContext";
-import { EntityProduct } from "@context/products/entity/EntityProducts";
-import { motion } from "framer-motion";
-import SidebarFilter from "@components/sidebarFilter";
-import Filtro from "@components/sidebarFilter/filtro";
-import SidebarCart from "@components/sidebarCart";
-import { Show } from "@components/show";
-import { useProductos } from "@services/useProducto";
-import Spinner from "@components/Sppinner";
-import { LayoutTienda } from "@components/modules/tienda";
-import { WrapperFiltrosBuscar } from "@components/modules/tienda/wrapperFiltrosBuscar";
-import { useGetPreciosQuery } from "src/generated/graphql";
-import { useBusquedaAvanzada, useBusquedaAvanzadaLazy } from "@services/useBusquedaAvanzada";
-import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import CardProducto from '@components/cards/cardProducto'
+import Container from '@components/container'
+import { motion } from 'framer-motion'
+import Filtro from '@components/sidebarFilter/filtro'
+import SidebarCart from '@components/sidebarCart'
+import { Show } from '@components/show'
+import { useProductos } from '@services/useProducto'
+import Spinner from '@components/Sppinner'
+import { LayoutTienda } from '@components/modules/tienda'
+import { WrapperFiltrosBuscar } from '@components/modules/tienda/wrapperFiltrosBuscar'
+import { Producto } from 'src/generated/graphql'
+import { usePrecios } from '@services/tienda/usePrecios'
+import { useCategoriaProductos } from '@services/useCategoriaProductos'
+import { useFormik } from 'formik'
+import { useBusquedaAvanzada } from '@services/tienda/useBusquedaAvanzada'
+import SidebarFilter from '@components/sidebarFilter'
+const tipoOrdenacion = [
+	{ value: 'asc', label: 'Ascendente' },
+	{ value: 'desc', label: 'Descendente' }
+]
 
 const Tienda = () => {
-  const [isOpenCart, setIsOpenCart] = useState(false);
-  const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const { db: productos, loading: loadingProductos } = useProductos();
-  const [loadingDataFilter, setLoadingDataFilter] = useState(false);
-  const [dataFilter, setDataFilter] = useState<any[]>([]);
-  const { DispatchProducts, DataProducts } = useProductContext();
-  const { FilterOptions } = DataProducts
-  const { data: dataPriceMinMax } = useGetPreciosQuery({
-    fetchPolicy: "network-only",
-  });
-  const { FunctionBusquedaAvanzada, loading } = useBusquedaAvanzadaLazy()
-  const minPrice: any = dataPriceMinMax?.GetPrecios?.minimo;
-  const maxPrice: any = dataPriceMinMax?.GetPrecios?.maximo;
+	const [isOpenFilter, setIsOpenFilter] = useState(false)
+	const { db: productos, loading: loadingProductos } = useProductos()
+	const [isfiltrados, setIsFiltrados] = useState(false)
+	const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>([] as Producto[])
+	const { precios: dataPriceMinMax, loading: loadingPrecios } = usePrecios()
+	const { db: categoriaProductos, loading: loadingCategoria } = useCategoriaProductos()
+	const [precio, setPrecio] = useState({ min: 0, max: 0 })
+	const { FunctionBusquedaAvanzada, loading: loadingBusqueda } = useBusquedaAvanzada()
+	const { values, handleChange, resetForm, handleSubmit } = useFormik({
+		initialValues: {
+			categoria: '',
+			order: 'desc',
+			destacado: false
+		},
+		onSubmit: async (values) => {
+			setIsFiltrados(true)
+			FunctionBusquedaAvanzada({
+				categoriaSlug: values?.categoria,
+				precio: [precio?.min, precio?.max],
+				tipoOrdenacion: values?.order,
+				destacado: values?.destacado ? 'Activado' : '',
+				pagina: 1,
+				numeroPagina: 10
+			}).then((res) => setProductosFiltrados(res?.db!))
+		}
+	})
 
-  const TraendoProductosFiltrados = async () => {
-    const data = await FunctionBusquedaAvanzada({
-      ...FilterOptions
-    });
-    DispatchProducts({ type: 'AddProducts', payload: data as EntityProduct[] })
-  }
-  {/* Agregando todos los productos al contexto */ }
-  useEffect(() => {
-    if (productos.length > 0) {
-      DispatchProducts({
-        type: "AddProducts",
-        payload: productos as EntityProduct[],
-      });
-      // setDataFilter(productos);
-      setLoadingDataFilter(loadingProductos);
-    }
-  }, [productos]);
+	useEffect(() => {
+		if (!loadingPrecios) {
+			setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
+		}
+	}, [loadingPrecios])
 
-  useEffect(() => {
-    dataPriceMinMax?.GetPrecios?.minimo
-    DispatchProducts({ type: 'ChangePrecio', payload: [minPrice, maxPrice] });
-    // { min: minPrice, max: maxPrice }
-  }, [dataPriceMinMax])
+	return (
+		<LayoutTienda>
+			{/*Wrapper Search and bottom filter */}
+			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter} />
 
-  {/*  */ }
-  useEffect(() => {
-    if (FilterOptions.precio.some((obj) => typeof obj !== "undefined")) {
-      TraendoProductosFiltrados()
-      // console.log(FilterOptions)
-      // Router.push(`tienda/?categoriaSlug=`)
-      // console.log(Router)
-    }
-  }, [FilterOptions])
-  return (
-    <LayoutTienda>
-      {/*Wrapper Search and bottom filter */}
-      <WrapperFiltrosBuscar
-        setIsOpenFilter={setIsOpenFilter}
-        isOpenFilter={isOpenFilter}
-      />
+			{/* Wrapper sidebar filter desktop and card´s*/}
+			<Container
+				className={`flex flex-row w-full   relative
+      ${isOpenFilter ? 'gap-x-7' : ''}
+        `}>
+				{/* sidebar filter desktop */}
+				<div
+					className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${
+						isOpenFilter ? 'lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative' : ''
+					}`}>
+					{!loadingPrecios && precio?.max > 0 && !loadingCategoria && (
+						<Filtro
+							{...{
+								values,
+								handleChange,
+								dataPriceMinMax,
+								productos,
+								categoriaProductos,
+								tipoOrdenacion,
+								precio,
+								setPrecio,
+								resetForm,
+								loadingPrecios,
+								handleSubmit,
+								setIsFiltrados
+							}}
+						/>
+					)}
+				</div>
 
-      {/* Wrapper sidebar filter desktop and card´s*/}
-      <Container
-        className={`flex flex-row w-full   relative
-      ${isOpenFilter ? "gap-x-7" : ""}
-        `}
-      >
-        {/* sidebar filter desktop */}
-        <div
-          className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${isOpenFilter
-            ? "lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative"
-            : ""
-            }`}
-        >
-          <Filtro
-            setDataFilter={setDataFilter}
-            setLoadind={setLoadingDataFilter}
-          />
-        </div>
+				{/* wrapper card´s */}
+				<motion.div className={`flex justify-center items-start w-full  ${isOpenFilter ? ' lg:w-3/4 ' : 'lg:w-full'}`} layout>
+					<div
+						className={`grid grid-cols-1 delay-200 ${
+							isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
+						} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
+						<Show condition={!loadingBusqueda && !loadingProductos} isDefault={<Spinner />}>
+							{isfiltrados
+								? productosFiltrados.map((item) => (
+										<CardProducto
+											key={item.slug}
+											slug={item.slug!}
+											titulo={item.titulo!}
+											amount={1}
+											firtsPrice={item.precioReal!}
+											categoty1={item.CategoriaProducto?.titulo!}
+											price={item.precioOferta!}
+											id={Number(item.productoId!)}
+											img={item.imagenPrincipal!}
+											rebaja
+										/>
+								  ))
+								: productos.map((item) => (
+										<CardProducto
+											key={item.slug}
+											slug={item.slug!}
+											titulo={item.titulo!}
+											amount={1}
+											firtsPrice={item.precioReal!}
+											categoty1={item.CategoriaProducto?.titulo!}
+											price={item.precioOferta!}
+											id={Number(item.productoId!)}
+											img={item.imagenPrincipal!}
+											rebaja
+										/>
+								  ))}
+						</Show>
+					</div>
+				</motion.div>
+			</Container>
 
-        {/* wrapper card´s */}
-        <motion.div
-          className={`flex justify-center items-start w-full  ${isOpenFilter ? " lg:w-3/4 " : "lg:w-full"
-            }`}
-          layout
-        >
-          <div
-            className={`grid grid-cols-1 delay-200 ${isOpenFilter
-              ? " xl:grid-cols-3"
-              : " xl:grid-cols-4 lg:grid-cols-3 "
-              } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}
-          >
-            <Show condition={!loadingDataFilter} isDefault={<Spinner />}>
-              {DataProducts.Products.map((item) => (
-                <CardProducto
-                  key={item.slug}
-                  slug={item.slug!}
-                  titulo={item.titulo!}
-                  amount={1}
-                  firtsPrice={item.precioReal!}
-                  categoty1={item.CategoriaProducto?.titulo!}
-                  price={item.precioOferta!}
-                  id={Number(item.productoId!)}
-                  img={item.imagenPrincipal!}
-                  rebaja
-                />
-              ))}
-            </Show>
-          </div>
-        </motion.div>
-      </Container>
+			{/* sidebar filtro mobile*/}
+			<div className=''>
+				<SidebarFilter isOpen={isOpenFilter} onClose={() => setIsOpenFilter(false)}>
+					{!loadingPrecios && precio?.max > 0 && !loadingCategoria && (
+						<Filtro
+							{...{
+								values,
+								handleChange,
+								dataPriceMinMax,
+								productos,
+								categoriaProductos,
+								tipoOrdenacion,
+								precio,
+								setPrecio,
+								resetForm,
+								loadingPrecios,
+								handleSubmit,
+								setIsFiltrados
+							}}
+						/>
+					)}
+				</SidebarFilter>
+			</div>
+			<SidebarCart />
+		</LayoutTienda>
+	)
+}
 
-      {/* sidebar filtro mobile*/}
-      <div className="">
-        <SidebarFilter
-          isOpen={isOpenFilter}
-          onClose={() => setIsOpenFilter(false)}
-        />
-      </div>
-      <SidebarCart />
-    </LayoutTienda>
-  );
-};
-
-export default Tienda;
+export default Tienda

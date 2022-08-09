@@ -1,39 +1,46 @@
-
 query GetBusquedaAvanzada($categoriaSlug: String, $destacado: String, $numeroPagina: Int, $pagina: Int, $precio: [Float!], $tipoOrdenacion: String) {
-  GetBusquedaAvanzada(categoriaSlug: $categoriaSlug, destacado: $destacado, numeroPagina: $numeroPagina, pagina: $pagina, precio: $precio, tipoOrdenacion: $tipoOrdenacion) {
-    data {
-      imagenPrincipal {
-        estado
-        id
-        titulo
-        url
-      }
-      CategoriaProducto {
-        titulo
-        slug
-        estado
-      }
-      categoriaProductoId
-      created_at
-      descripcionCorta
-      descripcionLarga
-      destacado
-      estado
-      imagenSecundaria {
-        estado
-        id
-        titulo
-        url
-      }
-      keywords
-      precioOferta
-      precioReal
-      productoId
-      slug
-      stockMinimo
-      stockReal
-      titulo
-    }
-    numeroTotal
-  }
+	GetBusquedaAvanzada(
+		categoriaSlug: $categoriaSlug
+		destacado: $destacado
+		numeroPagina: $numeroPagina
+		pagina: $pagina
+		precio: $precio
+		tipoOrdenacion: $tipoOrdenacion
+	) {
+		numeroTotal
+		data {
+			imagenPrincipal {
+				estado
+				id
+				titulo
+				url
+			}
+			CategoriaProducto {
+				titulo
+				slug
+				estado
+			}
+			categoriaProductoId
+			created_at
+			descripcionCorta
+			descripcionLarga
+			destacado
+			estado
+			imagenSecundaria {
+				estado
+				id
+				titulo
+				url
+			}
+			keywords
+			precioOferta
+			precioReal
+			productoId
+			slug
+			stockMinimo
+			stockReal
+			titulo
+		}
+		numeroTotal
+	}
 }

@@ -1,4 +1,4 @@
-import { useGetBusquedaAvanzadaLazyQuery, useGetBusquedaAvanzadaQuery } from './../generated/graphql'
+import { useGetBusquedaAvanzadaLazyQuery, useGetBusquedaAvanzadaQuery } from 'src/generated/graphql'
 
 interface Iprops {
 	categoriaSlug?: string | null
@@ -9,24 +9,8 @@ interface Iprops {
 	tipoOrdenacion: string
 }
 
-export const useBusquedaAvanzada = (inputs: Iprops) => {
-	const { loading, data } = useGetBusquedaAvanzadaQuery({
-		fetchPolicy: 'network-only',
-		variables: {
-			...inputs
-		}
-	})
-
-	return {
-		loading,
-		data
-	}
-}
-
-{
-	/* Falta optimizar */
-}
-export const useBusquedaAvanzadaLazy = () => {
+// Obtenemos todas los blogs
+export const useBusquedaAvanzada = () => {
 	const [MutationUseGetBusquedaAvanzada, { loading }] = useGetBusquedaAvanzadaLazyQuery({
 		onError: (err) => {
 			console.log('onError Busqueda Avanzada', err?.graphQLErrors[0])
@@ -38,7 +22,11 @@ export const useBusquedaAvanzadaLazy = () => {
 			const res = await MutationUseGetBusquedaAvanzada({
 				variables: FilterOptions
 			})
-			return res?.data?.GetBusquedaAvanzada.data || []
+
+			const db = res?.data?.GetBusquedaAvanzada?.data ?? []
+			const nTotal = res?.data?.GetBusquedaAvanzada?.numeroTotal ?? 0
+
+			return { ok: true, loading, db, nTotal }
 		} catch (error: any) {
 			return { ok: false, error: error?.graphQLErrors[0]?.debugMessage }
 		}
