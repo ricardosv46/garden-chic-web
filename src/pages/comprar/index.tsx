@@ -145,13 +145,13 @@ const Comprar = () => {
 export const getServerSideProps = async (ctx: any) => {
   const session = await getSession(ctx);
 
-  // if (!session)
-  //   return {
-  //     redirect: {
-  //       destination: '/',
-  //       permanent: false
-  //     }
-  //   }
+  if (!session)
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
 
   return {
     props: {

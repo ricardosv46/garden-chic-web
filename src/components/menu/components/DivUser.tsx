@@ -55,7 +55,7 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
             }}
         >
             <IconUser height={25} width={25} />
-            {status !== "authenticated" && (
+            {status === "authenticated" && (
                 <>
                     {cerrar && (
                         // <div className="relative mx-auto my-0 w-[90%] xl:w-[1280px] container ">

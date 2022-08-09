@@ -90,10 +90,10 @@ const Header = () => {
 
 
       {/* isOpen={isOpenCart} onClose={() => setIsOpenCart(false)} */}
-      {/* <SidebarCart />
+      <SidebarCart />
       {status !== "authenticated" && (
         <ModalLogin isOpen={modalLogin} onClose={() => setModalLogin(false)} />
-      )} */}
+      )}
     </>
   );
 };

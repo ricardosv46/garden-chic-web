@@ -37,6 +37,19 @@ html {
   height: 100% !important;
 }
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+.animate-area {
+  background-position: 0px 0px;
+  background-repeat: cover;
+  animation: animatedBackground 12s infinite alternate;
+}
 /* textarea:focus-within ~ .label,
 textarea:not(:placeholder-shown) ~ .label {
   @apply transform  -translate-y-4 duration-300  text-xs;

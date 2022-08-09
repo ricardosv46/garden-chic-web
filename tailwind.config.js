@@ -131,6 +131,7 @@ module.exports = {
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
       swing: "baile 2s ease-in-out infinite",
+      scaleimg: "scaleAnimation 10s linear infinite alternate"
     },
     aspectRatio: {
       auto: "auto",
@@ -629,6 +630,14 @@ module.exports = {
           transform: "rotate3d(0, 0, 1, 0deg)",
         },
       },
+      scaleAnimation: {
+        'from': {
+          backgroundPosition: '0px 0px'
+        },
+        'to': {
+          backgroundPosition: '0 100%'
+        }
+      }
     },
     letterSpacing: {
       tighter: "-0.05em",

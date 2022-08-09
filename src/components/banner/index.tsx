@@ -21,7 +21,7 @@ const Banner = () => {
   return (
     <div className='relative z-10 '>
       <Swiper
-        // style={style}
+        // style={style}z
         loop={true}
         autoplay={{
           delay: 2500,
