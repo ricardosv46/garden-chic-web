@@ -21,7 +21,7 @@ const NuestrosClientes = () => {
         <hr className='w-[90%] h-[1px] border border-black  '></hr>
 
         <h2 className='text-2xl lg:text-5xl text-center font-normal text-primary-800 w-full '>
-          Nuestros Clientes
+        Ellos confían en nosotros
         </h2>
         <hr className='w-[90%] h-[1px] border border-black'></hr>
       </div>

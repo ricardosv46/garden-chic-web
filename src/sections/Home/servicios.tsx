@@ -2,7 +2,10 @@ import Image from 'next/image'
 import React from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconPaisajismo, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
 import Container from '../../components/container'
+import { Hover } from './components/hover'
+import { IconImpermeabilizacionColor, IconJardinesVerticalesColor, IconMantenimientoColor, IconPaisajismoColor, IconRiegoTecnificadoColor, IconTechosVerdesColor, IconViverosColor } from 'public/icons/servicios/color'
 
 const Servicios = () => {
   return (
@@ -43,59 +46,53 @@ const Servicios = () => {
           className='mySwiper'
         >
           <SwiperSlide>
-            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-              <Image
-                src='/imgs/carrouselHome/manos.png'
-                alt='manos'
-                width={50}
-                height={50}
-              />
-              <p className='text-xl font-semibold'>Lawr Moving</p>
-            </div>
+            <Hover
+              Icon1={<IconPaisajismoColor />}
+              Icon2={<IconPaisajismo />}
+              label="Paisajismo"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-              <Image
-                src='/imgs/carrouselHome/manos.png'
-                alt='manos'
-                width={50}
-                height={50}
-              />
-              <p className='text-xl font-semibold'>Lawr Moving</p>
-            </div>
+            <Hover
+              Icon1={<IconJardinesVerticalesColor />}
+              Icon2={<IconJardinesVerticales />}
+              label="Jardines Verticales"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-              <Image
-                src='/imgs/carrouselHome/manos.png'
-                alt='manos'
-                width={50}
-                height={50}
-              />
-              <p className='text-xl font-semibold'>Lawr Moving</p>
-            </div>
+            <Hover
+              Icon1={<IconMantenimientoColor />}
+              Icon2={<IconMantenimiento />}
+              label="Mantenimiento"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-              <Image
-                src='/imgs/carrouselHome/manos.png'
-                alt='manos'
-                width={50}
-                height={50}
-              />
-              <p className='text-xl font-semibold'>Lawr Moving</p>
-            </div>
+            <Hover
+              Icon1={<IconImpermeabilizacionColor />}
+              Icon2={<IconImpermeablizacion />}
+              label='Impermeabilización'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <div className='flex flex-col items-center gap-y-5 text-primary-600'>
-              <Image
-                src='/imgs/carrouselHome/manos.png'
-                alt='manos'
-                width={50}
-                height={50}
-              />
-              <p className='text-xl font-semibold'>Lawr Moving</p>
-            </div>
+            <Hover
+              Icon1={<IconRiegoTecnificadoColor />}
+              Icon2={<IconRiegoTexnificado />}
+              label='Riego Tecnificado'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Hover
+              Icon1={<IconTechosVerdesColor />}
+              Icon2={<IconTechosVerdes />}
+              label='Techos Verdes'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Hover
+              Icon1={<IconViverosColor />}
+              Icon2={<IconVivero />}
+              label='Vivero'
+            />
           </SwiperSlide>
         </Swiper>
       </div>

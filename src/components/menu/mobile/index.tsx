@@ -20,40 +20,40 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
   const [isOpen, setIsOpen] = useState(false)
   const [open, setOpen] = useState(false)
   const { carrito } = useCarritoContext()
-  const [scrollDirection, setScrollDirection] = useState<number>();
+  // const [scrollDirection, setScrollDirection] = useState<number>();
 
-  const WrapperShowLogout = useRef<HTMLDivElement>(null);
+  // const WrapperShowLogout = useRef<HTMLDivElement>(null);
 
-  const handleHideDropdown = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      setCerrar(false);
-    }
-  };
+  // const handleHideDropdown = (event: KeyboardEvent) => {
+  //   if (event.key === "Escape") {
+  //     setCerrar(false);
+  //   }
+  // };
 
-  const handleClickOutside = (event: Event) => {
-    if (
-      WrapperShowLogout.current &&
-      !WrapperShowLogout.current.contains(event.target as Node)
-    ) {
-      setCerrar(false);
-    }
-  };
+  // const handleClickOutside = (event: Event) => {
+  //   if (
+  //     WrapperShowLogout.current &&
+  //     !WrapperShowLogout.current.contains(event.target as Node)
+  //   ) {
+  //     setCerrar(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleHideDropdown, true);
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("keydown", handleHideDropdown, true);
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  });
+  // useEffect(() => {
+  //   document.addEventListener("keydown", handleHideDropdown, true);
+  //   document.addEventListener("click", handleClickOutside, true);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleHideDropdown, true);
+  //     document.removeEventListener("click", handleClickOutside, true);
+  //   };
+  // });
 
-  useEffect(() => {
-    document.addEventListener("scroll", () => setCerrar(false), true)
-    return () => {
-      document.addEventListener("scroll", () => setCerrar(false), true)
-    };
-  }, [])
+  // useEffect(() => {
+  //   document.addEventListener("scroll", () => setCerrar(false), true)
+  //   return () => {
+  //     document.addEventListener("scroll", () => setCerrar(false), true)
+  //   };
+  // }, [])
 
 
   return (
@@ -69,7 +69,7 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
           <div className='flex gap-x-4'>
             {/* <div
               className='relative p-1 cursor-pointer'
-              ref={WrapperShowLogout}
+              ref={WrapperShowLogout} 
               onClick={() => setCerrar(!cerrar)}
             >
               <IconUser height={25} width={25} />

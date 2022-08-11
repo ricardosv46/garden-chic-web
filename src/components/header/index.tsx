@@ -18,6 +18,7 @@ const Header = () => {
 
   const handleSignOut = async () => {
     await signOut({ redirect: false });
+    console.log('salir session')
     localStorage.removeItem("token");
   };
 

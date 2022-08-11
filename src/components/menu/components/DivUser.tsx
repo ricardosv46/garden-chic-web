@@ -13,11 +13,11 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
     const { status, data } = useSession();
     const WrapperShowLogout = useRef<HTMLDivElement>(null);
 
-    const handleHideDropdown = (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-            setCerrar(false);
-        }
-    };
+    // const handleHideDropdown = (event: KeyboardEvent) => {
+    //     if (event.key === "Escape") {
+    //         setCerrar(false);
+    //     }
+    // };
 
     const handleClickOutside = (event: Event) => {
         if (
@@ -25,17 +25,18 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
             !WrapperShowLogout.current.contains(event.target as Node)
         ) {
             setCerrar(false);
+            // handleSignOut()
         }
     };
 
     useEffect(() => {
-        document.addEventListener("keydown", handleHideDropdown, true);
+        // document.addEventListener("keydown", handleHideDropdown, true);
         document.addEventListener("click", handleClickOutside, true);
         return () => {
-            document.removeEventListener("keydown", handleHideDropdown, true);
+            // document.removeEventListener("keydown", handleHideDropdown, true);
             document.removeEventListener("click", handleClickOutside, true);
         };
-    });
+    }, []);
 
     useEffect(() => {
         document.addEventListener("scroll", () => setCerrar(false), true)
@@ -46,10 +47,11 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
     return (
         <div
             className='relative p-1 cursor-pointer'
-            ref={WrapperShowLogout}
+            // ref={WrapperShowLogout}
             onClick={() => {
-                if (!user) {
+                if (status === "unauthenticated") {
                     setModalLogin(true)
+                } else {
                     setCerrar(!cerrar)
                 }
             }}
@@ -59,14 +61,15 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
                 <>
                     {cerrar && (
                         // <div className="relative mx-auto my-0 w-[90%] xl:w-[1280px] container ">
-                        <div className="absolute bg-slate-100 rounded-lg z-50 w-60 p-5 top-16 -right-24 lg:-right-2">
+                        <div className="absolute bg-slate-100 rounded-lg z-50 w-60 p-5 top-16 -right-24 lg:-right-2"
+                        >
                             <div className=" justify-center lg:justify-end  lg:-left-4 w-full absolute -top-2.5 left-0 z-50 flex">
                                 <div className="h-5 w-5 bg-slate-100 rotate-45"></div>
                             </div>
 
                             <button
                                 className="bg-red-500 mt-5 rounded-lg w-full py-3 text-white font-bold"
-                                onClick={handleSignOut}
+                                onClick={() => handleSignOut()}
                             >
                                 Cerrar Sesión
                             </button>

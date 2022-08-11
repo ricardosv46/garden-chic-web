@@ -11,24 +11,28 @@ const Proyects = () => {
     <Container bgColor='bg-[#F9FAFB]' className='pt-10 pb-20'>
       <div className='flex flex-col items-center justify-center '>
         <h1 className='text-center text-5xl text-primary-300 font-bold'>
-          Trabajos
+          Proyectos
         </h1>
         <ol className='hidden flex-col lg:flex-row gap-3 mt-8 lg:flex'>
-          <li className='text-primary-300 text-md font-bold'>All</li>
-          <li className='text-primary-300 text-md font-bold'>Eventos</li>
-          <li className='text-primary-300 text-md font-bold'>Jardines</li>
-          <li className='text-primary-300 text-md font-bold'>Interiores</li>
+          <li className='text-primary-300 text-md font-bold'>Todos</li>
+          <li className='text-primary-300 text-md font-bold'>Paisajismo</li>
+          <li className='text-primary-300 text-md font-bold'>Jardines Verticales</li>
           <li className='text-primary-300 text-md font-bold'>Mantenimiento</li>
-          <li className='text-primary-300 text-md font-bold'>Urbano</li>
+          <li className='text-primary-300 text-md font-bold'>Sistema de Riego Tecnificado</li>
+          <li className='text-primary-300 text-md font-bold'>Techos Verdes</li>
+          <li className='text-primary-300 text-md font-bold'>Impermeabilización con Manto Asfaltico</li>
+          <li className='text-primary-300 text-md font-bold'>Vivero</li>
         </ol>
 
         <select className='text-primary-800 text-md font-bold lg:hidden mt-8'>
-          <option value='all'>All</option>
-          <option value='events'>Events</option>
-          <option value='gardens'>Gardens</option>
-          <option value='interiors'>Interiors</option>
-          <option value='maintance'>Maintance</option>
-          <option value='urban'>Urban</option>
+          <option value='all'>Todos</option>
+          <option value='events'>Paisajismo</option>
+          <option value='gardens'>Jardines Verticales</option>
+          <option value='interiors'>Mantenimiento</option>
+          <option value='maintance'>Sistema de Riego Tecnificado</option>
+          <option value='urban'>Techos Verdes</option>
+          <option value='maintance'>Impermeabilización con Manto Asfaltico</option>
+          <option value='urban'>Vivero</option>
         </select>
       </div>
 
