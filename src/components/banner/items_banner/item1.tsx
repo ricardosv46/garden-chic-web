@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonBanner from '../../buttons/buttonBanner'
 import style from '../items.module.css'
-const Item1 = () => {
+export const Item1 = () => {
   return (
     <div className={`${style['item-1']} animate-area `}>
       <div className='mx-auto my-0 w-[90%] xl:w-[1280px]  h-full flex  justify-center items-center text-white relative z-10    md:justify-end  '>
@@ -19,4 +19,3 @@ const Item1 = () => {
   )
 }
 
-export default Item1

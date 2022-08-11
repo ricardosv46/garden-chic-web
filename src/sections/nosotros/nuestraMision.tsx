@@ -12,12 +12,11 @@ const NuestraMision = () => {
               Nuestra misión.
             </h2>
             <p className='text-lg font-extralight mt-8'>
-              Nuestro objetivo es reflejar lo más fielmente posible el estilo,
-              la decoración y la paleta de colores de la casa del cliente para
-              que exista una fuerte relación visual entre los espacios
-              interiores y exteriores. Trabajamos regularmente en estrecha
-              colaboración con arquitectos y diseñadores de interiores para
-              garantizar que esto se logre. .
+              Servir a nuestros clientes de una manera excelente, tratando
+              de reflejar lo más fielmente posible el estilo, la decoración,
+              los colores y mantenimiento del área verde, donde se vea reflejado las
+              expectativas logradas en obra y diseño a través del jardín. Con el objetivo de superar sus expectativas
+
             </p>
           </div>
           <div className='order-1 '>

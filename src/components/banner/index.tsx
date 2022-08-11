@@ -5,9 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Navigation, Pagination } from 'swiper'
-import Item1 from './items_banner/item1'
-import Item2 from './items_banner/item2'
-import Item3 from './items_banner/item3'
+import { Item1, Item2, Item3 } from './items_banner'
 
 interface IProps {
   style?: any

@@ -64,9 +64,14 @@ const Contactanos = () => {
                     defaultValue='0'
                   >
                     <option value='0'>Seleccione una opcion</option>
-                    <option value='1'>Select 1</option>
-                    <option value='2'>Select 2</option>
-                    <option value='3'>Select 3</option>
+                    <option value='1'>PAISAJISMO</option>
+                    <option value='2'>JARDINES VERTICALES</option>
+                    <option value='3'>MANTENIMIENTO DE JARDINES</option>
+                    <option value='4'>SISTEMA DE RIEGO TECNIFICADO</option>
+                    <option value='5'>TECHOS VERDES</option>
+                    <option value='6'>INSTALACION DE JARDINERAS Y MACETAS</option>
+                    <option value='7'>IMPERMEABLIZACIÓN CON MANTO ASFALTICOS</option>
+                    <option value='8'>VIVERO</option>
                   </select>
                 </div>
               </div>
@@ -90,7 +95,7 @@ const Contactanos = () => {
         </div>
         <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[830px]  relative mt-10 lg:mt-0'>
           <Image
-            src='/imgs/contactos/formulario.jpg'
+            src='/imgs/nosotros/header/04_COTIZA_CON_NOSOTROS.jpg'
             alt='manos'
             loading='lazy'
             objectFit='contain'

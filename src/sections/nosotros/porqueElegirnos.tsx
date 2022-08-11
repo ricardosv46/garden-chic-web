@@ -12,11 +12,13 @@ const PorqueElegirnos = () => {
             ¿Por qué elegirnos?
           </h2>
           <p className='text-lg font-extralight mt-8'>
-            Trabajamos con un grupo selecto de contratistas de paisajismo,
-            especialistas en diseño de iluminación y fuentes de agua para
-            garantizar que el proceso de diseño del jardín, desde el concepto
-            inicial hasta la finalización del proyecto, sea fluido y sin
-            inconvenientes.
+            Trabajamos con un equipo multidisciplinario que ha participado en los
+            principales proyectos de Paisajismo en el país, tales como Los Juegos
+            Panamericanos, Edificios con certificación LEED, somos proveedores de
+            CASACOR desde el 2015 y somos parte la Asociación de Diseñadores del Perú
+            y de Perú Green Building Council que tiene el objetivo de promover la
+            reducción de las emisiones de carbono implementando Edificios Sostenibles
+
           </p>
         </div>
         <div className='order-1 md:order-2'>

@@ -12,10 +12,10 @@ const Header = () => {
   return (
     <div className={`${style['banner-nosotros']} h-40`}>
       <div className='w-full h-full flex flex-col justify-center items-center text-white relative z-10 '>
-        <div className='w-full text-xl sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold text-white uppercase text-center'>
-          <p className='mt-4 md:mt-8'>crea un espacio al aire libre,</p>
-          <p> eso es realmente tuyo</p>
-          <p className='relative md:mt-11 text-[8px] md:text-sm'>exploranos</p>
+        <div className='w-full text-sm sm:text-2xl md:text-3xl 2xl:text-4xl font-bold text-white uppercase text-center px-4'>
+          <p className='mt-4 md:mt-8'>Deseamos ser tu socio estratégico en tus proyectos con la naturaleza,</p>
+          <p> plasmamos tus sueños en tus áreas verdes y le brindamos mantenimiento como si fueran propios.</p>
+          <p className='relative md:mt-11 text-[8px] md:text-sm'>Conocenos</p>
         </div>
       </div>
       <div
