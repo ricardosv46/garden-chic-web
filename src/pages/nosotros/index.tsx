@@ -1,4 +1,5 @@
 import React from 'react'
+import { DataGeneral } from 'src/data/dataGeneral'
 import Contactanos from '../../sections/Home/contactanos'
 import QuePodemosHacer from '../../sections/Home/quePodemosHacer'
 import Servicios from '../../sections/Home/servicios'
@@ -12,7 +13,7 @@ const Nosotros = () => {
     <div>
       <Header />
       <HeaderContent />
-      <QuePodemosHacer />
+      <QuePodemosHacer data={DataGeneral.Nosotros.QuePodemosHacer} />
       <Servicios />
       <PorqueElegirnos />
       <NuestraMision />

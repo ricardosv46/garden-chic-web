@@ -1,42 +1,12 @@
 
-.item-1,
-.item-2,
-.item-3,
-.item-4,
-.item-5,
-.item-6 {
-  background-image: url('/imgs/banner/principal/01_CASACOR.jpg');
+.itemBanner{
   background-size: cover;
   width: 100%;
   height: 100%;
   height: 450px;
   position: relative;
 }
-.item-2 {
-  background-image: url('/imgs/banner/principal/02_PAISAJISMO.jpg');
-}
-.item-3 {
-  background-image: url('/imgs/banner/principal/03_JARDIN_VERTICAL.jpg');
-}
-.item-4 {
-  background-image: url('/imgs/banner/principal/04_MANTENIMIENTO.jpg');
-}
-.item-5 {
-  background-image: url('/imgs/banner/principal/05_RIEGO_TECNIFICADO.jpg');
-}
-.item-6 {
-  background-image: url('/imgs/banner/principal/06_TECHO_VERDE.jpg');
-}
-.item-7 {
-  background-image: url('/imgs/banner/principal/07_IMPERMEABILIZACION.jpg');
-}
-.item-8 {
-  background-image: url('/imgs/banner/principal/08_VIVERO.jpg');
-}
-
-.item-1::before,
-.item-2::before,
-.item-3:before {
+.itemBanner::before{
   content: '';
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
@@ -44,18 +14,13 @@
   width: 100%;
   height: 100%;
 }
-
 @media (min-width: 768px) {
-  .item-1,
-  .item-2,
-  .item-3 {
+  .itemBanner {
     height: 600px;
   }
 }
 @media (min-width: 1200px) {
-  .item-1,
-  .item-2,
-  .item-3 {
+  .itemBanner{
     height: 700px;
   }
 }

@@ -8,6 +8,7 @@ import Proyects from "../sections/Home/proyects";
 import OpenGraph from "../components/openGraph";
 import { useEffect } from "react";
 import { getSession, useSession } from "next-auth/react";
+import { DataGeneral } from 'src/data/dataGeneral'
 
 const Home: NextPage = () => {
   const { status, data } = useSession() as {
@@ -36,8 +37,8 @@ const Home: NextPage = () => {
         keywords="jardines, jardin, plantas"
         url="https://garden-chic-web.vercel.app/"
       />
-      <Banner />
-      <QuePodemosHacer />
+      <Banner data={DataGeneral.Home.Banner} />
+      <QuePodemosHacer data={DataGeneral.Home.QuePodemosHacer} />
       <Servicios />
       <Proyects />
       <NuestrosClientes />
