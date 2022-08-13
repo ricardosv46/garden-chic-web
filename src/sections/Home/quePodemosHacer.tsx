@@ -28,26 +28,6 @@ const QuePodemosHacer = ({ data }: IProps) => {
               </div>
             </div>
           )}
-          {/* <div className="space-y-4 text-center">
-            <div>
-              <h2 className="text-7xl text-primary-600">
-                {inView ? <Contador duration={1000} num={'30'} /> : '0'}
-              </h2>
-              <h3 className="text-xl font-bold text-primary-600">Especialista</h3>
-              <h4 className="text-lg">Jardines Verticales</h4>
-              <span className="block text-sm text-gray-500"></span>
-            </div>
-          </div>
-          <div className="space-y-4 text-center">
-            <div>
-              <h2 className="text-7xl text-primary-600">
-                {inView ? <Contador duration={1500} num={'15'} /> : '0'}
-              </h2>
-              <h3 className="text-xl font-bold text-primary-600"></h3>
-              <h4 className="text-lg"></h4>
-              <span className="block text-sm text-gray-500"></span>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

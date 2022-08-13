@@ -4,8 +4,11 @@ import Container from '../../components/container'
 import InputFloat from '../../components/inputs/InputFloat'
 import InputArea from '../../components/inputs/InputArea'
 import useForm from '../../hooks/useForm'
+interface IProps {
+  data: string[]
+}
 
-const Contactanos = () => {
+const Contactanos = ({ data }: IProps) => {
   const { nombre, email, celular, onChange } = useForm({
     nombre: '',
     email: '',
@@ -63,7 +66,9 @@ const Contactanos = () => {
                     name='service'
                     defaultValue='0'
                   >
-                    <option value='0'>Seleccione una opcion</option>
+                    <option value=''>Seleccione una opcion</option>
+                    {data.map((obj, i) => <option value={i + 1}>{obj.toUpperCase() || ''}</option>)}
+                    {/* <option value='0'>Seleccione una opcion</option>
                     <option value='1'>PAISAJISMO</option>
                     <option value='2'>JARDINES VERTICALES</option>
                     <option value='3'>MANTENIMIENTO DE JARDINES</option>
@@ -71,7 +76,7 @@ const Contactanos = () => {
                     <option value='5'>TECHOS VERDES</option>
                     <option value='6'>INSTALACION DE JARDINERAS Y MACETAS</option>
                     <option value='7'>IMPERMEABLIZACIÓN CON MANTO ASFALTICOS</option>
-                    <option value='8'>VIVERO</option>
+                    <option value='8'>VIVERO</option> */}
                   </select>
                 </div>
               </div>

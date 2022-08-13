@@ -1,3 +1,6 @@
+import { IconImpermeabilizacionColor, IconJardinesVerticalesColor, IconMantenimientoColor, IconPaisajismoColor, IconRiegoTecnificadoColor, IconTechosVerdesColor, IconViverosColor } from 'public/icons/servicios/color'
+import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconPaisajismo, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
+import { VERTICAL_PLANTAS, VERTICAL_SERVICIOS, VERTICAL_VIVERO } from 'public/icons/nosotros/bannerCarrousel'
 export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
@@ -53,7 +56,49 @@ export const DataGeneral: IDataGeneral = {
             tittle: 'VIVERO',
             image: '08_VIVERO.jpg',
             subtittle: 'CULTIVO DE PLANTAS EN GRAN VARIEDAD'
-        }]
+        }],
+        Iconos: [
+            {
+                Icon1: <IconPaisajismoColor />,
+                Icon2: <IconPaisajismo />,
+                label: "Paisajismo"
+            }, {
+                Icon1: <IconJardinesVerticalesColor />,
+                Icon2: <IconJardinesVerticales />,
+                label: "Jardines Verticales"
+            }, {
+
+                Icon1: <IconMantenimientoColor />,
+                Icon2: <IconMantenimiento />,
+                label: "Mantenimiento"
+            }, {
+                Icon1: <IconImpermeabilizacionColor />,
+                Icon2: <IconImpermeablizacion />,
+                label: 'Impermeabilización'
+            }, {
+                Icon1: <IconRiegoTecnificadoColor />,
+                Icon2: <IconRiegoTexnificado />,
+                label: 'Riego Tecnificado'
+            }, {
+                Icon1: <IconTechosVerdesColor />,
+                Icon2: <IconTechosVerdes />,
+                label: 'Techos Verdes'
+            }, {
+                Icon1: <IconViverosColor />,
+                Icon2: <IconVivero />,
+                label: 'Vivero'
+            }
+        ],
+        EllosConfian: ['ARMAS', 'ARMONHY', 'Ay', 'BACKUS', 'BRITANICO', 'EDIFICA', 'ENGIE', 'ESPARQ', 'EXALMAR', 'INTERCONNECTA', 'LEGADO', 'LIMALOFT', 'MARCOALDANY', 'MEGALABS', 'PIONERO', 'RANSA', 'SACYRCONCESIONES', 'SOLE', 'VyV'],
+        OptionForm: ['PAISAJISMO',
+            'JARDINES VERTICALES',
+            'MANTENIMIENTO DE JARDINES',
+            ' SISTEMA DE RIEGO TECNIFICADO',
+            'TECHOS VERDES',
+            'INSTALACIÓN DE JARDINERAS Y MACETAS',
+            'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+            '    VIVERO'
+        ]
     },
     Nosotros: {
         QuePodemosHacer: {
@@ -81,7 +126,28 @@ export const DataGeneral: IDataGeneral = {
                 subtittle: 'Más de 50 clientes confían en nuestros servicios.<'
             }]
 
+        },
+        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
+        Iconos: [
+            {
+                Icon1: <VERTICAL_PLANTAS />,
+            }, {
+                Icon1: <VERTICAL_SERVICIOS />,
+            },
+            {
+                Icon1: <VERTICAL_VIVERO />,
+            }
+        ],
+    },
+    Servicios: {
+        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
+        Banner: {
+            img: '01_PRINCIPAL.jpg',
+            tittle: 'Servicios'
         }
+    },
+    Contactanos: {
+        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
     }
 }
 export interface IQuePodemosHacer {
@@ -103,12 +169,35 @@ export interface IBanner {
     buttonText?: string
 }
 
+export interface IIconos {
+    Icon1: JSX.Element,
+    Icon2?: JSX.Element,
+    label?: string
+}
+
+export interface IBannerServicios {
+    tittle: string
+    img: string
+}
+
 interface IDataGeneral {
     Home: {
         QuePodemosHacer: IQuePodemosHacer,
         Banner: IBanner[]
+        Iconos: IIconos[],
+        EllosConfian: string[],
+        OptionForm: string[]
     }
     Nosotros: {
-        QuePodemosHacer: IQuePodemosHacer
-    }
+        QuePodemosHacer: IQuePodemosHacer,
+        OptionForm: string[],
+        Iconos: IIconos[]
+    },
+    Servicios: {
+        OptionForm: string[],
+        Banner: IBannerServicios
+    },
+    Contactanos: {
+        OptionForm: string[],
+    },
 }

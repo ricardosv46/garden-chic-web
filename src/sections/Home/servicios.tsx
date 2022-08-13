@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -6,8 +5,13 @@ import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconP
 import Container from '../../components/container'
 import { Hover } from './components/hover'
 import { IconImpermeabilizacionColor, IconJardinesVerticalesColor, IconMantenimientoColor, IconPaisajismoColor, IconRiegoTecnificadoColor, IconTechosVerdesColor, IconViverosColor } from 'public/icons/servicios/color'
+import { IIconos } from 'src/data/dataGeneral'
+import { Show } from '@components/show'
+interface IProps {
+  data: IIconos[]
+}
 
-const Servicios = () => {
+const Servicios = ({ data }: IProps) => {
   return (
     <Container className='p-10  py-20' bgColor='bg-primary-100 bg-opacity-50'>
       {/*       <h2 className="text-4xl lg:text-5xl text-center font-normal mb-24 text-primary-800 ">
@@ -45,7 +49,34 @@ const Servicios = () => {
           modules={[Navigation]}
           className='mySwiper'
         >
-          <SwiperSlide>
+
+
+          {
+            data.map((obj, i) => (
+              <SwiperSlide key={i} >
+                <Show condition={typeof obj.Icon2 !== 'undefined'}
+
+                  isDefault={<div className='flex flex-col items-center gap-y-5 text-primary-600'>
+                    {obj.Icon1}
+                  </div>}
+                >
+                  <Hover
+                    // Icon1={<IconPaisajismoColor />}
+                    // Icon2={<IconPaisajismo />}
+                    // label="Paisajismo"
+                    {...obj}
+                  />
+                </Show>
+
+              </SwiperSlide>
+
+
+            ))
+
+          }
+          {/*  */}
+
+          {/* <SwiperSlide>
             <Hover
               Icon1={<IconPaisajismoColor />}
               Icon2={<IconPaisajismo />}
@@ -93,10 +124,10 @@ const Servicios = () => {
               Icon2={<IconVivero />}
               label='Vivero'
             />
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
-    </Container>
+    </Container >
   )
 }
 

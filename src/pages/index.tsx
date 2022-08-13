@@ -11,6 +11,7 @@ import { getSession, useSession } from "next-auth/react";
 import { DataGeneral } from 'src/data/dataGeneral'
 
 const Home: NextPage = () => {
+  const { Home } = DataGeneral
   const { status, data } = useSession() as {
     status: string;
     data: { user: any };
@@ -37,12 +38,12 @@ const Home: NextPage = () => {
         keywords="jardines, jardin, plantas"
         url="https://garden-chic-web.vercel.app/"
       />
-      <Banner data={DataGeneral.Home.Banner} />
-      <QuePodemosHacer data={DataGeneral.Home.QuePodemosHacer} />
-      <Servicios />
+      <Banner data={Home.Banner} />
+      <QuePodemosHacer data={Home.QuePodemosHacer} />
+      <Servicios data={Home.Iconos} />
       <Proyects />
-      <NuestrosClientes />
-      <Contactanos />
+      <NuestrosClientes data={Home.EllosConfian} />
+      <Contactanos data={Home.OptionForm} />
     </>
   );
 };

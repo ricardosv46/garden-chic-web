@@ -13,15 +13,21 @@ const logos = [
   '/imgs/carrouselNuestrosClientes/img6.svg',
   '/imgs/carrouselNuestrosClientes/img7.svg'
 ]
+const pathname = '/imgs/carrouselNuestrosClientes/png/'
+const typeImg = '.png'
+interface IProps {
+  data: string[]
+}
 
-const NuestrosClientes = () => {
+const NuestrosClientes = ({ data }: IProps) => {
+  const resolvePath = (path: string) => pathname + path + typeImg
   return (
     <Container className='p-10 py-2 lg:py-28 '>
       <div className='flex items-center gap-x-4 mb-10'>
         <hr className='w-[90%] h-[1px] border border-black  '></hr>
 
         <h2 className='text-2xl lg:text-5xl text-center font-normal text-primary-800 w-full '>
-        Ellos confían en nosotros
+          Ellos confían en nosotros
         </h2>
         <hr className='w-[90%] h-[1px] border border-black'></hr>
       </div>
@@ -56,12 +62,12 @@ const NuestrosClientes = () => {
         modules={[Navigation]}
         className='mySwiper'
       >
-        {logos.map((item) => (
+        {data.map((item) => (
           <SwiperSlide key={item}>
             <div
               className={`flex flex-col items-center gap-y-5 transition-all duration-500 grayscale hover:grayscale-0`}
             >
-              <Image src={item} alt={item} width={350} height={350} />
+              <Image src={resolvePath(item)} alt={item} width={350} height={350} />
             </div>
           </SwiperSlide>
         ))}

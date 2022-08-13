@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { DataGeneral } from 'src/data/dataGeneral'
 import Container from '../../components/container'
 import { servicios } from '../../data/dataServicios'
 import Contactanos from '../../sections/Home/contactanos'
@@ -17,9 +18,8 @@ const Servicios = () => {
         {servicios.map((item) => (
           <div
             key={item.img}
-            className={`flex flex-auto flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 ${
-              item.position === 'r' ? 'lg:flex-row-reverse' : ''
-            }`}
+            className={`flex flex-auto flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 ${item.position === 'r' ? 'lg:flex-row-reverse' : ''
+              }`}
           >
             {/* <div className='w-full lg:w-1/2'>
               <div
@@ -79,7 +79,7 @@ const Servicios = () => {
           </h2>
         </div>
       </div>
-      <Contactanos />
+      <Contactanos data={DataGeneral.Servicios.OptionForm} />
     </Container>
   )
 }

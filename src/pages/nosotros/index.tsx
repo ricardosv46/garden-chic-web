@@ -14,10 +14,10 @@ const Nosotros = () => {
       <Header />
       <HeaderContent />
       <QuePodemosHacer data={DataGeneral.Nosotros.QuePodemosHacer} />
-      <Servicios />
+      <Servicios data={DataGeneral.Nosotros.Iconos} />
       <PorqueElegirnos />
       <NuestraMision />
-      <Contactanos />
+      <Contactanos data={DataGeneral.Nosotros.OptionForm} />
     </div>
   )
 }
