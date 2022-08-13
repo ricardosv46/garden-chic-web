@@ -144,7 +144,8 @@ export const DataGeneral: IDataGeneral = {
         Banner: {
             img: '01_PRINCIPAL.jpg',
             tittle: 'Servicios'
-        }
+        },
+        BannerHeader: '01_PRINCIPAL.jpg'
     },
     Contactanos: {
         OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
@@ -195,7 +196,8 @@ interface IDataGeneral {
     },
     Servicios: {
         OptionForm: string[],
-        Banner: IBannerServicios
+        Banner: IBannerServicios,
+        BannerHeader: string
     },
     Contactanos: {
         OptionForm: string[],

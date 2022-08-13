@@ -15,7 +15,8 @@ interface PropsStatic {
     position: string
     img: string
     icon: string
-    url: string
+    url: string,
+    content: { tittle: string, subcontent: string[] }[]
   }
 }
 interface IProps {
@@ -29,11 +30,20 @@ const DetalleServicios = ({ url }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
 
-  console.log({ url })
+  // console.log({ url })
 
   const { db: productos, loading } = useProductos()
 
-  const serviciosLat = ['Jardines', 'Urbano', 'Mantenimiento', 'Eventos']
+  // const serviciosLat = ['Jardines', 'Urbano', 'Mantenimiento', 'Eventos']
+  const serviciosLat = ['Paisajismo',
+    'Jardines Verticales',
+    'Mantenimiento',
+    'Techos Verdes',
+    'Sistema de Riego Tecnificado',
+    'Impermeabilización ',
+    'Vivero'
+  ]
+
 
   return (
     <>
@@ -49,7 +59,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
         <span className='absolute top-0 w-full h-full  bg-black opacity-50'></span>
         <div className='mx-auto my-0 w-[90%] xl:w-[1280px]  h-full flex  justify-center items-center text-white relative z-10    md:justify-start  '>
           <h2 className='text-center text-5xl sm:text-8xl text-white font-bold relative z-10 capitalize'>
-            Servicios
+            {url.title || ''}
           </h2>
         </div>
       </div>
@@ -59,7 +69,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
           {serviciosLat.map((item) => (
             <div key={item} className='border-b-2 border-b-gray-200 py-5'>
               <p
-                onClick={() => router.push(`/servicios/${item.toLowerCase()}`)}
+                onClick={() => router.push(`/servicios/${item.split(' ').join('').toLowerCase()}`)}
                 className='text-gray-700 text-lg font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
               >
                 {item}
@@ -91,46 +101,22 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             })}
         </div>
         <div className='w-full lg:w-9/12'>
-          <article className=''>
-            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl '>
-              ¿Cómo podemos ayudar?
+          {url?.content.map((obj, i) => <article className=''>
+            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' key={i}>
+              {obj.tittle || ''}
             </h2>
             <div className='text-gray-700 text-lg font-light py-7'>
-              <p className='pb-4'>
-                Desde el trabajo en el sitio hasta la mampostería de ladrillo y
-                piedra personalizada, Gardeny puede instalar su proyecto con sus
-                propios artesanos talentosos y equipos de paisajismo de calidad.
-                Utilizando nuestro amplio conocimiento de suelos, plantas,
-                materiales de jardinería y técnicas de construcción, estamos
-                bien calificados para proyectos de cualquier tamaño. Empleamos
-                todos nuestros recursos para lograr los mejores resultados
-                posibles, sin importar la escala.
-              </p>
-              <p className='pb-4'>
-                Nuestras distintivas características de agua introducirán sonido
-                y movimiento en su experiencia de paisaje. El elemento agua
-                liberará su estrés y le presentará la esencia de la naturaleza
-                misma. No hay dos jardines acuáticos iguales, pero la mayoría
-                son similares. Construidas con componentes de calidad y
-                materiales naturales, nuestras fuentes de agua complementan
-                cualquier entorno.
-              </p>
-              <p className='pb-4'>
-                Las plantas y los árboles de Gardeny se cultivan en nuestro
-                propio vivero certificado de Carolina del Norte en Durham.
-                Nuestro profesional de plantas certificado de Carolina del Norte
-                y el horticultor del personal han colaborado para crear uno de
-                los mejores recursos de viveros en el Triángulo. Ofrecemos
-                plantas y árboles de inversión en jardines que generarán
-                dividendos en crecimiento, belleza y valor a lo largo de la vida
-                de su jardín.
-              </p>
+              {obj?.subcontent.map((obj2, j) => <p className='pb-4' key={j}>
+                {obj2 || ''}
+              </p>)}
+
             </div>
-          </article>
+          </article>)}
+       
 
           <div className='mt-3'>
             <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl '>
-              Trabajos
+              Proyectos
             </h2>
 
             <div className=' grid grid-cols-1 sm:grid-cols-2  gap-5  justify-items-center mt-10 '>
@@ -172,7 +158,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             </div>
           </div>
         </div>
-      </Container>
+      </Container >
     </>
   )
 }
@@ -181,7 +167,6 @@ export default DetalleServicios
 
 export async function getStaticProps({ params }: IDataBlog) {
   const data = servicios.find((item) => item.url === params.slug)
-  console.log({ data })
 
   return {
     props: {

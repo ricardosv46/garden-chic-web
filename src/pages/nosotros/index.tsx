@@ -7,7 +7,6 @@ import Header from '../../sections/nosotros/header'
 import HeaderContent from '../../sections/nosotros/headerContent'
 import NuestraMision from '../../sections/nosotros/nuestraMision'
 import PorqueElegirnos from '../../sections/nosotros/porqueElegirnos'
-
 const Nosotros = () => {
   return (
     <div>
