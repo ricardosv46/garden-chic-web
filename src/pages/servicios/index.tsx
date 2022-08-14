@@ -21,7 +21,7 @@ const Servicios = () => {
           {servicios.map((item) => (
             <div
               key={item.img}
-              className={`flex flex-auto flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 ${item.position}`}
+              className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 ${item.position}`}
             >
               {/* <div className='w-full lg:w-1/2'>
               <div
