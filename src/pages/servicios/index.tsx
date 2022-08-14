@@ -18,10 +18,10 @@ const Servicios = () => {
           Servicios
         </h1>
         <div className='pt-10 '>
-          {servicios.map((item,i) => (
+          {servicios.map((item, i) => (
             <div
               key={i}
-              className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 lg:${item.position}`}
+              className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 ${item.position === 'l' ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
             >
               {/* <div className='w-full lg:w-1/2'>
               <div
