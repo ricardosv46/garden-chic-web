@@ -18,10 +18,10 @@ const Servicios = () => {
           Servicios
         </h1>
         <div className='pt-10 '>
-          {servicios.map((item) => (
+          {servicios.map((item,i) => (
             <div
-              key={item.img}
-              className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 ${item.position}`}
+              key={i}
+              className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 lg:${item.position}`}
             >
               {/* <div className='w-full lg:w-1/2'>
               <div

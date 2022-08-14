@@ -37,6 +37,7 @@ export const DivUser = ({ cerrar, setCerrar, setModalLogin, handleSignOut }: Ipr
             document.removeEventListener("click", handleClickOutside, true);
         };
     }, []);
+    // react-hooks/exhaustive-deps
 
     useEffect(() => {
         document.addEventListener("scroll", () => setCerrar(false), true)

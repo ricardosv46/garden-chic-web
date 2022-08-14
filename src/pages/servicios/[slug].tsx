@@ -50,8 +50,8 @@ const DetalleServicios = ({ url }: PropsStatic) => {
       <div className='relative w-full h-[600px]  '>
         <Image
           src={`/imgs/servicios/${url?.img}`}
-          width={'100%'}
-          height={'100%'}
+          // width={'100%'}
+          // height={'100%'}
           objectPosition='top'
           layout='fill'
           objectFit='cover'
@@ -66,8 +66,8 @@ const DetalleServicios = ({ url }: PropsStatic) => {
       <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10 mt-10  '>
         <div className='flex flex-col gap-x-2 sm:gap-x-7 w-full lg:w-3/12 p-5 lg:px-3'>
           <p className='text-gray-900 text-2xl font-bold pb-5'>Servicios</p>
-          {serviciosLat.map((item) => (
-            <div key={item} className='border-b-2 border-b-gray-200 py-5'>
+          {serviciosLat.map((item,i) => (
+            <div key={i} className='border-b-2 border-b-gray-200 py-5'>
               <p
                 onClick={() => router.push(`/servicios/${item.split(' ').join('').toLowerCase()}`)}
                 className='text-gray-700 text-lg font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
@@ -101,8 +101,8 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             })}
         </div>
         <div className='w-full lg:w-9/12'>
-          {url?.content.map((obj, i) => <article className=''>
-            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' key={i}>
+          {url?.content.map((obj, i) => <article className='' key={i}>
+            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' >
               {obj.tittle || ''}
             </h2>
             <div className='text-gray-700 text-lg font-light py-7'>

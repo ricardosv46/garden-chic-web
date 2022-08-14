@@ -1,7 +1,7 @@
 export const servicios = [
     {
         title: 'Paisajismo',
-        position: 'lg:flex-row',
+        position: 'flex-row',
         img: 'banner/01_PRINCIPAL.jpg',
         icon: '',
         description: 'Convertimos el espacio destinado al jardín en un ambiente estéticamente agradable, utilizando la tierra y el agua del espacio con eficiencia y armonía.',
@@ -24,7 +24,7 @@ export const servicios = [
     },
     {
         title: 'Jardines Verticales',
-        position: 'lg:flex-row-reverse',
+        position: 'flex-row-reverse',
         img: 'servicio2.jpg',
         icon: '',
         description: 'Sistema eco amigable que brinda un espacio vertical para la vegetación, convirtiendo este espacio desaprovechado en uno vivo y natural',
@@ -48,7 +48,7 @@ export const servicios = [
     },
     {
         title: 'Mantenimiento de Areas verdes',
-        position: 'lg:flex-row',
+        position: 'flex-row',
         img: 'mantenimiento/01_PRINCIPAL.jpg',
         icon: '',
         description: 'Las plantas como todo ser vivo requiere de cuidados y mantenimiento. Por ello dedicamos nuestros esfuerzos para ese fin, logrando obtener un buen aspecto y que perdure en el tiempo, en buen estado y belleza.',
@@ -71,8 +71,8 @@ export const servicios = [
     },
     {
         title: 'Techos Verdes',
-        position: 'lg:flex-row-reverse',
-        img: 'servicio4.jpg',
+        position: 'flex-row-reverse',
+        img: 'techoverde/01_PRINCIPAL.jpg',
         icon: '',
         description: 'Se logra con este servicio maximizar los espacios, obtener un aislador térmico natural y que el predio aumente su valor. Convierte una azotea en un parque, un ejemplo de estos proyectos son los edificios llamados EcoParque.',
         url: 'techosverdes',
@@ -94,7 +94,7 @@ export const servicios = [
     },
     {
         title: 'Sistema de Riego Tecnificado',
-        position: 'lg:flex-row',
+        position: 'flex-row',
         img: 'servicio4.jpg',
         icon: '',
         description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
@@ -116,7 +116,7 @@ export const servicios = [
         }]
     }, {
         title: 'Impermeabilización',
-        position: 'lg:flex-row-reverse',
+        position: 'flex-row-reverse',
         img: 'servicio4.jpg',
         icon: '',
         description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
@@ -138,7 +138,7 @@ export const servicios = [
         }]
     }, {
         title: 'Vivero',
-        position: 'lg:flex-row',
+        position: 'flex-row',
         img: 'servicio4.jpg',
         icon: '',
         description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
