@@ -23,6 +23,7 @@ const Servicios = () => {
               key={i}
               className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 ${item.position === 'l' ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
             >
+              {console.log(`/imgs/servicios/${item.img}`)}
               {/* <div className='w-full lg:w-1/2'>
               <div
                 style={{

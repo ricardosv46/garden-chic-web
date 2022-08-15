@@ -83,9 +83,9 @@ export const servicios = [
                 'b. Habla del valor diferencial, su propuesta de valor única',
                 'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
                 'd. contenido',
-                'i. Hemos realizado más de 800 metros cuadrados de jardines verticales utilizando de manera eficiente más espacios del local o residencia. Ya sea en el interior o exterior de cualquier pared. Los beneficios de estos muros verdes como suelen llamarse son muy significativos como bajar algunos grados de temperatura más rápidamente, reducen el efecto de “isla de calor” y absorben partículas contaminantes del aire. Haciendo un ambiente mejor, más sano, más productivo y sociable. ',
-                'ii. Nuestro equipo especializado en jardines verticales a realizar distintos proyectos que cada uno tiene su reto particular, por la altura, posición o espacio. Logrando el objetivo de realizar una obra sin igual de arte natural.',
-                'iii. Nuestros proyectos en jardines verticales cuenta con técnicos, profesionales y proveedores que hacen la diferencia en la ejecución de la obra '
+                'i. Cada instalación de Techo Verde cuenta con un objetivo particular en la cual puede ser un aislador en la parte alta de una casa o edificio, para ello también se verifica su viabilidad. Compuesto por una cubierta vegetal estratificada, cada capa contribuye al aislamiento, para que no drene agua y cree una superficie para el crecimiento de las plantas.',
+                'ii. Contamos con una basta experiencia en este tipo de instalaciones. Consideramos el acceso para la ejecución, el mantenimiento que traerá consigo y las condiciones del sitio como es la exposición al viento, el riesgo por algún inconveniente y la resistencia de las plantas.',
+                'iii. Trabajamos nuestros proyectos como únicos. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”'
             ]
         }, {
             tittle: 'Referencias',
@@ -95,9 +95,9 @@ export const servicios = [
     {
         title: 'Sistema de Riego Tecnificado',
         position: 'l',
-        img: 'servicio4.jpg',
+        img: 'riegotecnificado/01_PRINCIPAL.jpg',
         icon: '',
-        description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
+        description: 'Con este sistema se logra el ahorro del mantenimiento del jardín en un 30% de reducción de consumo de agua. Se aprovecha el espacio y genera un riego homogéneo, facilitando su mantenimiento. La automatización del sistema de riego facilita el mantenimiento como riegos eficientes de forma automática sin la operación de un jardinero.',
         url: 'sistemaderiegotecnificado',
         content: [{
             tittle: '¿Cómo podemos ayudarte?',
@@ -106,9 +106,9 @@ export const servicios = [
                 'b. Habla del valor diferencial, su propuesta de valor única',
                 'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
                 'd. contenido',
-                'i. Hemos realizado más de 800 metros cuadrados de jardines verticales utilizando de manera eficiente más espacios del local o residencia. Ya sea en el interior o exterior de cualquier pared. Los beneficios de estos muros verdes como suelen llamarse son muy significativos como bajar algunos grados de temperatura más rápidamente, reducen el efecto de “isla de calor” y absorben partículas contaminantes del aire. Haciendo un ambiente mejor, más sano, más productivo y sociable. ',
-                'ii. Nuestro equipo especializado en jardines verticales a realizar distintos proyectos que cada uno tiene su reto particular, por la altura, posición o espacio. Logrando el objetivo de realizar una obra sin igual de arte natural.',
-                'iii. Nuestros proyectos en jardines verticales cuenta con técnicos, profesionales y proveedores que hacen la diferencia en la ejecución de la obra '
+                'i. Nuestro sistema de riego tecnificado tiene el objetivo de generar más eficiencia del consumo de agua y reducir el impacto sobre el área verde. ',
+                'ii. La disposición y distribución de forma homogénea del agua genera la eficiencia de este recurso tan valioso para el mejor rendimiento de las plantas, haciendo un ambiente propicio de Salud y Estética de la jardinería de flora y fauna.',
+                'iii. Trabajamos nuestros proyectos como únicos. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”'
             ]
         }, {
             tittle: 'Referencias',
