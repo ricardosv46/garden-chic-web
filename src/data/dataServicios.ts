@@ -117,9 +117,9 @@ export const servicios = [
     }, {
         title: 'Impermeabilización',
         position: 'r',
-        img: 'servicio4.jpg',
+        img: 'impermeabilizacion/01_PRINCIPAL.jpg',
         icon: '',
-        description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
+        description: 'Previene filtraciones para proyectos de jardines en techos, parques o jardines comunes. Con ello cuidamos la propiedad para no causar daños al predio por el filtro de agua u otros posibles daños',
         url: 'impermeabilización',
         content: [{
             tittle: '¿Cómo podemos ayudarte?',
@@ -128,9 +128,9 @@ export const servicios = [
                 'b. Habla del valor diferencial, su propuesta de valor única',
                 'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
                 'd. contenido',
-                'i. Hemos realizado más de 800 metros cuadrados de jardines verticales utilizando de manera eficiente más espacios del local o residencia. Ya sea en el interior o exterior de cualquier pared. Los beneficios de estos muros verdes como suelen llamarse son muy significativos como bajar algunos grados de temperatura más rápidamente, reducen el efecto de “isla de calor” y absorben partículas contaminantes del aire. Haciendo un ambiente mejor, más sano, más productivo y sociable. ',
-                'ii. Nuestro equipo especializado en jardines verticales a realizar distintos proyectos que cada uno tiene su reto particular, por la altura, posición o espacio. Logrando el objetivo de realizar una obra sin igual de arte natural.',
-                'iii. Nuestros proyectos en jardines verticales cuenta con técnicos, profesionales y proveedores que hacen la diferencia en la ejecución de la obra '
+                'i. Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
+                'ii. Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+                'iii. Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”'
             ]
         }, {
             tittle: 'Referencias',
@@ -139,9 +139,9 @@ export const servicios = [
     }, {
         title: 'Vivero',
         position: 'l',
-        img: 'servicio4.jpg',
+        img: 'vivero/01_PRINCIPAL.jpg',
         icon: '',
-        description: 'Plants are expensive and need to be looked after. For clients who have used any of our services, we can offer on-going advice on design, styling and planting.',
+        description: 'Contamos con un Vivero a pocas horas de Lima, con diversidad de plantas, tamaños y con precios acorde al mercado (competitivos) ',
         url: 'vivero',
         content: [{
             tittle: '¿Cómo podemos ayudarte?',
@@ -150,9 +150,9 @@ export const servicios = [
                 'b. Habla del valor diferencial, su propuesta de valor única',
                 'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
                 'd. contenido',
-                'i. Hemos realizado más de 800 metros cuadrados de jardines verticales utilizando de manera eficiente más espacios del local o residencia. Ya sea en el interior o exterior de cualquier pared. Los beneficios de estos muros verdes como suelen llamarse son muy significativos como bajar algunos grados de temperatura más rápidamente, reducen el efecto de “isla de calor” y absorben partículas contaminantes del aire. Haciendo un ambiente mejor, más sano, más productivo y sociable. ',
-                'ii. Nuestro equipo especializado en jardines verticales a realizar distintos proyectos que cada uno tiene su reto particular, por la altura, posición o espacio. Logrando el objetivo de realizar una obra sin igual de arte natural.',
-                'iii. Nuestros proyectos en jardines verticales cuenta con técnicos, profesionales y proveedores que hacen la diferencia en la ejecución de la obra '
+                'i. Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
+                'ii. Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+                'iii. Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”'
             ]
         }, {
             tittle: 'Referencias',

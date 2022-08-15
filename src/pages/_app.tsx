@@ -12,6 +12,7 @@ import client from "../apollo";
 import { SessionProvider } from "next-auth/react";
 import { ScreenProvider } from "src/context/screen/ScreenProvider";
 import ProgressBar from "nextjs-progressbar";
+import { Footer } from '@components/footer'
 import { ProductsProvider } from "src/context/products/ProductsProvider";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             <CarritoState>
               <Header />
               <Component {...pageProps} />
+              <Footer />
             </CarritoState>
           </ProductsProvider>
         </ScreenProvider>
