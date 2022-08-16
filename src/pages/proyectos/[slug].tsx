@@ -1,3 +1,4 @@
+import { Show } from '@components/show'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -5,25 +6,22 @@ import IconBuilding from '../../../public/icons/IconBuilding'
 import IconHouse from '../../../public/icons/IconHouse'
 import BannerProyectos from '../../components/banner/bannerProyectos'
 import Container from '../../components/container'
-import { dataProyectos } from '../../data/dataProyectos'
+import { dataProyectos, dataProyects } from '../../data/dataProyectos'
 
 const Detalle = () => {
   const router = useRouter()
   let slug = router.query.slug
-  const proyecto = dataProyectos.find((item) => item.img === slug)
+  const proyecto = dataProyects.find((item) => item.pathname === slug)
 
   return (
     <>
-      <Container className='py-10'>
-        <h1 className='text-center text-5xl text-primary-300 font-bold'>
-          {proyecto?.title}
-        </h1>
+      <Container>
         <div className='relative'>
           <div className='flex justify-center py-20'>
             <Image
               width={1260}
               height={850}
-              src={`/imgs/works/${slug}`}
+              src={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.img!}`}
               alt='imagen proyecto'
               className='rounded-lg'
             />
@@ -45,48 +43,41 @@ const Detalle = () => {
           <Image
             width={660}
             height={600}
-            src='/imgs/works/proyecto1.jpg'
+            src={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`}
             alt='imagen proyecto'
             className='rounded-lg'
           />
 
           <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center items-center'>
             <h2 className='text-center text-5xl text-primary-300 font-bold'>
-              Before
+              Antes
             </h2>
             <p className='text-justify  text-lg text-primary-300 font-semibold pt-10'>
-              Gardeny have over 25 years of experience with garden design and
-              landscaping. We work with you to transform your garden into an
-              amazing space that you can enjoy for many years to come. For a
-              little inspiration why not check out our before and after garden
-              transformations below. Sometimes in the case of large established
-              gardens, there is a simply a need to review what already exists,
-              advice on the best way to improve it and tweak it. This may
-              include designing new containers and window boxes, replanting or
-              simply renewing furniture and sourcing cushions, garden lanterns
-              or simply re-covering cushions and chair pads.
+              {proyecto?.proceso}
             </p>
           </div>
         </div>
       </Container>
-      <BannerProyectos />
+      <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`} />
       <Container>
         <div className='flex flex-col lg:flex-row gap-5 py-20'>
+          <Show condition={typeof proyecto?.servicios !== 'undefined'}>
+            <div className='flex-1'>
+              <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
+                Servicios
+              </h3>
+              <ul className='lg:text-left text-lg text-primary-300 font-semibold pt-5'>
+                {proyecto?.servicios?.map((obj, i) => <li key={i}>{obj}</li>)}
+
+              </ul>
+              {/* <p className=''>
+                {proyecto?.servicios || ''}
+              </p> */}
+            </div>
+          </Show>
           <div className='flex-1'>
             <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
-              The Challenge
-            </h3>
-            <p className='lg:text-center text-lg text-primary-300 font-semibold pt-5'>
-              At Gardeny, we take a cooperative approach, developing the design
-              concept together with our clients, tailoring the service according
-              to their taste, needs and budget. We can design everything from
-              water features and pergolas and arbours to details such fencing,
-              screens, trellis, benches, plant containers and window boxes.
-            </p>
-          </div>
-          <div className='flex-1'>
-            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
-              The Challenge
+              Servicios
             </h3>
             <p className='lg:text-center text-lg text-primary-300 font-semibold pt-5'>
               We prepare planting plans outlining plant varieties, numbers,

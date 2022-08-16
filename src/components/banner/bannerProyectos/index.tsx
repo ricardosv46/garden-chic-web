@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BannerProyectos = () => {
+const BannerProyectos = ({ img }: { img: string }) => {
   return (
-    <div className='banner banner-proyectos  flex justify-center items-center'>
-      <h2 className='text-center text-8xl text-white font-bold z-10'>After</h2>
+    <div className='banner flex justify-center items-center' style={{ backgroundImage: `url(${img})` }}>
+      <h2 className='text-center text-8xl text-white font-bold z-10'>Despues</h2>
     </div>
   )
 }
