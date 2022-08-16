@@ -79,7 +79,7 @@ const Proyects = () => {
             }
           })} */}
       </div>
-      {/* <div className='flex justify-center mt-10'>
+      <div className='flex justify-center mt-10'>
         {!show && (
           <button
             onClick={() => setShow(true)}
@@ -88,8 +88,16 @@ const Proyects = () => {
             Cargar más
           </button>
         )}
-      </div> */}
+      </div>
 
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+        {show &&
+          dataProyects.map((obj, index) => {
+            if (index > 5) {
+              return < ProyectItem key={index} data={obj} />
+            }
+          })}
+      </div>
       {/* <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
         {dataProyectos.map((item, index) => {
           if (index < 6) {

@@ -67,8 +67,6 @@ const Detalle = () => {
             <RenderItems data={proyecto?.plantasinstaladas!} tittle='Plantas Instaladas' />
           </Show>
 
-          {/* <Show ></Show> */}
-
           <Show condition={typeof proyecto?.resumen1 !== 'undefined'}>
             <RenderItem data={proyecto?.resumen1!} tittle='Conocenos' />
           </Show>
@@ -84,6 +82,12 @@ const Detalle = () => {
             </Show>
             <Show condition={typeof proyecto?.dificultad !== 'undefined'}>
               <RenderIcon text={proyecto?.dificultad!} tittle='Dificultad' />
+            </Show>
+            <Show condition={typeof proyecto?.ubicacion !== 'undefined'}>
+              <RenderIcon text={proyecto?.ubicacion!} tittle='Ubicación' />
+            </Show>
+            <Show condition={typeof proyecto?.cliente !== 'undefined'}>
+              <RenderIcon text={proyecto?.cliente!} tittle='Cliente' />
             </Show>
           </div>
         </div>
