@@ -1,9 +1,8 @@
+import { RenderItems, RenderIcon, RenderItem } from '@components/proyects'
 import { Show } from '@components/show'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import IconBuilding from '../../../public/icons/IconBuilding'
-import IconHouse from '../../../public/icons/IconHouse'
 import BannerProyectos from '../../components/banner/bannerProyectos'
 import Container from '../../components/container'
 import { dataProyectos, dataProyects } from '../../data/dataProyectos'
@@ -62,49 +61,30 @@ const Detalle = () => {
       <Container>
         <div className='flex flex-col lg:flex-row gap-5 py-20'>
           <Show condition={typeof proyecto?.servicios !== 'undefined'}>
-            <div className='flex-1'>
-              <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
-                Servicios
-              </h3>
-              <ul className='lg:text-left text-lg text-primary-300 font-semibold pt-5'>
-                {proyecto?.servicios?.map((obj, i) => <li key={i}>{obj}</li>)}
-
-              </ul>
-              {/* <p className=''>
-                {proyecto?.servicios || ''}
-              </p> */}
-            </div>
+            <RenderItems data={proyecto?.servicios!} tittle='Servicios' />
           </Show>
-          <div className='flex-1'>
-            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
-              Servicios
-            </h3>
-            <p className='lg:text-center text-lg text-primary-300 font-semibold pt-5'>
-              We prepare planting plans outlining plant varieties, numbers,
-              spacing and plant care, followed by the sourcing and selection of
-              plants and finally the setting out and planting of plants. We work
-              with a small selection of specialist trade plant nurseries to
-              source the best possible plant specimens.
-            </p>
-          </div>
+          <Show condition={typeof proyecto?.plantasinstaladas !== 'undefined'}>
+            <RenderItems data={proyecto?.plantasinstaladas!} tittle='Plantas Instaladas' />
+          </Show>
+
+          {/* <Show ></Show> */}
+
+          <Show condition={typeof proyecto?.resumen1 !== 'undefined'}>
+            <RenderItem data={proyecto?.resumen1!} tittle='Conocenos' />
+          </Show>
           <div className='flex-1 flex flex-col gap-5'>
-            <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
+            {/* <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
               Services
-            </h3>
-            <div className='flex items-center  gap-14 lg:px-16'>
-              <div className='bg-primary-100 h-20 w-20 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer'>
-                <IconBuilding fill='#445378' width={30} height={30} />
-              </div>
-              <p className='text-lg text-primary-300 font-bold'>Urbano</p>
-            </div>
-            <div className='flex items-center  gap-14 lg:px-16'>
-              <div className='bg-primary-100 h-20 w-20 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer'>
-                <IconHouse fill='#445378' width={30} height={30} />
-              </div>
-              <p className='text-lg text-primary-300 font-bold'>
-                Mantenimiento
-              </p>
-            </div>
+            </h3> */}
+            <Show condition={typeof proyecto?.duracion !== 'undefined'}>
+              <RenderIcon text={proyecto?.duracion?.cantidad!} text2={proyecto?.duracion?.tipo!} tittle='Duración' />
+            </Show>
+            <Show condition={typeof proyecto?.year !== 'undefined'}>
+              <RenderIcon text={proyecto?.year!} tittle='Año' />
+            </Show>
+            <Show condition={typeof proyecto?.dificultad !== 'undefined'}>
+              <RenderIcon text={proyecto?.dificultad!} tittle='Dificultad' />
+            </Show>
           </div>
         </div>
       </Container>

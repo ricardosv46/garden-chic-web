@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import Container from '../../components/container'
 import { dataProyectos, dataProyects, EntitydataProyects } from '../../data/dataProyectos'
-import { ProyectItem } from './components/proyectItem'
+import { ProyectItem } from '@components/proyects'
 
 const Proyects = () => {
   const [show, setShow] = useState(false)
@@ -37,13 +37,13 @@ const Proyects = () => {
         </select>
       </div>
 
-      {/* <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
         {dataProyects.map((obj, index) => {
           if (index < 6) {
             return < ProyectItem key={index} data={obj} />
           }
-        })} */}
-      {/* {show &&
+        })}
+        {/* {show &&
           dataProyectos.map((item, index) => {
             if (index > 5) {
               return (
@@ -78,7 +78,7 @@ const Proyects = () => {
               )
             }
           })} */}
-      {/* </div> */}
+      </div>
       {/* <div className='flex justify-center mt-10'>
         {!show && (
           <button
@@ -89,7 +89,8 @@ const Proyects = () => {
           </button>
         )}
       </div> */}
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+
+      {/* <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
         {dataProyectos.map((item, index) => {
           if (index < 6) {
             return (
@@ -169,7 +170,7 @@ const Proyects = () => {
             Cargar más
           </button>
         )}
-      </div>
+      </div> */}
     </Container>
   )
 }

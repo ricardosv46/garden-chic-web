@@ -83,7 +83,10 @@ export const dataProyects: EntitydataProyects[] = [
       'Techos verdes',
       'Impermeabilización',
     ],
-    duracion: '8 meses',
+    duracion: {
+      cantidad: '8',
+      tipo: 'meses',
+    },
     year: '2021',
     dificultad: enumDificultad.Medio,
     plantasinstaladas: [
@@ -118,8 +121,10 @@ export interface EntitydataProyects {
   year?: string
   proceso?: string
   servicios?: string[]
-  duracion?: string
+  duracion?: {
+    cantidad: string
+    tipo: string
+  }
   dificultad?: enumDificultad
   plantasinstaladas?: string[]
 }
-
