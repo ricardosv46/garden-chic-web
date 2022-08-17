@@ -67,7 +67,7 @@ export const dataProyectos = [
 ]
 export const dataProyects: EntitydataProyects[] = [
   {
-    pathname: '01_NAVARRETE',
+    pathname: 'NAVARRETE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -106,7 +106,7 @@ export const dataProyects: EntitydataProyects[] = [
       'RIVERA NAVARRETE 548 es el primer proyecto enfocado en integrar la vivienda al corazón del Centro Financiero de San Isidro; lo que le otorgó el Premio Arquitectura y Ciudad 2020, de la Cámara Peruana de la Construcción CAPECO.',
   },
   {
-    pathname: '02_VIDAL',
+    pathname: 'VIDAL',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -142,7 +142,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '03_SOL_BARRANCO',
+    pathname: 'SOL_BARRANCO',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -178,7 +178,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '04_MADDY',
+    pathname: 'MADDY',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -213,7 +213,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '05_LOFT_MARIANNE',
+    pathname: 'LOFT_MARIANNE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -239,7 +239,7 @@ export const dataProyects: EntitydataProyects[] = [
     plantasinstaladas: ['Monsteras', 'Cisus', 'Helecho alemán', 'Helecho'],
   },
   {
-    pathname: '06_CASA_RIBBED',
+    pathname: 'CASA_RIBBED',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -271,7 +271,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '07_QUINTA_MASSERIA',
+    pathname: 'QUINTA_MASSERIA',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -300,7 +300,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '08_LE_COTTAGE',
+    pathname: 'LE_COTTAGE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -330,7 +330,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '09_ESTUDIO_HUERTO_CHEF',
+    pathname: 'ESTUDIO_HUERTO_CHEF',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -365,7 +365,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '10_SOGNO_VENEZIANO',
+    pathname: 'SOGNO_VENEZIANO',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -398,7 +398,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '11_TEJIENDO_LAZOS',
+    pathname: 'TEJIENDO_LAZOS',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES_OP_02.jpg',
@@ -431,7 +431,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
   },
   {
-    pathname: '12_FLAT_FAMILIAR',
+    pathname: 'FLAT_FAMILIAR',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
