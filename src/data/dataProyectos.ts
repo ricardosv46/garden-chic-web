@@ -68,6 +68,7 @@ export const dataProyectos = [
 export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'NAVARRETE',
+    dataHover: 'NAVARRETE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -107,6 +108,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'VIDAL',
+    dataHover: 'VIDAL',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -143,6 +145,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'SOL_BARRANCO',
+    dataHover: 'SOL DE BARRANCO',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -179,6 +182,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'MADDY',
+    dataHover: 'MADDY',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -214,6 +218,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'LOFT_MARIANNE',
+    dataHover: 'LOFT DE MARIANNE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -240,6 +245,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'CASA_RIBBED',
+    dataHover: 'CASA RIBBED',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -272,6 +278,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'QUINTA_MASSERIA',
+    dataHover: 'QUINTA MASSERIA',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -301,6 +308,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'LE_COTTAGE',
+    dataHover: 'LE COTTAGE',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES_Op01.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -331,6 +339,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'ESTUDIO_HUERTO_CHEF',
+    dataHover: 'ESTUDIO Y HUERTO DE LA CHEF',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -366,6 +375,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'SOGNO_VENEZIANO',
+    dataHover: 'SOGNO VENEZIANO',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -399,6 +409,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
   {
     pathname: 'TEJIENDO_LAZOS',
+    dataHover: 'TEJIENDO LAZOS',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES_OP_02.jpg',
@@ -406,7 +417,7 @@ export const dataProyects: EntitydataProyects[] = [
     nombre: 'Tejiendo Lazos',
     description:
       'No hay lazo más fuerte que el que se teje entre una madre y su hija. Este proyecto nace como una atmósfera mágica que busca reflejar la calidez de su amor a la vez que conectarnos con nuestro niño interior. Un ambiente perfecto para compartir, sentir y crear recuerdos. El diseño tiene como núcleo un árbol que alberga sus tesoros y libros preferidos. Alrededor, un columpio colmena y una cabaña que será su refugio. Las texturas, materiales y paleta de colores reflejan su amor por la naturaleza y cada flor tejida representa la infinita conexión entre ellas. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
-    cliente:  'Micaela Puertas',
+    cliente: 'Micaela Puertas',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño de la arquitecta. También se instaló una enredadera en la parte superior de la cama de la niña.  Luego se brindó el servicio de mantenimiento semanal de cada una de ellas.',
     servicios: [
@@ -422,16 +433,16 @@ export const dataProyects: EntitydataProyects[] = [
     dificultad: enumDificultad.Leve,
     plantasinstaladas: [
       'Lantana',
-     ' Soleirolia',
+      ' Soleirolia',
       'Lengua de suegra',
       'Buganvilia',
       'Calathea',
-      'Madre selva'
-      
+      'Madre selva',
     ],
   },
   {
     pathname: 'FLAT_FAMILIAR',
+    dataHover: 'FLAT FAMILIAR',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -439,7 +450,7 @@ export const dataProyects: EntitydataProyects[] = [
     nombre: 'Flat familiar',
     description:
       'Este proyecto está inspirado en una pareja joven y su pequeña hija. Destaca en el ambiente la optimización del espacio de 70 m² que aprovecha una gran estantería multifuncional como división del salón para el dormitorio y para aprovechar las paredes de la cocina. Las líneas y los contornos están bien definidos, no solo por los muebles, sino también por la iluminación dirigida. ',
-    cliente:  'Jennifer Junek y Marilú Salcedo',
+    cliente: 'Jennifer Junek y Marilú Salcedo',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño del arquitecto. Luego se brindó el servicio de mantenimiento semanal de cada una de ellas.',
     servicios: [
@@ -453,11 +464,13 @@ export const dataProyects: EntitydataProyects[] = [
     },
     year: '2028',
     dificultad: enumDificultad.Leve,
-    resumen1:'La paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul. Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia. Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018 , A Casa Viva.'
+    resumen1:
+      'La paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul. Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia. Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018 , A Casa Viva.',
   },
 ]
 export interface EntitydataProyects {
   img: string
+  dataHover?: string
   pathname: string
   imgBefore: string
   imgAfter: string
