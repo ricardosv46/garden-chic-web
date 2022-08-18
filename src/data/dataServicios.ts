@@ -25,7 +25,7 @@ export const servicios = [
     {
         title: 'Jardines Verticales',
         position: 'r',
-        img: 'servicio2.jpg',
+        img: 'jardin/01_PRINCIPAL.jpg',
         icon: '',
         description: 'Sistema eco amigable que brinda un espacio vertical para la vegetación, convirtiendo este espacio desaprovechado en uno vivo y natural',
         url: 'jardinesverticales',
@@ -114,7 +114,8 @@ export const servicios = [
             tittle: 'Referencias',
             subcontent: ['1. Paisajismo es la actividad destinada a modificar las características visibles, físicas y anímicas de un espacio, tanto rural como urbano, entre las que se incluyen: los elementos vivos, tales como flora y fauna, lo que habitualmente se denomina jardinería, el arte de cultivar plantas con el propósito de crear un bello entorno paisajista; los elementos naturales como las formas del terreno, las elevaciones o los cauces de agua, los elementos humanos, como estructuras, edificios u otros objetos materiales creados por el hombre; lo elementos abstractos, como las condiciones climáticas y luminosas; y los elementos culturales. ']
         }]
-    }, {
+    }, 
+    {
         title: 'Impermeabilización',
         position: 'r',
         img: 'impermeabilizacion/01_PRINCIPAL.jpg',
@@ -136,7 +137,8 @@ export const servicios = [
             tittle: 'Referencias',
             subcontent: ['1. Paisajismo es la actividad destinada a modificar las características visibles, físicas y anímicas de un espacio, tanto rural como urbano, entre las que se incluyen: los elementos vivos, tales como flora y fauna, lo que habitualmente se denomina jardinería, el arte de cultivar plantas con el propósito de crear un bello entorno paisajista; los elementos naturales como las formas del terreno, las elevaciones o los cauces de agua, los elementos humanos, como estructuras, edificios u otros objetos materiales creados por el hombre; lo elementos abstractos, como las condiciones climáticas y luminosas; y los elementos culturales. ']
         }]
-    }, {
+    }, 
+    {
         title: 'Vivero',
         position: 'l',
         img: 'vivero/01_PRINCIPAL.jpg',

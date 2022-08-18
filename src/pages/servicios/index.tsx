@@ -5,8 +5,7 @@ import { DataGeneral } from 'src/data/dataGeneral'
 import Container from '../../components/container'
 import { servicios } from '../../data/dataServicios'
 import Contactanos from '../../sections/Home/contactanos'
-import { HeaderServicios } from '../../sections/servicios/headerServicios'
-
+import { Tittle } from '@components/common'
 const Servicios = () => {
   const router = useRouter()
 
@@ -14,9 +13,7 @@ const Servicios = () => {
     <>
       {/* <HeaderServicios image={DataGeneral.Servicios.BannerHeader} /> */}
       <Container className='py-10'>
-        <h1 className='text-center text-5xl text-primary-300 font-bold'>
-          Servicios
-        </h1>
+        <Tittle tittle='Servicios' />
         <div className='pt-10 '>
           {servicios.map((item, i) => (
             <div

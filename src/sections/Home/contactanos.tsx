@@ -66,7 +66,7 @@ const Contactanos = ({ data }: IProps) => {
                     name='service'
                     defaultValue='0'
                   >
-                    <option value=''>Seleccione una opcion</option>
+                    <option value=''>Selección de servicios</option>
                     {data.map((obj, i) => <option value={i + 1} key={i}>{obj.toUpperCase() || ''}</option>)}
                     {/* <option value='0'>Seleccione una opcion</option>
                     <option value='1'>PAISAJISMO</option>

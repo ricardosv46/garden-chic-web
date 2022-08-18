@@ -16,6 +16,10 @@ import { useCategoriaProductos } from '@services/useCategoriaProductos'
 import { useFormik } from 'formik'
 import { useBusquedaAvanzada } from '@services/tienda/useBusquedaAvanzada'
 import SidebarFilter from '@components/sidebarFilter'
+import { useRouter } from 'next/router'
+import Decode from 'atob'
+import Code from 'btoa'
+import { GetServerSidePropsContext } from 'next'
 const tipoOrdenacion = [
 	{ value: 'asc', label: 'Ascendente' },
 	{ value: 'desc', label: 'Descendente' }
@@ -30,6 +34,7 @@ const Tienda = () => {
 	const { db: categoriaProductos, loading: loadingCategoria } = useCategoriaProductos()
 	const [precio, setPrecio] = useState({ min: 0, max: 0 })
 	const { FunctionBusquedaAvanzada, loading: loadingBusqueda } = useBusquedaAvanzada()
+	const { push } = useRouter()
 	const { values, handleChange, resetForm, handleSubmit } = useFormik({
 		initialValues: {
 			categoria: '',
@@ -38,16 +43,21 @@ const Tienda = () => {
 		},
 		onSubmit: async (values) => {
 			setIsFiltrados(true)
-			FunctionBusquedaAvanzada({
-				categoriaSlug: values?.categoria,
-				precio: [precio?.min, precio?.max],
-				tipoOrdenacion: values?.order,
-				destacado: values?.destacado ? 'Activado' : '',
-				pagina: 1,
-				numeroPagina: 10
-			}).then((res) => setProductosFiltrados(res?.db!))
+			FunctionBusquedaAvanzada(handleData()).then((res) => setProductosFiltrados(res?.db!))
+			push({ pathname: '/tienda', query: { data: Code(JSON.stringify(handleData())) } })
 		}
 	})
+
+	const handleData = () => {
+		return {
+			categoriaSlug: values?.categoria,
+			precio: [precio?.min, precio?.max],
+			tipoOrdenacion: values?.order,
+			destacado: values?.destacado ? 'Activado' : '',
+			pagina: 1,
+			numeroPagina: 10
+		}
+	}
 
 	useEffect(() => {
 		if (!loadingPrecios) {
@@ -63,13 +73,12 @@ const Tienda = () => {
 			{/* Wrapper sidebar filter desktop and card´s*/}
 			<Container
 				className={`flex flex-row w-full   relative
-      ${isOpenFilter ? 'gap-x-7' : ''}
-        `}>
+      			${isOpenFilter ? 'gap-x-7' : ''}
+        		`}>
 				{/* sidebar filter desktop */}
 				<div
-					className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible ${
-						isOpenFilter ? 'lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative' : ''
-					}`}>
+					className={`duration-300 transition-all transform -translate-x-32 opacity-0  w-0  absolute invisible 
+					${isOpenFilter ? 'lg:translate-x-0  lg:opacity-100 lg:w-1/4 lg:visible static lg:relative' : ''}`}>
 					{!loadingPrecios && precio?.max > 0 && !loadingCategoria && (
 						<Filtro
 							{...{
@@ -93,39 +102,38 @@ const Tienda = () => {
 				{/* wrapper card´s */}
 				<motion.div className={`flex justify-center items-start w-full  ${isOpenFilter ? ' lg:w-3/4 ' : 'lg:w-full'}`} layout>
 					<div
-						className={`grid grid-cols-1 delay-200 ${
-							isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
-						} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
+						className={`grid grid-cols-1 delay-200 ${isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
+							} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
 						<Show condition={!loadingBusqueda && !loadingProductos} isDefault={<Spinner />}>
 							{isfiltrados
 								? productosFiltrados.map((item) => (
-										<CardProducto
-											key={item.slug}
-											slug={item.slug!}
-											titulo={item.titulo!}
-											amount={1}
-											firtsPrice={item.precioReal!}
-											categoty1={item.CategoriaProducto?.titulo!}
-											price={item.precioOferta!}
-											id={Number(item.productoId!)}
-											img={item.imagenPrincipal!}
-											rebaja
-										/>
-								  ))
+									<CardProducto
+										key={item.slug}
+										slug={item.slug!}
+										titulo={item.titulo!}
+										amount={1}
+										firtsPrice={item.precioReal!}
+										categoty1={item.CategoriaProducto?.titulo!}
+										price={item.precioOferta!}
+										id={Number(item.productoId!)}
+										img={item.imagenPrincipal!}
+										rebaja
+									/>
+								))
 								: productos.map((item) => (
-										<CardProducto
-											key={item.slug}
-											slug={item.slug!}
-											titulo={item.titulo!}
-											amount={1}
-											firtsPrice={item.precioReal!}
-											categoty1={item.CategoriaProducto?.titulo!}
-											price={item.precioOferta!}
-											id={Number(item.productoId!)}
-											img={item.imagenPrincipal!}
-											rebaja
-										/>
-								  ))}
+									<CardProducto
+										key={item.slug}
+										slug={item.slug!}
+										titulo={item.titulo!}
+										amount={1}
+										firtsPrice={item.precioReal!}
+										categoty1={item.CategoriaProducto?.titulo!}
+										price={item.precioOferta!}
+										id={Number(item.productoId!)}
+										img={item.imagenPrincipal!}
+										rebaja
+									/>
+								))}
 						</Show>
 					</div>
 				</motion.div>
@@ -160,3 +168,19 @@ const Tienda = () => {
 }
 
 export default Tienda
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+	const { query } = ctx
+	// query && query.data && console.table(Decode(query.data! as string))
+	// console.log('data => ' + query.data)
+
+	return {
+		props: {}
+	}
+}
+// export async function getServerSideProps() {
+// 	const { query } = ctx
+// 	console.log(query)
+// 	return {
+// 		props: {}
+// 	}
+// }

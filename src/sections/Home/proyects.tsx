@@ -2,7 +2,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import Container from '../../components/container'
-import { dataProyectos, dataProyects, EntitydataProyects } from '../../data/dataProyectos'
+import { dataProyects, } from '../../data/dataProyectos'
+import { Tittle, Subttitles, SelectSubtittles } from '@components/common'
 import { ProyectItem } from '@components/proyects'
 
 const Proyects = () => {
@@ -11,30 +12,27 @@ const Proyects = () => {
   return (
     <Container bgColor='bg-[#F9FAFB]' className='pt-10 pb-20'>
       <div className='flex flex-col items-center justify-center '>
-        <h1 className='text-center text-5xl text-primary-300 font-bold'>
-          Proyectos
-        </h1>
-        <ol className='hidden flex-col lg:flex-row gap-3 mt-8 lg:flex'>
-          <li className='text-primary-300 text-md font-bold'>Todos</li>
-          <li className='text-primary-300 text-md font-bold'>Paisajismo</li>
-          <li className='text-primary-300 text-md font-bold'>Jardines Verticales</li>
-          <li className='text-primary-300 text-md font-bold'>Mantenimiento</li>
-          <li className='text-primary-300 text-md font-bold'>Sistema de Riego Tecnificado</li>
-          <li className='text-primary-300 text-md font-bold'>Techos Verdes</li>
-          <li className='text-primary-300 text-md font-bold'>Impermeabilización con Manto Asfaltico</li>
-          <li className='text-primary-300 text-md font-bold'>Vivero</li>
-        </ol>
-
-        <select className='text-primary-800 text-md font-bold lg:hidden mt-8'>
-          <option value='all'>Todos</option>
-          <option value='events'>Paisajismo</option>
-          <option value='gardens'>Jardines Verticales</option>
-          <option value='interiors'>Mantenimiento</option>
-          <option value='maintance'>Sistema de Riego Tecnificado</option>
-          <option value='urban'>Techos Verdes</option>
-          <option value='maintance'>Impermeabilización con Manto Asfaltico</option>
-          <option value='urban'>Vivero</option>
-        </select>
+        <Tittle tittle='Proyectos' />
+        <Subttitles data={['Todo',
+          'Eventos',
+          'Jardines ',
+          'Mantenimiento',
+          'Paisajismo',
+          'Sistema de Riego ',
+          'Impermeabilización',
+          'Techos Verdes',
+          'Vivero'
+        ]} />
+        <SelectSubtittles data={['Todo',
+          'Eventos',
+          'Jardines ',
+          'Mantenimiento',
+          'Paisajismo',
+          'Sistema de Riego ',
+          'Impermeabilización',
+          'Techos Verdes',
+          'Vivero'
+        ]} />
       </div>
 
       <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
