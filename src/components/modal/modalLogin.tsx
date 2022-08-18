@@ -8,6 +8,7 @@ import { useUsuario } from '../../services/useUsuario'
 import FormLogin from '../authForm/formLogin'
 import FormRegister from '../authForm/formRegister'
 import { signIn, useSession } from 'next-auth/react'
+import { IsEmail } from '@utils'
 interface Props {
   isOpen: boolean
   onClose: () => void
@@ -70,6 +71,8 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
   }
 
   const handleRegister = async (e: ChangeEvent<HTMLFormElement>) => {
+    // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
+    // if (regEx.test(email))
     e.preventDefault()
     console.log('register')
 
@@ -77,39 +80,64 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
       await Swal.fire({
         title: '¿Seguro quieres registrarte?', icon: 'question', showCancelButton: true, cancelButtonText: 'No', confirmButtonText: 'Si!'
       }).then(async (res) => {
-        if (res.isConfirmed) {
-          createUsuario({ apellidos, email, nombres, password }).then((res) => {
-            if (res.ok) {
-              setTipoForm('registrate')
-              Swal.fire({ title: 'Registro con exito', icon: 'success' })
-            } else {
-              setError(true)
-              setErrorMessage(res.error)
-              Swal.fire({ title: res.error, icon: 'error' })
-              setTimeout(() => {
-                setError(false)
-                setErrorMessage('')
-              }, 5000)
-            }
+        if (IsEmail(email)) {
+          if (res.isConfirmed) {
+            createUsuario({ apellidos, email, nombres, password }).then((res) => {
+              if (res.ok) {
+                setTipoForm('registrate')
+                Swal.fire({ title: 'Registro con exito', icon: 'success' })
+              } else {
+                setError(true)
+                setErrorMessage(res.error)
+                Swal.fire({ title: res.error, icon: 'error' })
+                setTimeout(() => {
+                  setError(false)
+                  setErrorMessage('')
+                }, 5000)
+              }
+            })
+          }
+        }
+        else {
+          setErrorMessage('Email invalido')
+          Swal.fire({
+            title: 'Email invalido', icon: 'error'
           })
+          setTimeout(() => {
+            setError(false)
+            setErrorMessage('')
+          }, 5000)
         }
       })
     }
 
     if (tipoForm === 'ingresar') {
+
       await signIn('credentials', {
         redirect: false,
         email,
         password
       })
         .then((res) => {
-          console.log('res', res)
-          if (res?.ok) {
-            onClose()
-            localStorage.setItem('token', data?.user?.apiToken)
-          } else {
-            setError(true)
-            setErrorMessage(res?.error || '')
+          if (IsEmail(email)) {
+
+            if (res?.ok) {
+              onClose()
+              localStorage.setItem('token', data?.user?.apiToken)
+            } else {
+              setError(true)
+              setErrorMessage(res?.error || '')
+              setTimeout(() => {
+                setError(false)
+                setErrorMessage('')
+              }, 5000)
+            }
+          }
+          else {
+            setErrorMessage('Email invalido')
+            Swal.fire({
+              title: 'Email invalido', icon: 'error'
+            })
             setTimeout(() => {
               setError(false)
               setErrorMessage('')
@@ -117,20 +145,21 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
           }
         })
         .catch((err) => console.log('err', err))
-
-      // loginUsuario({ email, password }).then((res) => {
-      //   if (res?.ok) {
-      //     onClose()
-      //   } else {
-      //     setError(true)
-
-      //     setTimeout(() => {
-      //       setError(false)
-      //     }, 5000)
-      //   }
-      // })
     }
+
+    // loginUsuario({ email, password }).then((res) => {
+    //   if (res?.ok) {
+    //     onClose()
+    //   } else {
+    //     setError(true)
+
+    //     setTimeout(() => {
+    //       setError(false)
+    //     }, 5000)
+    //   }
+    // })
   }
+
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className='w-[95%] md:w-[800px] md:h-[540px] flex rounded-xl shadow-lg overflow-hidden'>
