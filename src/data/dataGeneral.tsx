@@ -28,35 +28,50 @@ export const DataGeneral: IDataGeneral = {
                 subtittle: 'Más de 50 clientes confían en nuestros servicios.'
             }]
         },
-        Banner: [{
-            tittle: 'PAISAJISMO',
-            image: '02_PAISAJISMO.jpg',
-            subtittle: 'DISFRUTA DE TU ESPACIO'
-        }, {
-            tittle: 'JARDINES VERTICALES',
-            image: '03_JARDIN_VERTICAL.jpg',
-            subtittle: 'UNA NUEVA EXPERIENCIA EN DECORACIÓN'
-        }, {
-            tittle: 'MANTENIMIENTO',
-            image: '04_MANTENIMIENTO.jpg',
-            subtittle: 'SOMOS EXPERTOS EN EL CUIDADO DE TU JARDÍN'
-        }, {
-            tittle: 'SISTEMA DE RIEGO TECNIFICADO',
-            image: '05_RIEGO_TECNIFICADO.jpg',
-            subtittle: 'USO MÁS EFICIENTE DEL AGUA'
-        }, {
-            tittle: 'TECHOS VERDES',
-            image: '06_TECHO_VERDE.jpg',
-            subtittle: 'TECHOS ECOLÓGICOS PARA TU HOGAR'
-        }, {
-            tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-            image: '07_IMPERMEABILIZACION.jpg',
-            subtittle: 'PROTEGE A TU ESPACIO DE LA HUMEDAD'
-        }, {
-            tittle: 'VIVERO',
-            image: '08_VIVERO.jpg',
-            subtittle: 'CULTIVO DE PLANTAS EN GRAN VARIEDAD'
-        }],
+        Banner: [
+            {
+                tittle: 'CASACOR / PERU',
+                image: '01_CASACOR.jpg',
+                subtittle: 'LA MAYOR Y MÁS COMPLETA MUESTRA DE ARQUITECTURA, DISEÑO DE INTERIORES Y PAISAJISMO DE LAS AMÉRICAS',
+                itemPrincipal: true,
+                textheader:'PRESENTES ES:'
+            },
+            {
+                tittle: 'PAISAJISMO',
+                image: '02_PAISAJISMO.jpg',
+                subtittle: 'DISFRUTA DE TU ESPACIO',
+                itemPrincipal: false
+            }, {
+                tittle: 'JARDINES VERTICALES',
+                image: '03_JARDIN_VERTICAL.jpg',
+                subtittle: 'UNA NUEVA EXPERIENCIA EN DECORACIÓN',
+                itemPrincipal: false
+            }, {
+                tittle: 'MANTENIMIENTO',
+                image: '04_MANTENIMIENTO.jpg',
+                subtittle: 'SOMOS EXPERTOS EN EL CUIDADO DE TU JARDÍN',
+                itemPrincipal: false
+            }, {
+                tittle: 'SISTEMA DE RIEGO TECNIFICADO',
+                image: '05_RIEGO_TECNIFICADO.jpg',
+                subtittle: 'USO MÁS EFICIENTE DEL AGUA',
+                itemPrincipal: false
+            }, {
+                tittle: 'TECHOS VERDES',
+                image: '06_TECHO_VERDE.jpg',
+                subtittle: 'TECHOS ECOLÓGICOS PARA TU HOGAR',
+                itemPrincipal: false
+            }, {
+                tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+                image: '07_IMPERMEABILIZACION.jpg',
+                subtittle: 'PROTEGE A TU ESPACIO DE LA HUMEDAD',
+                itemPrincipal: false
+            }, {
+                tittle: 'VIVERO',
+                image: '08_VIVERO.jpg',
+                subtittle: 'CULTIVO DE PLANTAS EN GRAN VARIEDAD',
+                itemPrincipal: false
+            }],
         Iconos: [
             {
                 Icon1: <IconPaisajismoColor />,
@@ -167,7 +182,9 @@ export interface IBanner {
     tittle: string,
     subtittle: string,
     image: string,
-    buttonText?: string
+    itemPrincipal: boolean
+    buttonText?: string,
+    textheader?: string
 }
 
 export interface IIconos {

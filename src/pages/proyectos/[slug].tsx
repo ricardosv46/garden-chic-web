@@ -62,7 +62,9 @@ const Detalle = () => {
           </div>
         </div>
       </Container>
-      <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgAfter!}`} />
+      <Show condition={typeof proyecto?.pathname !== 'undefined' && typeof proyecto?.imgAfter !== 'undefined'}>
+        <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgAfter!}`} />
+      </Show>
       <Container>
         <div className='flex flex-col lg:flex-row gap-5 py-20'>
           {/* <Show condition={typeof proyecto?.servicios !== 'undefined'}>
@@ -81,7 +83,7 @@ const Detalle = () => {
             </h3> */}
 
             <Show condition={typeof proyecto?.servicios !== 'undefined'}>
-              <RenderIcons data={proyecto?.servicios!}  tittle='Servicios' />
+              <RenderIcons data={proyecto?.servicios!} tittle='Servicios' />
             </Show>
             {/* <Show condition={typeof proyecto?.duracion !== 'undefined'}>
               <RenderIcon text={proyecto?.duracion?.cantidad!} text2={proyecto?.duracion?.tipo!} tittle='Duración' />

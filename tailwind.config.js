@@ -129,6 +129,7 @@ module.exports = {
       spin: "spin 1s linear infinite",
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      // renderTranslate: "translateRender 2s ease-in-out 2s",
       bounce: "bounce 1s infinite",
       swing: "baile 2s ease-in-out infinite",
       scaleimg: "scaleAnimation 10s linear infinite alternate"
@@ -603,6 +604,7 @@ module.exports = {
           opacity: ".5",
         },
       },
+     
       bounce: {
         "0%, 100%": {
           transform: "translateY(-25%)",

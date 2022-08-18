@@ -49,11 +49,11 @@ html {
 .animate-area {
   background-position: 0px 0px;
   background-repeat: cover;
-  animation: animatedBackground 30s infinite alternate linear ;
+  animation: animatedBackground 30s infinite alternate linear;
 }
 
-.icon-servicio:hover{
-  display: none
+.icon-servicio:hover {
+  display: none;
 }
 /* textarea:focus-within ~ .label,
 textarea:not(:placeholder-shown) ~ .label {
@@ -84,6 +84,32 @@ textarea:focus-within ~ .label {
   background-color: #fff !important;
 }
 
+.translateRender {
+  animation: render 2s ;
+  animation-timing-function: ease-out; 
+  animation-delay: 2s;
+  display: inline-block
+
+  /* 
+  animation-name: bounce;
+ animation-duration: 4s
+ animation-iteration-count: 10;
+ animation-direction: alternate; 
+  */
+
+  /* transform: translatey(-100px); */
+  /* animate */
+}
+
+@keyframes render: {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 @media (min-width: 768px) {
   .swiper-button-next:after {
     font-size: 25px !important;
@@ -99,13 +125,13 @@ textarea:focus-within ~ .label {
   }
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
@@ -118,7 +144,7 @@ input[type="number"] {
   position: relative;
 }
 .banner::before {
-  content: "";
+  content: '';
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   position: absolute;
@@ -138,23 +164,23 @@ input[type="number"] {
 
 /* banner de para proyectos */
 .banner-proyectos {
-  background-image: url("/imgs/banner/bannerproyecto.webp");
+  background-image: url('/imgs/banner/bannerproyecto.webp');
 }
 /* banner de para contactos */
 .banner-contactos {
-  background-image: url("/imgs/banner/bannercontacto.webp");
+  background-image: url('/imgs/banner/bannercontacto.webp');
 }
 /* banner de para blogs */
 .banner-blogs {
-  background-image: url("/imgs/banner/bg-blog.webp");
+  background-image: url('/imgs/banner/bg-blog.webp');
 }
 /* banner de para tienda */
 .banner-tienda {
-  background-image: url("/imgs/banner/bg-tienda.webp");
+  background-image: url('/imgs/banner/bg-tienda.webp');
 }
 
 .img-cover {
-  background-image: url("/imgs/nosotros/about2.jpg");
+  background-image: url('/imgs/nosotros/about2.jpg');
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;

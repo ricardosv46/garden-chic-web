@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { IBanner } from 'src/data/dataGeneral'
 // import required modules
 import { Navigation, Pagination } from 'swiper'
-import { Item1, Item2, Item3 } from './items_banner'
-import { Item } from './items_banner/item'
+import { Item, ItemPrincipal } from './items_banner'
+import { Show } from '@components/show'
 
 interface IProps {
   data: IBanner[]
@@ -33,10 +33,16 @@ const Banner = ({ data }: IProps) => {
         modules={[Navigation, Pagination]}
         className='mySwiper'
       >
+
         {data.map((obj, i) => (
           <SwiperSlide key={i}>
-            <Item data={obj} />
-          </SwiperSlide>))}
+            <Show condition={!obj.itemPrincipal}
+              isDefault={<ItemPrincipal data={obj} />}
+            >
+              <Item data={obj} />
+            </Show>
+          </SwiperSlide>
+        ))}
         {/* <SwiperSlide>
           <Item1 />
         </SwiperSlide>
