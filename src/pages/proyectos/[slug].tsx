@@ -1,4 +1,4 @@
-import { RenderItems, RenderIcon, RenderItem } from '@components/proyects'
+import { RenderItems, RenderIcons, RenderItem } from '@components/proyects'
 import { Show } from '@components/show'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -51,30 +51,39 @@ const Detalle = () => {
             <h2 className='text-center text-5xl text-primary-300 font-bold'>
               Antes
             </h2>
-            <p className='text-justify  text-lg text-primary-300 font-semibold pt-10'>
-              {proyecto?.proceso}
-            </p>
+            {
+              proyecto?.antes!.map((obj, i) => (
+                <p key={i} className='text-justify  text-base text-primary-300 font-semibold pt-4'>
+                  {obj}
+                </p>))
+            }
+
+
           </div>
         </div>
       </Container>
       <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`} />
       <Container>
         <div className='flex flex-col lg:flex-row gap-5 py-20'>
-          <Show condition={typeof proyecto?.servicios !== 'undefined'}>
+          {/* <Show condition={typeof proyecto?.servicios !== 'undefined'}>
             <RenderItems data={proyecto?.servicios!} tittle='Servicios' />
           </Show>
           <Show condition={typeof proyecto?.plantasinstaladas !== 'undefined'}>
             <RenderItems data={proyecto?.plantasinstaladas!} tittle='Plantas Instaladas' />
-          </Show>
+          </Show> */}
 
-          <Show condition={typeof proyecto?.resumen1 !== 'undefined'}>
-            <RenderItem data={proyecto?.resumen1!} tittle='Conocenos' />
+          <Show condition={typeof proyecto?.desafios !== 'undefined'}>
+            <RenderItem data={proyecto?.desafios!} tittle='Desafíos y Resultados' />
           </Show>
           <div className='flex-1 flex flex-col gap-5'>
             {/* <h3 className='lg:text-center text-2xl text-primary-300 font-bold'>
               Services
             </h3> */}
-            <Show condition={typeof proyecto?.duracion !== 'undefined'}>
+
+            <Show condition={typeof proyecto?.servicios !== 'undefined'}>
+              <RenderIcons data={proyecto?.servicios!}  tittle='Servicios' />
+            </Show>
+            {/* <Show condition={typeof proyecto?.duracion !== 'undefined'}>
               <RenderIcon text={proyecto?.duracion?.cantidad!} text2={proyecto?.duracion?.tipo!} tittle='Duración' />
             </Show>
             <Show condition={typeof proyecto?.year !== 'undefined'}>
@@ -88,7 +97,7 @@ const Detalle = () => {
             </Show>
             <Show condition={typeof proyecto?.cliente !== 'undefined'}>
               <RenderIcon text={proyecto?.cliente!} tittle='Cliente' />
-            </Show>
+            </Show> */}
           </div>
         </div>
       </Container>

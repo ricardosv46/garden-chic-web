@@ -1,7 +1,7 @@
 import React from 'react'
 interface Iprops {
     tittle?: string,
-    data: string
+    data: string[]
 }
 
 export const RenderItem = ({ data, tittle }: Iprops) => {
@@ -10,9 +10,11 @@ export const RenderItem = ({ data, tittle }: Iprops) => {
             <h3 className='lg:text-left text-2xl text-primary-300 font-bold'>
                 {tittle}
             </h3>
-            <ul className='lg:text-left text-lg text-primary-300 font-semibold pt-5'>
-                {data}
-            </ul>
+            {data.map((obj, i) => (
+                <ul key={i} className='text-base text-justify text-primary-300 font-semibold pt-5'>
+                    {obj || ''}
+                </ul>
+            ))}
         </div>
     )
 }
