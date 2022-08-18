@@ -62,7 +62,7 @@ const Detalle = () => {
           </div>
         </div>
       </Container>
-      <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`} />
+      <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgAfter!}`} />
       <Container>
         <div className='flex flex-col lg:flex-row gap-5 py-20'>
           {/* <Show condition={typeof proyecto?.servicios !== 'undefined'}>
