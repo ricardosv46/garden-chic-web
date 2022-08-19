@@ -48,7 +48,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
     let component = null
 
     if (tipoForm === 'ingresar') {
-      component = <FormLogin email={email} password={password} onChange={onChange} />
+      component = <FormLogin email={email} password={password} onChange={handleOnchange} errorForm={errorForm} />
     } else if (tipoForm === 'registrate') {
       component = <FormRegister nombre={nombres} apellido={apellidos} email={email} password={password} onChange={handleOnchange} errorForm={errorForm} />
     }
@@ -142,14 +142,14 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
           }
           // }
           // else {
-          setErrorMessage('Email invalido')
-          Swal.fire({
-            title: 'Email invalido', icon: 'error'
-          })
-          setTimeout(() => {
-            setError(false)
-            setErrorMessage('')
-          }, 5000)
+          // setErrorMessage('Email invalido')
+          // Swal.fire({
+          //   title: 'Email invalido', icon: 'error'
+          // })
+          // setTimeout(() => {
+          //   setError(false)
+          //   setErrorMessage('')
+          // }, 5000)
           // }
         })
         .catch((err) => console.log('err', err))

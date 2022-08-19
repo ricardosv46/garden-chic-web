@@ -4,11 +4,12 @@ import InputFloat from '../inputs/InputFloat'
 
 interface IProps {
   email: string
-  password: string
+  password: string,
+  errorForm: { email: string[] }
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const FormLogin = ({ email, password, onChange }: IProps) => {
+const FormLogin = ({ email, password, onChange, errorForm }: IProps) => {
   return (
     <div className='flex flex-col gap-5 '>
       <InputFloat
@@ -17,6 +18,7 @@ const FormLogin = ({ email, password, onChange }: IProps) => {
         name='email'
         value={email}
         onChange={onChange}
+        error={errorForm && errorForm.email && errorForm.email[0]}
         required
       />
       <InputFloat
