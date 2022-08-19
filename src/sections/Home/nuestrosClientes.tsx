@@ -63,9 +63,9 @@ const NuestrosClientes = ({ data }: IProps) => {
         className='mySwiper'
       >
         {data.map((item) => (
-          <SwiperSlide key={item}>
+          <SwiperSlide key={item} className='mx-6'>
             <div
-              className={`flex flex-col items-center gap-y-5 transition-all duration-500 grayscale hover:grayscale-0`}
+              className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 `}
             >
               <Image src={resolvePath(item)} alt={item} width={350} height={350} />
             </div>

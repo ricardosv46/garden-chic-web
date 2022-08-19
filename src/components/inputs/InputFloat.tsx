@@ -1,5 +1,6 @@
 import React, { ChangeEvent, InputHTMLAttributes } from "react";
 import { ReactElement } from "react";
+
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   value?: string;
@@ -9,7 +10,12 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   ref?: any;
   rightElement?: ReactElement;
+  error?: string
 }
+const ErrorsInput: any = {
+  err_email_invalid: 'El Email es invalido',
+}
+
 const InputFloat = ({
   label,
   value,
@@ -20,8 +26,12 @@ const InputFloat = ({
   htmlFor,
   ref,
   rightElement,
+  error,
   ...props
 }: IProps) => {
+  // const renderError = (err: string): any => {
+  //   return ErrorsInput[err as any] as any
+  // }
   return (
     <div className="relative w-full">
       <input
@@ -44,7 +54,9 @@ const InputFloat = ({
       {rightElement && (
         <div className="absolute right-3 top-[13px]">{rightElement}</div>
       )}
-    </div>
+      <label className={`text-xs text-red-800 ml-2 ${error !== 'undefined' ? 'block' : 'hidden'}`}>{error && ErrorsInput[error!]}</label>
+
+    </div >
   );
 };
 

@@ -34,7 +34,7 @@ export const DataGeneral: IDataGeneral = {
                 image: '01_CASACOR.jpg',
                 subtittle: 'LA MAYOR Y MÁS COMPLETA MUESTRA DE ARQUITECTURA, DISEÑO DE INTERIORES Y PAISAJISMO DE LAS AMÉRICAS',
                 itemPrincipal: true,
-                textheader:'PRESENTES ES:'
+                textheader:'PRESENTES EN:'
             },
             {
                 tittle: 'PAISAJISMO',

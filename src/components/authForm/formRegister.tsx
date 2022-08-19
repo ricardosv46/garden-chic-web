@@ -7,6 +7,7 @@ interface IProps {
   apellido: string
   email: string
   password: string
+  errorForm: { email: string[] }
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 const FormRegister = ({
@@ -14,6 +15,7 @@ const FormRegister = ({
   apellido,
   email,
   password,
+  errorForm,
   onChange
 }: IProps) => {
   return (
@@ -40,6 +42,7 @@ const FormRegister = ({
         name='email'
         value={email}
         onChange={onChange}
+        error={errorForm && errorForm.email && errorForm.email[0]}
         required
       />
       <InputFloat

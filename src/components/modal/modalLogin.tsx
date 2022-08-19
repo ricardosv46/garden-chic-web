@@ -13,10 +13,16 @@ interface Props {
   isOpen: boolean
   onClose: () => void
 }
+interface IerrorForm {
+  email: string[]
+}
 
 const ModalLogin = ({ isOpen, onClose }: Props) => {
   const [tipoForm, setTipoForm] = useState('ingresar')
   const { createUsuario, loadingCreate } = useUsuario()
+  const [errorForm, setErrorForm] = useState<IerrorForm>({
+    'email': []
+  })
   const [errorMessage, setErrorMessage] = useState('')
   const { status, data } = useSession() as { status: string; data: { user: any } }
 
@@ -30,13 +36,21 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
     password: ''
   })
 
+  const handleOnchange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { target } = e
+    const { name, value } = target
+    switch (name) {
+      case 'email': setErrorForm({ ...errorForm, 'email': IsEmail(target.value) })
+    }
+    onChange(e)
+  }
   const asignarFormulario = () => {
     let component = null
 
     if (tipoForm === 'ingresar') {
       component = <FormLogin email={email} password={password} onChange={onChange} />
     } else if (tipoForm === 'registrate') {
-      component = <FormRegister nombre={nombres} apellido={apellidos} email={email} password={password} onChange={onChange} />
+      component = <FormRegister nombre={nombres} apellido={apellidos} email={email} password={password} onChange={handleOnchange} errorForm={errorForm} />
     }
 
     return component
@@ -74,35 +88,29 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
     // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g
     // if (regEx.test(email))
     e.preventDefault()
-    console.log('register')
-
     if (tipoForm === 'registrate') {
       await Swal.fire({
         title: '¿Seguro quieres registrarte?', icon: 'question', showCancelButton: true, cancelButtonText: 'No', confirmButtonText: 'Si!'
       }).then(async (res) => {
-        if (IsEmail(email)) {
-          if (res.isConfirmed) {
-            createUsuario({ apellidos, email, nombres, password }).then((res) => {
-              if (res.ok) {
-                setTipoForm('registrate')
-                Swal.fire({ title: 'Registro con exito', icon: 'success' })
-              } else {
-                setError(true)
-                setErrorMessage(res.error)
-                Swal.fire({ title: res.error, icon: 'error' })
-                setTimeout(() => {
-                  setError(false)
-                  setErrorMessage('')
-                }, 5000)
-              }
-            })
-          }
-        }
-        else {
-          setErrorMessage('Email invalido')
-          Swal.fire({
-            title: 'Email invalido', icon: 'error'
+        // if (IsEmail(email)) {
+        if (res.isConfirmed) {
+          createUsuario({ apellidos, email, nombres, password }).then((res) => {
+            if (res.ok) {
+              setTipoForm('registrate')
+              Swal.fire({ title: 'Registro con exito', icon: 'success' })
+            } else {
+              setError(true)
+              setErrorMessage(res.error)
+              Swal.fire({ title: res.error, icon: 'error' })
+              setTimeout(() => {
+                setError(false)
+                setErrorMessage('')
+              }, 5000)
+            }
           })
+        } else {
+          // }
+          // else {
           setTimeout(() => {
             setError(false)
             setErrorMessage('')
@@ -119,30 +127,30 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
         password
       })
         .then((res) => {
-          if (IsEmail(email)) {
+          // if (IsEmail(email)) {
 
-            if (res?.ok) {
-              onClose()
-              localStorage.setItem('token', data?.user?.apiToken)
-            } else {
-              setError(true)
-              setErrorMessage(res?.error || '')
-              setTimeout(() => {
-                setError(false)
-                setErrorMessage('')
-              }, 5000)
-            }
-          }
-          else {
-            setErrorMessage('Email invalido')
-            Swal.fire({
-              title: 'Email invalido', icon: 'error'
-            })
+          if (res?.ok) {
+            onClose()
+            localStorage.setItem('token', data?.user?.apiToken)
+          } else {
+            setError(true)
+            setErrorMessage(res?.error || '')
             setTimeout(() => {
               setError(false)
               setErrorMessage('')
             }, 5000)
           }
+          // }
+          // else {
+          setErrorMessage('Email invalido')
+          Swal.fire({
+            title: 'Email invalido', icon: 'error'
+          })
+          setTimeout(() => {
+            setError(false)
+            setErrorMessage('')
+          }, 5000)
+          // }
         })
         .catch((err) => console.log('err', err))
     }
@@ -176,7 +184,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
               {asignarFormulario()}
 
               <div className='mt-7 flex justify-end'>
-                <button type='submit' className=' bg-primary-600 text-white cursor-pointer w-full  py-3 rounded-lg'>
+                <button type='submit' className=' bg-primary-600 text-white cursor-pointer w-full  py-3 rounded-lg' disabled={errorForm.email.length > 0 ? true : false} >
                   {textoBtnCambiarForm()[3]}
                 </button>
               </div>
