@@ -5,6 +5,7 @@ export interface ServicioContent {
 
 export interface EntityServicios {
   title: string
+  tittleResumido: string
   position: string
   img: string
   icon: string
@@ -16,6 +17,7 @@ export interface EntityServicios {
 export const servicios: EntityServicios[] = [
   {
     title: 'Paisajismo',
+    tittleResumido: 'Paisajismo',
     position: 'l',
     img: 'banner/01_PRINCIPAL.jpg',
     icon: '',
@@ -29,7 +31,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
           'ii. Nuestro equipo a realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'iii. Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
@@ -45,6 +47,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Jardines Verticales',
+    tittleResumido: 'Jardines Verticales',
     position: 'r',
     img: 'jardin/01_PRINCIPAL.jpg',
     icon: '',
@@ -58,7 +61,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Hemos realizado más de 800 metros cuadrados de jardines verticales utilizando de manera eficiente más espacios del local o residencia. Ya sea en el interior o exterior de cualquier pared. Los beneficios de estos muros verdes como suelen llamarse son muy significativos como bajar algunos grados de temperatura más rápidamente, reducen el efecto de “isla de calor” y absorben partículas contaminantes del aire. Haciendo un ambiente mejor, más sano, más productivo y sociable. ',
           'ii. Nuestro equipo especializado en jardines verticales a realizar distintos proyectos que cada uno tiene su reto particular, por la altura, posición o espacio. Logrando el objetivo de realizar una obra sin igual de arte natural.',
           'iii. Nuestros proyectos en jardines verticales cuenta con técnicos, profesionales y proveedores que hacen la diferencia en la ejecución de la obra ',
@@ -74,6 +77,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Mantenimiento de Areas verdes',
+    tittleResumido: 'Mantenimiento',
     position: 'l',
     img: 'mantenimiento/01_PRINCIPAL.jpg',
     icon: '',
@@ -87,7 +91,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Nuestro servicio cuenta con un diagnóstico inicial del área verde, en ella consideramos el tipo de planta, la frecuencia y abundancia del riego para estas plantas, las plantas están enfermas o plagadas, existen plantas muertas, hay mala hierba o plantas invasoras, el estado del suelo. Con ello se realiza la lista de tareas por realizar de acuerdo a la prioridad y mejora del espacio verde.',
           'ii. Nuestra propuesta de valor diferencial en este servicio es que destinamos un mismo personal capacitado como la asesoría en caso se requiera y una atención personalizada para atender los casos particulares que puedan tener como solucionarlas con prontitud',
           'iii. Trabajamos con un equipo especializado en el mantenimiento de las áreas verdes, con este servicio iniciamos nuestras labores en la empresa y es el servicio que se destaca por mantener la Salud y Estética de tus áreas verdes.',
@@ -103,6 +107,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Techos Verdes',
+    tittleResumido: 'Techos Verdes',
     position: 'r',
     img: 'techoverde/01_PRINCIPAL.jpg',
     icon: '',
@@ -116,7 +121,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Cada instalación de Techo Verde cuenta con un objetivo particular en la cual puede ser un aislador en la parte alta de una casa o edificio, para ello también se verifica su viabilidad. Compuesto por una cubierta vegetal estratificada, cada capa contribuye al aislamiento, para que no drene agua y cree una superficie para el crecimiento de las plantas.',
           'ii. Contamos con una basta experiencia en este tipo de instalaciones. Consideramos el acceso para la ejecución, el mantenimiento que traerá consigo y las condiciones del sitio como es la exposición al viento, el riesgo por algún inconveniente y la resistencia de las plantas.',
           'iii. Trabajamos nuestros proyectos como únicos. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
@@ -132,6 +137,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Sistema de Riego Tecnificado',
+    tittleResumido: 'Riego Tecnificado',
     position: 'l',
     img: 'riegotecnificado/01_PRINCIPAL.jpg',
     icon: '',
@@ -145,7 +151,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Nuestro sistema de riego tecnificado tiene el objetivo de generar más eficiencia del consumo de agua y reducir el impacto sobre el área verde. ',
           'ii. La disposición y distribución de forma homogénea del agua genera la eficiencia de este recurso tan valioso para el mejor rendimiento de las plantas, haciendo un ambiente propicio de Salud y Estética de la jardinería de flora y fauna.',
           'iii. Trabajamos nuestros proyectos como únicos. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
@@ -161,6 +167,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Impermeabilización',
+    tittleResumido: 'Impermeabilización',
     position: 'r',
     img: 'impermeabilizacion/01_PRINCIPAL.jpg',
     icon: '',
@@ -174,7 +181,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
           'ii. Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'iii. Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
@@ -190,6 +197,7 @@ export const servicios: EntityServicios[] = [
   },
   {
     title: 'Vivero',
+    tittleResumido: 'Vivero',
     position: 'l',
     img: 'vivero/01_PRINCIPAL.jpg',
     icon: '',
@@ -203,7 +211,7 @@ export const servicios: EntityServicios[] = [
           'a. Con qué experiencia y equipo cuentan para su servicio',
           'b. Habla del valor diferencial, su propuesta de valor única',
           'c. Habla de vivero, de los proveedores y aliados para realizar un servicio de primera',
-          'd. contenido',
+          'd. Contenido',
           'i. Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
           'ii. Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'iii. Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',

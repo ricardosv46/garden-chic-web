@@ -14,21 +14,12 @@ const Servicios = () => {
       {/* <HeaderServicios image={DataGeneral.Servicios.BannerHeader} /> */}
       <Container className='py-10'>
         <Tittle tittle='Servicios' />
-        <div className='pt-10 '>
+        <div className='pt-10 pb-10 '>
           {servicios.map((item, i) => (
             <div
               key={i}
               className={`flex flex-auto flex-col py-7 lg:py-0 gap-8 lg:gap-0 ${item.position === 'l' ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
             >
-              {console.log(`/imgs/servicios/${item.img}`)}
-              {/* <div className='w-full lg:w-1/2'>
-              <div
-                style={{
-                  backgroundImage: `url('/imgs/servicios/${item.img}')`
-                }}
-                className={`flex-auto  bg-cover bg-no-repeat w-full h-[500px] lg:h-[512px] `}
-              ></div>
-            </div> */}
               <div className='flex h-[512px] lg:w-1/2 bg-primary-800'>
                 <Image
                   loading='lazy'
@@ -42,7 +33,7 @@ const Servicios = () => {
 
               <div className='lg:w-1/2 flex-auto px-10 xl:px-28 flex flex-col justify-center items-center gap-10'>
                 <h2 className='text-center text-4xl text-primary-300 font-bold'>
-                  {item.title}
+                  {item.tittleResumido}
                 </h2>
                 <p className='text-center  text-lg text-primary-300 font-semibold '>
                   {item.description || ''}
@@ -57,12 +48,12 @@ const Servicios = () => {
             </div>
           ))}
         </div>
-        <div
+        {/* <div
           className={`flex flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 }`}
-        >
-          <div className='lg:w-1/2'>
+        > */}
+          {/* <div className='lg:w-1/2'>
             <div className="flex-auto bg-[url('/imgs/servicios/servicio5.jpg')] bg-cover bg-no-repeat w-full h-[500px] lg:h-[800px] "></div>
-          </div>
+          </div> */}
 
           {/* <Image
           className='object-cover'
@@ -71,12 +62,12 @@ const Servicios = () => {
           src={`/imgs/servicios/servicio5.jpg`}
           alt='imagen proyecto'
         /> */}
-          <div className='lg:w-1/2 flex-auto px-10 lg:mx-auto flex flex-col justify-center items-center gap-10'>
+          {/* <div className='lg:w-1/2 flex-auto px-10 lg:mx-auto flex flex-col justify-center items-center gap-10'>
             <h2 className='lg:text-center text-4xl sm:text-4xl lg:text-6xl xl:text-7xl text-primary-300 font-bold'>
               We are nice people with a lot of experience.
             </h2>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <Contactanos data={DataGeneral.Servicios.Contactanos} />
       </Container>
     </>

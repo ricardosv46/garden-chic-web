@@ -138,6 +138,7 @@ input[type='number'] {
 /* banner de para paginas */
 .banner {
   background-size: cover;
+  background-position: center bottom;
   width: 100%;
   height: 100%;
   height: 450px;

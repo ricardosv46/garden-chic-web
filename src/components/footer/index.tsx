@@ -21,7 +21,7 @@ export const Footer = () => {
                 </div>
                 <div className='] md:w-1/4'>
                     <div className=' tracking-[1px] capitalize my-3 leading-[23.24px]'>Servicios</div>
-                    <ul className='flex flex-col gap-1 leading-[18.2px] '>
+                    <ul className='flex flex-col gap-2 leading-[18.2px] '>
                         <li>Empresas de jardinería en Lima</li>
                         <li>Jardín urbano Perú</li>
                         <li>Jardinería en Lima</li>
@@ -33,14 +33,14 @@ export const Footer = () => {
                 </div>
                 <div className=' md:w-1/4'>
                     <div className=' tracking-[1px] capitalize my-3  leading-[23.24px]'>Servicios</div>
-                    <ul className='flex flex-col gap-1 leading-[18.2px] '>
-                        <li>Empresas de jardinería en Lima</li>
-                        <li>Jardín urbano Perú</li>
-                        <li>Jardinería en Lima</li>
-                        <li>Jardinero a domicilio en Lima</li>
-                        <li>Diseño de jardines</li>
-                        <li>Sistemas de riego tecnificado</li>
-                        <li>Viveros en Lurín</li>
+                    <ul className='flex flex-col gap-2 leading-[18.2px] '>
+                        <li>Mantenimiento de jardines en Lima</li>
+                        <li>Servicio de jardinería en Lima</li>
+                        <li>Servicios de jardinería en Lima</li>
+                        <li>Trabajo de jardinería en Lima</li>
+                        <li>viveros en Lima Perú</li>
+                        <li>Paisajismo en Lima</li>
+                        <li>Impermeabilización con mantos asfalticos y geomembrana</li>
                     </ul>
                 </div>
                 <div className='md:w-1/4 flex flex-col gap-4'>
@@ -60,7 +60,7 @@ export const Footer = () => {
                             className='absolute w-full h-full'
                             loading='lazy'
                             layout='fill'
-                            objectFit='contain'
+                            objectFit='cover'
                             src={'/imgs/footer/LOGO_HORIZONTAL.jpg'}
                         />
                     </div>
