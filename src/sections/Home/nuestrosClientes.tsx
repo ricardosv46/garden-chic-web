@@ -63,11 +63,18 @@ const NuestrosClientes = ({ data }: IProps) => {
         className='mySwiper'
       >
         {data.map((item) => (
-          <SwiperSlide key={item} className='lg:mx-6'>
+          <SwiperSlide key={item} className='lg:mx-10'>
             <div
-              className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 `}
+              className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 relative h-20 `}
             >
-              <Image src={resolvePath(item)} alt={item} width={350} height={350} />
+              <Image src={resolvePath(item)}
+                alt={item}
+                className="object-contain border-4"
+
+                // width={350}
+                // height={350}
+                layout="fill"
+                 />
             </div>
           </SwiperSlide>
         ))}

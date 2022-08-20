@@ -121,7 +121,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             </h2>
 
             <div className=' grid grid-cols-1 sm:grid-cols-2  gap-5  justify-items-center mt-10 '>
-              {servicios.map((item, index) => {
+              {dataProyects.map((item, index) => {
                 if (index < 5) {
                   return (
                     // <div
@@ -153,7 +153,8 @@ const DetalleServicios = ({ url }: PropsStatic) => {
                     //     <p className='text-gray-600'>{item.description}</p>
                     //   </div>
                     // </div>
-                    <ServicioItem key={index} data={item} />
+                    // <ServicioItem key={index} data={item} />
+                    <ProyectItem key={index} data={item} />
                   )
                 }
               })}

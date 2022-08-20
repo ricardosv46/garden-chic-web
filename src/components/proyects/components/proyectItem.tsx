@@ -26,7 +26,7 @@ export const ProyectItem = ({ data }: Iprops) => {
                 <Image
                     width={800}
                     height={614}
-                    src={`/imgs/proyects/${data.pathname}/${data.img}`}
+                    src={`/imgs/proyects/${data.pathname}/${data.imgCarrusel}`}
                     className='transition-all duration-500 ease-out rounded-lg'
                 />
             </div>

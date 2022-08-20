@@ -97,7 +97,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
           createUsuario({ apellidos, email, nombres, password }).then((res) => {
             if (res.ok) {
               setTipoForm('registrate')
-              Swal.fire({ title: 'Registro con exito', icon: 'success' })
+              // Swal.fire({ title: 'Registro con exito', icon: 'success' })
             } else {
               setError(true)
               setErrorMessage(res.error)

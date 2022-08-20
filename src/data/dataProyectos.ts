@@ -80,6 +80,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'NAVARRETE',
     dataHover: 'NAVARRETE',
+    imgCarrusel: 'PROYECTO_01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -121,6 +122,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'VIDAL',
     dataHover: 'VIDAL',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -163,6 +165,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'SOL_BARRANCO',
     dataHover: 'SOL DE BARRANCO',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -202,6 +205,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'MADDY',
     dataHover: 'MADDY',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -244,6 +248,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'LOFT_MARIANNE',
     dataHover: 'LOFT DE MARIANNE',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -279,6 +284,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'CASA_RIBBED',
     dataHover: 'CASA RIBBED',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -319,6 +325,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'QUINTA_MASSERIA',
     dataHover: 'QUINTA MASSERIA',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -356,6 +363,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'LE_COTTAGE',
     dataHover: 'LE COTTAGE',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -395,6 +403,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'ESTUDIO_HUERTO_CHEF',
     dataHover: 'ESTUDIO Y HUERTO DE LA CHEF',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -437,6 +446,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'SOGNO_VENEZIANO',
     dataHover: 'SOGNO VENEZIANO',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -476,6 +486,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'TEJIENDO_LAZOS',
     dataHover: 'TEJIENDO LAZOS',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -516,6 +527,7 @@ export const dataProyects: EntitydataProyects[] = [
   {
     pathname: 'FLAT_FAMILIAR',
     dataHover: 'FLAT FAMILIAR',
+    imgCarrusel: '01.jpg',
     img: '02_BANNER_PRINICPAL.jpg',
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
@@ -548,6 +560,7 @@ export const dataProyects: EntitydataProyects[] = [
   },
 ]
 export interface EntitydataProyects {
+  imgCarrusel: string
   img: string
   dataHover?: string
   pathname: string
