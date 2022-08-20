@@ -21,6 +21,8 @@ interface IProps {
 	resetForm: () => void
 	handleSubmit: (e: FormEvent<HTMLFormElement>) => void
 	setIsFiltrados: Dispatch<SetStateAction<boolean>>
+	resetFilter:boolean
+	setResetFilter:Dispatch<SetStateAction<boolean>>
 }
 
 const Filtro = ({
@@ -33,10 +35,12 @@ const Filtro = ({
 	setPrecio,
 	resetForm,
 	handleSubmit,
-	setIsFiltrados
-}: IProps) => {
-	const [resetFilter, setResetFilter] = useState(false)
+	setIsFiltrados,
+	resetFilter,
+	setResetFilter
 
+}: IProps) => {
+	
 	return (
 		<div className=''>
 			<HeaderFiltro />

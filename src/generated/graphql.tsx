@@ -1517,13 +1517,13 @@ export type GetPreciosQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetPreciosQuery = { __typename?: 'Query', GetPrecios?: { __typename?: 'Precio', minimo?: number | null, maximo?: number | null } | null };
 
 export type GetAllProductosPalabraClaveQueryVariables = Exact<{
+  palabraClave?: InputMaybe<Scalars['String']>;
   numeroPagina?: InputMaybe<Scalars['Int']>;
   pagina?: InputMaybe<Scalars['Int']>;
-  palabraClave?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type GetAllProductosPalabraClaveQuery = { __typename?: 'Query', GetAllProductosPalabraClave: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', titulo?: string | null, slug?: string | null }> | null } };
+export type GetAllProductosPalabraClaveQuery = { __typename?: 'Query', GetAllProductosPalabraClave: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', categoriaProductoId?: number | null, created_at?: any | null, descripcionCorta?: string | null, descripcionLarga?: string | null, destacado?: string | null, estado?: string | null, keywords?: string | null, precioOferta?: number | null, precioReal?: number | null, productoId?: string | null, slug?: string | null, stockMinimo?: number | null, stockReal?: number | null, titulo?: string | null, imagenPrincipal?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null, slug?: string | null, estado?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null }> | null } };
 
 export type GetAllProductosRelacionadosQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
@@ -2226,16 +2226,45 @@ export type GetPreciosQueryHookResult = ReturnType<typeof useGetPreciosQuery>;
 export type GetPreciosLazyQueryHookResult = ReturnType<typeof useGetPreciosLazyQuery>;
 export type GetPreciosQueryResult = Apollo.QueryResult<GetPreciosQuery, GetPreciosQueryVariables>;
 export const GetAllProductosPalabraClaveDocument = gql`
-    query GetAllProductosPalabraClave($numeroPagina: Int, $pagina: Int, $palabraClave: String) {
+    query GetAllProductosPalabraClave($palabraClave: String, $numeroPagina: Int, $pagina: Int) {
   GetAllProductosPalabraClave(
+    palabraClave: $palabraClave
     numeroPagina: $numeroPagina
     pagina: $pagina
-    palabraClave: $palabraClave
   ) {
     numeroTotal
     data {
-      titulo
+      imagenPrincipal {
+        estado
+        id
+        titulo
+        url
+      }
+      CategoriaProducto {
+        titulo
+        slug
+        estado
+      }
+      categoriaProductoId
+      created_at
+      descripcionCorta
+      descripcionLarga
+      destacado
+      estado
+      imagenSecundaria {
+        estado
+        id
+        titulo
+        url
+      }
+      keywords
+      precioOferta
+      precioReal
+      productoId
       slug
+      stockMinimo
+      stockReal
+      titulo
     }
   }
 }
@@ -2253,9 +2282,9 @@ export const GetAllProductosPalabraClaveDocument = gql`
  * @example
  * const { data, loading, error } = useGetAllProductosPalabraClaveQuery({
  *   variables: {
+ *      palabraClave: // value for 'palabraClave'
  *      numeroPagina: // value for 'numeroPagina'
  *      pagina: // value for 'pagina'
- *      palabraClave: // value for 'palabraClave'
  *   },
  * });
  */

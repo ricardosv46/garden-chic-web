@@ -1,9 +1,39 @@
-query GetAllProductosPalabraClave($numeroPagina:Int,$pagina:Int,$palabraClave:String){
-  GetAllProductosPalabraClave(numeroPagina:$numeroPagina,pagina:$pagina, palabraClave:$palabraClave){
+
+query GetAllProductosPalabraClave($palabraClave: String, $numeroPagina: Int, $pagina: Int) {
+  GetAllProductosPalabraClave(palabraClave: $palabraClave, numeroPagina: $numeroPagina, pagina: $pagina) {
     numeroTotal
-    data{
-      titulo
+    data {
+      imagenPrincipal {
+        estado
+        id
+        titulo
+        url
+      }
+      CategoriaProducto {
+        titulo
+        slug
+        estado
+      }
+      categoriaProductoId
+      created_at
+      descripcionCorta
+      descripcionLarga
+      destacado
+      estado
+      imagenSecundaria {
+        estado
+        id
+        titulo
+        url
+      }
+      keywords
+      precioOferta
+      precioReal
+      productoId
       slug
+      stockMinimo
+      stockReal
+      titulo
     }
   }
 }

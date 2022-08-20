@@ -1,16 +1,18 @@
 import Container from "@components/container";
 import InputSearch from "@components/inputs/InputSearch";
-import { Dispatch } from "react";
+import { Dispatch, ReactNode } from "react";
 import { SetStateAction } from "react";
 
 interface Iprops {
   isOpenFilter: boolean;
   setIsOpenFilter: Dispatch<SetStateAction<boolean>>;
+  children: ReactNode;
 }
 
 export const WrapperFiltrosBuscar = ({
   isOpenFilter,
   setIsOpenFilter,
+  children
 }: Iprops) => {
   return (
     <Container className="lg:flex py-6 gap-10 ">
@@ -24,7 +26,7 @@ export const WrapperFiltrosBuscar = ({
           </button>
         </div>
         <div className="w-1/2 lg:w-3/4 ">
-          <InputSearch placeholder="Buscar" />
+          {children}
         </div>
       </div>
     </Container>

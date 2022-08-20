@@ -14,12 +14,15 @@ import { Producto } from 'src/generated/graphql'
 import { usePrecios } from '@services/tienda/usePrecios'
 import { useCategoriaProductos } from '@services/useCategoriaProductos'
 import { useFormik } from 'formik'
-import { useBusquedaAvanzada } from '@services/tienda/useBusquedaAvanzada'
 import SidebarFilter from '@components/sidebarFilter'
 import { useRouter } from 'next/router'
 import Decode from 'atob'
 import Code from 'btoa'
 import { GetServerSidePropsContext } from 'next'
+import InputSearch from '@components/inputs/InputSearch'
+import { Console } from 'console'
+import { useBusquedaAvanzada } from '@services/tienda/useBusquedaAvanzada'
+import { useBusquedaPalabraClave } from '@services/tienda/useBusquedaPalabraClave'
 const tipoOrdenacion = [
 	{ value: 'asc', label: 'Ascendente' },
 	{ value: 'desc', label: 'Descendente' }
@@ -34,9 +37,13 @@ const Tienda = () => {
 	const { db: categoriaProductos, loading: loadingCategoria } = useCategoriaProductos()
 	const [precio, setPrecio] = useState({ min: 0, max: 0 })
 	const { FunctionBusquedaAvanzada, loading: loadingBusqueda } = useBusquedaAvanzada()
+	const { FunctionBusquedaPalabraClave, loading: loadingBusquedaPalabra } = useBusquedaPalabraClave()
+	const [resetFilter,setResetFilter]=useState(false)
+
 	const { push } = useRouter()
 	const { values, handleChange, resetForm, handleSubmit } = useFormik({
 		initialValues: {
+			palabraClave:'',
 			categoria: '',
 			order: 'desc',
 			destacado: false
@@ -65,10 +72,22 @@ const Tienda = () => {
 		}
 	}, [loadingPrecios])
 
+
+	const handleClick = () => {
+		setIsFiltrados(true)
+		FunctionBusquedaPalabraClave({pagina: 1,
+			numeroPagina: 10,palabraClave: values?.palabraClave}).then((res) => setProductosFiltrados(res?.db!))
+			setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
+			resetForm()
+			setResetFilter(!resetFilter)
+	}
+
 	return (
 		<LayoutTienda>
 			{/*Wrapper Search and bottom filter */}
-			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter} />
+			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter} >
+			<InputSearch placeholder="Buscar" onChange={handleChange} name='palabraClave' value={values.palabraClave} onClick={handleClick}  />
+			</WrapperFiltrosBuscar>
 
 			{/* Wrapper sidebar filter desktop and card´s*/}
 			<Container
@@ -93,7 +112,9 @@ const Tienda = () => {
 								resetForm,
 								loadingPrecios,
 								handleSubmit,
-								setIsFiltrados
+								setIsFiltrados,
+								resetFilter,
+								setResetFilter
 							}}
 						/>
 					)}
@@ -104,7 +125,7 @@ const Tienda = () => {
 					<div
 						className={`grid grid-cols-1 delay-200 ${isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
 							} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
-						<Show condition={!loadingBusqueda && !loadingProductos} isDefault={<Spinner />}>
+						<Show condition={!loadingBusqueda && !loadingProductos && !loadingBusquedaPalabra} isDefault={<Spinner />}>
 							{isfiltrados
 								? productosFiltrados.map((item) => (
 									<CardProducto
@@ -156,7 +177,9 @@ const Tienda = () => {
 								resetForm,
 								loadingPrecios,
 								handleSubmit,
-								setIsFiltrados
+								setIsFiltrados,
+								resetFilter,
+								setResetFilter
 							}}
 						/>
 					)}
