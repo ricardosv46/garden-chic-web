@@ -16,7 +16,7 @@ const Nosotros = () => {
       <Servicios data={DataGeneral.Nosotros.Iconos} />
       <PorqueElegirnos />
       <NuestraMision />
-      <Contactanos data={DataGeneral.Nosotros.OptionForm} />
+      <Contactanos data={DataGeneral.Nosotros.Contactanos} />
     </div>
   )
 }

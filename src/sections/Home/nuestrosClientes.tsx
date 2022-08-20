@@ -63,7 +63,7 @@ const NuestrosClientes = ({ data }: IProps) => {
         className='mySwiper'
       >
         {data.map((item) => (
-          <SwiperSlide key={item} className='mx-6'>
+          <SwiperSlide key={item} className='lg:mx-6'>
             <div
               className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 `}
             >

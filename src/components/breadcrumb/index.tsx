@@ -3,8 +3,11 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { FiHome } from "react-icons/fi";
 export const BreadCrumb = () => {
-  const { asPath, push } = useRouter();
-
+  const { pathname, push, query } = useRouter();
+  const Ruta = pathname.split("/");
+  console.log(Ruta)
+  if (Ruta.length > 2) Ruta.pop();
+  Ruta.push(query.slug ? String(query.slug) : "");
   return (
     <div className="flex flex-row justify-between text-primary-800">
       <div>
@@ -14,7 +17,7 @@ export const BreadCrumb = () => {
         <div onClick={() => push(`/`)}>
           <FiHome />
         </div>
-        {asPath.split("/").map((obj, i) =>
+        {Ruta.map((obj, i) =>
           obj !== "" ? (
             <div key={i} className="flex flex-row gap-1">
               <span className="mx-1">/</span>
@@ -29,3 +32,4 @@ export const BreadCrumb = () => {
     </div>
   );
 };
+

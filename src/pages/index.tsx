@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       <Servicios data={Home.Iconos} />
       <Proyects />
       <NuestrosClientes data={Home.EllosConfian} />
-      <Contactanos data={Home.OptionForm} />
+      <Contactanos data={Home.Contactanos} />
     </>
   );
 };

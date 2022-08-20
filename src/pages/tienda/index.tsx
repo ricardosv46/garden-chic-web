@@ -38,12 +38,12 @@ const Tienda = () => {
 	const [precio, setPrecio] = useState({ min: 0, max: 0 })
 	const { FunctionBusquedaAvanzada, loading: loadingBusqueda } = useBusquedaAvanzada()
 	const { FunctionBusquedaPalabraClave, loading: loadingBusquedaPalabra } = useBusquedaPalabraClave()
-	const [resetFilter,setResetFilter]=useState(false)
+	const [resetFilter, setResetFilter] = useState(false)
 
 	const { push } = useRouter()
 	const { values, handleChange, resetForm, handleSubmit } = useFormik({
 		initialValues: {
-			palabraClave:'',
+			palabraClave: '',
 			categoria: '',
 			order: 'desc',
 			destacado: false
@@ -51,7 +51,7 @@ const Tienda = () => {
 		onSubmit: async (values) => {
 			setIsFiltrados(true)
 			FunctionBusquedaAvanzada(handleData()).then((res) => setProductosFiltrados(res?.db!))
-			push({ pathname: '/tienda', query: { data: Code(JSON.stringify(handleData())) } })
+			// push({ pathname: '/tienda', query: { data: Code(JSON.stringify(handleData())) } })
 		}
 	})
 
@@ -75,18 +75,20 @@ const Tienda = () => {
 
 	const handleClick = () => {
 		setIsFiltrados(true)
-		FunctionBusquedaPalabraClave({pagina: 1,
-			numeroPagina: 10,palabraClave: values?.palabraClave}).then((res) => setProductosFiltrados(res?.db!))
-			setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
-			resetForm()
-			setResetFilter(!resetFilter)
+		FunctionBusquedaPalabraClave({
+			pagina: 1,
+			numeroPagina: 10, palabraClave: values?.palabraClave
+		}).then((res) => setProductosFiltrados(res?.db!))
+		setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
+		resetForm()
+		setResetFilter(!resetFilter)
 	}
 
 	return (
 		<LayoutTienda>
 			{/*Wrapper Search and bottom filter */}
 			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter} >
-			<InputSearch placeholder="Buscar" onChange={handleChange} name='palabraClave' value={values.palabraClave} onClick={handleClick}  />
+				<InputSearch placeholder="Buscar" onChange={handleChange} name='palabraClave' value={values.palabraClave} onClick={handleClick} />
 			</WrapperFiltrosBuscar>
 
 			{/* Wrapper sidebar filter desktop and card´s*/}

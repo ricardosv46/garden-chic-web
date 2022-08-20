@@ -5,7 +5,10 @@ import InputFloat from '../../components/inputs/InputFloat'
 import InputArea from '../../components/inputs/InputArea'
 import useForm from '../../hooks/useForm'
 interface IProps {
-  data: string[]
+  data: {
+    tittle: string,
+    OptionForm: string[]
+  }
 }
 
 const Contactanos = ({ data }: IProps) => {
@@ -25,8 +28,8 @@ const Contactanos = ({ data }: IProps) => {
     <Container>
       <div className='flex flex-col lg:flex-row '>
         <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto '>
-          <h2 className='text-primary-300 font-bold text-4xl xl:text-6xl  pt-20'>
-            Obtenga un estimado gratis
+          <h2 className='text-primary-300 font-bold text-4xl  pt-20'>
+            {data.tittle || ''}
           </h2>
           <div>
             <h3 className='text-primary-300 font-bold text-xl mt-5 lg:mt-14'>
@@ -67,16 +70,7 @@ const Contactanos = ({ data }: IProps) => {
                     defaultValue='0'
                   >
                     <option value=''>Selección de servicios</option>
-                    {data.map((obj, i) => <option value={i + 1} key={i}>{obj.toUpperCase() || ''}</option>)}
-                    {/* <option value='0'>Seleccione una opcion</option>
-                    <option value='1'>PAISAJISMO</option>
-                    <option value='2'>JARDINES VERTICALES</option>
-                    <option value='3'>MANTENIMIENTO DE JARDINES</option>
-                    <option value='4'>SISTEMA DE RIEGO TECNIFICADO</option>
-                    <option value='5'>TECHOS VERDES</option>
-                    <option value='6'>INSTALACION DE JARDINERAS Y MACETAS</option>
-                    <option value='7'>IMPERMEABLIZACIÓN CON MANTO ASFALTICOS</option>
-                    <option value='8'>VIVERO</option> */}
+                    {data.OptionForm.map((obj, i) => <option value={i + 1} key={i}>{obj.toUpperCase() || ''}</option>)}
                   </select>
                 </div>
               </div>

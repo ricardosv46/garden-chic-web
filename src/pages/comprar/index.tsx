@@ -144,6 +144,7 @@ const Comprar = () => {
 
 export const getServerSideProps = async (ctx: any) => {
   const session = await getSession(ctx);
+  console.log(session)
 
   if (!session)
     return {

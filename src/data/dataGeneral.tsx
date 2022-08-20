@@ -34,7 +34,7 @@ export const DataGeneral: IDataGeneral = {
                 image: '01_CASACOR.jpg',
                 subtittle: 'LA MAYOR Y MÁS COMPLETA MUESTRA DE ARQUITECTURA, DISEÑO DE INTERIORES Y PAISAJISMO DE LAS AMÉRICAS',
                 itemPrincipal: true,
-                textheader:'PRESENTES EN:'
+                textheader: 'PRESENTES EN:'
             },
             {
                 tittle: 'PAISAJISMO',
@@ -105,15 +105,19 @@ export const DataGeneral: IDataGeneral = {
             }
         ],
         EllosConfian: ['ARMAS', 'ARMONHY', 'Ay', 'BACKUS', 'BRITANICO', 'EDIFICA', 'ENGIE', 'ESPARQ', 'EXALMAR', 'INTERCONNECTA', 'LEGADO', 'LIMALOFT', 'MARCOALDANY', 'MEGALABS', 'PIONERO', 'RANSA', 'SACYRCONCESIONES', 'SOLE', 'VyV'],
-        OptionForm: ['PAISAJISMO',
-            'JARDINES VERTICALES',
-            'MANTENIMIENTO DE JARDINES',
-            ' SISTEMA DE RIEGO TECNIFICADO',
-            'TECHOS VERDES',
-            'INSTALACIÓN DE JARDINERAS Y MACETAS',
-            'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-            '    VIVERO'
-        ]
+        Contactanos: {
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            OptionForm: ['PAISAJISMO',
+                'JARDINES VERTICALES',
+                'MANTENIMIENTO DE JARDINES',
+                ' SISTEMA DE RIEGO TECNIFICADO',
+                'TECHOS VERDES',
+                'INSTALACIÓN DE JARDINERAS Y MACETAS',
+                'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+                '    VIVERO'
+            ]
+        }
+
     },
     Nosotros: {
         QuePodemosHacer: {
@@ -142,7 +146,18 @@ export const DataGeneral: IDataGeneral = {
             }]
 
         },
-        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
+        Contactanos: {
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            OptionForm: ['PAISAJISMO',
+                'JARDINES VERTICALES',
+                'MANTENIMIENTO DE JARDINES',
+                ' SISTEMA DE RIEGO TECNIFICADO',
+                'TECHOS VERDES',
+                'INSTALACIÓN DE JARDINERAS Y MACETAS',
+                'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+                '    VIVERO'
+            ]
+        },
         Iconos: [
             {
                 Icon1: <VERTICAL_PLANTAS />,
@@ -155,16 +170,24 @@ export const DataGeneral: IDataGeneral = {
         ],
     },
     Servicios: {
-        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
+        Contactanos: {
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            OptionForm: ['PAISAJISMO',
+                'JARDINES VERTICALES',
+                'MANTENIMIENTO DE JARDINES',
+                ' SISTEMA DE RIEGO TECNIFICADO',
+                'TECHOS VERDES',
+                'INSTALACIÓN DE JARDINERAS Y MACETAS',
+                'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+                '    VIVERO'
+            ]
+        },
         Banner: {
             img: '01_PRINCIPAL.jpg',
             tittle: 'Servicios'
         },
         BannerHeader: '01_PRINCIPAL.jpg'
     },
-    Contactanos: {
-        OptionForm: ['PAISAJISMO', 'JARDINES VERTICALES', 'MANTENIMIENTO DE JARDINES', ' SISTEMA DE RIEGO TECNIFICADO', 'TECHOS VERDES', 'INSTALACIÓN DE JARDINERAS Y MACETAS', 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO', 'VIVERO'],
-    }
 }
 export interface IQuePodemosHacer {
     tittle: string,
@@ -204,19 +227,26 @@ interface IDataGeneral {
         Banner: IBanner[]
         Iconos: IIconos[],
         EllosConfian: string[],
-        OptionForm: string[]
+        Contactanos: {
+            tittle: string
+            OptionForm: string[],
+        },
     }
     Nosotros: {
         QuePodemosHacer: IQuePodemosHacer,
-        OptionForm: string[],
+        Contactanos: {
+            tittle: string
+            OptionForm: string[],
+        },
         Iconos: IIconos[]
     },
     Servicios: {
-        OptionForm: string[],
+        Contactanos: {
+            tittle: string
+            OptionForm: string[],
+        },
         Banner: IBannerServicios,
         BannerHeader: string
     },
-    Contactanos: {
-        OptionForm: string[],
-    },
+
 }

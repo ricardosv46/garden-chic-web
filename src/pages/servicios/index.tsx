@@ -77,7 +77,7 @@ const Servicios = () => {
             </h2>
           </div>
         </div>
-        <Contactanos data={DataGeneral.Servicios.OptionForm} />
+        <Contactanos data={DataGeneral.Servicios.Contactanos} />
       </Container>
     </>
   )
