@@ -43,15 +43,6 @@ const Banner = ({ data }: IProps) => {
             </Show>
           </SwiperSlide>
         ))}
-        {/* <SwiperSlide>
-          <Item1 />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Item2 />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Item3 />
-        </SwiperSlide> */}
       </Swiper>
     </div>
   )

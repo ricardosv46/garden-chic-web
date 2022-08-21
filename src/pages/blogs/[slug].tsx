@@ -78,7 +78,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
         </div>
 
         <div className='w-full lg:w-3/12 px-3'>
-          <InputSearch placeholder='Buscar' />
+          <InputSearch placeholder='Buscar' onClick={()=>console.log('buscando publicaciones recientes')} />
           <p className='text-gray-900 text-2xl font-bold py-10'>
             Publicaciones Recientes
           </p>
