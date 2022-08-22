@@ -8,7 +8,7 @@ const Contactos = () => {
   return (
     <>
       <BannerContactos />
-      <Contactanos data={DataGeneral.Contactanos.OptionForm} />
+      <Contactanos data={DataGeneral.Contactanos} />
     </>
   )
 }

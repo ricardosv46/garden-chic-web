@@ -188,6 +188,18 @@ export const DataGeneral: IDataGeneral = {
         },
         BannerHeader: '01_PRINCIPAL.jpg'
     },
+    Contactanos: {
+        tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+        OptionForm: ['PAISAJISMO',
+            'JARDINES VERTICALES',
+            'MANTENIMIENTO DE JARDINES',
+            ' SISTEMA DE RIEGO TECNIFICADO',
+            'TECHOS VERDES',
+            'INSTALACIÓN DE JARDINERAS Y MACETAS',
+            'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+            '    VIVERO'
+        ]
+    }
 }
 export interface IQuePodemosHacer {
     tittle: string,
@@ -247,6 +259,10 @@ interface IDataGeneral {
         },
         Banner: IBannerServicios,
         BannerHeader: string
+    },
+    Contactanos: {
+        tittle: string
+        OptionForm: string[],
     },
 
 }
