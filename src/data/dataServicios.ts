@@ -172,7 +172,7 @@ export const servicios: EntityServicios[] = [
     img: 'impermeabilizacion/01_PRINCIPAL.jpg',
     icon: '',
     description:
-      'Previene filtraciones para proyectos de jardines en techos, parques o jardines comunes. Con ello cuidamos la propiedad para no causar daños al predio por el filtro de agua u otros posibles daños',
+      'Previene filtraciones de agua en los proyectos de techos verdes, parques o jardines comunes. Con ello cuidamos la propiedad para no causar daños a las estructuras de estas',
     url: 'impermeabilización',
     content: [
       {

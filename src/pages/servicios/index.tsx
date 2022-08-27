@@ -40,9 +40,9 @@ const Servicios = () => {
                 </p>
                 <button
                   onClick={() => router.push(`/servicios/${item.url}`)}
-                  className='bg-white text-primary-300 border-2 border-primary-300 px-10 py-3 rounded-full uppercase duration-300 ease-in-out   hover:text-white hover:bg-primary-300'
+                  className='bg-white text-primary-300 border-2 border-primary-300 px-10 py-3 rounded-full uppercase duration-300 ease-in-out font-medium  hover:text-white hover:bg-primary-300'
                 >
-                  Mas
+                  Más
                 </button>
               </div>
             </div>
