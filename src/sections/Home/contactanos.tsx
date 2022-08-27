@@ -28,11 +28,11 @@ const Contactanos = ({ data }: IProps) => {
     <Container>
       <div className='flex flex-col lg:flex-row '>
         <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto '>
-          <h2 className='text-primary-300 font-bold text-4xl  pt-20'>
+          <h2 className='text-primary-300 font-garden_bold text-4xl  pt-20'>
             {data.tittle || ''}
           </h2>
           <div>
-            <h3 className='text-primary-300 font-bold text-xl mt-5 lg:mt-14'>
+            <h3 className='text-primary-300 font-garden_medium text-xl mt-5 lg:mt-14'>
               Tu información
             </h3>
             <form

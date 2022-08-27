@@ -59,7 +59,7 @@ const Servicios = ({ data }: IProps) => {
               >
                 {/* <Hover2 condition={ishover} /> */}
                 {obj.Icon1}
-                <p className='text-xl font-medium'>{obj.label || null}</p>
+                <p className='text-xl font-garden_medium'>{obj.label || null}</p>
               </div>
             </SwiperSlide>
 

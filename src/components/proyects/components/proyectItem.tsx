@@ -16,7 +16,7 @@ export const ProyectItem = ({ data }: Iprops) => {
             <Show condition={typeof data.dataHover !== 'undefined'}>
                 <div className='hidden lg:flex bg-white text-primary-300 absolute top-0 w-full h-full z-10  justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-out pt-10 hover:pt-0 rounded-lg'>
                     <div className='text-center p-5'>
-                        <p className='text-3xl pt-5 font-medium'>
+                        <p className='text-3xl pt-5 font-garden_medium'>
                             {data.dataHover || ''}
                         </p>
                     </div>

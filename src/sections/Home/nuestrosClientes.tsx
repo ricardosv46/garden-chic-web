@@ -24,12 +24,12 @@ const NuestrosClientes = ({ data }: IProps) => {
   return (
     <Container className='p-10 py-2 lg:py-28 '>
       <div className='flex items-center gap-x-4 mb-10'>
-        <hr className='w-[90%] h-[1px] border border-black  '></hr>
+        <hr className='w-[30%] lg:w-[40%] h-[1px] border border-black  '></hr>
 
-        <h2 className='text-2xl lg:text-4xl text-center font-normal text-primary-800 w-full '>
+        <h2 className='text-xl lg:text-3xl text-center font-garden_medium text-primary-800 w-[60%] '>
           Ellos confían en nosotros
         </h2>
-        <hr className='w-[90%] h-[1px] border border-black'></hr>
+        <hr className='w-[30%]  lg:w-[40%] h-[1px] border border-black'></hr>
       </div>
       <Swiper
         loop={true}
