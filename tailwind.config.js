@@ -391,6 +391,9 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
+      garden_bold: ['FuenteGarden_bold'],
+      garden_medium: ['FuenteGarden_medium'],
+      garden_regular: ['FuenteGarden_regular'],
       serif: [
         "ui-serif",
         "Georgia",
@@ -604,7 +607,7 @@ module.exports = {
           opacity: ".5",
         },
       },
-     
+
       bounce: {
         "0%, 100%": {
           transform: "translateY(-25%)",

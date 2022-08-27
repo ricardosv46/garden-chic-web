@@ -6,7 +6,19 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+@font-face {
+  font-family: 'FuenteGarden_bold';
+  src: url('./font/Bold.otf');
+}
+@font-face {
+  font-family: 'FuenteGarden_medium';
+  src: url('./font/Medium.otf');
+}
+@font-face {
+  font-family: 'FuenteGarden_Regular';
+  src: url('./font/Regular.otf');
+}
+color * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,10 +97,10 @@ textarea:focus-within ~ .label {
 }
 
 .translateRender {
-  animation: render 2s ;
-  animation-timing-function: ease-out; 
+  animation: render 2s;
+  animation-timing-function: ease-out;
   animation-delay: 2s;
-  display: inline-block
+  display: inline-block;
 
   /* 
   animation-name: bounce;

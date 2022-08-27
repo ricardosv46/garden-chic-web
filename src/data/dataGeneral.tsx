@@ -8,24 +8,24 @@ export const DataGeneral: IDataGeneral = {
             subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes. Podemos ayudar a hacer realidad el jardín de tus sueños',
             items: [{
                 count: '150',
-                type: 'Años',
+                type: 'PROYECTOS REALIZADOS',
                 duration: 2000,
                 tittle: '',
-                subtittle: 'Más de 150 proyectos realizados. En estos 6 años en el mercado nacional.'
+                subtittle: 'En estos 06 años en el mercado laboral'
             },
             {
-                count: '800',
-                type: 'Especialista',
+                count: '800 m²',
+                type: 'DE ÁREAS VERDES',
                 duration: 1000,
                 tittle: '',
-                subtittle: 'Más de 800 m2 de implementación de jardines verticales.'
+                subtittle: 'En implementación de jardines verticales'
             },
             {
                 count: '50',
-                type: 'Premios',
+                type: 'CIENTES SATISFECHOS',
                 duration: 1500,
                 tittle: '',
-                subtittle: 'Más de 50 clientes confían en nuestros servicios.'
+                subtittle: 'Confiaron en nuestros servicios'
             }]
         },
         Banner: [

@@ -36,7 +36,7 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
           </div>
         </Link>
         <div className="flex items-center gap-8">
-          <ul className="  flex relative font-semibold">
+          <ul className="  flex relative font-garden_regular">
             <li className="p-7 cursor-pointer ">
               <Link href="/" passHref>
                 Inicio

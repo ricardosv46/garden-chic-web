@@ -88,38 +88,38 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
 
           <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
-        <ul className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']} text-center `}>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+        <ul className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']} text-center font-garden_regular `}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/' passHref>
               Inicio
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/nosotros' passHref>
               Nosotros
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/servicios' passHref>
               Servicios
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/tienda' passHref>
               Tienda
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/proyectos' passHref>
               Proyectos
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/blogs' passHref>
               Blogs
             </Link>
           </li>
-          <li className='cursor-pointer text-primary-600 py-2 font-semibold' onClick={() => setIsOpen(false)}>
+          <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/contactos' passHref>
               Contactos
             </Link>
