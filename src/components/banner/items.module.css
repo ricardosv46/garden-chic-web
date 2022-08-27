@@ -3,7 +3,7 @@
   background-size: cover;
   width: 100%;
   height: 100%;
-  height: 450px;
+  height: 150px;
   position: relative;
 }
 .itemBanner::before{
@@ -14,9 +14,14 @@
   width: 100%;
   height: 100%;
 }
+@media (min-width: 320px) {
+  .itemBanner {
+    height: 200px;
+  }
+}
 @media (min-width: 768px) {
   .itemBanner {
-    height: 600px;
+    height: 400px;
   }
 }
 @media (min-width: 1200px) {
