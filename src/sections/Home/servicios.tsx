@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconPaisajismo, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
@@ -12,6 +12,15 @@ interface IProps {
 }
 
 const Servicios = ({ data }: IProps) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  const updateDimensions = () => window.innerWidth < 1024 ? setIsMobile(true) : setIsMobile(false)
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
   return (
     <Container className='flex justify-center items-center h-56 ' bgColor='bg-primary-100 bg-opacity-50'>
       {/*       <h2 className="text-4xl lg:text-5xl text-center font-normal mb-24 text-primary-800 ">
@@ -19,8 +28,8 @@ const Servicios = ({ data }: IProps) => {
       </h2>
  */}
       <Swiper
-        loop={true}
-        grabCursor={true}
+        loop={isMobile}
+        grabCursor={isMobile}
         autoplay={{
           delay: 7500,
           disableOnInteraction: false
@@ -45,7 +54,7 @@ const Servicios = ({ data }: IProps) => {
             spaceBetween: 10
           }
         }}
-        modules={[Navigation]}
+        // modules={[Navigation]}
         className='mySwiper'
       >
 

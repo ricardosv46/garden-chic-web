@@ -153,7 +153,7 @@ export const DataGeneral: IDataGeneral = {
         },
         Iconos: [
             {
-                Icon1: <VERTICAL_PLANTAS className='w-32 h-32' />,
+                Icon1: <VERTICAL_PLANTAS className='w-32 h-32 '  />,
             },
             {
                 Icon1: <VERTICAL_SERVICIOS className='w-32 h-32' />,
