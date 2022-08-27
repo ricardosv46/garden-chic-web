@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useState } from 'react'
 import Banner from "../components/banner";
 import Contactanos from "../sections/Home/contactanos";
 import NuestrosClientes from "../sections/Home/nuestrosClientes";
@@ -16,7 +17,6 @@ const Home: NextPage = () => {
     status: string;
     data: { user: any };
   };
-  // console.log('data', data)
 
   useEffect(() => {
     const sesion = async () => {

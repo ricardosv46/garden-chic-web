@@ -8,18 +8,12 @@ import { IconImpermeabilizacionColor, IconJardinesVerticalesColor, IconMantenimi
 import { IIconos } from 'src/data/dataGeneral'
 import { Show } from '@components/show'
 interface IProps {
-  data: IIconos[]
+  data: IIconos[],
+  loop?: boolean
 }
 
-const Servicios = ({ data }: IProps) => {
-  const [isMobile, setIsMobile] = useState(false)
+const Servicios = ({ data, loop = true }: IProps) => {
 
-  const updateDimensions = () => window.innerWidth < 1024 ? setIsMobile(true) : setIsMobile(false)
-
-  useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
 
   return (
     <Container className='flex justify-center items-center h-56 ' bgColor='bg-primary-100 bg-opacity-50'>
@@ -28,8 +22,8 @@ const Servicios = ({ data }: IProps) => {
       </h2>
  */}
       <Swiper
-        loop={isMobile}
-        grabCursor={isMobile}
+        loop={loop}
+        grabCursor={loop}
         autoplay={{
           delay: 7500,
           disableOnInteraction: false
