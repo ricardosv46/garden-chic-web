@@ -14,11 +14,12 @@ export const Hover = ({ Icon1, Icon2, label }: Iprops) => {
 
     return (
         <div className='flex flex-col items-center gap-y-5 text-primary-600'
-            onMouseOver={() => setIsHover(true)}
-            onMouseOut={() => setIsHover(false)}
+            // onMouseOver={() => setIsHover(true)}
+            // onMouseOut={() => setIsHover(false)}
         >
-            <Hover2 condition={ishover} />
-            <p className='text-xl font-semibold'>{label || null}</p>
+            {/* <Hover2 condition={ishover} /> */}
+            {Icon1}
+            <p className='text-xl font-medium'>{label || null}</p>
         </div>
     )
 }

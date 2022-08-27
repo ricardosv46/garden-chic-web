@@ -7,9 +7,9 @@ const NuestraMision = () => {
     <div className=''>
       <Container bgColor='bg-gray-100' className='py-5 pb-10'>
         <div className='grid grid-cols-1 md:grid-cols-[60%,40%] bg-white'>
-          <div className='order-2   py-3 px-6 text-xl md:text-2xl  md:px-12 lg:py-10 xl:pt-32 xl:pb-24  font-light '>
-            <h2 className='text-primary-800 font-normal leading-none text-[50px] '>
-              Nuestra misión.
+          <div className='order-2   py-3 px-6 text-xl md:text-2xl  md:px-12 lg:py-10 xl:pt-32 xl:pb-24  font-light text-primary-800'>
+            <h2 className=' font-bold leading-none text-[50px]'>
+              Nuestra misión
             </h2>
             <p className='text-lg font-extralight mt-8'>
               Servir a nuestros clientes de una manera excelente, tratando
@@ -19,8 +19,8 @@ const NuestraMision = () => {
 
             </p>
           </div>
-          <div className='order-1 '>
-            <div className={`${style['img-nuestraMision']} `}></div>
+          <div className='order-1 flex justify-end items-end p-10'>
+            <div className={`${style['img-nuestraMision']} w-full `}></div>
           </div>
         </div>
       </Container>

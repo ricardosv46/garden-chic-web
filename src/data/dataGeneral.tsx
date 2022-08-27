@@ -4,27 +4,27 @@ import { VERTICAL_PLANTAS, VERTICAL_SERVICIOS, VERTICAL_VIVERO } from 'public/ic
 export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
-            tittle: 'Cuidar, conservar y mantener saludable tus áreas verdes es nuestra pasión.',
-            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes, creamos hermosos y únicos jardines. Podemos ayudarte a hacer realidad el jardín de tus sueños.',
+            tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
+            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes. Podemos ayudar a hacer realidad el jardín de tus sueños',
             items: [{
-                count: '10',
+                count: '150',
                 type: 'Años',
                 duration: 2000,
-                tittle: 'Proyectos Realizados',
+                tittle: '',
                 subtittle: 'Más de 150 proyectos realizados. En estos 6 años en el mercado nacional.'
             },
             {
-                count: '30',
+                count: '800',
                 type: 'Especialista',
                 duration: 1000,
-                tittle: 'Jardines Verticales',
+                tittle: '',
                 subtittle: 'Más de 800 m2 de implementación de jardines verticales.'
             },
             {
-                count: '15',
+                count: '50',
                 type: 'Premios',
                 duration: 1500,
-                tittle: 'Clientes Satisfechos',
+                tittle: '',
                 subtittle: 'Más de 50 clientes confían en nuestros servicios.'
             }]
         },
@@ -74,39 +74,32 @@ export const DataGeneral: IDataGeneral = {
             }],
         Iconos: [
             {
-                Icon1: <IconPaisajismoColor />,
-                Icon2: <IconPaisajismo />,
+                Icon1: <IconPaisajismo className='w-20 h-20' />,
                 label: "Paisajismo"
             }, {
-                Icon1: <IconJardinesVerticalesColor />,
-                Icon2: <IconJardinesVerticales />,
+                Icon1: <IconJardinesVerticales className='w-20 h-20' />,
                 label: "Jardines Verticales"
             }, {
 
-                Icon1: <IconMantenimientoColor />,
-                Icon2: <IconMantenimiento />,
+                Icon1: <IconMantenimiento className='w-20 h-20' />,
                 label: "Mantenimiento"
             }, {
-                Icon1: <IconImpermeabilizacionColor />,
-                Icon2: <IconImpermeablizacion />,
+                Icon1: <IconImpermeablizacion className='w-20 h-20' />,
                 label: 'Impermeabilización'
             }, {
-                Icon1: <IconRiegoTecnificadoColor />,
-                Icon2: <IconRiegoTexnificado />,
+                Icon1: <IconRiegoTexnificado className='w-20 h-20' />,
                 label: 'Riego Tecnificado'
             }, {
-                Icon1: <IconTechosVerdesColor />,
-                Icon2: <IconTechosVerdes />,
+                Icon1: <IconTechosVerdes className='w-20 h-20' />,
                 label: 'Techos Verdes'
             }, {
-                Icon1: <IconViverosColor />,
-                Icon2: <IconVivero />,
+                Icon1: <IconVivero className='w-20 h-20' />,
                 label: 'Vivero'
             }
         ],
         EllosConfian: ['ARMAS', 'ARMONHY', 'Ay', 'BACKUS', 'BRITANICO', 'EDIFICA', 'ENGIE', 'ESPARQ', 'EXALMAR', 'INTERCONNECTA', 'LEGADO', 'LIMALOFT', 'MARCOALDANY', 'MEGALABS', 'PIONERO', 'RANSA', 'SACYRCONCESIONES', 'SOLE', 'VyV'],
         Contactanos: {
-            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con gusto y prontitud te atenderemos.',
             OptionForm: ['PAISAJISMO',
                 'JARDINES VERTICALES',
                 'MANTENIMIENTO DE JARDINES',
@@ -122,7 +115,7 @@ export const DataGeneral: IDataGeneral = {
     Nosotros: {
         QuePodemosHacer: {
             tittle: '¡Nosotros nos encargamos de tu jardín!',
-            subtittle: 'Si tienes un proyecto o servicio para tus áreas verdes, cumpliremos con tus expectativas. Sabemos que el compromiso, puntualidad, profesionalismo y calidad humana son valores que buscas como socio o aliado para tus jardines. Cuenta con nosotros',
+            subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos que es muy importante el compromiso, puntualidad, profefionalismo y calidad para la realización de tus proyectos',
             items: [{
                 count: '10',
                 type: 'Años',
@@ -160,12 +153,13 @@ export const DataGeneral: IDataGeneral = {
         },
         Iconos: [
             {
-                Icon1: <VERTICAL_PLANTAS />,
-            }, {
-                Icon1: <VERTICAL_SERVICIOS />,
+                Icon1: <VERTICAL_PLANTAS className='w-32 h-32' />,
             },
             {
-                Icon1: <VERTICAL_VIVERO />,
+                Icon1: <VERTICAL_SERVICIOS className='w-32 h-32' />,
+            },
+            {
+                Icon1: <VERTICAL_VIVERO className='w-32 h-32' />,
             }
         ],
     },
@@ -203,7 +197,7 @@ export const DataGeneral: IDataGeneral = {
 }
 export interface IQuePodemosHacer {
     tittle: string,
-    subtittle: string,
+    subtittle: string
     items: {
         count: string,
         duration?: number,

@@ -19,10 +19,10 @@ export const Item = ({ data }: IProps) => {
                     <h4 className='font-bold text-3xl md:text-7xl md:font-extralight '>
                         {data.tittle || ''}
                     </h4>
-                    <p className='mb-10 mt-5 text-sm md:text-2xl'>
+                    <p className='mb-10 mt-5 text-sm md:text-2xl font-medium'>
                         {data.subtittle || ''}
                     </p>
-                    <ButtonBanner title={data.buttonText || 'SABER MÁS'} />
+                    <ButtonBanner title={data.buttonText || 'SABER MÁS'}  />
                 </div>
             </div>
         </div >

@@ -64,12 +64,12 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
             </li>
             <li className="p-7 cursor-pointer">
               <Link href="/blogs" passHref>
-                Blogs
+                Blog
               </Link>
             </li>
             <li className="p-7 cursor-pointer">
               <Link href="/contactos" passHref>
-                Contactos
+                Contacto
               </Link>
             </li>
           </ul>
