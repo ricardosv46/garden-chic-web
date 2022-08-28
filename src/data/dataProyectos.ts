@@ -410,7 +410,7 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Estudio y Huerto de la Chef',
     antes: [
-      'a. Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas. El espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables. Sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022)',
+      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas. El espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables. Sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022)',
     ],
     cliente: 'Arquitectas Andrea Cavassa y Claudia Triveño',
     proceso:
@@ -437,10 +437,10 @@ export const dataProyects: EntitydataProyects[] = [
       'Dracena',
     ],
     desafios: [
-      'a. En este proyecto se instaló encima del estudio de la chef las buganvilias, se realizó la siembra de una gran variedad de vegetales para el huerto de la chef según el diseño de las arquitectas. También se sembró en otras zonas plantas como la cheflera, liriope, vincas, entre otras y se brindó el servicio de mantenimiento semanal del huerto y de las demás plantas.',
-      'b. Toda la obra se realizó adaptando el lugar al concepto de las arquitectas',
-      'c. El personal especializado de mantenimiento fue el soporte constante para mantener las áreas verdes en toda la exposición de Casacor (más de 45 días) ',
-      'd. La comunicación, el apoyo como asesoramiento a las arquitectas fue constante.',
+      'En este proyecto se instaló encima del estudio de la chef las buganvilias, se realizó la siembra de una gran variedad de vegetales para el huerto de la chef según el diseño de las arquitectas. También se sembró en otras zonas plantas como la cheflera, liriope, vincas, entre otras y se brindó el servicio de mantenimiento semanal del huerto y de las demás plantas.',
+      'Toda la obra se realizó adaptando el lugar al concepto de las arquitectas',
+      'El personal especializado de mantenimiento fue el soporte constante para mantener las áreas verdes en toda la exposición de Casacor (más de 45 días) ',
+      'La comunicación, el apoyo como asesoramiento a las arquitectas fue constante.',
     ],
   },
   {
