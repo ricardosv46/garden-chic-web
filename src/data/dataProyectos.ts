@@ -113,10 +113,10 @@ export const dataProyects: EntitydataProyects[] = [
       'Aptenias',
     ],
     desafios: [
-      'a. Los desafíos que se encontraron en el proyecto fueron los trabajos en altura, que a través de los equipos adecuados de protección, con la supervisión constante de nuestro personal se logró la ejecución y montaje de los jardines en los balcones.',
-      'b. Fue un proyecto ejecutado con mucha precisión de acuerdo a los tiempos y en coordinación con otros contratistas para brindar el mejor desempeño en la obra.',
-      'c. Hubo trabajos de impermeabilización de las bandejas con cableado para los techos verdes. Fueron más de 170 jardines en pequeños espacios.',
-      'd. Se contó con una comunicación directa con el cliente constructor en coordinación con la inmobiliaria. Para resolver sus consultas, incidencias y demás dificultades, logrando satisfacerlos.',
+      'Los desafíos que se encontraron en el proyecto fueron los trabajos en altura, que a través de los equipos adecuados de protección, con la supervisión constante de nuestro personal se logró la ejecución y montaje de los jardines en los balcones.',
+      'Fue un proyecto ejecutado con mucha precisión de acuerdo a los tiempos y en coordinación con otros contratistas para brindar el mejor desempeño en la obra.',
+      'Hubo trabajos de impermeabilización de las bandejas con cableado para los techos verdes. Fueron más de 170 jardines en pequeños espacios.',
+      'Se contó con una comunicación directa con el cliente constructor en coordinación con la inmobiliaria. Para resolver sus consultas, incidencias y demás dificultades, logrando satisfacerlos.',
     ],
   },
   {
@@ -157,9 +157,9 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'a. En este proyecto se ejecutó obras en áreas comunes, un punto central de la obra fue la Zona Pet Home con la implementación de manto asfáltico y su recubrimiento',
-      'b. Hubo mucha coordinación con cada uno de los contratistas. Se ingresó al proyecto en plena construcción logrando cumplir con las fechas estimadas de presentación.',
-      'c. Para esta obra se asignó horarios extendidos para el cumplimiento del mismo. Logrando así cumplir con los objetivos y dar a nuestro cliente el sentido del compromiso y dedicación para desempeñar la obra.',
+      'En este proyecto se ejecutó obras en áreas comunes, un punto central de la obra fue la Zona Pet Home con la implementación de manto asfáltico y su recubrimiento',
+      'Hubo mucha coordinación con cada uno de los contratistas. Se ingresó al proyecto en plena construcción logrando cumplir con las fechas estimadas de presentación.',
+      'Para esta obra se asignó horarios extendidos para el cumplimiento del mismo. Logrando así cumplir con los objetivos y dar a nuestro cliente el sentido del compromiso y dedicación para desempeñar la obra.',
     ],
   },
   {
@@ -196,10 +196,10 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'a. Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Realizando luego el armado de los jardines ',
-      'b. Todo este trabajo se realizó en altura, con andamios colgantes y con las medidas de protección y seguridad. En una constante supervisión de las operaciones. ',
-      'c. Cabe resaltar que los jardines delgados contaban con una gran profundidad.',
-      ' d. Tanto la constructora como la inmobiliaria quedaron satisfechos con la obra.',
+      'Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Realizando luego el armado de los jardines ',
+      'Todo este trabajo se realizó en altura, con andamios colgantes y con las medidas de protección y seguridad. En una constante supervisión de las operaciones. ',
+      'Cabe resaltar que los jardines delgados contaban con una gran profundidad.',
+      'Tanto la constructora como la inmobiliaria quedaron satisfechos con la obra.',
     ],
   },
   {
@@ -240,9 +240,9 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'a. El desafío de este proyecto fue trabajar con un espacio ya terminado que requería una solución con plantas de porte bajo y macetas de cemento.',
-      'b. Se realizó trabajos de instalación de jardinera y macetas acordes a la obra.',
-      'c. Se contó con una comunicación directa con el cliente.',
+      'El desafío de este proyecto fue trabajar con un espacio ya terminado que requería una solución con plantas de porte bajo y macetas de cemento.',
+      'Se realizó trabajos de instalación de jardinera y macetas acordes a la obra.',
+      'Se contó con una comunicación directa con el cliente.',
     ],
   },
   {
@@ -275,10 +275,10 @@ export const dataProyects: EntitydataProyects[] = [
     dificultad: enumDificultad.Medio,
     plantasinstaladas: ['Monsteras', 'Cisus', 'Helecho alemán', 'Helecho'],
     desafios: [
-      'a. El proyecto tuvo como desafío principal trabajar al mismo tiempo que implementaban el ambiente.',
-      'b. También el adquirir las plantas y maceteros en el tamaño que se nos estaba solicitando además que se encontraran en un buen estado.',
-      'c. Realizamos el mantenimiento del árbol de olivo, de cada jardinera y maceta, sin afectar ni malograr el ambiente del proyecto. ',
-      'd. En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'El proyecto tuvo como desafío principal trabajar al mismo tiempo que implementaban el ambiente.',
+      'También el adquirir las plantas y maceteros en el tamaño que se nos estaba solicitando además que se encontraran en un buen estado.',
+      'Realizamos el mantenimiento del árbol de olivo, de cada jardinera y maceta, sin afectar ni malograr el ambiente del proyecto. ',
+      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
     ],
   },
   {
@@ -317,9 +317,9 @@ export const dataProyects: EntitydataProyects[] = [
       'Cisus',
     ],
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
-      'b. Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
-      'c. En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
+      'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
+      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
     ],
   },
   {
@@ -355,9 +355,9 @@ export const dataProyects: EntitydataProyects[] = [
       'Valenciana ágave',
     ],
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
-      'b. Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
-      'c. En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
+      'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
+      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
     ],
   },
   {
@@ -395,9 +395,9 @@ export const dataProyects: EntitydataProyects[] = [
       ' Vinca variegada',
     ],
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
-      'b. Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
-      'c. En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
+      'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
+      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
     ],
   },
   {
@@ -453,10 +453,10 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Sogno Veneziano',
     antes: [
-      'a. El proyecto Le Cottage fue realizado por la arquitecta Erika Zielinski, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°1, en el distrito de Surco.',
-      'b. Este proyecto fue inspirado en Venecia y las 4 estaciones, a través de la música de Antonio Vivaldi, tomar un café en la primavera, leer un libro en el verano, vestirse en el otoño y abrigarse en el invierno.',
-      'c. En el ambiente se utilizaron una paleta de colores en tonos neutros y materiales naturales que sirven como fondo a cada una de las estaciones que se presentan a todo color',
-      'd. Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
+      'El proyecto Le Cottage fue realizado por la arquitecta Erika Zielinski, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°1, en el distrito de Surco.',
+      'Este proyecto fue inspirado en Venecia y las 4 estaciones, a través de la música de Antonio Vivaldi, tomar un café en la primavera, leer un libro en el verano, vestirse en el otoño y abrigarse en el invierno.',
+      'En el ambiente se utilizaron una paleta de colores en tonos neutros y materiales naturales que sirven como fondo a cada una de las estaciones que se presentan a todo color',
+      'Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: 'Erika Zielinski',
     proceso:
@@ -477,10 +477,10 @@ export const dataProyects: EntitydataProyects[] = [
       'Ciprés',
     ],
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
-      'b. También implementamos un jardín vertical de senecios en la bañera, el cual tuvimos que tener mucho cuidado ya que había una pared de cuarzo en el medio de ésta. ',
-      'c. Realizamos el mantenimiento de las macetas y del jardín vertical durante 1 mes.',
-      'd. En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
+      'También implementamos un jardín vertical de senecios en la bañera, el cual tuvimos que tener mucho cuidado ya que había una pared de cuarzo en el medio de ésta. ',
+      'Realizamos el mantenimiento de las macetas y del jardín vertical durante 1 mes.',
+      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
     ],
   },
   {
@@ -493,9 +493,9 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Tejiendo Lazos',
     antes: [
-      'a. El proyecto Tejiendo lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
-      'b. “No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
-      'c. El ambiente fue inspirado en la naturaleza. Se puede apreciar un columpio en forma de colmena, un árbol que se encuentra en el centro de la habitación donde fueron ubicados libros, adornos y plantas, con flores tejidas y distribuidas en el techo, además de una hermosa cabaña en donde la parte superior se encontraba una planta como enredadera.',
+      'El proyecto Tejiendo lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
+      '“No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
+      'El ambiente fue inspirado en la naturaleza. Se puede apreciar un columpio en forma de colmena, un árbol que se encuentra en el centro de la habitación donde fueron ubicados libros, adornos y plantas, con flores tejidas y distribuidas en el techo, además de una hermosa cabaña en donde la parte superior se encontraba una planta como enredadera.',
     ],
     cliente: 'Micaela Puertas',
     proceso:
@@ -519,9 +519,9 @@ export const dataProyects: EntitydataProyects[] = [
       'Madre selva',
     ],
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
-      'b. Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
-      'c. En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
+      'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
+      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
     ],
   },
   {
@@ -534,10 +534,10 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2018',
     nombre: 'Flat familiar',
     antes: [
-      'a. El proyecto Flat Familiar fue realizado por las arquitectas Jennifer Junek y Marilú Salcedo, presentado en Casacor 2018. La exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
-      'b. Este proyecto está inspirado en una pareja joven y su pequeña hija.',
-      'c. Este ambiente tuvo un espacio de 70 m² en donde hubo una gran estantería multifuncional como división del salón y la cocina. La paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul. Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia.',
-      'd. Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018 , A Casa Viva.',
+      'El proyecto Flat Familiar fue realizado por las arquitectas Jennifer Junek y Marilú Salcedo, presentado en Casacor 2018. La exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
+      'Este proyecto está inspirado en una pareja joven y su pequeña hija.',
+      'Este ambiente tuvo un espacio de 70 m² en donde hubo una gran estantería multifuncional como división del salón y la cocina. La paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul. Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia.',
+      'Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018 , A Casa Viva.',
     ],
     cliente: 'Jennifer Junek y Marilú Salcedo',
     proceso:
@@ -553,9 +553,9 @@ export const dataProyects: EntitydataProyects[] = [
     year: '2028',
     dificultad: enumDificultad.Leve,
     desafios: [
-      'a. El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
-      'b. Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
-      'c. En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
+      'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
+      'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
+      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
     ],
   },
 ]

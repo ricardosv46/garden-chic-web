@@ -30,12 +30,7 @@ interface IDataBlog {
 const DetalleServicios = ({ url }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
-
-  // console.log({ url })
-
   const { db: productos, loading } = useProductos()
-
-  // const serviciosLat = ['Jardines', 'Urbano', 'Mantenimiento', 'Eventos']
   const serviciosLat = ['Paisajismo',
     'Jardines Verticales',
     'Mantenimiento',
@@ -102,17 +97,18 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             })}
         </div>
         <div className='w-full lg:w-9/12'>
-          {url?.content.map((obj, i) => <article className='' key={i}>
-            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' >
-              {obj.tittle || ''}
-            </h2>
-            <div className='text-gray-700 text-lg font-light py-7'>
-              {obj?.subcontent.map((obj2, j) => <p className='pb-4' key={j}>
-                {obj2 || ''}
-              </p>)}
+          {url?.content.map((obj, i) => (
+            <article className='' key={i}>
+              <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' >
+                {obj.tittle || ''}
+              </h2>
+              <div className='text-gray-700 text-lg font-light py-7'>
+                {obj?.subcontent?.map((obj2, j) => <p className='pb-4' key={j}>
+                  {obj2 || ''}
+                </p>)}
 
-            </div>
-          </article>)}
+              </div>
+            </article>))}
 
 
           <div className='mt-3'>
@@ -124,36 +120,6 @@ const DetalleServicios = ({ url }: PropsStatic) => {
               {dataProyects.map((item, index) => {
                 if (index < 5) {
                   return (
-                    // <div
-                    //   key={index}
-                    //   className='hover:cursor-pointer relative lg:shadow-sm'
-                    //   onClick={() => router.push(`/proyectos/${item.img}`)}
-                    // >
-                    //   <div className='hidden lg:flex bg-white text-primary-300 absolute top-0 w-full h-full z-10  justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-out pt-10 hover:pt-0 rounded-lg'>
-                    //     <div className='text-center p-5'>
-                    //       <p className='text-2xl font-bold'>{item.title}</p>
-                    //       <p className='text-lg pt-5 font-semibold'>
-                    //         {item.description}
-                    //       </p>
-                    //     </div>
-                    //   </div>
-                    //   <div className='image-h-full-hack image-block-hack'>
-                    //     <Image
-                    //       width={800}
-                    //       height={614}
-                    //       src={`/imgs/works/${item.img}`}
-                    //       className='transition-all duration-500 ease-out rounded-lg'
-                    //       alt={item.title}
-                    //     />
-                    //   </div>
-                    //   <div className='lg:hidden p-1'>
-                    //     <p className='text-primary-600 text-xl font-semibold'>
-                    //       {item.title}
-                    //     </p>
-                    //     <p className='text-gray-600'>{item.description}</p>
-                    //   </div>
-                    // </div>
-                    // <ServicioItem key={index} data={item} />
                     <ProyectItem key={index} data={item} />
                   )
                 }

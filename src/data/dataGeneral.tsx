@@ -148,7 +148,7 @@ export const DataGeneral: IDataGeneral = {
                 'TECHOS VERDES',
                 'INSTALACIÓN DE JARDINERAS Y MACETAS',
                 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-                '    VIVERO'
+                'VIVERO'
             ]
         },
         Iconos: [
@@ -173,7 +173,7 @@ export const DataGeneral: IDataGeneral = {
                 'TECHOS VERDES',
                 'INSTALACIÓN DE JARDINERAS Y MACETAS',
                 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-                '    VIVERO'
+                'VIVERO'
             ]
         },
         Banner: {
@@ -191,7 +191,7 @@ export const DataGeneral: IDataGeneral = {
             'TECHOS VERDES',
             'INSTALACIÓN DE JARDINERAS Y MACETAS',
             'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-            '    VIVERO'
+            'VIVERO'
         ]
     }
 }

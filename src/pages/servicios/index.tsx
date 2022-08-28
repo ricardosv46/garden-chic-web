@@ -48,26 +48,6 @@ const Servicios = () => {
             </div>
           ))}
         </div>
-        {/* <div
-          className={`flex flex-col py-7 lg:py-0 lg:flex-row gap-8 lg:gap-0 }`}
-        > */}
-          {/* <div className='lg:w-1/2'>
-            <div className="flex-auto bg-[url('/imgs/servicios/servicio5.jpg')] bg-cover bg-no-repeat w-full h-[500px] lg:h-[800px] "></div>
-          </div> */}
-
-          {/* <Image
-          className='object-cover'
-          width={640}
-          height={800}
-          src={`/imgs/servicios/servicio5.jpg`}
-          alt='imagen proyecto'
-        /> */}
-          {/* <div className='lg:w-1/2 flex-auto px-10 lg:mx-auto flex flex-col justify-center items-center gap-10'>
-            <h2 className='lg:text-center text-4xl sm:text-4xl lg:text-6xl xl:text-7xl text-primary-300 font-bold'>
-              We are nice people with a lot of experience.
-            </h2>
-          </div> */}
-        {/* </div> */}
         <Contactanos data={DataGeneral.Servicios.Contactanos} />
       </Container>
     </>
