@@ -70,11 +70,8 @@ const NuestrosClientes = ({ data }: IProps) => {
               <Image src={resolvePath(item)}
                 alt={item}
                 className="object-contain border-4"
-
-                // width={350}
-                // height={350}
                 layout="fill"
-                 />
+              />
             </div>
           </SwiperSlide>
         ))}

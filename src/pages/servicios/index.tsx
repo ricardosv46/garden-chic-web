@@ -11,7 +11,6 @@ const Servicios = () => {
 
   return (
     <>
-      {/* <HeaderServicios image={DataGeneral.Servicios.BannerHeader} /> */}
       <Container className='py-10'>
         <Tittle tittle='Servicios' />
         <div className='pt-10 pb-10 '>

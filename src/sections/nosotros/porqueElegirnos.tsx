@@ -14,8 +14,9 @@ const PorqueElegirnos = () => {
             Trabajamos con un equipo multidisciplinario que ha participado en los
             principales proyectos de Paisajismo en el país, tales como <span className='font-bold'>Los Juegos
               Panamericanos</span>, Edificios con certificación LEED, además somos proveedor oficial de
-            <span className='font-bold'> CASACOR Perú</span> desde el 2018,también formamos parte de la <span className='font-bold'>Asociación de Diseñadores del Perú</span>
-            y de <span className='font-blod'>Perú Green Building Council</span> que tiene el objetivo de promover la
+            <span className='font-bold'> CASACOR Perú</span> desde el 2018,también formamos parte de la
+            <span className='font-bold'>Asociación de Diseñadores del Perú</span> y de
+            <span className='font-bold'> Perú Green Building Council a</span> que tiene el objetivo de promover la
             reducción de las emisiones de carbono implementando Edificios Sostenibles
 
           </p>

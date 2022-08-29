@@ -37,7 +37,7 @@ const Proyects = () => {
         ]} />
       </div>
       {/* 6 imagenes por defecto */}
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-10 '>
         {dataProyects.map((obj, index) => {
           if (index < 6) {
             return < ProyectItem key={index} data={obj} />
@@ -55,7 +55,7 @@ const Proyects = () => {
           </button>
         )}
       </div>
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  justify-items-center mt-10 '>
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-10 '>
         {show &&
           dataProyects.map((obj, index) => {
             if (index > 5) {

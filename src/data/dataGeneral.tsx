@@ -1,6 +1,5 @@
-import { IconImpermeabilizacionColor, IconJardinesVerticalesColor, IconMantenimientoColor, IconPaisajismoColor, IconRiegoTecnificadoColor, IconTechosVerdesColor, IconViverosColor } from 'public/icons/servicios/color'
 import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconPaisajismo, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
-import { VERTICAL_PLANTAS, VERTICAL_SERVICIOS, VERTICAL_VIVERO } from 'public/icons/nosotros/bannerCarrousel'
+import { HORIZONTAL_PLANTAS, HORIZONTAL_SERVICIO, HORIZONTAL_VIVERO } from 'public/icons/nosotros/bannerCarrousel'
 export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
@@ -74,26 +73,26 @@ export const DataGeneral: IDataGeneral = {
             }],
         Iconos: [
             {
-                Icon1: <IconPaisajismo className='w-20 h-20' />,
+                Icon1: 'IconPaisajismo',
                 label: "Paisajismo"
             }, {
-                Icon1: <IconJardinesVerticales className='w-20 h-20' />,
+                Icon1: 'IconJardinesVerticales',
                 label: "Jardines Verticales"
             }, {
 
-                Icon1: <IconMantenimiento className='w-20 h-20' />,
+                Icon1: 'IconMantenimiento',
                 label: "Mantenimiento"
             }, {
-                Icon1: <IconImpermeablizacion className='w-20 h-20' />,
+                Icon1: 'IconImpermeablizacion',
                 label: 'Impermeabilización'
             }, {
-                Icon1: <IconRiegoTexnificado className='w-20 h-20' />,
+                Icon1: 'IconRiegoTexnificado',
                 label: 'Riego Tecnificado'
             }, {
-                Icon1: <IconTechosVerdes className='w-20 h-20' />,
+                Icon1: 'IconTechosVerdes',
                 label: 'Techos Verdes'
             }, {
-                Icon1: <IconVivero className='w-20 h-20' />,
+                Icon1: 'IconVivero',
                 label: 'Vivero'
             }
         ],
@@ -107,40 +106,39 @@ export const DataGeneral: IDataGeneral = {
                 'TECHOS VERDES',
                 'INSTALACIÓN DE JARDINERAS Y MACETAS',
                 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
-                '    VIVERO'
+                'VIVERO'
             ]
         }
 
     },
     Nosotros: {
         QuePodemosHacer: {
-            tittle: '¡Nosotros nos encargamos de tu jardín!',
-            subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos que es muy importante el compromiso, puntualidad, profefionalismo y calidad para la realización de tus proyectos',
+            tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
+            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes. Podemos ayudar a hacer realidad el jardín de tus sueños',
             items: [{
-                count: '10',
-                type: 'Años',
+                count: '150',
+                type: 'PROYECTOS REALIZADOS',
                 duration: 2000,
-                tittle: 'Proyectos Realizados',
-                subtittle: 'Más de 150 proyectos realizados. En estos 6 años en el mercado nacional.'
+                tittle: '',
+                subtittle: 'En estos 06 años en el mercado laboral'
             },
             {
-                count: '30',
-                type: 'Especialista',
+                count: '800 m²',
+                type: 'DE ÁREAS VERDES',
                 duration: 1000,
-                tittle: 'Jardines Verticales',
-                subtittle: 'Más de 800 m2 de implementación de jardines verticales.'
+                tittle: '',
+                subtittle: 'En implementación de jardines verticales'
             },
             {
-                count: '15',
-                type: 'Premios',
+                count: '50',
+                type: 'CIENTES SATISFECHOS',
                 duration: 1500,
-                tittle: 'Clientes Satisfechos',
-                subtittle: 'Más de 50 clientes confían en nuestros servicios.<'
+                tittle: '',
+                subtittle: 'Confiaron en nuestros servicios'
             }]
-
         },
         Contactanos: {
-            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con gusto y prontitud te atenderemos.',
             OptionForm: ['PAISAJISMO',
                 'JARDINES VERTICALES',
                 'MANTENIMIENTO DE JARDINES',
@@ -153,19 +151,19 @@ export const DataGeneral: IDataGeneral = {
         },
         Iconos: [
             {
-                Icon1: <VERTICAL_PLANTAS className='w-32 h-32 '  />,
+                Icon1: <HORIZONTAL_PLANTAS className='w-full h-full' />,
             },
             {
-                Icon1: <VERTICAL_SERVICIOS className='w-32 h-32' />,
+                Icon1: <HORIZONTAL_SERVICIO className='w-full h-full' />,
             },
             {
-                Icon1: <VERTICAL_VIVERO className='w-32 h-32' />,
+                Icon1: <HORIZONTAL_VIVERO className='w-full h-full' />,
             }
         ],
     },
     Servicios: {
         Contactanos: {
-            tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+            tittle: 'Haz tu consulta o solicitud de presupuesto, con gusto y orontitud te atenderemos.',
             OptionForm: ['PAISAJISMO',
                 'JARDINES VERTICALES',
                 'MANTENIMIENTO DE JARDINES',
@@ -183,7 +181,7 @@ export const DataGeneral: IDataGeneral = {
         BannerHeader: '01_PRINCIPAL.jpg'
     },
     Contactanos: {
-        tittle: 'Haz tu consulta o solicitud de presupuesto, con Gusto y Prontitud te atenderemos.',
+        tittle: 'Haz tu consulta o solicitud de presupuesto, con gusto y prontitud te atenderemos.',
         OptionForm: ['PAISAJISMO',
             'JARDINES VERTICALES',
             'MANTENIMIENTO DE JARDINES',
@@ -231,7 +229,7 @@ interface IDataGeneral {
     Home: {
         QuePodemosHacer: IQuePodemosHacer,
         Banner: IBanner[]
-        Iconos: IIconos[],
+        Iconos: { Icon1: string, label: string }[],
         EllosConfian: string[],
         Contactanos: {
             tittle: string
