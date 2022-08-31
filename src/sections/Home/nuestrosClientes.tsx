@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Navigation } from 'swiper'
+import { Navigation, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Container from '../../components/container'
 
@@ -35,7 +35,7 @@ const NuestrosClientes = ({ data }: IProps) => {
         loop={true}
         grabCursor={true}
         autoplay={{
-          delay: 7500,
+          delay: 2500,
           disableOnInteraction: false
         }}
         slidesPerView={1}
@@ -59,7 +59,7 @@ const NuestrosClientes = ({ data }: IProps) => {
             spaceBetween: 10
           }
         }}
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         className='mySwiper'
       >
         {data.map((item) => (

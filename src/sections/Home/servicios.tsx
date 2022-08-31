@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Navigation } from 'swiper'
+import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { IconImpermeablizacion, IconJardinesVerticales, IconMantenimiento, IconPaisajismo, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
 import Container from '../../components/container'
@@ -35,7 +35,7 @@ const Servicios = ({ data, loop = true }: IProps) => {
         loop={loop}
         grabCursor={loop}
         autoplay={{
-          delay: 7500,
+          delay: 2500,
           disableOnInteraction: false
         }}
         slidesPerView={1}
@@ -58,7 +58,7 @@ const Servicios = ({ data, loop = true }: IProps) => {
             spaceBetween: 10
           }
         }}
-        // modules={[Navigation]}
+        modules={[Autoplay]}
         className='mySwiper'
       >
         {

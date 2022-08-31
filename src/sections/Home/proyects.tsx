@@ -55,7 +55,7 @@ const Proyects = () => {
           </button>
         )}
       </div>
-      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-10 '>
+      <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-5'>
         {show &&
           dataProyects.map((obj, index) => {
             if (index > 5) {

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import { IBanner } from 'src/data/dataGeneral'
 // import required modules
-import { Navigation, Pagination } from 'swiper'
+import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Item, ItemPrincipal } from './items_banner'
 import { Show } from '@components/show'
 
@@ -30,7 +30,7 @@ const Banner = ({ data }: IProps) => {
         pagination={{
           clickable: true
         }}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
         className='mySwiper'
       >
 
