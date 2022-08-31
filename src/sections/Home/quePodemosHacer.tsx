@@ -9,7 +9,7 @@ interface IProps {
 const QuePodemosHacer = ({ data }: IProps) => {
   const { ref, inView } = useInView();
   return (
-    <div className="py-32 bg-gray-50">
+    <div className="py-10 md:py-16 bg-gray-50 " >
       <div className="container mx-auto px-6 md:px-12 xl:px-32">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-center text-2xl text-primary-600  md:text-4xl lg:text-6xl font-garden_bold">{data.tittle || ''}</h2>

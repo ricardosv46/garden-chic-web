@@ -85,8 +85,8 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      'a. Edificio Rivera Navarrete realizado por la  constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro',
-      'b. Es el primer proyecto enfocado en integrar la vivienda al corazón del Centro Financiero de San Isidro; lo que le otorgó el Premio Arquitectura y Ciudad 2020, de la Cámara Peruana de la Construcción CAPECO.',
+      'Edificio Rivera Navarrete realizado por la  constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro',
+      'Es el primer proyecto enfocado en integrar la vivienda al corazón del Centro Financiero de San Isidro; lo que le otorgó el Premio Arquitectura y Ciudad 2020, de la Cámara Peruana de la Construcción CAPECO.',
     ],
     ubicacion: 'Rivera Navarrete 548, Miraflores.',
     cliente: 'PIONERO INMOBILIARIA',
@@ -127,8 +127,8 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      'a. Proyecto Inmobiliario Vidal, con el concepto de compartir sus vidas con sus engreídos de cuatro patas. Cuenta con una Zona Home Pet Home para que puedan correr, jugar y tomar un baño sin salir de casa.',
-      'b. En este proyecto ubicado en Miraflores, trabajamos de acuerdo al diseño que solicitaba nuestro cliente. Elaboramos un espacio de áreas verdes, en donde se instaló una zona recreativa para niños, también una zona Home Pet Home y además un lugar para compartir con amigos.',
+      'Proyecto Inmobiliario Vidal, con el concepto de compartir sus vidas con sus engreídos de cuatro patas. Cuenta con una Zona Home Pet Home para que puedan correr, jugar y tomar un baño sin salir de casa.',
+      'En este proyecto ubicado en Miraflores, trabajamos de acuerdo al diseño que solicitaba nuestro cliente. Elaboramos un espacio de áreas verdes, en donde se instaló una zona recreativa para niños, también una zona Home Pet Home y además un lugar para compartir con amigos.',
     ],
     ubicacion: 'Vidal 140, San Isidro.',
     cliente: 'PIONERO INMOBILIARIA',
@@ -170,7 +170,7 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      'a. En este proyecto ubicado en Barranco, trabajamos de acuerdo al diseño que solicitaba nuestro cliente. Elaboramos un espacio de áreas verdes en el primer piso y en la terraza en donde se instaló una piscina, una zona Home Pet Home y además un lugar para compartir con amigos.',
+      'En este proyecto ubicado en Barranco, trabajamos de acuerdo al diseño que solicitaba nuestro cliente. Elaboramos un espacio de áreas verdes en el primer piso y en la terraza en donde se instaló una piscina, una zona Home Pet Home y además un lugar para compartir con amigos.',
     ],
     ubicacion: 'Sol 135, Barranco.',
     cliente: 'PIONERO INMOBILIARIA',
@@ -210,8 +210,8 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      ' a. El Edificio MADDY es un proyecto realizado por la constructora e inmobiliaria ICASA ubicado en Magdalena.',
-      'b. En este proyecto trabajamos de acuerdo al diseño y presupuesto que solicitaba nuestro cliente.',
+      'El Edificio MADDY es un proyecto realizado por la constructora e inmobiliaria ICASA ubicado en Magdalena.',
+      'En este proyecto trabajamos de acuerdo al diseño y presupuesto que solicitaba nuestro cliente.',
     ],
     ubicacion: 'Jr. Tacna 1056 Magdalena',
     cliente: ' ICASA - MADDY',
@@ -255,10 +255,10 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2018',
     nombre: 'Loft de Marianne',
     antes: [
-      'a. El proyecto Loft de Marianne fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2018. La exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
-      'b. El punto principal del proyecto fue un olivo, que invadía todo el loft con sus ramas.',
-      'c. La construcción estuvo marcada por el vidrio y el no uso de paredes, manteniendo una conexión entre las áreas internas y externas. La paleta de colores es otro encanto del proyecto. Entre negro y gris se utilizó también tonos de rosa pastel, azul y verde.',
-      'd. El paisaje estuvo bien marcado por pinturas, gran variedad de plantas y maceteros. Todos ellos refrescando cada rincón del Loft.',
+      'El proyecto Loft de Marianne fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2018. La exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
+      'El punto principal del proyecto fue un olivo, que invadía todo el loft con sus ramas.',
+      'La construcción estuvo marcada por el vidrio y el no uso de paredes, manteniendo una conexión entre las áreas internas y externas. La paleta de colores es otro encanto del proyecto. Entre negro y gris se utilizó también tonos de rosa pastel, azul y verde.',
+      'El paisaje estuvo bien marcado por pinturas, gran variedad de plantas y maceteros. Todos ellos refrescando cada rincón del Loft.',
     ],
     cliente: 'Arquitecto Diego Olivera ',
     proceso:
@@ -291,9 +291,9 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2019',
     nombre: 'Casa Ribbed',
     antes: [
-      'a. El proyecto Casa Ribbed fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2019. La exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
-      'b. Este proyecto fue muy novedoso e innovador, tuvo un concepto que exhibe un loft masculino, vanguardista, sofisticado, elegante, de líneas rectas y espíritu juvenil, con una gama de colores muy interesantes.',
-      'c. La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio',
+      'El proyecto Casa Ribbed fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2019. La exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
+      'Este proyecto fue muy novedoso e innovador, tuvo un concepto que exhibe un loft masculino, vanguardista, sofisticado, elegante, de líneas rectas y espíritu juvenil, con una gama de colores muy interesantes.',
+      'La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio',
     ],
     cliente: ' Arquitecto Diego Olivera',
     proceso:
@@ -332,9 +332,9 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2019',
     nombre: 'Quinta Masseria',
     antes: [
-      'a. El proyecto Quinta Masseria fue realizado por la arquitecta Jessie D’Angelo, presentado en Casacor 2019. La exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
-      'b. Este proyecto fue inspirado en las culturas grecorromana, árabe y española para crear este ambiente: una antigua casa de campo mediterránea restaurada para hospedar a los visitantes.',
-      'c. El ambiente fue complementado por una serie de macetas con cactus esculturales y obras de Valeria Ghezzi, Jessica Schneider y Claudia Caffarena.',
+      'El proyecto Quinta Masseria fue realizado por la arquitecta Jessie D’Angelo, presentado en Casacor 2019. La exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
+      'Este proyecto fue inspirado en las culturas grecorromana, árabe y española para crear este ambiente: una antigua casa de campo mediterránea restaurada para hospedar a los visitantes.',
+      'El ambiente fue complementado por una serie de macetas con cactus esculturales y obras de Valeria Ghezzi, Jessica Schneider y Claudia Caffarena.',
     ],
     cliente: 'Arquitecta Jessie D’Angelo',
     proceso:
@@ -370,10 +370,10 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Le Cottage',
     antes: [
-      'a. El proyecto Le Cottage fue realizado por la arquitecta Jessie D’Angelo, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°3, en el distrito de Surco.',
-      'b. Este proyecto fue pensado en una pequeña cabaña de vacaciones que alberga a una familia de cuatro personas frente al lago.',
-      'c. En el ambiente se utilizaron una paleta de colores en tonos azul, verde y neutros.  Materiales como la madera pintada, los wallpapers en techos y paredes, las texturas de las telas y coloridos crearon una sensación de bienestar y calma dentro de los tres ambientes.',
-      'd. Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
+      'El proyecto Le Cottage fue realizado por la arquitecta Jessie D’Angelo, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°3, en el distrito de Surco.',
+      'Este proyecto fue pensado en una pequeña cabaña de vacaciones que alberga a una familia de cuatro personas frente al lago.',
+      'En el ambiente se utilizaron una paleta de colores en tonos azul, verde y neutros.  Materiales como la madera pintada, los wallpapers en techos y paredes, las texturas de las telas y coloridos crearon una sensación de bienestar y calma dentro de los tres ambientes.',
+      'Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: 'Arquitecta Jessie D’Angelo',
     proceso:
@@ -494,7 +494,7 @@ export const dataProyects: EntitydataProyects[] = [
     nombre: 'Tejiendo Lazos',
     antes: [
       'El proyecto Tejiendo lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
-      '“No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
+      'No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
       'El ambiente fue inspirado en la naturaleza. Se puede apreciar un columpio en forma de colmena, un árbol que se encuentra en el centro de la habitación donde fueron ubicados libros, adornos y plantas, con flores tejidas y distribuidas en el techo, además de una hermosa cabaña en donde la parte superior se encontraba una planta como enredadera.',
     ],
     cliente: 'Micaela Puertas',

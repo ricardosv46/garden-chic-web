@@ -31,15 +31,15 @@ const Servicios = () => {
               </div>
 
               <div className='lg:w-1/2 flex-auto px-10 xl:px-28 flex flex-col justify-center items-center gap-10'>
-                <h2 className='text-center text-4xl text-primary-300 font-bold'>
+                <h2 className='text-center text-2xl md:text-4xl text-primary-300 font-garden_bold'>
                   {item.tittleResumido}
                 </h2>
-                <p className='text-center  text-lg text-primary-300 font-semibold '>
+                <p className='text-center text-sm md:text-lg text-primary-300 font-garden_medium '>
                   {item.description || ''}
                 </p>
                 <button
                   onClick={() => router.push(`/servicios/${item.url}`)}
-                  className='bg-white text-primary-300 border-2 border-primary-300 px-10 py-3 rounded-full uppercase duration-300 ease-in-out font-garden_medium  hover:text-white hover:bg-primary-300'
+                  className='bg-white text-primary-300 border-2 border-primary-300 px-4 py-1 md:px-10 md:py-3 rounded-full uppercase duration-300 ease-in-out font-garden_medium  hover:text-white hover:bg-primary-300'
                 >
                   Más
                 </button>

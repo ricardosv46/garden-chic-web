@@ -84,7 +84,7 @@ const Contactanos = ({ data }: IProps) => {
               <div>
                 <button
                   type='submit'
-                  className='bg-primary-300 text-white border-2 px-10 py-4 rounded-full uppercase duration-300 ease-in-out hover:border-primary-300  hover:bg-white hover:text-primary-300'
+                  className='bg-primary-300 text-white border-2 p-2 md:px-10 md:py-4 rounded-full text-sm md:text-base uppercase duration-300 ease-in-out hover:border-primary-300  hover:bg-white hover:text-primary-300'
                 >
                   Enviar
                 </button>
@@ -92,7 +92,9 @@ const Contactanos = ({ data }: IProps) => {
             </form>
           </div>
         </div>
-        <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[830px]  relative mt-10 lg:mt-0'>
+        {/* pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[830px]  relative mt-10 lg:mt-0 */}
+        {/* <div className='pt-10 pb-5  w-full lg:w-1/2 h-[630px] lg:h-[830px] relative lg:mt-0 '> */}
+        <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[530px] sm:h-[830px] relative sm:mt-10 lg:mt-0 p-10  '>
           <Image
             src='/imgs/nosotros/header/04_COTIZA_CON_NOSOTROS.jpg'
             alt='manos'
