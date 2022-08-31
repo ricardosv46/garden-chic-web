@@ -26,7 +26,7 @@ const Contactanos = ({ data }: IProps) => {
 
   return (
     <Container>
-      <div className='flex flex-col lg:flex-row '>
+      <div className='flex flex-col lg:flex-row lg:py-10 '>
         <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto '>
           <h2 className='text-primary-300 font-garden_bold text-4xl  pt-20'>
             {data.tittle || ''}
@@ -102,26 +102,8 @@ const Contactanos = ({ data }: IProps) => {
             objectFit='contain'
             layout='fill'
           />
-          {/* <div className='w-full h-auto lg:w-[650px] border-4 lg:h-[830px] overflow-hidden relative'> */}
-          {/* <Image
-              loading='lazy'
-              src='/imgs/contactos/formulario.jpg'
-              alt='manos'
-              objectFit='cover'
-              objectPosition='center'
-              width={875}
-              height={1350}
-            /> */}
-
-          {/* </div> */}
         </div>
-        {/* la otra forma de hacer la imagen */}
-        {/* <div className='w-full lg:w-1/2'>
-          <div
-            style={{ backgroundImage: `url('/imgs/contactos/formulario.jpg` }}
-            className={`flex-auto mt-5 lg:mt-0 bg-center  bg-cover bg-no-repeat w-full h-[700px] lg:h-[750px] `}
-          ></div>
-        </div> */}
+    
       </div>
     </Container>
   )

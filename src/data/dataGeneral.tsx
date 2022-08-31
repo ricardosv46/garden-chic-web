@@ -113,8 +113,8 @@ export const DataGeneral: IDataGeneral = {
     },
     Nosotros: {
         QuePodemosHacer: {
-            tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
-            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes. Podemos ayudar a hacer realidad el jardín de tus sueños',
+            tittle: '!Nos encargamos de tu jardín!',
+            subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos que es muy importante el compromiso, puntualidad, profesionalismo y calidad para la realizacion de tus proyectos.',
             items: [{
                 count: '150',
                 type: 'PROYECTOS REALIZADOS',

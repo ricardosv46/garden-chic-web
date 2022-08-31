@@ -22,7 +22,7 @@ interface IProps {
 const NuestrosClientes = ({ data }: IProps) => {
   const resolvePath = (path: string) => pathname + path + typeImg
   return (
-    <Container className='p-10 py-2 lg:py-28 '>
+    <Container className='p-10 py-2 lg:py-20 '>
       <div className='flex items-center gap-x-4 mb-10'>
         <hr className='w-[30%] lg:w-[40%] h-[1px] border border-black  '></hr>
 
@@ -63,13 +63,13 @@ const NuestrosClientes = ({ data }: IProps) => {
         className='mySwiper'
       >
         {data.map((item) => (
-          <SwiperSlide key={item} className='lg:mx-10'>
+          <SwiperSlide key={item} className='xl:px-10'>
             <div
               className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 relative h-20 `}
             >
               <Image src={resolvePath(item)}
                 alt={item}
-                className="object-contain border-4"
+                className="object-contain"
                 layout="fill"
               />
             </div>
