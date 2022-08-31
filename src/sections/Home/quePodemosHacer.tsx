@@ -12,8 +12,8 @@ const QuePodemosHacer = ({ data }: IProps) => {
     <div className="py-10 md:py-16 bg-gray-50 " >
       <div className="container mx-auto px-6 md:px-12 xl:px-32">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-center text-4xl text-primary-600  md:text-5xl lg:text-6xl font-garden_bold">{data.tittle || ''}</h2>
-          {data.subtittle.split('.').map((obj, k) => <p key={k} className="text-gray-600 lg:w-8/12 lg:mx-auto font-garden_medium text-xl md:text-3xl ">{obj || ''}</p>)}
+          <h2 className="mb-4 text-center text-2xl text-primary-600  md:text-3xl lg:text-6xl font-garden_bold">{data.tittle || ''}</h2>
+          {data.subtittle.split('.').map((obj, k) => <p key={k} className="text-gray-600 lg:w-8/12 lg:mx-auto font-garden_medium text-base md:text-xl ">{obj || ''}</p>)}
         </div>
         <div ref={ref} className="grid gap-12 items-center md:grid-cols-3">
           {data.items.map((obj, i) =>

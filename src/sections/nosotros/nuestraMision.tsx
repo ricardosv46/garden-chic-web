@@ -8,10 +8,10 @@ const NuestraMision = () => {
       <Container bgColor='bg-gray-100' className='py-5 pb-10'>
         <div className='grid grid-cols-1 md:grid-cols-[60%,40%] bg-white'>
           <div className='order-2   py-3 px-6 text-xl md:text-2xl  md:px-12 lg:py-10 xl:pt-32 xl:pb-24  font-light text-primary-800'>
-            <h2 className='font-bold leading-none text-[50px] md:text-4xl'>
+            <h2 className='font-bold leading-none text-xl md:text-2xl lg:text-4xl'>
               Nuestra misión
             </h2>
-            <p className='text-lg font-extralight mt-8  md:text-base text-justify '>
+            <p className='text-xs md:text-lg lg:text-2xl font-extralight mt-8 text-justify '>
               Servir a nuestros clientes de una manera excelente, tratando
               de reflejar lo más fielmente posible el estilo, la decoración,
               los colores y mantenimiento del área verde, donde se vea reflejado las

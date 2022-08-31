@@ -27,12 +27,12 @@ const Contactanos = ({ data }: IProps) => {
   return (
     <Container>
       <div className='flex flex-col lg:flex-row lg:py-10 '>
-        <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto '>
-          <h2 className='text-primary-300 font-garden_bold text-4xl  pt-20'>
+        <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto mb-6 sm:mb-0'>
+          <h2 className='text-primary-300 font-garden_bold text-xl md:text-2xl lg:text-4xl  pt-20'>
             {data.tittle || ''}
           </h2>
           <div>
-            <h3 className='text-primary-300 font-garden_medium text-xl mt-5 lg:mt-14'>
+            <h3 className='text-primary-300 font-garden_medium text-base lg:text-xl mt-5 lg:mt-14'>
               Tu información
             </h3>
             <form
@@ -84,7 +84,7 @@ const Contactanos = ({ data }: IProps) => {
               <div>
                 <button
                   type='submit'
-                  className='bg-primary-300 text-white border-2 p-2 md:px-10 md:py-4 rounded-full text-sm md:text-base uppercase duration-300 ease-in-out hover:border-primary-300  hover:bg-white hover:text-primary-300'
+                  className='bg-primary-300 text-white border-2 p-2 md:px-10 md:py-4 rounded-full text-xs md:text-base uppercase duration-300 ease-in-out hover:border-primary-300  hover:bg-white hover:text-primary-300'
                 >
                   Enviar
                 </button>
@@ -92,14 +92,12 @@ const Contactanos = ({ data }: IProps) => {
             </form>
           </div>
         </div>
-        {/* pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[830px]  relative mt-10 lg:mt-0 */}
-        {/* <div className='pt-10 pb-5  w-full lg:w-1/2 h-[630px] lg:h-[830px] relative lg:mt-0 '> */}
-        <div className='pt-10 pb-5 lg:p-0  w-full lg:w-1/2 h-[530px] sm:h-[830px] relative sm:mt-10 lg:mt-0 p-10  '>
+        <div className='pt-10 pb-5 lg:p-0 w-full lg:w-1/2 h-[530px] sm:h-[830px] relative sm:mt-10 lg:mt-0 p-10 '>
           <Image
             src='/imgs/nosotros/header/04_COTIZA_CON_NOSOTROS.jpg'
             alt='manos'
             loading='lazy'
-            objectFit='contain'
+            objectFit='cover'
             layout='fill'
           />
         </div>

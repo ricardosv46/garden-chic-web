@@ -55,11 +55,10 @@ const CardProducto = ({
           />
           {/* hover images buttons */}
           <div
-            className={`hidden md:flex absolute transition-all ease-in duration-300 bg-gray-500  flex-row justify-center items-center gap-2 z-0 ${
-              hover
+            className={`hidden md:flex absolute transition-all ease-in duration-300 bg-gray-500  flex-row justify-center items-center gap-2 z-0 ${hover
                 ? "bg-gradiant-primary inset-0 rounded-t-xl scale-100"
                 : " inset-[50%] rounded-full scale-0"
-            } `}
+              } `}
           >
             <div className="w-10 h-10 bg-white rounded-md flex items-center justify-center z-40">
               <button
@@ -157,7 +156,9 @@ const CardProducto = ({
             </button>
             {/* onClick={() => router.push(`/tienda/${slug}`)} */}
 
-            <button className="w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] ">
+            <button className="w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] "
+              onClick={() => router.push(`/tienda/${slug}`)}
+              >
               <FiEye className="mx-auto my-auto" />
             </button>
           </div>

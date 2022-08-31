@@ -7,15 +7,15 @@ const PorqueElegirnos = () => {
     <Container bgColor='bg-gray-100' className='pt-10 pb-5'>
       <div className='grid grid-cols-1 md:grid-cols-[40%,60%] bg-white '>
         <div className='order-2 md:order-1 py-3 px-6 text-xl lg:text-2xl p-10 md:px-12 lg:py-10 xl:pt-28 xl:pb-20 font-light text-primary-800  '>
-          <h2 className='font-bold leading-none text-[50px] md:text-4xl'>
+          <h2 className='font-bold leading-none text-xl md:text-2xl lg:text-4xl'>
             ¿Por qué elegirnos?
           </h2>
-          <p className='text-lg font-extralight mt-8  md:text-base text-justify ' >
+          <p className='text-xs md:text-lg lg:text-2xl font-extralight mt-8 text-justify ' >
             Trabajamos con un equipo multidisciplinario que ha participado en los
             principales proyectos de Paisajismo en el país, tales como <span className='font-bold'>Los Juegos
               Panamericanos</span>, Edificios con certificación LEED, además somos proveedor oficial de
             <span className='font-bold'> CASACOR Perú</span> desde el 2018,también formamos parte de la
-            <span className='font-bold'>Asociación de Diseñadores del Perú</span> y de
+            <span className='font-bold'> Asociación de Diseñadores del Perú</span> y de
             <span className='font-bold'> Perú Green Building Council a</span> que tiene el objetivo de promover la
             reducción de las emisiones de carbono implementando Edificios Sostenibles
 

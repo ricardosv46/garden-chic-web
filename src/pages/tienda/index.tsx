@@ -123,7 +123,7 @@ const Tienda = () => {
 				</div>
 
 				{/* wrapper card´s */}
-				<motion.div className={`flex justify-center items-start w-full  ${isOpenFilter ? ' lg:w-3/4 ' : 'lg:w-full'}`} layout>
+				<motion.div className={`flex justify-center items-start w-full mb-10 ${isOpenFilter ? ' lg:w-3/4 ' : 'lg:w-full'}`} layout>
 					<div
 						className={`grid grid-cols-1 delay-200 ${isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
 							} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>

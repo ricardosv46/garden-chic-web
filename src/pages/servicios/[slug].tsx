@@ -46,15 +46,13 @@ const DetalleServicios = ({ url }: PropsStatic) => {
       <div className='relative w-full h-[600px]  '>
         <Image
           src={`/imgs/servicios/${url?.img}`}
-          // width={'100%'}
-          // height={'100%'}
           objectPosition='top'
           layout='fill'
           objectFit='cover'
         />
         <span className='absolute top-0 w-full h-full  bg-black opacity-50'></span>
-        <div className='mx-auto my-0 w-[90%] xl:w-[1280px]  h-full flex  justify-center items-center text-white relative z-10    md:justify-start  '>
-          <h2 className='text-center text-5xl sm:text-8xl text-white font-bold relative z-10 capitalize'>
+        <div className='mx-auto my-0 w-[90%] xl:w-[1280px] h-full flex  justify-center items-center text-white relative z-10'>
+          <h2 className='text-center text-2xl md:text-4xl lg:text-6xl text-white font-bold relative z-10 capitalize'>
             {url.title || ''}
           </h2>
         </div>
@@ -99,10 +97,10 @@ const DetalleServicios = ({ url }: PropsStatic) => {
         <div className='w-full lg:w-9/12'>
           {url?.content.map((obj, i) => (
             <article className='' key={i}>
-              <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl ' >
+              <h2 className='text-primary-800 font-medium leading-none text-xl md:text-3xl lg:text-5xl ' >
                 {obj.tittle || ''}
               </h2>
-              <div className='text-gray-700 text-lg font-light py-7'>
+              <div className='text-gray-700 text-base md:text-lg font-light py-7'>
                 {obj?.subcontent?.map((obj2, j) => <p className='pb-4' key={j}>
                   {obj2 || ''}
                 </p>)}
@@ -112,7 +110,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
 
 
           <div className='mt-3'>
-            <h2 className='text-primary-800 font-medium leading-none text-[42px] sm:text-5xl '>
+            <h2 className='text-primary-800 font-medium leading-none ext-xl md:text-3xl lg:text-5xl'>
               Proyectos
             </h2>
 

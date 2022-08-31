@@ -13,7 +13,7 @@ export const BreadCrumb = () => {
       <div>
         <h4 className="text-2xl font-medium capitalize">Tienda</h4>
       </div>
-      <div className="flex flex-row justify-center items-center gap-1">
+      <div className="hidden sm:flex flex-row justify-center items-center gap-1 ">
         <div onClick={() => push(`/`)}>
           <FiHome />
         </div>
