@@ -38,7 +38,7 @@ export const Footer = () => {
                         <li>Servicio de jardinería en Lima</li>
                         <li>Servicios de jardinería en Lima</li>
                         <li>Trabajo de jardinería en Lima</li>
-                        <li>viveros en Lima Perú</li>
+                        <li>Viveros en Lima Perú</li>
                         <li>Paisajismo en Lima</li>
                         <li>Impermeabilización con mantos asfalticos y geomembrana</li>
                     </ul>

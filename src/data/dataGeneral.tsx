@@ -4,7 +4,7 @@ export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
             tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
-            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes. Podemos ayudar a hacer realidad el jardín de tus sueños',
+            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes.// Podemos ayudar a hacer realidad el jardín de tus sueños',
             items: [{
                 count: '150',
                 type: 'PROYECTOS REALIZADOS',
@@ -21,7 +21,7 @@ export const DataGeneral: IDataGeneral = {
             },
             {
                 count: '50',
-                type: 'CIENTES SATISFECHOS',
+                type: 'CLIENTES SATISFECHOS',
                 duration: 1500,
                 tittle: '',
                 subtittle: 'Confiaron en nuestros servicios'
@@ -114,7 +114,7 @@ export const DataGeneral: IDataGeneral = {
     Nosotros: {
         QuePodemosHacer: {
             tittle: '!Nos encargamos de tu jardín!',
-            subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos que es muy importante el compromiso, puntualidad, profesionalismo y calidad para la realizacion de tus proyectos.',
+            subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos. Que es muy importante el compromiso, puntualidad, profesionalismo y calidad para la realización de tus proyectos.',
             items: [{
                 count: '150',
                 type: 'PROYECTOS REALIZADOS',
@@ -131,7 +131,7 @@ export const DataGeneral: IDataGeneral = {
             },
             {
                 count: '50',
-                type: 'CIENTES SATISFECHOS',
+                type: 'CLIENTES SATISFECHOS',
                 duration: 1500,
                 tittle: '',
                 subtittle: 'Confiaron en nuestros servicios'

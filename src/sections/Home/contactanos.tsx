@@ -33,7 +33,7 @@ const Contactanos = ({ data }: IProps) => {
           </h2>
           <div>
             <h3 className='text-primary-300 font-garden_medium text-base lg:text-xl mt-5 lg:mt-14'>
-              Tu información
+              Tú información
             </h3>
             <form
               onSubmit={handleClick}
@@ -75,7 +75,7 @@ const Contactanos = ({ data }: IProps) => {
                 </div>
               </div>
               <InputArea
-                label='Decripción'
+                label='Descripción'
                 name='decription'
                 value={mensaje}
                 onChange={(e) => setMensaje(e.target.value)}
