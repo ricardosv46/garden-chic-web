@@ -19,7 +19,7 @@ interface Iprops {
 export const RenderIcons = ({ data, tittle }: Iprops) => {
     return (
         <>
-            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-bold'>
+            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-primary-300 font-bold'>
                 {tittle}
             </h3>
             {/* <span className='text-center text-lg text-primary-300 font-bold '>{tittle}</span> */}
