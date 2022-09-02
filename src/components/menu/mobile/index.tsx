@@ -116,12 +116,12 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
           </li>
           <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/blogs' passHref>
-              Blogs
+              Blog
             </Link>
           </li>
           <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/contactos' passHref>
-              Contactos
+              Contacto
             </Link>
           </li>
           {/* <li
