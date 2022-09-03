@@ -29,7 +29,7 @@ const InputRadio = ({
           className="w-5 h-5 rounded checked:bg-primary-800 peer"
           value={value}
           onChange={onChange}
-          defaultChecked={defaultChecked}
+          // defaultChecked={defaultChecked}
         />
         <label htmlFor={id} className="text-[18px]">
           {label}
