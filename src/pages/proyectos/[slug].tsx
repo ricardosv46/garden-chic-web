@@ -47,7 +47,7 @@ const Detalle = () => {
             className='rounded-lg'
           />
 
-          <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center items-center'>
+          <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center '>
             <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-bold'>
               Antes
             </h2>

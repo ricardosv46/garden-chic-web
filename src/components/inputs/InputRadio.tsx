@@ -17,7 +17,7 @@ const InputRadio = ({
   id,
   value,
   onChange,
-  defaultChecked = false,
+  defaultChecked = true,
 }: Radio) => {
   return (
     <div className="flex items-center justify-between py-1 relative">
@@ -30,6 +30,8 @@ const InputRadio = ({
           value={value}
           onChange={onChange}
           // defaultChecked={defaultChecked}
+          checked={defaultChecked}
+          readOnly={defaultChecked}
         />
         <label htmlFor={id} className="text-[18px]">
           {label}
