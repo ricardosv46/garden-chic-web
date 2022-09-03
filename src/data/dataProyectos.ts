@@ -357,7 +357,7 @@ export const dataProyects: EntitydataProyects[] = [
     desafios: [
       'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
       'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
-      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
     ],
   },
   {
@@ -397,7 +397,7 @@ export const dataProyects: EntitydataProyects[] = [
     desafios: [
       'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
       'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto. ',
-      'En todo el proceso se tuvo una buena comunicación directa con el arquitecto.',
+      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
     ],
   },
   {
