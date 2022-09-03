@@ -59,19 +59,19 @@ const DetalleServicios = ({ url }: PropsStatic) => {
       </div>
       <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10 mt-10  '>
         <div className='flex flex-col gap-x-2 sm:gap-x-7 w-full lg:w-3/12 p-5 lg:px-3'>
-          <p className='text-gray-900 text-2xl font-garden_bold pb-5'>Servicios</p>
+          <p className='text-gray-900 text-xl md:text-3xl font-garden_medium pb-5'>Servicios</p>
           {serviciosLat.map((item, i) => (
-            <div key={i} className='border-b-2 border-b-gray-200 py-5'>
+            <div key={i} className='border-b-2 border-b-gray-200 py-4 lg:py-5'>
               <p
                 onClick={() => router.push(`/servicios/${item.split(' ').join('').toLowerCase()}`)}
-                className='text-gray-700 text-lg font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
+                className='text-gray-800 text-xs md:text-base lg:text-xl font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
               >
                 {item}
               </p>
             </div>
           ))}
 
-          <p className='text-gray-900 text-2xl font-garden_bold py-5'>
+          <p className='text-gray-800 text-xl md:text-3xl font-garden_medium py-5'>
             Productos similares
           </p>
 
@@ -100,7 +100,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
               <h2 className='text-primary-800 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl ' >
                 {obj.tittle || ''}
               </h2>
-              <div className='text-gray-700 text-base md:text-lg font-light py-7'>
+              <div className='text-gray-700 text-xs md:text-base lg:text-lg font-light py-7 text-justify'>
                 {obj?.subcontent?.map((obj2, j) => <p className='pb-4' key={j}>
                   {obj2 || ''}
                 </p>)}
@@ -113,7 +113,6 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             <h2 className='text-primary-800 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl'>
               Proyectos
             </h2>
-
             <div className=' grid grid-cols-1 sm:grid-cols-2  gap-5  justify-items-center mt-10 '>
               {dataProyects.map((item, index) => {
                 if (index < 5) {

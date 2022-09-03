@@ -19,7 +19,7 @@ interface Iprops {
 export const RenderIcons = ({ data, tittle }: Iprops) => {
     return (
         <>
-            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-primary-300 font-bold'>
+            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-primary-300 font-garden_bold'>
                 {tittle}
             </h3>
             {/* <span className='text-center text-lg text-primary-300 font-bold '>{tittle}</span> */}
@@ -29,7 +29,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                         <div className='bg-primary-100 w-10 h-10 lg:h-16 lg:w-16 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border '>
                             {TypeIcon[obj]}
                         </div>
-                        <p className='text-sm lg:text-base  text-primary-300 font-bold my-auto'>{obj}</p>
+                        <p className='text-sm lg:text-base  text-primary-300 font-garden_regular my-auto'>{obj}</p>
                     </div>
                 ))}
 

@@ -49,7 +49,7 @@ const Proyects = () => {
         {!show && (
           <button
             onClick={() => setShow(true)}
-            className='bg-primary-600 text-white px-8 py-2.5 rounded-full ease-out duration-300 hover:bg-primary-800'
+            className='bg-primary-600 text-white px-8 py-2.5 rounded-full ease-out duration-300 hover:bg-primary-800 font-garden_regular'
           >
             Cargar más
           </button>

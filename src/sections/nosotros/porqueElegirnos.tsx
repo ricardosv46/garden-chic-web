@@ -8,11 +8,11 @@ const PorqueElegirnos = () => {
       {/* <div className='flex flex-col bg-white'> */}
 
       <div className='grid grid-cols-1 md:grid-cols-[50%,50%] bg-white '>
-        <div className='order-2 md:order-1 py-3 px-6 text-xl lg:text-2xl h-full p-10 md:px-12 lg:py-10  font-light text-primary-800 '>
+        <div className='order-2 md:order-1 py-3 px-6 text-xl lg:text-2xl h-full p-10 md:px-12 md:py-10 mb-4 md:mb-0 font-light text-primary-800 '>
           <h2 className='font-bold leading-none text-xl md:text-2xl lg:text-4xl'>
             ¿Por qué elegirnos?
           </h2>
-          <p className='text-xs md:text-lg lg:text-2xl font-extralight mt-8 text-justify ' >
+          <p className='text-xs md:text-base lg:text-xl font-extralight mt-8 text-justify  font-garden_regular text-gray-800' >
             Trabajamos con un equipo multidisciplinario que ha participado en los
             principales proyectos de paisajismo en el país, tales como <span className='font-bold'>Los Juegos
               Panamericanos</span>, Edificios con certificación LEED, además somos proveedor oficial de
@@ -23,8 +23,8 @@ const PorqueElegirnos = () => {
 
           </p>
         </div>
-        <div className='order-1 md:order-2  p-10 '>
-          <div className={`w-full bg-top bg-no-repeat bg-cover h-[250px] md:h-full `} style={{ backgroundImage: `url('/imgs/nosotros/header/02_POR_ELEGIRNOS.jpg')` }} />
+        <div className='order-1 md:order-2 p-10 '>
+          <div className={`w-full bg-top bg-no-repeat bg-cover h-[250px] md:h-[450px] `} style={{ backgroundImage: `url('/imgs/nosotros/header/02_POR_ELEGIRNOS.jpg')` }} />
 
         </div>
       </div>

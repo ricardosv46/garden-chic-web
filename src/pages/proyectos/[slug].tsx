@@ -48,11 +48,11 @@ const Detalle = () => {
           />
 
           <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center '>
-            <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-bold'>
+            <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-garden_bold'>
               Antes
             </h2>
             {proyecto?.antes!.map((obj, i) => (
-              <p key={i} className='text-justify text-sm md:text-base text-primary-300 font-semibold pt-4'>
+              <p key={i} className='text-justify text-sm md:text-base text-primary-300 font-garden_regular pt-4'>
                 {obj}
               </p>))}
           </div>

@@ -34,7 +34,7 @@ export const ProyectItem = ({ data }: Iprops) => {
                 {/* <p className='text-primary-600 text-xl font-semibold'>
             {item.title}
           </p> */}
-                <p className='text-gray-600 text-center'>{data.dataHover || ''}</p>
+                <p className='text-gray-500 text-center font-garden_medium'>{data.dataHover || ''}</p>
             </div>
         </div>
     )
