@@ -26,7 +26,7 @@ const Servicios = () => {
                   width={1024}
                   height={512}
                   src={`/imgs/servicios/${item.img}`}
-                  alt={item.img}
+                  alt='imagen proyecto'
                 />
               </div>
 

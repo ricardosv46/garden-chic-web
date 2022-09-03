@@ -60,7 +60,6 @@ export const Footer = () => {
                             className='absolute w-full h-full'
                             loading='lazy'
                             layout='fill'
-                            alt={'Image_Footer'}
                             objectFit='cover'
                             src={'/imgs/footer/LOGO_HORIZONTAL.jpg'}
                         />

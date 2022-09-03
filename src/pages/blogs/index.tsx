@@ -21,6 +21,7 @@ const blogs = [
 const Blogs = () => {
   const { db: blogs, loading } = useBlogs()
   const { db: categorias } = useCategoriaBlogs()
+
   return (
     <>
       <BannerBlogs />
