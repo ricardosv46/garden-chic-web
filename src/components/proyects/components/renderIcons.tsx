@@ -4,7 +4,7 @@ const TypeIcon: any = {
     'Paisajismo': <IconPaisajismoColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6 ' />,
     'Mantenimiento de áreas verdes': <IconMantenimientoColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Impermeabilización': <IconImpermeabilizacionColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Impermeabilización con manto asfaltico': <IconViverosColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
+    'Impermeabilización con manto asfáltico': <IconViverosColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Techos verdes': <IconTechosVerdesColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Sistema de Riego Tecnificado': <IconRiegoTecnificadoColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Jardín Vertical': <IconJardinesVerticalesColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,

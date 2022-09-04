@@ -61,7 +61,7 @@ export const DataGeneral: IDataGeneral = {
                 subtittle: 'TECHOS ECOLÓGICOS PARA TU HOGAR',
                 itemPrincipal: false
             }, {
-                tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFALTICO',
+                tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFÁLTICO',
                 image: '07_IMPERMEABILIZACION.jpg',
                 subtittle: 'PROTEGE A TU ESPACIO DE LA HUMEDAD',
                 itemPrincipal: false

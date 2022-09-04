@@ -15,7 +15,7 @@ const Header = () => {
         <div className='w-full text-sm sm:text-2xl md:text-3xl 2xl:text-4xl font-bold text-white uppercase text-center px-4 font-garden_bold'>
           <p className='mt-4 md:mt-8'>Deseamos ser tu socio estratégico en tus proyectos con la naturaleza,</p>
           <p> plasmamos tus sueños en tus áreas verdes y le brindamos mantenimiento como si fueran propios.</p>
-          <p className='relative md:mt-11 text-[8px] md:text-sm'>Conocenos</p>
+          <p className='relative md:mt-11 text-[8px] md:text-sm'>Conócenos</p>
         </div>
       </div>
       <div

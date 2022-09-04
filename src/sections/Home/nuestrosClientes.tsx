@@ -26,7 +26,7 @@ const NuestrosClientes = ({ data }: IProps) => {
       <div className='flex items-center gap-x-4 mb-10'>
         <hr className='w-[30%] lg:w-[40%] h-[1px] border border-black  '></hr>
 
-        <h2 className='text-xl lg:text-3xl text-center font-garden_medium text-primary-800 w-[60%] '>
+        <h2 className='text-base lg:text-3xl text-center font-garden_medium text-primary-800 w-[60%] '>
           Ellos confían en nosotros
         </h2>
         <hr className='w-[30%]  lg:w-[40%] h-[1px] border border-black'></hr>

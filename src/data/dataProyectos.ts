@@ -6,7 +6,7 @@ enum enumDificultad {
 export enum EnumServicios {
   Paisajismo = 'Paisajismo',
   Impermeabilizacion = 'Impermeabilización',
-  Impermeabilizacionmantoasfaltico = 'Impermeabilización con manto asfaltico',
+  Impermeabilizacionmantoasfaltico = 'Impermeabilización con manto asfáltico',
   Techosverdes = 'Techos verdes',
   SistemadeRiegoTecnificado = 'Sistema de Riego Tecnificado',
   Mantenimientoareasverdes = 'Mantenimiento de áreas verdes',
@@ -85,7 +85,7 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      'Edificio Rivera Navarrete realizado por la  constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro',
+      'Edificio Rivera Navarrete realizado por la constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro.',
       'Es el primer proyecto enfocado en integrar la vivienda al corazón del Centro Financiero de San Isidro; lo que le otorgó el Premio Arquitectura y Ciudad 2020, de la Cámara Peruana de la Construcción CAPECO.',
     ],
     ubicacion: 'Rivera Navarrete 548, Miraflores.',
@@ -196,8 +196,8 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Realizando luego el armado de los jardines ',
-      'Todo este trabajo se realizó en altura, con andamios colgantes y con las medidas de protección y seguridad. En una constante supervisión de las operaciones. ',
+      'Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Realizando luego el armado de los jardines.',
+      'Todo este trabajo se realizó en altura, con andamios colgantes y con las medidas de protección y seguridad. En una constante supervisión de las operaciones.',
       'Cabe resaltar que los jardines delgados contaban con una gran profundidad.',
       'Tanto la constructora como la inmobiliaria quedaron satisfechos con la obra.',
     ],
@@ -293,7 +293,7 @@ export const dataProyects: EntitydataProyects[] = [
     antes: [
       'El proyecto Casa Ribbed fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2019. La exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
       'Este proyecto fue muy novedoso e innovador, tuvo un concepto que exhibe un loft masculino, vanguardista, sofisticado, elegante, de líneas rectas y espíritu juvenil, con una gama de colores muy interesantes.',
-      'La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio',
+      'La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: ' Arquitecto Diego Olivera',
     proceso:
@@ -372,7 +372,7 @@ export const dataProyects: EntitydataProyects[] = [
     antes: [
       'El proyecto Le Cottage fue realizado por la arquitecta Jessie D’Angelo, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°3, en el distrito de Surco.',
       'Este proyecto fue pensado en una pequeña cabaña de vacaciones que alberga a una familia de cuatro personas frente al lago.',
-      'En el ambiente se utilizaron una paleta de colores en tonos azul, verde y neutros.  Materiales como la madera pintada, los wallpapers en techos y paredes, las texturas de las telas y coloridos crearon una sensación de bienestar y calma dentro de los tres ambientes.',
+      'En el ambiente se utilizaron una paleta de colores en tonos azul, verde y neutros. Materiales como la madera pintada, los wallpapers en techos y paredes, las texturas de las telas y coloridos crearon una sensación de bienestar y calma dentro de los tres ambientes.',
       'Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: 'Arquitecta Jessie D’Angelo',
@@ -392,7 +392,7 @@ export const dataProyects: EntitydataProyects[] = [
       'Strelitzia',
       'Orejas de elefante',
       'Vinca verde',
-      ' Vinca variegada',
+      'Vinca variegada',
     ],
     desafios: [
       'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado.',
@@ -410,7 +410,7 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Estudio y Huerto de la Chef',
     antes: [
-      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas. El espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables. Sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022)',
+      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas. El espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables. Sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022).',
     ],
     cliente: 'Arquitectas Andrea Cavassa y Claudia Triveño',
     proceso:
@@ -438,8 +438,8 @@ export const dataProyects: EntitydataProyects[] = [
     ],
     desafios: [
       'En este proyecto se instaló encima del estudio de la chef las buganvilias, se realizó la siembra de una gran variedad de vegetales para el huerto de la chef según el diseño de las arquitectas. También se sembró en otras zonas plantas como la cheflera, liriope, vincas, entre otras y se brindó el servicio de mantenimiento semanal del huerto y de las demás plantas.',
-      'Toda la obra se realizó adaptando el lugar al concepto de las arquitectas',
-      'El personal especializado de mantenimiento fue el soporte constante para mantener las áreas verdes en toda la exposición de Casacor (más de 45 días) ',
+      'Toda la obra se realizó adaptando el lugar al concepto de las arquitectas.',
+      'El personal especializado de mantenimiento fue el soporte constante para mantener las áreas verdes en toda la exposición de Casacor (más de 45 días).',
       'La comunicación, el apoyo como asesoramiento a las arquitectas fue constante.',
     ],
   },
@@ -455,7 +455,7 @@ export const dataProyects: EntitydataProyects[] = [
     antes: [
       'El proyecto Le Cottage fue realizado por la arquitecta Erika Zielinski, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°1, en el distrito de Surco.',
       'Este proyecto fue inspirado en Venecia y las 4 estaciones, a través de la música de Antonio Vivaldi, tomar un café en la primavera, leer un libro en el verano, vestirse en el otoño y abrigarse en el invierno.',
-      'En el ambiente se utilizaron una paleta de colores en tonos neutros y materiales naturales que sirven como fondo a cada una de las estaciones que se presentan a todo color',
+      'En el ambiente se utilizaron una paleta de colores en tonos neutros y materiales naturales que sirven como fondo a cada una de las estaciones que se presentan a todo color.',
       'Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: 'Erika Zielinski',
@@ -537,7 +537,7 @@ export const dataProyects: EntitydataProyects[] = [
       'El proyecto Flat Familiar fue realizado por las arquitectas Jennifer Junek y Marilú Salcedo, presentado en Casacor 2018. La exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
       'Este proyecto está inspirado en una pareja joven y su pequeña hija.',
       'Este ambiente tuvo un espacio de 70 m² en donde hubo una gran estantería multifuncional como división del salón y la cocina. La paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul. Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia.',
-      'Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018 , A Casa Viva.',
+      'Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018, A Casa Viva.',
     ],
     cliente: 'Jennifer Junek y Marilú Salcedo',
     proceso:
