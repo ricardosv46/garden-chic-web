@@ -4,7 +4,7 @@ export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
             tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
-            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes.// Podemos ayudar a hacer realidad el jardín de tus sueños',
+            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes// Podemos ayudar a hacer realidad el jardín de tus sueños',
             items: [{
                 count: '150',
                 type: 'PROYECTOS REALIZADOS',
@@ -29,9 +29,9 @@ export const DataGeneral: IDataGeneral = {
         },
         Banner: [
             {
-                tittle: 'CASACOR / PERU',
+                tittle: 'CASACOR / PERÚ',
                 image: '01_CASACOR.jpg',
-                subtittle: 'LA MAYOR Y MÁS COMPLETA MUESTRA DE ARQUITECTURA, DISEÑO DE INTERIORES Y PAISAJISMO DE LAS AMÉRICAS',
+                subtittle: 'LA MAYOR Y MÁS COMPLETA MUESTRA DE ARQUITECTURA, DISEÑO DE INTERIORES Y PAISAJISMO DE LAS AMÉRICAS.',
                 itemPrincipal: true,
                 textheader: 'PRESENTES EN:'
             },
