@@ -9,7 +9,7 @@ interface Iprops {
 export const LayoutTienda = ({ children }: Iprops) => {
   return (
     <div>
-      <Container className="mt-6 py-4">
+      <Container className="py-2 md:py-4">
         <BreadCrumb />
       </Container>
       {children}

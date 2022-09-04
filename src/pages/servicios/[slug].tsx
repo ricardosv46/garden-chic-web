@@ -52,7 +52,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
         />
         <span className='absolute top-0 w-full h-full  bg-black opacity-50'></span>
         <div className='mx-auto my-0 w-[90%] xl:w-[1280px] h-full flex  justify-center items-center text-white relative z-10'>
-          <h2 className='text-center text-2xl md:text-4xl lg:text-6xl text-white font-bold relative z-10 capitalize'>
+          <h2 className='text-center text-2xl md:text-4xl lg:text-6xl text-white font-garden_bold relative z-10 capitalize'>
             {url.title || ''}
           </h2>
         </div>

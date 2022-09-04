@@ -15,7 +15,7 @@ export const WrapperFiltrosBuscar = ({
   children
 }: Iprops) => {
   return (
-    <Container className="lg:flex py-6 gap-10 ">
+    <Container className="lg:flex md:pb-6 gap-10 ">
       <div className="flex flex-row gap-x-2 sm:gap-x-7 w-full py-5 ">
         <div className="w-1/2 lg:w-1/4 ">
           <button

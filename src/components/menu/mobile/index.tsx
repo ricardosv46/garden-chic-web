@@ -88,7 +88,7 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
 
           <BtnBurger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
-        <ul className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']} text-center font-garden_regular `}>
+        <ul className={`${style['menu-mobile']} ${isOpen && style['menu-mobile-active']} text-center font-garden_medium `}>
           <li className='cursor-pointer text-primary-600 py-2 ' onClick={() => setIsOpen(false)}>
             <Link href='/' passHref>
               Inicio
