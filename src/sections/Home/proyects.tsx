@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Container from '../../components/container'
 import { dataProyects, } from '../../data/dataProyectos'
@@ -10,84 +10,52 @@ export enum EnumServicios {
   Impermeabilizacion = 'Impermeabilización',
   // Impermeabilizacionmantoasfaltico = 'Impermeabilización con manto asfáltico',
   Techosverdes = 'Techos verdes',
-  SistemadeRiegoTecnificado = 'Sistema de Riego Tecnificado',
+  SistemadeRiegoTecnificado = 'Riego Tecnificado',
   Mantenimientoareasverdes = 'Mantenimiento de áreas verdes',
   JardinVertical = 'Jardín Vertical',
 }
 
 const DataSubTittle = [
-  {
-    tittle: 'Todo',
-    includes: []
-  },
-  {
-    tittle: 'Eventos',
-    includes: []
-  },
-  {
-    tittle: 'Jardines',
-    includes: []
-  },
-  {
-    tittle: 'Mantenimiento',
-    includes: []
-  },
-  {
-    tittle: 'Paisajismo',
-    includes: []
-  },
-  {
-    tittle: 'Sistema de Riego',
-    includes: []
-  },
-  {
-    tittle: 'Impermeabilización',
-    includes: []
-  },
-  {
-    tittle: 'Techo Verdes',
-    includes: []
-  },
-  {
-    tittle: 'vivero',
-    includes: []
-  }
-
+  { tittle: 'Todo', value: 'todo' },
+  { tittle: 'Eventos', value: 'Eventos' },
+  { tittle: 'Jardines', value: 'Jardín Vertical' },
+  { tittle: 'Mantenimiento', value: 'Mantenimiento de áreas verdes' },
+  { tittle: 'Paisajismo', value: 'Paisajismo' },
+  { tittle: 'Sistema de Riego', value: 'Sistema de Riego Tecnificado' },
+  { tittle: 'Impermeabilización de Riego', value: 'Impermeabilización' },
+  { tittle: 'Techos Verdes', value: 'Techos verdes' },
+  { tittle: 'Vivero', value: 'Vivero' },
 ]
 const Proyects = () => {
   const [show, setShow] = useState(false)
-  const [ServiciosFilter, setServiciosFilter] = useState('')
+  const [ProyectosFiltrado, setProyectosFiltrados] = useState(dataProyects)
+  const [ServiciosFilter, setServiciosFilter] = useState('todo')
+
+
+  const FilterProyect = () => {
+    if (ServiciosFilter === 'todo') {
+      setProyectosFiltrados(dataProyects)
+    } else {
+      setProyectosFiltrados(dataProyects.filter((data) => data.servicios?.includes(ServiciosFilter)))
+    }
+  }
+
+  useEffect(() => {
+    FilterProyect()
+  }, [ServiciosFilter])
 
   return (
     <Container bgColor='bg-[#F9FAFB]' className='pt-10 pb-20'>
       <div className='flex flex-col items-center justify-center '>
         <Tittle tittle='Proyectos' />
         {/* sub Tittle Desktop */}
-        <Subttitles data={['Todo',
-          'Eventos',
-          'Jardines ',
-          'Mantenimiento',
-          'Paisajismo',
-          'Sistema de Riego ',
-          'Impermeabilización',
-          'Techos Verdes',
-          'Vivero'
-        ]} />
+        <Subttitles onChange={setServiciosFilter} data={DataSubTittle} />
         {/* sub Tittle Mobile */}
-        <SelectSubtittles data={['Todo',
-          'Eventos',
-          'Jardines ',
-          'Mantenimiento',
-          'Paisajismo',
-          'Sistema de Riego ',
-          'Impermeabilización',
-          'Techos Verdes',
-          'Vivero'
-        ]} />
+        <SelectSubtittles onChange={setServiciosFilter} data={DataSubTittle} />
       </div>
       {/* 6 imagenes por defecto */}
       <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-10 '>
-        {dataProyects.map((obj, index) => {
+        {ProyectosFiltrado.map((obj, index) => {
           if (index < 6) {
             return < ProyectItem key={index} data={obj} />
           }
@@ -95,7 +63,7 @@ const Proyects = () => {
       </div>
       {/* Boton cargas más */}
       <div className={`flex justify-center mt-10 ${show ? 'hidden' : 'block'}`}>
-        {!show && (
+        {!show && ProyectosFiltrado.length > 5 && (
           <button
             onClick={() => setShow(true)}
             className='bg-primary-600 text-white px-8 py-2.5 rounded-full ease-out duration-300 hover:bg-primary-800 font-garden_regular'
@@ -106,7 +74,7 @@ const Proyects = () => {
       </div>
       <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center mt-5'>
         {show &&
-          dataProyects.map((obj, index) => {
+          ProyectosFiltrado.map((obj, index) => {
             if (index > 5) {
               return < ProyectItem key={index} data={obj} />
             }

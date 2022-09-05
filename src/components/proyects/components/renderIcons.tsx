@@ -8,6 +8,7 @@ const TypeIcon: any = {
     'Techos verdes': <IconTechosVerdesColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Sistema de Riego Tecnificado': <IconRiegoTecnificadoColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
     'Jardín Vertical': <IconJardinesVerticalesColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
+    'Vivero': <IconViverosColor fill='#445378' className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
 
 }
 interface Iprops {

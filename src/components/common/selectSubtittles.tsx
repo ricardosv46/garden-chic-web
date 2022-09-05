@@ -1,12 +1,13 @@
-import React from 'react'
+import { Dispatch, SetStateAction } from 'react'
 interface Iprops {
-    data: string[]
+    data: { tittle: string, value: string }[],
+    onChange: Dispatch<SetStateAction<string>>
 }
 
-export const SelectSubtittles = ({ data }: Iprops) => {
+export const SelectSubtittles = ({ data, onChange }: Iprops) => {
     return (
-        <select className='text-primary-800 text-md font-bold lg:hidden mt-8 font-garden_regular'>
-            {data.map((obj, i) => <option key={i} value={obj.split(' ').join('')}>{obj}</option>)}
+        <select className='text-primary-800 text-md font-bold lg:hidden mt-8 font-garden_regular' onChange={({ target }) => onChange(target.value)} >
+            {data.map((obj, i) => <option key={i} value={obj.value} >{obj.tittle}</option>)}
         </select>
     )
 }

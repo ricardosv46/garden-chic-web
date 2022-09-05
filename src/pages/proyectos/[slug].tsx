@@ -68,7 +68,7 @@ const Detalle = () => {
           </Show>
           <div className='flex-1 flex flex-col gap-5'>
             <Show condition={typeof proyecto?.servicios !== 'undefined'}>
-              <RenderIcons data={proyecto?.servicios!} tittle='Servicios' />
+              <RenderIcons data={proyecto?.serviciosIcon!} tittle='Servicios' />
             </Show>
           </div>
         </div>

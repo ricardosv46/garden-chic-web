@@ -3,13 +3,24 @@ enum enumDificultad {
   Medio = 'Medio',
 }
 
-export enum EnumServicios {
-  Paisajismo = 'Paisajismo',
-  Impermeabilizacion = 'Impermeabilización',
-  Techosverdes = 'Techos verdes',
-  SistemadeRiegoTecnificado = 'Sistema de Riego Tecnificado',
-  Mantenimientoareasverdes = 'Mantenimiento de áreas verdes',
-  JardinVertical = 'Jardín Vertical',
+export const EnumServicios = {
+  Paisajismo: 'Paisajismo',
+  Impermeabilizacion: 'Impermeabilización',
+  Techosverdes: 'Techos verdes',
+  SistemadeRiegoTecnificado: 'Riego Tecnificado',
+  Mantenimientoareasverdes: 'Mantenimiento de áreas verdes',
+  JardinVertical: 'Jardín Vertical',
+  Vivero: 'Vivero',
+}
+
+export const EnumServiciosIcons = {
+  Paisajismo: 'Paisajismo',
+  Impermeabilizacion: 'Impermeabilización',
+  Techosverdes: 'Techos verdes',
+  SistemadeRiegoTecnificado: 'Sistema de Riego Tecnificado',
+  Mantenimientoareasverdes: 'Mantenimiento de áreas verdes',
+  JardinVertical: 'Jardín Vertical',
+  Vivero: 'Vivero',
 }
 
 export const dataProyectos = [
@@ -91,12 +102,14 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'PIONERO INMOBILIARIA',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín, luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Techosverdes,
-      EnumServicios.Impermeabilizacion,
-      EnumServicios.SistemadeRiegoTecnificado,
+    servicios: [EnumServicios.Techosverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Techosverdes,
+      EnumServiciosIcons.Impermeabilizacion,
+      EnumServiciosIcons.SistemadeRiegoTecnificado,
     ],
+
     duracion: {
       cantidad: '8',
       tipo: 'meses',
@@ -138,11 +151,13 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'PIONERO INMOBILIARIA',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Techosverdes,
-      EnumServicios.Impermeabilizacion,
+    servicios: [EnumServicios.SistemadeRiegoTecnificado],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Techosverdes,
+      EnumServiciosIcons.Impermeabilizacion,
     ],
+
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -181,11 +196,13 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'PIONERO INMOBILIARIA',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Techosverdes,
-      EnumServicios.Impermeabilizacion,
+    servicios: [EnumServicios.Impermeabilizacion],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Techosverdes,
+      EnumServiciosIcons.Impermeabilizacion,
     ],
+
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -227,6 +244,10 @@ export const dataProyects: EntitydataProyects[] = [
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, eto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
     servicios: [EnumServicios.Paisajismo],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.SistemadeRiegoTecnificado,
+    ],
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -269,9 +290,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Arquitecto Diego Olivera ',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, esto protege el techo, piso o pared en donde se realiza la construcción del jardín, luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Mantenimientoareasverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -304,9 +326,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: ' Arquitecto Diego Olivera',
     proceso:
       'Primero se realizó la instalación de las plantas colgantes, luego se pasó a instalar los maceteros y macetas según el diseño del arquitecto. Además, se aplicaron algunos detalles con plantas secas, también se realizó el mantenimiento de cada una de ellas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Mantenimientoareasverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -345,9 +368,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Arquitecta Jessie D’Angelo',
     proceso:
       'Primero se realizó la instalación de las plantas colgantes, luego se pasó a instalar los maceteros y macetas según el diseño del arquitecto. Además, se aplicaron algunos detalles con plantas secas. También se realizó el mantenimiento de cada una de ellas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Mantenimientoareasverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -384,9 +408,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Arquitecta Jessie D’Angelo',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño del arquitecto, luego se brindó el servicio de mantenimiento semanal de cada una de ellas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Paisajismo],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -421,9 +446,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Arquitectas Andrea Cavassa y Claudia Triveño',
     proceso:
       'Primero se instaló encima del estudio de la chef las buganvilias, luego se realizó la siembra de una gran variedad de vegetales para el huerto de la chef según el diseño de las arquitectas, también se sembró en otras zonas plantas como la cheflera, liriope, vincas, entre otras. Además se brindó el servicio de mantenimiento semanal del huerto y de las demás plantas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Vivero],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -467,10 +493,11 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Erika Zielinski',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño del arquitecto, también se implementó un jardín vertical de senecio cineraria en la bañera, luego se brindó el servicio de mantenimiento semanal de cada una de ellas.  ',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
-      EnumServicios.JardinVertical,
+    servicios: [EnumServicios.JardinVertical],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
+      EnumServiciosIcons.JardinVertical,
     ],
     duracion: {
       cantidad: '1',
@@ -510,9 +537,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Micaela Puertas',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño de la arquitecta, también se instaló una enredadera en la parte superior de la cama de la niña, luego se brindó el servicio de mantenimiento semanal de cada una de ellas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Mantenimientoareasverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -552,9 +580,10 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Jennifer Junek y Marilú Salcedo',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño del arquitecto. Luego se brindó el servicio de mantenimiento semanal de cada una de ellas.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.Mantenimientoareasverdes,
+    servicios: [EnumServicios.Mantenimientoareasverdes],
+    serviciosIcon: [
+      EnumServiciosIcons.Paisajismo,
+      EnumServiciosIcons.Mantenimientoareasverdes,
     ],
     duracion: {
       cantidad: '1',
@@ -585,7 +614,8 @@ export interface EntitydataProyects {
   cliente?: string
   year?: string
   proceso?: string
-  servicios?: EnumServicios[]
+  servicios?: string[]
+  serviciosIcon?: string[]
   duracion?: {
     cantidad: string
     tipo: string
