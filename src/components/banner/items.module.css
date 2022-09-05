@@ -1,12 +1,34 @@
 
-.itemBanner{
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  height: 160px;
-  position: relative;
+@keyframes animatedBackground {
+  0 {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
 }
-.itemBanner::before{
+
+@keyframes animatedBackgroundVertical {
+  0 {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.itemBanner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 100%;
+  height: 190px;
+  position: relative;
+  animation: animatedBackgroundVertical 12s infinite alternate linear;
+}
+.itemBanner::before {
   content: '';
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
@@ -17,16 +39,33 @@
 
 @media (min-width: 300px) {
   .itemBanner {
-    height: 160px;
+    width: 100%;
+    height: 300px;
+  }
+}
+@media (min-width: 500px) {
+  .itemBanner {
+    width: 100%;
+    height: 300px;
+    animation: animatedBackground 30s infinite alternate linear;
+
   }
 }
 @media (min-width: 768px) {
   .itemBanner {
     height: 400px;
+    width: 100%;
   }
 }
 @media (min-width: 1200px) {
-  .itemBanner{
+  .itemBanner {
     height: 700px;
   }
 }
+
+
+/* .animate-area {
+  background-position: 0px 0px;
+  background-repeat: cover;
+  animation: animatedBackground 30s infinite alternate linear;
+} */

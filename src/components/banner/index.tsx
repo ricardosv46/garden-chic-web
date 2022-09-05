@@ -23,7 +23,7 @@ const Banner = ({ data }: IProps) => {
         // style={style}
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 3300,
           disableOnInteraction: true
         }}
         navigation={true}

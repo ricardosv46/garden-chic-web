@@ -49,20 +49,7 @@ color * {
   height: 100% !important;
 }
 
-@keyframes animatedBackground {
-  0 {
-    background-position: 0 0;
-  }
 
-  100% {
-    background-position: 0 100%;
-  }
-}
-.animate-area {
-  background-position: 0px 0px;
-  background-repeat: cover;
-  animation: animatedBackground 30s infinite alternate linear;
-}
 
 .icon-servicio:hover {
   display: none;
