@@ -1,14 +1,63 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import Container from '../../components/container'
 import { dataProyects, } from '../../data/dataProyectos'
 import { Tittle, Subttitles, SelectSubtittles } from '@components/common'
 import { ProyectItem } from '@components/proyects'
 
+export enum EnumServicios {
+  Paisajismo = 'Paisajismo',
+  Impermeabilizacion = 'Impermeabilización',
+  // Impermeabilizacionmantoasfaltico = 'Impermeabilización con manto asfáltico',
+  Techosverdes = 'Techos verdes',
+  SistemadeRiegoTecnificado = 'Sistema de Riego Tecnificado',
+  Mantenimientoareasverdes = 'Mantenimiento de áreas verdes',
+  JardinVertical = 'Jardín Vertical',
+}
+
+const DataSubTittle = [
+  {
+    tittle: 'Todo',
+    includes: []
+  },
+  {
+    tittle: 'Eventos',
+    includes: []
+  },
+  {
+    tittle: 'Jardines',
+    includes: []
+  },
+  {
+    tittle: 'Mantenimiento',
+    includes: []
+  },
+  {
+    tittle: 'Paisajismo',
+    includes: []
+  },
+  {
+    tittle: 'Sistema de Riego',
+    includes: []
+  },
+  {
+    tittle: 'Impermeabilización',
+    includes: []
+  },
+  {
+    tittle: 'Techo Verdes',
+    includes: []
+  },
+  {
+    tittle: 'vivero',
+    includes: []
+  }
+
+]
 const Proyects = () => {
   const [show, setShow] = useState(false)
-  const router = useRouter()
+  const [ServiciosFilter, setServiciosFilter] = useState('')
+
   return (
     <Container bgColor='bg-[#F9FAFB]' className='pt-10 pb-20'>
       <div className='flex flex-col items-center justify-center '>

@@ -6,7 +6,6 @@ enum enumDificultad {
 export enum EnumServicios {
   Paisajismo = 'Paisajismo',
   Impermeabilizacion = 'Impermeabilización',
-  Impermeabilizacionmantoasfaltico = 'Impermeabilización con manto asfáltico',
   Techosverdes = 'Techos verdes',
   SistemadeRiegoTecnificado = 'Sistema de Riego Tecnificado',
   Mantenimientoareasverdes = 'Mantenimiento de áreas verdes',
@@ -92,7 +91,12 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'PIONERO INMOBILIARIA',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín, luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [EnumServicios.Paisajismo, EnumServicios.Impermeabilizacion],
+    servicios: [
+      EnumServicios.Paisajismo,
+      EnumServicios.Techosverdes,
+      EnumServicios.Impermeabilizacion,
+      EnumServicios.SistemadeRiegoTecnificado,
+    ],
     duracion: {
       cantidad: '8',
       tipo: 'meses',
@@ -135,8 +139,9 @@ export const dataProyects: EntitydataProyects[] = [
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
     servicios: [
-      EnumServicios.Impermeabilizacionmantoasfaltico,
+      EnumServicios.Paisajismo,
       EnumServicios.Techosverdes,
+      EnumServicios.Impermeabilizacion,
     ],
     duracion: {
       cantidad: '6',
@@ -176,7 +181,11 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'PIONERO INMOBILIARIA',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad. Esto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [EnumServicios.Impermeabilizacion, EnumServicios.Techosverdes],
+    servicios: [
+      EnumServicios.Paisajismo,
+      EnumServicios.Techosverdes,
+      EnumServicios.Impermeabilizacion,
+    ],
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -217,10 +226,7 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: ' ICASA - MADDY',
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, eto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
-    servicios: [
-      EnumServicios.Paisajismo,
-      EnumServicios.SistemadeRiegoTecnificado,
-    ],
+    servicios: [EnumServicios.Paisajismo],
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -461,7 +467,11 @@ export const dataProyects: EntitydataProyects[] = [
     cliente: 'Erika Zielinski',
     proceso:
       'Primero se realizó la instalación de los maceteros y macetas según el diseño del arquitecto, también se implementó un jardín vertical de senecio cineraria en la bañera, luego se brindó el servicio de mantenimiento semanal de cada una de ellas.  ',
-    servicios: [EnumServicios.Paisajismo, EnumServicios.JardinVertical],
+    servicios: [
+      EnumServicios.Paisajismo,
+      EnumServicios.Mantenimientoareasverdes,
+      EnumServicios.JardinVertical,
+    ],
     duracion: {
       cantidad: '1',
       tipo: 'mes',
