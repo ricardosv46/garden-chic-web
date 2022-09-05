@@ -45,7 +45,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
     <>
       <div className='relative w-full h-[600px]  '>
         <Image
-          src={`/imgs/servicios/${url?.img}`}
+          src={`/imgs/servicios/${url.img!}`}
           objectPosition='top'
           layout='fill'
           objectFit='cover'

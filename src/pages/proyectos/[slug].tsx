@@ -26,7 +26,7 @@ const Detalle = () => {
             />
           </div>
           <div className='flex justify-center'>
-            <div className='flex justify-center w-[110px] h-[110px] absolute bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer'>
+            <div className='flex justify-center w-[110px] h-[110px] absolute bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
               <Image
                 width={70}
                 height={70}
@@ -44,7 +44,7 @@ const Detalle = () => {
             height={600}
             src={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`}
             alt='imagen proyecto'
-            className='rounded-lg'
+            className='rounded-lg '
           />
 
           <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center '>

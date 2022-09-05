@@ -88,7 +88,7 @@ export const servicios: EntityServicios[] = [
     img: 'techoverde/01_PRINCIPAL.jpg',
     icon: '',
     description:
-      'Se logra con este servicio maximizar los espacios, obtener un aislador térmico natural y que el predio aumente su valor, convierte una azotea en un parque, un ejemplo de estos proyectos son los edificios llamados EcoParque.',
+      'Con este servicio se logra maximizar los espacios, además de obtener un aislador térmico natural y también el predio aumentaría su valor. Convierte una azotea en un parque, un ejemplo de este proyecto son los edificios llamados EcoParque.',
     url: 'techosverdes',
     content: [
       {
@@ -108,7 +108,7 @@ export const servicios: EntityServicios[] = [
     img: 'riegotecnificado/01_PRINCIPAL.jpg',
     icon: '',
     description:
-      'Con este sistema se logra el ahorro del mantenimiento del jardín en un 30% de reducción de consumo de agua, se aprovecha el espacio y genera un riego homogéneo, facilitando su mantenimiento; La automatización del sistema de riego facilita el mantenimiento como riegos eficientes de forma automática sin la operación de un jardinero.',
+      'Con este sistema se logra el ahorro del agua en un 30%, se aprovecha el espacio y genera un riego homogéneo, además de ser un sistema de riego automático.',
     url: 'sistemaderiegotecnificado',
     content: [
       {
@@ -148,7 +148,7 @@ export const servicios: EntityServicios[] = [
     img: 'vivero/01_PRINCIPAL.jpg',
     icon: '',
     description:
-      'Contamos con un Vivero a pocas horas de Lima, con diversidad de plantas, tamaños y con precios acorde al mercado (competitivos).',
+      'Contamos con un vivero a pocas horas de Lima, con diversidad de plantas, en diferentes tamaños y con precios acorde al mercado (competitivos).',
     url: 'vivero',
     content: [
       {

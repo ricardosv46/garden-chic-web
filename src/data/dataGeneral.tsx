@@ -42,7 +42,7 @@ export const DataGeneral: IDataGeneral = {
                 itemPrincipal: false
             }, {
                 tittle: 'JARDINES VERTICALES',
-                image: '03_JARDIN_VERTICAL.jpg',
+                image: '03_JARDIN_VERTICAL.png',
                 subtittle: 'UNA NUEVA EXPERIENCIA EN DECORACIÓN',
                 itemPrincipal: false
             }, {

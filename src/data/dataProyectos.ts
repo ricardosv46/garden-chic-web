@@ -95,7 +95,7 @@ export const dataProyects: EntitydataProyects[] = [
     imgBefore: '03_ANTES.jpg',
     imgAfter: '04_DESPUES.jpg',
     antes: [
-      'Edificio Rivera Navarrete realizado por la constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro.',
+      'El Edificio Rivera Navarrete realizado por la constructora V&V Bravo y la Inmobiliaria Pionero en el corazón del Centro Financiero de San Isidro.',
       'Es el primer proyecto enfocado en integrar la vivienda al corazón del Centro Financiero de San Isidro; lo que le otorgó el Premio Arquitectura y Ciudad 2020, de la Cámara Peruana de la Construcción CAPECO.',
     ],
     ubicacion: 'Rivera Navarrete 548, Miraflores.',
@@ -321,7 +321,7 @@ export const dataProyects: EntitydataProyects[] = [
     antes: [
       'El proyecto Casa Ribbed fue realizado por el arquitecto Diego Olivera, presentado en Casacor 2019, la exposición de este trabajo fue realizado en el Puericultorio Pérez Araníbar, en el distrito de Magdalena del Mar.',
       'Este proyecto fue muy novedoso e innovador, tuvo un concepto que exhibe un loft masculino, vanguardista, sofisticado, elegante, de líneas rectas y espíritu juvenil, con una gama de colores muy interesantes.',
-      'La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además, los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
+      'La propuesta refleja un concepto de casa acanalada, con elementos que se unen con otros para generar movimiento. Además los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
     ],
     cliente: ' Arquitecto Diego Olivera',
     proceso:
@@ -367,7 +367,7 @@ export const dataProyects: EntitydataProyects[] = [
     ],
     cliente: 'Arquitecta Jessie D’Angelo',
     proceso:
-      'Primero se realizó la instalación de las plantas colgantes, luego se pasó a instalar los maceteros y macetas según el diseño del arquitecto. Además, se aplicaron algunos detalles con plantas secas. También se realizó el mantenimiento de cada una de ellas.',
+      'Primero se realizó la instalación de las plantas colgantes, luego se pasó a instalar los maceteros y macetas según el diseño del arquitecto. Además se aplicaron algunos detalles con plantas secas. También se realizó el mantenimiento de cada una de ellas.',
     servicios: [EnumServicios.Mantenimientoareasverdes],
     serviciosIcon: [
       EnumServiciosIcons.Paisajismo,
