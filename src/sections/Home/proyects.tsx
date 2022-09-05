@@ -21,7 +21,7 @@ const DataSubTittle = [
   { tittle: 'Jardines', value: 'Jardín Vertical' },
   { tittle: 'Mantenimiento', value: 'Mantenimiento de áreas verdes' },
   { tittle: 'Paisajismo', value: 'Paisajismo' },
-  { tittle: 'Sistema de Riego', value: 'Sistema de Riego Tecnificado' },
+  { tittle: 'Sistema de Riego', value: 'Riego Tecnificado' },
   { tittle: 'Impermeabilización de Riego', value: 'Impermeabilización' },
   { tittle: 'Techos Verdes', value: 'Techos verdes' },
   { tittle: 'Vivero', value: 'Vivero' },
