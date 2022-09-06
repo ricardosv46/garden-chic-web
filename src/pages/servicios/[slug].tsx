@@ -2,7 +2,7 @@ import { ProyectItem } from '@components/proyects'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import BannerContactos from '../../components/banner/bannerContatcos'
+import { FiChevronRight } from 'react-icons/fi'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
 import Container from '../../components/container'
 import { ServicioItem } from '@components/servicios'
@@ -121,6 +121,20 @@ const DetalleServicios = ({ url }: PropsStatic) => {
                   )
                 }
               })}
+              <div className=' flex flex-row items-center justify-center gap-4 w-full aspect-[4/3] sm:aspect-auto max-h-[441px] cursor-pointer hover:border rounded-lg'>
+                <div className='aspect-square w-1/5 relative '>
+                  <Image
+                    layout='fill'
+                    src='/icons/png/iconProyect.png'
+                    alt='imagen proyecto'
+                    className='absolute '
+                  />
+                </div>
+                <div className='flex flex-row text-sm lg:text-base  text-primary-800 font-garden_regular '>
+                  <span>Ver más</span>
+                  <FiChevronRight className='my-auto ' />
+                </div>
+              </div>
             </div>
           </div>
         </div>
