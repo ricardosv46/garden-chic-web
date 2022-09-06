@@ -24,11 +24,11 @@ const NuestraMision = () => {
         </div> */}
 
       <div className='grid grid-cols-1 md:grid-cols-[50%,50%] bg-white '>
-        <div className='order-2  py-3 px-6 text-xl lg:text-2xl h-full p-10 md:px-12 lg:py-10 mb-4 md:mb-0  font-light text-primary-800 '>
+        <div className='order-2  py-3 px-6 text-xl lg:text-2xl h-full p-10 md:px-12 lg:py-10 mb-4 md:mb-0  font-light text-primary-300 '>
           <h2 className='font-bold leading-none text-xl md:text-2xl lg:text-4xl'>
             Nuestra misión
           </h2>
-          <p className='text-xs md:text-base lg:text-xl font-extralight mt-8 text-justify font-garden_regular text-gray-800' >
+          <p className='text-xs md:text-base lg:text-xl font-extralight mt-8 text-justify font-garden_regular text-primary-800' >
             Servir a nuestros clientes de una manera excelente, tratando
             de reflejar lo más fielmente posible el estilo, la decoración,
             los colores y mantenimiento del área verde, donde se vea reflejado las

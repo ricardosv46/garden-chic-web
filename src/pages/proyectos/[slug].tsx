@@ -57,7 +57,7 @@ const Detalle = () => {
               Antes
             </h2>
             {proyecto?.antes!.map((obj, i) => (
-              <p key={i} className='text-justify text-sm md:text-base text-primary-300 font-garden_regular pt-4'>
+              <p key={i} className='text-justify text-sm md:text-base text-primary-800 font-garden_regular pt-4'>
                 {obj}
               </p>))}
           </div>
@@ -72,7 +72,7 @@ const Detalle = () => {
           <Show condition={typeof proyecto?.desafios !== 'undefined'}>
             <RenderItem data={proyecto?.desafios!} tittle='Desafíos y Resultados' />
           </Show>
-          <div className='flex-1 flex flex-col gap-5'>
+          <div className='flex flex-col gap-5 w-full lg:w-1/3'>
             <Show condition={typeof proyecto?.servicios !== 'undefined'}>
               <RenderIcons data={proyecto?.serviciosIcon!} tittle='Servicios' />
             </Show>
