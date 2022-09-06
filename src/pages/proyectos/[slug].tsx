@@ -11,12 +11,14 @@ const Detalle = () => {
   const router = useRouter()
   let slug = router.query.slug
   const proyecto = dataProyects.find((item) => item.pathname === slug)
-
   return (
     <>
       <Container>
+        <div className='flex flex-col items-center justify-center mt-10'>
+          <h2 className='text-center text-2xl md:text-3xl  text-primary-300 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
+        </div>
         <div className='relative'>
-          <div className='flex justify-center py-14'>
+          <div className='flex justify-center py-10'>
 
             <Image
               width={1260}
