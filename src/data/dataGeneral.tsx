@@ -38,37 +38,44 @@ export const DataGeneral: IDataGeneral = {
             {
                 tittle: 'PAISAJISMO',
                 image: '02_PAISAJISMO.jpg',
-                subtittle: 'DISFRUTA DE TU ESPACIO',
+                subtittle: 'Disfruta de tu espacio.',
+                align: 'r',
                 itemPrincipal: false
             }, {
                 tittle: 'JARDINES VERTICALES',
                 image: '03_JARDIN_VERTICAL.png',
-                subtittle: 'UNA NUEVA EXPERIENCIA EN DECORACIÓN',
+                subtittle: 'Una nueva experiencia en decoración.',
+                align: 'l',
                 itemPrincipal: false
             }, {
                 tittle: 'MANTENIMIENTO',
                 image: '04_MANTENIMIENTO.jpg',
-                subtittle: 'SOMOS EXPERTOS EN EL CUIDADO DE TU JARDÍN',
+                subtittle: 'Somos expertos en el cuidado de tu jardín.',
+                align: 'r',
                 itemPrincipal: false
             }, {
                 tittle: 'SISTEMA DE RIEGO TECNIFICADO',
                 image: '05_RIEGO_TECNIFICADO.jpg',
-                subtittle: 'USO MÁS EFICIENTE DEL AGUA',
+                align: 'l',
+                subtittle: 'Uso más eficiente del agua.',
                 itemPrincipal: false
             }, {
                 tittle: 'TECHOS VERDES',
                 image: '06_TECHO_VERDE.jpg',
-                subtittle: 'TECHOS ECOLÓGICOS PARA TU HOGAR',
+                align: 'r',
+                subtittle: 'Techos ecológicos para tu hogar',
                 itemPrincipal: false
             }, {
                 tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFÁLTICO',
                 image: '07_IMPERMEABILIZACION.jpg',
-                subtittle: 'PROTEGE A TU ESPACIO DE LA HUMEDAD',
+                subtittle: 'Protege tu espacio de la humedad.',
+                align: 'l',
                 itemPrincipal: false
             }, {
                 tittle: 'VIVERO',
                 image: '08_VIVERO.jpg',
-                subtittle: 'CULTIVO DE PLANTAS EN GRAN VARIEDAD',
+                subtittle: 'Cultivo de plantas en gran variedad.',
+                align: 'r',
                 itemPrincipal: false
             }],
         Iconos: [
@@ -209,6 +216,7 @@ export interface IBanner {
     tittle: string,
     subtittle: string,
     image: string,
+    align?: string,
     itemPrincipal: boolean
     buttonText?: string,
     textheader?: string

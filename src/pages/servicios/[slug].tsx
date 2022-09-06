@@ -64,7 +64,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             <div key={i} className='border-b-2 border-b-gray-200 py-4 lg:py-5'>
               <p
                 onClick={() => router.push(`/servicios/${item.split(' ').join('').toLowerCase()}`)}
-                className='text-gray-800 text-xs md:text-base lg:text-xl font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
+                className='text-gray-600 text-xs md:text-base lg:text-xl font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
               >
                 {item}
               </p>
@@ -100,7 +100,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
               <h2 className='text-primary-800 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl ' >
                 {obj.tittle || ''}
               </h2>
-              <div className='text-gray-700 text-xs md:text-base lg:text-lg font-light py-7 text-justify'>
+              <div className='text-gray-600 font-garden_regular text-xs md:text-base lg:text-lg font-light py-7 text-justify'>
                 {obj?.subcontent?.map((obj2, j) => <p className='pb-4' key={j}>
                   {obj2 || ''}
                 </p>)}

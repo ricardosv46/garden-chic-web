@@ -64,6 +64,7 @@ const Detalle = () => {
         </div>
       </Container>
       <Show condition={typeof proyecto?.pathname !== 'undefined' && typeof proyecto?.imgAfter !== 'undefined'}>
+        <h2 className='text-center  text-2xl md:text-3xl lg:text-5xl text-primary-300 font-garden_bold z-10 drop-shadow-2xl shadow-primary-800 pb-10'>Después</h2>
         <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgAfter!}`} />
       </Show>
       <Container>

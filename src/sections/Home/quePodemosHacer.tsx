@@ -13,7 +13,7 @@ const QuePodemosHacer = ({ data }: IProps) => {
       <div className="container mx-auto px-6 md:px-12 xl:px-32 ">
         <div className="mb-10 text-center">
           <h2 className="mb-4 text-center text-xl text-primary-600  md:text-3xl lg:text-6xl font-garden_bold">{data.tittle || ''}</h2>
-          {data.subtittle.split('//').map((obj, k) => <p key={k} className="text-gray-600 lg:w-8/12 lg:mx-auto font-garden_medium text-xs md:text-xl ">{obj || ''}</p>)}
+          {data.subtittle.split('//').map((obj, k) => <p key={k} className="text-gray-600 lg:w-8/12 lg:mx-auto font-garden_regular text-xs md:text-xl ">{obj || ''}</p>)}
         </div>
         <div ref={ref} className="grid gap-12 items-center md:grid-cols-3">
           {data.items.map((obj, i) =>
@@ -24,7 +24,7 @@ const QuePodemosHacer = ({ data }: IProps) => {
                 </h2>
                 <h3 className="md:text-xl text-base font-garden_medium text-primary-600">{obj.type || ''}</h3>
                 {/* <h4 className="text-lg">{obj.tittle || ''}</h4> */}
-                <span className="block text-sm text-gray-500 font-garden_regular">{obj.subtittle || ''}</span>
+                <span className="block text-xs md:text-base text-gray-600 font-garden_regular">{obj.subtittle || ''}</span>
               </div>
             </div>
           )}
