@@ -1,67 +1,64 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaPinterest, FaLinkedin } from 'react-icons/fa'
 import Container from '@components/container'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 
 export const Footer = () => {
+    const { push: Push } = useRouter()
     return (
         <Container bgColor='bg-[#004969] '>
             <div className='flex flex-col md:flex-row  text-white py-8 text-[16px] gap-6'>
-                <div className=' md:w-1/4 text-xs md:text-base '>
-                    <div className='tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold'>Nosotros</div>
+                <div className=' md:w-[16%] text-xs md:text-base '>
+                    <div className='tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-primary-300'>Web</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
-                        <li>Conócenos</li>
-                        <li>Misión</li>
-                        <li>Visión</li>
-                        <li>Valores</li>
-                        <li>Objetivos</li>
-                        <li>Blog</li>
+                        <li onClick={() => Push('/')} className="cursor-pointer">Inicio</li>
+                        <li onClick={() => Push('/nosotros')} className="cursor-pointer">Nosotros</li>
+                        <li onClick={() => Push('/servicios')} className="cursor-pointer">Servicios</li>
+                        <li onClick={() => Push('/tienda')} className="cursor-pointer">Tienda</li>
+                        <li onClick={() => Push('/proyectos')} className="cursor-pointer">Proyectos</li>
+                        <li onClick={() => Push('/blogs')} className="cursor-pointer">Blog</li>
+                        <li onClick={() => Push('/contactos')} className="cursor-pointer">Contacto</li>
                     </ul>
                 </div>
-                <div className=' md:w-1/4 text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold'>Servicios</div>
+                <div className=' md:w-[28%] text-xs md:text-base'>
+                    <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold  text-primary-300'>Servicios</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
-                        <li>Empresas de jardinería en Lima</li>
-                        <li>Jardín urbano Perú</li>
-                        <li>Jardinería en Lima</li>
-                        <li>Jardinero a domicilio en Lima</li>
-                        <li>Diseño de jardines</li>
-                        <li>Sistemas de riego tecnificado</li>
-                        <li>Viveros en Lurín</li>
+                        <li onClick={() => Push('/servicios/paisajismo')} className="cursor-pointer">Paisajismo</li>
+                        <li onClick={() => Push('/servicios/jardinesverticales')} className="cursor-pointer">Jardines verticales</li>
+                        <li onClick={() => Push('/servicios/mantenimientodeareasverdes')} className="cursor-pointer">Mantenimiento de áreas verdes</li>
+                        <li onClick={() => Push('/servicios/techosverdes')} className="cursor-pointer">Techos verdes</li>
+                        <li onClick={() => Push('/servicios/sistemaderiegotecnificado')} className="cursor-pointer">Sistemas de riego tecnificado</li>
+                        <li onClick={() => Push('/servicios/impermeabilización')} className="cursor-pointer">Impermeabilización</li>
+                        <li onClick={() => Push('/servicios/vivero')} className="cursor-pointer">Vivero</li>
+
                     </ul>
                 </div>
-                <div className=' md:w-1/4 text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold'>Servicios</div>
+                <div className=' md:w-[28%] text-xs md:text-base'>
+                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-primary-300'>Contáctanos</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
-                        <li>Mantenimiento de jardines en Lima</li>
-                        <li>Servicio de jardinería en Lima</li>
-                        <li>Servicios de jardinería en Lima</li>
-                        <li>Trabajo de jardinería en Lima</li>
-                        <li>Viveros en Lima Perú</li>
-                        <li>Paisajismo en Lima</li>
-                        <li>Impermeabilización con mantos asfálticos y geomembrana</li>
+                        <span>Tel: 996 276 109</span>
+                        <span className='text-[14px]'>consultas@gardenchicperu.com</span>
                     </ul>
-                </div>
-                <div className='md:w-1/4 flex flex-col gap-4 text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold'>Síguenos</div>
-                    <ul className='flex flex-wrap  leading-[18.2px] gap-4 text-primary-300 font-garden_regular'>
+                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-primary-300'>Síguenos</div>
+                    <ul className='flex flex-row gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <li><FaFacebook className='w-6 h-6 hover:text-white' /></li>
                         <li><FaLinkedin className='w-6 h-6 hover:text-white' /></li>
                         <li><FaInstagram className='w-6 h-6 hover:text-white' /></li>
                         <li><FaPinterest className='w-6 h-6 hover:text-white' /></li>
                     </ul>
-                    <div className='flex flex-col font-garden_regular text-xs md:text-base gap-1 md:gap-2 ' >
-                        <span>Tel: 996 276 109</span>
-                        <span className='text-[14px]'>consultas@gardenchicperu.com</span>
-                    </div>
-                    <div className='w-full h-16 relative max-w-[288px] md:h-9 lg:h-12'>
+                </div>
+                <div className='md:w-[28%] flex flex-col  text-xs md:text-base'>
+                    <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-primary-300'>Proveedor Oficial</div>
+                    <span className='block my-3 font-garden_regular'>!Somos proveedores oficiales de CASACOR PERÚ desde hace 03 ediciones!</span>
+                    <div className='w-full h-16 relative max-w-[288px] md:h-12 lg:h-16 '>
                         <Image
                             className='absolute w-full h-full '
                             loading='lazy'
                             layout='fill'
                             objectFit='cover'
-                            src={'/imgs/footer/LOGO_HORIZONTAL.jpg'}
+                            src={'/imgs/banner/principal/LOGO_BANNER_CASACOR.png'}
                         />
                     </div>
                 </div>
