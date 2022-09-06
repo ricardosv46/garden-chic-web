@@ -31,6 +31,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
   const router = useRouter()
   let slug = router.query.slug
   const { db: productos, loading } = useProductos()
+
   const serviciosLat = ['Paisajismo',
     'Jardines Verticales',
     'Mantenimiento',
@@ -39,6 +40,15 @@ const DetalleServicios = ({ url }: PropsStatic) => {
     'Impermeabilización ',
     'Vivero'
   ]
+
+  const SiguienteServicio = () => {
+    const IndexServicio = servicios.map((data) => data.title).indexOf(url.title)
+    if (IndexServicio === servicios.length - 1) {
+      router.push(`/servicios/${servicios[0].url}`)
+    } else {
+      router.push(`/servicios/${servicios[IndexServicio + 1].url}`)
+    }
+  }
 
 
   return (
@@ -121,7 +131,10 @@ const DetalleServicios = ({ url }: PropsStatic) => {
                   )
                 }
               })}
-              <div className=' flex flex-row items-center justify-center gap-4 w-full aspect-[4/3] sm:aspect-auto max-h-[441px] cursor-pointer hover:border rounded-lg'>
+              <div
+                className=' flex flex-row items-center justify-center gap-4 w-full aspect-[4/3] sm:aspect-auto max-h-[441px] cursor-pointer hover:border rounded-lg'
+                onClick={() => SiguienteServicio()}
+              >
                 <div className='aspect-square w-1/5 relative '>
                   <Image
                     layout='fill'
@@ -132,7 +145,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
                 </div>
                 <div className='flex flex-row text-sm lg:text-base  text-primary-800 font-garden_regular '>
                   <span>Ver más</span>
-                  <FiChevronRight className='my-auto ' />
+                  <FiChevronRight className='my-auto' />
                 </div>
               </div>
             </div>
