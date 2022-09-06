@@ -40,15 +40,17 @@ const Detalle = () => {
         </div>
 
         <div className='flex flex-col lg:flex-row gap-5 pb-10  justify-center items-center '>
+          {/* <div className='w-20 h-20 border-4 border-black  max-w-[660px] max-h-[600px]' style={{ backgroundImage: `url(/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!})` }} /> */}
+          <div className='inline-flex  bg-gradiant-secondary rounded-lg'>
             <Image
               width={660}
               height={600}
-              // layout='fill'
               src={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`}
               alt='imagen proyecto'
-              className='rounded-lg '
+              className='rounded-lg  -z-10'
               color='black'
             />
+          </div>
 
           <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center '>
             <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-garden_bold'>

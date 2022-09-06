@@ -27,6 +27,7 @@ module.exports = {
       },
       gradiant: {
         primary: "rgba(0,0,0,0.3)",
+        secondary: "rgba(0,0,0,0.4)",
       },
       secondary: secondary,
       inherit: colors.inherit,
