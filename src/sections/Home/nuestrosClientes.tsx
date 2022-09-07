@@ -41,21 +41,20 @@ const NuestrosClientes = ({ data }: IProps) => {
         slidesPerView={1}
         spaceBetween={30}
         breakpoints={{
-          380: {
-            slidesPerView: 1,
+          320: {
+            slidesPerView: 2,
             spaceBetween: 5
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20
           },
           1024: {
             slidesPerView: 3,
             spaceBetween: 10,
-            navigation: false
           },
           1400: {
-            slidesPerView: 6,
+            slidesPerView: 4,
             spaceBetween: 10
           }
         }}
@@ -63,13 +62,13 @@ const NuestrosClientes = ({ data }: IProps) => {
         className='mySwiper'
       >
         {data.map((item) => (
-          <SwiperSlide key={item} className='xl:px-10'>
+          <SwiperSlide key={item} className='ml-1'>
             <div
-              className={`flex flex-col items-center gap-y-5  transition-all duration-500 grayscale hover:grayscale-0 relative h-20 `}
+              className={`flex flex-col items-center  transition-all duration-500 grayscale hover:grayscale-0 h-20 w-24 md:h-32 md:w-40  relative`}
             >
               <Image src={resolvePath(item)}
                 alt={item}
-                className="object-contain"
+                className="absolute"
                 layout="fill"
               />
             </div>
