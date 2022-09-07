@@ -22,17 +22,16 @@ interface Iprops {
 export const RenderIcons = ({ data, tittle }: Iprops) => {
     return (
         <>
-            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-primary-300 font-garden_bold'>
+            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-garden-option1 font-garden_bold'>
                 {tittle}
             </h3>
-            {/* <span className='text-center text-lg text-primary-300 font-bold '>{tittle}</span> */}
             <div className='flex items-center gap-2 flex-col lg:px-10 '>
                 {data.map((obj, key) => (
                     <div key={key} className="flex flex-row w-full gap-2">
                         <div className='bg-primary-100 w-10 h-10 lg:h-16 lg:w-16 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border '>
                             {TypeIcon[obj]}
                         </div>
-                        <p className='text-sm lg:text-base  text-primary-800 font-garden_regular my-auto'>{obj}</p>
+                        <p className='text-sm lg:text-base  text-garden-option3 font-garden_medium my-auto'>{obj}</p>
                     </div>
                 ))}
 
@@ -50,7 +49,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                     // className='rounded-lg'
                     />
                 </div>
-                <div className='flex flex-row text-sm lg:text-base  text-primary-800 font-garden_regular my-auto ml-2'>
+                <div className='flex flex-row text-sm lg:text-base text-garden-option3 font-garden_medium my-auto ml-2'>
                     <span>Ver más</span>
                     <FiChevronRight className='my-auto ml-2'/>
                 </div>

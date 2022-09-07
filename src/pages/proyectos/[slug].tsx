@@ -15,7 +15,7 @@ const Detalle = () => {
     <>
       <Container>
         <div className='flex flex-col items-center justify-center mt-10'>
-          <h2 className='text-center text-2xl md:text-3xl  text-primary-300 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
+          <h2 className='text-center text-2xl md:text-3xl  text-garden-option1 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
         </div>
         <div className='relative'>
           <div className='flex justify-center py-10'>
@@ -30,10 +30,10 @@ const Detalle = () => {
 
           </div>
           <div className='flex justify-center'>
-            <div className='flex justify-center w-[50px] h-[50px] md:w-[110px]  md:h-[110px] absolute bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
+            <div className='flex justify-center w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-0 z-10 mx-auto rounded-full bg-white cursor-pointer '>
               <Image
                 layout='fill'
-                src='/icons/png/iconProyect.png'
+                src='/icons/png/iconProyect_circle.png'
                 alt='imagen proyecto'
                 className='rounded-lg'
               />
@@ -41,32 +41,30 @@ const Detalle = () => {
           </div>
         </div>
 
-        <div className='flex flex-col lg:flex-row gap-5 pb-10  justify-center items-center '>
-          {/* <div className='w-20 h-20 border-4 border-black  max-w-[660px] max-h-[600px]' style={{ backgroundImage: `url(/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!})` }} /> */}
-          <div className='inline-flex  bg-gradiant-secondary rounded-lg'>
+        <div className='flex flex-col xl:flex-row gap-5 pb-10 pt-4 sm:pt-10 justify-center items-start '>
+          <div className='bg-gradiant-secondary  rounded-lg mx-auto xl:mx-0'>
             <Image
               width={660}
               height={600}
               src={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgBefore!}`}
               alt='imagen proyecto'
-              className='rounded-lg  -z-10'
-              color='black'
+              className='rounded-lg -z-10'
             />
           </div>
 
           <div className='flex-1 py-10 lg:p-10 flex flex-col justify-center '>
-            <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-primary-300 font-garden_bold'>
+            <h2 className='text-center text-2xl md:text-3xl lg:text-5xl text-garden-option1 font-garden_bold'>
               Antes
             </h2>
             {proyecto?.antes!.map((obj, i) => (
-              <p key={i} className='text-justify text-sm md:text-base text-primary-800 font-garden_regular pt-4'>
+              <p key={i} className='text-justify text-sm md:text-base text-garden-option3 font-garden_regular pt-4'>
                 {obj}
               </p>))}
           </div>
         </div>
       </Container>
       <Show condition={typeof proyecto?.pathname !== 'undefined' && typeof proyecto?.imgAfter !== 'undefined'}>
-        <h2 className='text-center  text-2xl md:text-3xl lg:text-5xl text-primary-300 font-garden_bold z-10 drop-shadow-2xl shadow-primary-800 pb-10'>Después</h2>
+        <h2 className='text-center  text-2xl md:text-3xl lg:text-5xl text-garden-option1 font-garden_bold z-10 drop-shadow-2xl shadow-primary-800 pb-10'>Después</h2>
         <BannerProyectos img={`/imgs/proyects/${proyecto?.pathname!}/${proyecto?.imgAfter!}`} />
       </Show>
       <Container>

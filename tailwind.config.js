@@ -25,6 +25,11 @@ module.exports = {
         600: "#445378",
         800: "#35405E",
       },
+      garden: {
+        option1: "#014969",
+        option2: "#BBD2D8",
+        option3: "#6F6F6E"
+      },
       gradiant: {
         primary: "rgba(0,0,0,0.3)",
         secondary: "rgba(0,0,0,0.4)",

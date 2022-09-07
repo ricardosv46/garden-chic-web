@@ -19,10 +19,10 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
 
   const { carrito } = useCarritoContext();
   return (
-    <nav className="mx-auto my-0 w-[90%] xl:w-[1280px] lg:block hidden">
+    <nav className="mx-auto my-0 w-[90%] xl:w-[1280px] lg:block hidden ">
       <div
         className={`w-full hidden  
-            text-primary-600  md:flex items-center justify-between`}
+        text-primary-800 md:flex items-center justify-between`}
       >
         <Link href="/" passHref>
           <div className="flex">
@@ -36,7 +36,7 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
           </div>
         </Link>
         <div className="flex items-center gap-8">
-          <ul className="  flex relative font-garden_medium">
+          <ul className="flex relative font-garden_regular">
             <li className="p-7 cursor-pointer ">
               <Link href="/" passHref>
                 Inicio

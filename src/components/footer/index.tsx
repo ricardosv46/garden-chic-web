@@ -8,10 +8,10 @@ import Image from 'next/image'
 export const Footer = () => {
     const { push: Push } = useRouter()
     return (
-        <Container bgColor='bg-[#004969] '>
+        <Container bgColor="bg-garden-option1">
             <div className='flex flex-col md:flex-row  text-white py-8 text-[16px] gap-6'>
                 <div className=' md:w-[16%] text-xs md:text-base '>
-                    <div className='tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-primary-300'>Web</div>
+                    <div className='tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-garden-option2'>Web</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <li onClick={() => Push('/')} className="cursor-pointer">Inicio</li>
                         <li onClick={() => Push('/nosotros')} className="cursor-pointer">Nosotros</li>
@@ -23,7 +23,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className=' md:w-[28%] text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold  text-primary-300'>Servicios</div>
+                    <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-garden-option2'>Servicios</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <li onClick={() => Push('/servicios/paisajismo')} className="cursor-pointer">Paisajismo</li>
                         <li onClick={() => Push('/servicios/jardinesverticales')} className="cursor-pointer">Jardines verticales</li>
@@ -36,12 +36,12 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className=' md:w-[28%] text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-primary-300'>Contáctanos</div>
+                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-garden-option2'>Contáctanos</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <span>Tel: 996 276 109</span>
                         <span className='text-[14px]'>consultas@gardenchicperu.com</span>
                     </ul>
-                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-primary-300'>Síguenos</div>
+                    <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-garden-option2'>Síguenos</div>
                     <ul className='flex flex-row gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <li><FaFacebook className='w-6 h-6 hover:text-white' /></li>
                         <li><FaLinkedin className='w-6 h-6 hover:text-white' /></li>
@@ -50,7 +50,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className='md:w-[28%] flex flex-col  text-xs md:text-base'>
-                    <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-primary-300'>Proveedor Oficial</div>
+                    <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-garden-option2'>Proveedor Oficial</div>
                     <span className='block my-3 font-garden_regular'>!Somos proveedores oficiales de CASACOR PERÚ desde hace 03 ediciones!</span>
                     <div className='w-full h-16 relative max-w-[288px] md:h-12 lg:h-16 '>
                         <Image
