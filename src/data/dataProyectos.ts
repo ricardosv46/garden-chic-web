@@ -18,7 +18,7 @@ export const EnumServiciosIcons = {
   Impermeabilizacion: 'Impermeabilización',
   Techosverdes: 'Techos verdes',
   SistemadeRiegoTecnificado: 'Sistema de Riego Tecnificado',
-  Mantenimientoareasverdes: 'Mantenimiento de áreas verdes',
+  Mantenimientoareasverdes: 'Mantenimiento',
   JardinVertical: 'Jardín Vertical',
   Vivero: 'Vivero',
 }
@@ -244,10 +244,7 @@ export const dataProyects: EntitydataProyects[] = [
     proceso:
       'Primero se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, eto protege el techo, piso o pared en donde se realiza la construcción del jardín. Luego se pasó a realizar el armado de las jardineras: primera capa de geotextil, segunda capa de piedra, tercera capa de geotextil y para finalizar una capa de sustrato. Y por último se pasó a realizar el sembrado e instalación de césped.',
     servicios: [EnumServicios.Paisajismo],
-    serviciosIcon: [
-      EnumServiciosIcons.Paisajismo,
-      EnumServiciosIcons.SistemadeRiegoTecnificado,
-    ],
+    serviciosIcon: [EnumServiciosIcons.Paisajismo],
     duracion: {
       cantidad: '6',
       tipo: 'meses',
@@ -450,6 +447,7 @@ export const dataProyects: EntitydataProyects[] = [
     serviciosIcon: [
       EnumServiciosIcons.Paisajismo,
       EnumServiciosIcons.Mantenimientoareasverdes,
+      EnumServiciosIcons.Vivero,
     ],
     duracion: {
       cantidad: '1',

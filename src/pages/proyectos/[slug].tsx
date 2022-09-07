@@ -57,7 +57,7 @@ const Detalle = () => {
               Antes
             </h2>
             {proyecto?.antes!.map((obj, i) => (
-              <p key={i} className='text-justify text-sm md:text-base text-garden-option3 font-garden_regular pt-4'>
+              <p key={i} className='text-justify text-sm xl:text-xl text-garden-option3 font-garden_regular pt-4'>
                 {obj}
               </p>))}
           </div>
