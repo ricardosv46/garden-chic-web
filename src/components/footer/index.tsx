@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaPinterest, FaLinkedin } from 'react-icons/fa'
 import Container from '@components/container'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 
@@ -22,7 +23,7 @@ export const Footer = () => {
                         <li onClick={() => Push('/contactos')} className="cursor-pointer">Contacto</li>
                     </ul>
                 </div>
-                <div className=' md:w-[28%] text-xs md:text-base'>
+                <div className=' md:w-[28%] text-xs md:text-base '>
                     <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-garden-option2'>Servicios</div>
                     <ul className='flex flex-col gap-1 md:gap-2  leading-[18.2px] font-garden_regular'>
                         <li onClick={() => Push('/servicios/paisajismo')} className="cursor-pointer">Paisajismo</li>
@@ -46,17 +47,33 @@ export const Footer = () => {
                     <div className='mb-4'>
                         <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-garden-option2'>Síguenos</div>
                         <ul className='flex flex-row gap-1 md:gap-2 lg:gap-3 leading-[18.2px] font-garden_regular'>
-                            <li><FaFacebook className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' /></li>
-                            <li><FaLinkedin className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' /></li>
-                            <li><FaInstagram className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' /></li>
-                            <li><FaPinterest className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' /></li>
+                            <li className='cursor-pointer'>
+                                <Link href={'https://www.facebook.com/gardenchicperu/'} target={'_blank'}>
+                                    <FaFacebook className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' />
+                                </Link>
+                            </li>
+                            <li className="cursor-pointer">
+                                <Link href={'https://www.linkedin.com/in/garden-chic-per%C3%BA-433a50173/'} target={'_blank'}>
+                                    <FaLinkedin className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' />
+                                </Link>
+                            </li>
+                            <li className='cursor-pointer'>
+                                <Link href={'https://www.instagram.com/gardenchicperu/'} target={'_blank'}>
+                                    <FaInstagram className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={'https://www.pinterest.es/gardenchicperu/'} target={'_blank'}>
+                                    <FaPinterest className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' />
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
                 </div>
-                <div className='md:w-[28%] flex flex-col justify-between text-xs md:text-base'>
+                <div className='md:w-[28%] flex flex-col justify-between text-xs md:text-base '>
                     <div>
-                        <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-garden-option2'>Proveedor Oficial</div>
+                        <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-garden-option2 my-3'>Proveedor Oficial</div>
                         <span className='block my-3 font-garden_regular'>!Somos proveedores oficiales de CASACOR PERÚ desde hace 03 ediciones!</span>
                     </div>
                     <div className='w-full h-16 relative max-w-[288px] md:h-12 lg:h-16 mb-4'>

@@ -62,7 +62,7 @@ export const servicios: EntityServicios[] = [
     ],
   },
   {
-    title: 'Mantenimiento de Areas verdes',
+    title: 'Mantenimiento de Áreas Verdes',
     tittleResumido: 'Mantenimiento',
     position: 'l',
     img: 'mantenimiento/01_PRINCIPAL.jpg',
