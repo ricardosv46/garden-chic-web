@@ -15,7 +15,7 @@ export const ItemPrincipal = ({ data }: Iprops) => {
             <div className='mx-auto my-0 w-[90%] xl:w-[1280px]  h-full flex justify-center items-center  relative z-10'>
                 <div className='h-80  flex flex-col  sm:gap-1 md:gap-2 lg:gap-0 items-center justify-center lg:max-w-[700px] absolute'>
                     {/*  animate-renderTranslate  */}
-                    <span className='font-bold text-[10px] sm:text-xl lg:text-4xl md:font-extralight translateRender font-garden_regular '>
+                    <span className='font-bold text-[10px] sm:text-xl lg:text-4xl md:font-extralight translateRender font-garden_bold '>
                         {data.textheader || ''}
                     </span>
                     {/*

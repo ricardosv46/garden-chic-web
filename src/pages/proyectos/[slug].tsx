@@ -25,7 +25,7 @@ const Detalle = () => {
     <>
       <Container>
         <div className='flex flex-col items-center justify-center mt-10'>
-          <h2 className='text-center text-2xl md:text-3xl  text-garden-option1 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
+          <h2 className='text-center text-2xl md:text-3xl lg:text-5xl  text-garden-option1 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
         </div>
         <div className='relative '>
           <div className='flex justify-center py-10'>
