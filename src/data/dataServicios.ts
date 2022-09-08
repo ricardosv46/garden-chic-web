@@ -135,7 +135,7 @@ export const servicios: EntityServicios[] = [
         tittle: '¿Cómo podemos ayudarte?',
         subcontent: [
           'Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
-          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
         ],
       },
