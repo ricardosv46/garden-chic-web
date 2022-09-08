@@ -31,7 +31,7 @@ export const DataGeneral: IDataGeneral = {
             {
                 tittle: 'CASACOR / PERÚ',
                 image: '01_CASACOR.jpg',
-                subtittle: 'La mayor y más completa muestra de arquitectura, diseño de interiores y paisajismo de la américas.',
+                subtittle: 'La mayor y más completa// muestra de arquitectura, diseño de interiores// y paisajismo de la américas.',
                 itemPrincipal: true,
                 imgTittle: 'LOGO_BANNER_CASACOR.png',
                 textheader: 'PRESENTES EN:'

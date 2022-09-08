@@ -19,7 +19,7 @@ export const Item = ({ data }: IProps) => {
                     <h4 className='font-garden_bold text-base md:text-4xl md:font-extralight text-center md:text-left '>
                         {data.tittle || ''}
                     </h4>
-                    <p className='mb-4 mt-4 lg:my-6 text-[10px] md:text-xl font-garden_medium '>
+                    <p className='mb-2 lg:mt-2 lg:mb-4 text-[10px] md:text-xl font-garden_medium '>
                         {data.subtittle || ''}
                     </p>
                     <ButtonBanner title={data.buttonText || 'SABER MÁS'} />
