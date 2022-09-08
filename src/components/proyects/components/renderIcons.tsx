@@ -39,7 +39,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
 
 
             </div>
-            <div className='flex mt-4 flex-row w-full h-auto  lg:px-10 '>
+            {/* <div className='flex mt-4 flex-row w-full h-auto  lg:px-10 '>
                 <div className='w-[40px] h-[40px] relative  lg:w-[64px] lg:h-[64px]'>
                     <Image
                         // width={40}
@@ -55,7 +55,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                     <span>Ver más</span>
                     <FiChevronRight className='my-auto ml-2' />
                 </div>
-            </div>
+            </div> */}
 
         </>
     )
