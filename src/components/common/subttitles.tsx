@@ -5,7 +5,7 @@ interface Iprops {
 }
 export const Subttitles = ({ data, onChange }: Iprops) => {
     return (
-        <ol className='hidden flex-col lg:flex-row gap-3 mt-8 lg:flex font-garden_regular'>
+        <ol className='hidden flex-col lg:flex lg:flex-row gap-3 mt-8  font-garden_regular xl:gap-5 '>
             {data.map((obj, i) => <li key={i} className='text-garden-option1 text-md font-bold cursor-pointer' onClick={() => onChange(obj.value)}>{obj.tittle}</li>)}
         </ol>
     )

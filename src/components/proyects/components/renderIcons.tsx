@@ -5,14 +5,14 @@ import { IconJardinesVerticales, IconPaisajismo, IconMantenimiento, IconImpermea
 import { FiChevronRight } from 'react-icons/fi'
 import Image from 'next/image'
 const TypeIcon: any = {
-    'Paisajismo': <IconPaisajismo  className=' w-4 h-4 lg:w-6 lg:h-6 ' />,
-    'Mantenimiento': <IconMantenimiento  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Impermeabilización': <IconImpermeablizacion  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Impermeabilización con manto asfáltico': <IconVivero  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Techos verdes': <IconTechosVerdes  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Sistema de Riego Tecnificado': <IconRiegoTexnificado  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Jardín Vertical': <IconJardinesVerticales  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
-    'Vivero': <IconVivero  className='text-white w-4 h-4 lg:w-6 lg:h-6' />,
+    'Paisajismo': <IconPaisajismo  className=' w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Mantenimiento': <IconMantenimiento  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Impermeabilización': <IconImpermeablizacion  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Impermeabilización con manto asfáltico': <IconVivero  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Techos verdes': <IconTechosVerdes  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Sistema de Riego Tecnificado': <IconRiegoTexnificado  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Jardín Vertical': <IconJardinesVerticales  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Vivero': <IconVivero  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
 
 }
 interface Iprops {
@@ -33,7 +33,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                         <div className='bg-garden-option2 w-10 h-10 lg:h-16 lg:w-16 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border '>
                             {TypeIcon[obj]}
                         </div>
-                        <p className='text-sm lg:text-base  text-garden-option3 font-garden_medium my-auto'>{obj}</p>
+                        <p className='text-sm md:text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto'>{obj}</p>
                     </div>
                 ))}
 
@@ -51,7 +51,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                     // className='rounded-lg'
                     />
                 </div>
-                <div className='flex flex-row text-sm lg:text-base text-garden-option3 font-garden_medium my-auto ml-2'>
+                <div className='flex flex-row text-sm md:text-base lg:text-xl text-garden-option1 font-garden_medium my-auto ml-2'>
                     <span>Ver más</span>
                     <FiChevronRight className='my-auto ml-2' />
                 </div>

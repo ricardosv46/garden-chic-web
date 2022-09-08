@@ -34,7 +34,7 @@ const Servicios = () => {
                 <h2 className='text-center text-2xl md:text-4xl text-primary-300 font-garden_bold'>
                   {item.tittleResumido}
                 </h2>
-                <p className='text-center text-xs md:text-lg text-primary-800 font-garden_medium '>
+                <p className='text-center text-xs md:text-lg text-garden-option3 font-garden_medium '>
                   {item.description || ''}
                 </p>
                 <button

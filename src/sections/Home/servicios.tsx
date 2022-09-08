@@ -61,14 +61,14 @@ const Servicios = ({ data, loop = true }: IProps) => {
             <SwiperSlide key={i}  >
               {/* obj.icon1 es jsx.element*/}
               <Show condition={typeof obj.Icon1 !== 'string'}>
-                <div className='flex flex-col items-center gap-y-5 text-primary-600 h-32'>
+                <div className='flex flex-col items-center gap-y-5 text-garden-option1 h-32'>
                   {obj.Icon1}
                   <p className='text-xl font-garden_medium'>{obj.label || null}</p>
                 </div>
               </Show>
               {/* obj.icon1 es string o src*/}
               <Show condition={typeof obj.Icon1 === 'string'}>
-                <div className='flex flex-col items-center  text-primary-600 h-36 relative' >
+                <div className='flex flex-col items-center  text-garden-option1 h-36 relative' >
                   <div className='relative h-full w-full'>
                     <Image src={resolvePath(String(obj.Icon1))}
                       alt={String(obj.Icon1)}

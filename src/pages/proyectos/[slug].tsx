@@ -17,9 +17,8 @@ const Detalle = () => {
         <div className='flex flex-col items-center justify-center mt-10'>
           <h2 className='text-center text-2xl md:text-3xl  text-garden-option1 font-garden_bold'>{proyecto?.dataHover || ''}</h2>
         </div>
-        <div className='relative'>
+        <div className='relative '>
           <div className='flex justify-center py-10'>
-
             <Image
               width={1260}
               height={850}
@@ -29,8 +28,8 @@ const Detalle = () => {
             />
 
           </div>
-          <div className='flex justify-center'>
-            <div className='flex justify-center w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-0 z-10 mx-auto rounded-full bg-white cursor-pointer '>
+          <div className='flex justify-center '>
+            <div className='flex justify-center w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-6 md:-bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
               <Image
                 layout='fill'
                 src='/icons/png/iconProyect_circle.png'
@@ -41,7 +40,7 @@ const Detalle = () => {
           </div>
         </div>
 
-        <div className='flex flex-col xl:flex-row gap-5 pb-10 pt-4 sm:pt-10 justify-center items-start '>
+        <div className='flex flex-col xl:flex-row gap-5 pb-10 pt-4 sm:pt-16 justify-center items-start '>
           <div className='bg-gradiant-secondary  rounded-lg mx-auto xl:mx-0'>
             <Image
               width={660}
