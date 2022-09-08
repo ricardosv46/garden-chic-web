@@ -4,27 +4,27 @@ export const DataGeneral: IDataGeneral = {
     Home: {
         QuePodemosHacer: {
             tittle: 'Cuidar y mantener saludable tus áreas verdes es nuestra pasión',
-            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes// Podemos ayudar a hacer realidad el jardín de tus sueños',
+            subtittle: 'Nos especializamos en el diseño e implementación de áreas verdes.// Podemos ayudar a hacer realidad el jardín de tus sueños.',
             items: [{
                 count: '150',
                 type: 'PROYECTOS REALIZADOS',
                 duration: 2000,
                 tittle: '',
-                subtittle: 'En estos 06 años en el mercado laboral'
+                subtittle: 'En estos 06 años en el mercado laboral.'
             },
             {
                 count: '800 m²',
                 type: 'DE ÁREAS VERDES',
                 duration: 1000,
                 tittle: '',
-                subtittle: 'En implementación de jardines verticales'
+                subtittle: 'En implementación de jardines verticales.'
             },
             {
                 count: '50',
                 type: 'CLIENTES SATISFECHOS',
                 duration: 1500,
                 tittle: '',
-                subtittle: 'Confiaron en nuestros servicios'
+                subtittle: 'Confiaron en nuestros servicios.'
             }]
         },
         Banner: [
@@ -104,7 +104,7 @@ export const DataGeneral: IDataGeneral = {
                 label: 'Vivero'
             }
         ],
-        EllosConfian: ['ARMAS', 'ARMONHY', 'Ay', 'BACKUS', 'BRITANICO', 'EDIFICA', 'ENGIE', 'ESPARQ', 'EXALMAR', 'INTERCONNECTA', 'LEGADO', 'LIMALOFT', 'MARCOALDANY', 'MEGALABS', 'PIONERO', 'RANSA', 'SACYRCONCESIONES', 'SOLE', 'VyV', 'unique','profuturo','decameron'],
+        EllosConfian: ['Ay', 'BACKUS', 'BRITANICO', 'ENGIE', 'EXALMAR', 'LEGADO', 'MEGALABS', 'PIONERO', 'RANSA', 'SOLE', 'VyV', 'unique', 'profuturo', 'decameron'],
         Contactanos: {
             tittle: 'Haz tu consulta o solicitud de presupuesto, con gusto y prontitud te atenderemos.',
             OptionForm: ['PAISAJISMO',
@@ -121,7 +121,7 @@ export const DataGeneral: IDataGeneral = {
     },
     Nosotros: {
         QuePodemosHacer: {
-            tittle: '!Nos encargamos de tu jardín!',
+            tittle: '¡Nos encargamos de tu jardín!',
             subtittle: 'Si tienes un proyecto por realizar o necesitas un servicio de paisajismo, cuenta con nosotros. Sabemos que es muy importante el compromiso, puntualidad, profesionalismo y calidad para la realización de tus proyectos.',
             items: [{
                 count: '150',

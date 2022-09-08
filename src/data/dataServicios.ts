@@ -30,13 +30,7 @@ export const servicios: EntityServicios[] = [
         subcontent: [
           'Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
           'Nuestro equipo a realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
-          'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
-        ],
-      },
-      {
-        tittle: 'Referencias',
-        subcontent: [
-          'Paisajismo es la actividad destinada a modificar las características visibles, físicas y anímicas de un espacio, tanto rural como urbano, entre las que se incluyen: los elementos vivos, tales como flora y fauna, lo que habitualmente se denomina jardinería, el arte de cultivar plantas con el propósito de crear un bello entorno paisajista; los elementos naturales como las formas del terreno, las elevaciones o los cauces de agua, los elementos humanos, como estructuras, edificios u otros objetos materiales creados por el hombre; lo elementos abstractos, como las condiciones climáticas y luminosas; y los elementos culturales. ',
+          'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”.',
         ],
       },
     ],
@@ -76,7 +70,7 @@ export const servicios: EntityServicios[] = [
         subcontent: [
           'Nuestro servicio cuenta con un diagnóstico inicial del área verde, en ella consideramos el tipo de planta, la frecuencia y abundancia del riego para estas plantas, las plantas están enfermas o plagadas, existen plantas muertas, hay mala hierba o plantas invasoras, el estado del suelo. Con ello se realiza la lista de tareas por realizar de acuerdo a la prioridad y mejora del espacio verde.',
           'Nuestra propuesta de valor diferencial en este servicio es que destinamos un mismo personal capacitado como la asesoría en caso se requiera y una atención personalizada para atender los casos particulares que puedan tener como solucionarlas con prontitud.',
-          'Trabajamos con un equipo especializado en el mantenimiento de las áreas verdes, con este servicio iniciamos nuestras labores en la empresa y es el servicio que se destaca por mantener la Salud y Estética de tus áreas verdes.',
+          'Trabajamos con un equipo especializado en el mantenimiento de las áreas verdes, con este servicio iniciamos nuestras labores en la empresa y es el servicio que se destaca por mantener la salud y estética de tus áreas verdes.',
         ],
       },
     ],
