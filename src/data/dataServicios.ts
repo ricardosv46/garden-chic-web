@@ -29,7 +29,7 @@ export const servicios: EntityServicios[] = [
         tittle: '¿Cómo podemos ayudarte?',
         subcontent: [
           'Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
-          'Nuestro equipo a realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+          'Nuestro equipo a realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos y escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”.',
         ],
       },
@@ -109,7 +109,7 @@ export const servicios: EntityServicios[] = [
         tittle: '¿Cómo podemos ayudarte?',
         subcontent: [
           'Nuestro sistema de riego tecnificado tiene el objetivo de generar más eficiencia del consumo de agua y reducir el impacto sobre el área verde. ',
-          'La disposición y distribución de forma homogénea del agua genera la eficiencia de este recurso tan valioso para el mejor rendimiento de las plantas, haciendo un ambiente propicio de Salud y Estética de la jardinería de flora y fauna.',
+          'La disposición y distribución de forma homogénea del agua genera la eficiencia de este recurso tan valioso para el mejor rendimiento de las plantas, haciendo un ambiente propicio de salud y estética de la jardinería de flora y fauna.',
           'Trabajamos nuestros proyectos como únicos. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”.',
         ],
       },
@@ -129,7 +129,7 @@ export const servicios: EntityServicios[] = [
         tittle: '¿Cómo podemos ayudarte?',
         subcontent: [
           'Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
-          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos y escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”',
         ],
       },
@@ -149,7 +149,7 @@ export const servicios: EntityServicios[] = [
         tittle: '¿Cómo podemos ayudarte?',
         subcontent: [
           'Podemos ayudarte en la creación o mejora de tu espacio verde. Hemos diseñado, modificado e implementado espacios con características visibles, físicas y anímicas, tanto rural como urbano. Haciendo relucir la jardinería de flora y fauna.',
-          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos, escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
+          'Nuestro equipo ha realizado distintos proyectos paisajistas. Logrando cultivar plantas como un arte, con el propósito de embellecer el entorno del proyecto. Y esto lo hacemos en compañía de nuestros clientes acercándonos y escuchándolos hasta lograr satisfacerlo más allá de sus expectativas.',
           'Trabajamos nuestros proyectos como únicos, como lo son: “Un bello entorno paisajista”. Para ello contamos con un vivero y con técnicos, consultores, ingenieros y proveedores aliados que tienen el mismo objetivo en común: “hacer de tu entorno verde una obra de arte natural”.',
         ],
       },

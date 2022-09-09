@@ -222,7 +222,7 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, esto protege el techo, piso o pared en donde se realiza la construcción del jardín, eealizando luego el armado de los jardines.',
+      'Se realizó el impermeabilizado con geomembrana y manto asfáltico para evitar las filtraciones de agua y humedad, esto protege el techo, piso o pared en donde se realiza la construcción del jardín, realizando luego el armado de los jardines.',
       'Todo este trabajo se realizó en altura, con andamios colgantes y con las medidas de protección y seguridad, en una constante supervisión de las operaciones.',
       'Cabe resaltar que los jardines delgados contaban con una gran profundidad.',
       'Tanto la constructora como la inmobiliaria quedaron satisfechos con la obra.',
@@ -438,7 +438,7 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Estudio y Huerto de la Chef',
     antes: [
-      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas, el espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables; Sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022).',
+      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas, el espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables; sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022).',
     ],
     cliente: 'Arquitectas Andrea Cavassa y Claudia Triveño',
     proceso:
@@ -483,7 +483,7 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Sogno Veneziano',
     antes: [
-      'El proyecto Le Cottage fue realizado por la arquitecta Erika Zielinski, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°1, en el distrito de Surco.',
+      'El proyecto Sogno Veneziano fue realizado por la arquitecta Erika Zielinski, presentado en Casacor 2022. La exposición de este trabajo fue realizado en las Casas Majluf - Casa N°1, en el distrito de Surco.',
       'Este proyecto fue inspirado en Venecia y las 4 estaciones, a través de la música de Antonio Vivaldi, tomar un café en la primavera, leer un libro en el verano, vestirse en el otoño y abrigarse en el invierno.',
       'En el ambiente se utilizaron una paleta de colores en tonos neutros y materiales naturales que sirven como fondo a cada una de las estaciones que se presentan a todo color.',
       'Los detalles como las plantas y macetas cumplieron un rol fundamental para complementar este espacio.',
@@ -528,8 +528,8 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Tejiendo Lazos',
     antes: [
-      'El proyecto Tejiendo lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022, la exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
-      'No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
+      'El proyecto Tejiendo Lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022, la exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
+      '"No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto."',
       'El ambiente fue inspirado en la naturaleza. Se puede apreciar un columpio en forma de colmena, un árbol que se encuentra en el centro de la habitación donde fueron ubicados libros, adornos y plantas, con flores tejidas y distribuidas en el techo, además de una hermosa cabaña en donde la parte superior se encontraba una planta como enredadera.',
     ],
     cliente: 'Micaela Puertas',
@@ -572,7 +572,7 @@ export const dataProyects: EntitydataProyects[] = [
     antes: [
       'El proyecto Flat Familiar fue realizado por las arquitectas Jennifer Junek y Marilú Salcedo, presentado en Casacor 2018, la exposición de este trabajo fue realizado en la Casa Mario Bianco, en el distrito de San Isidro.',
       'Este proyecto está inspirado en una pareja joven y su pequeña hija.',
-      'Este ambiente tuvo un espacio de 70 m² en donde hubo una gran estantería multifuncional como división del salón y la cocina, la paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul; Esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia.',
+      'Este ambiente tuvo un espacio de 70 m² en donde hubo una gran estantería multifuncional como división del salón y la cocina, la paleta de colores trae el contraste entre el blanco y el negro, mediado por la madera y toques de azul; esto ayuda a equilibrar la sobriedad y brinda la comodidad necesaria para albergar a una familia.',
       'Las plantas y las obras de arte están en todas partes y alinean el piso con el tema de CASACOR 2018, A Casa Viva.',
     ],
     cliente: 'Jennifer Junek y Marilú Salcedo',
@@ -592,7 +592,7 @@ export const dataProyects: EntitydataProyects[] = [
     desafios: [
       'El proyecto tuvo como desafío principal el adquirir las plantas en el tamaño que se nos estaba solicitando además de que se encontraran en un buen estado. ',
       'Realizamos el mantenimiento de ellas, sin afectar ni malograr el ambiente del proyecto.',
-      'En todo el proceso se tuvo una buena comunicación directa con la arquitecta.',
+      'En todo el proceso se tuvo una buena comunicación directa con las arquitectas.',
     ],
   },
 ]
