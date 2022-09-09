@@ -64,7 +64,7 @@ export const DataGeneral: IDataGeneral = {
                 tittle: 'TECHOS VERDES',
                 image: '06_TECHO_VERDE.jpg',
                 align: 'r',
-                subtittle: 'Techos ecológicos para tu hogar',
+                subtittle: 'Techos ecológicos para tu hogar.',
                 itemPrincipal: false
             }, {
                 tittle: 'IMPERMEABILIZACIÓN CON MANTO ASFÁLTICO',
@@ -128,21 +128,21 @@ export const DataGeneral: IDataGeneral = {
                 type: 'PROYECTOS REALIZADOS',
                 duration: 2000,
                 tittle: '',
-                subtittle: 'En estos 06 años en el mercado laboral'
+                subtittle: 'En estos 06 años en el mercado laboral.'
             },
             {
                 count: '800 m²',
                 type: 'DE ÁREAS VERDES',
                 duration: 1000,
                 tittle: '',
-                subtittle: 'En implementación de jardines verticales'
+                subtittle: 'En implementación de jardines verticales.'
             },
             {
                 count: '50',
                 type: 'CLIENTES SATISFECHOS',
                 duration: 1500,
                 tittle: '',
-                subtittle: 'Confiaron en nuestros servicios'
+                subtittle: 'Confiaron en nuestros servicios.'
             }]
         },
         Contactanos: {

@@ -177,7 +177,7 @@ export const dataProyects: EntitydataProyects[] = [
       'Rhoeo rosado',
     ],
     desafios: [
-      'En este proyecto se ejecutó obras en áreas comunes, un punto central de la obra fue la Zona Pet Home con la implementación de manto asfáltico y su recubrimiento',
+      'En este proyecto se ejecutó obras en áreas comunes, un punto central de la obra fue la Zona Pet Home con la implementación de manto asfáltico y su recubrimiento.',
       'Hubo mucha coordinación con cada uno de los contratistas. Se ingresó al proyecto en plena construcción logrando cumplir con las fechas estimadas de presentación.',
       'Para esta obra se asignó horarios extendidos para el cumplimiento del mismo, logrando así cumplir con los objetivos y dar a nuestro cliente el sentido del compromiso y dedicación para desempeñar la obra.',
     ],
@@ -529,7 +529,7 @@ export const dataProyects: EntitydataProyects[] = [
     nombre: 'Tejiendo Lazos',
     antes: [
       'El proyecto Tejiendo Lazos realizado por la arquitecta Micaela Puertas fue presentado en Casacor 2022, la exposición de este trabajo fue realizado en las Casas Majluf - Casa N°2, en el distrito de Surco.',
-      '"No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto."',
+      '"No hay lazo más fuerte que el que se teje entre una madre y su hija” fue el concepto de este proyecto.',
       'El ambiente fue inspirado en la naturaleza. Se puede apreciar un columpio en forma de colmena, un árbol que se encuentra en el centro de la habitación donde fueron ubicados libros, adornos y plantas, con flores tejidas y distribuidas en el techo, además de una hermosa cabaña en donde la parte superior se encontraba una planta como enredadera.',
     ],
     cliente: 'Micaela Puertas',

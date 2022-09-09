@@ -20,7 +20,7 @@ const Header = () => {
           </div>
           {/* </p> */}
           {/* <p> plasmamos tus sueños en tus áreas verdes y le brindamos mantenimiento como si fueran propios.</p> */}
-          <p className='relative md:mt-11 text-[8px] md:text-2xl font-garden_regular tracking-wider'>CONÓCENOS</p>
+          <p className='relative md:mt-11 text-[8px] md:text-[20px] font-garden_regular tracking-wider'>CONÓCENOS</p>
         </div>
       </div>
       <div
