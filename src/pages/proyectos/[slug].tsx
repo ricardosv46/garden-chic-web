@@ -39,7 +39,7 @@ const Detalle = () => {
 
           </div>
           <div className='flex justify-center '>
-            <div className='flex justify-center w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-6 md:-bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
+            <div className='flex justify-center w-[70px] h-[70px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-2 md:-bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
               <Image
                 layout='fill'
                 src='/icons/png/iconProyect_circle.png'
@@ -50,8 +50,8 @@ const Detalle = () => {
           </div>
         </div>
 
-        <div className='flex flex-col xl:flex-row gap-5 pb-10 pt-4 sm:pt-16 justify-center items-start '>
-          <div className='bg-gradiant-secondary  rounded-lg mx-auto xl:mx-0'>
+        <div className='flex flex-col-reverse xl:flex-row gap-5 pb-10 pt-4 sm:pt-16 justify-center items-start '>
+          <div className='bg-gradiant-secondary rounded-lg mx-auto xl:mx-0 '>
             <Image
               width={660}
               height={600}
@@ -88,7 +88,7 @@ const Detalle = () => {
           </div>
         </div>
         <div className='flex mt-4 flex-row w-full h-auto  justify-end mb-4 md:mb-8 xl:mb-20'>
-          <div className='w-full flex flex-row lg:w-1/3 lg:px-10 '>
+          <div className='w-full flex flex-row justify-end lg:justify-start lg:w-1/3 lg:px-10 '>
             <div className='w-[40px] h-[40px] relative  lg:w-[64px] lg:h-[64px] '>
               <Image
                 // width={40}

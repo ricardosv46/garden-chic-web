@@ -65,7 +65,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`hidden  sticky w-full lg:block ${scrollDirection === "down" ? "-top-24" : "top-0"
+        className={`hidden  sticky w-full lg:block ${scrollDirection === "down" ? "-top-24" : "top-0" 
           }  bg-white z-40 shadow-lg  transition-all duration-500`}
       >
         <MenuDestokp

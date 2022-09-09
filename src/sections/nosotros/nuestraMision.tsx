@@ -15,7 +15,7 @@ const NuestraMision = () => {
             Servir a nuestros clientes de una manera excelente, tratando
             de reflejar lo más fielmente posible el estilo, la decoración,
             los colores y mantenimiento del área verde, donde se vea reflejado las
-            expectativas logradas en obra y diseño a través del jardín. Con el objetivo de superar sus expectativas
+            expectativas logradas en obra y diseño a través del jardín. Con el objetivo de superar sus expectativas.
 
           </p>
         </div>
