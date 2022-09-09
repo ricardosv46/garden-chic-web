@@ -438,7 +438,7 @@ export const dataProyects: EntitydataProyects[] = [
     edicion: 'CASACOR 2022',
     nombre: 'Estudio y Huerto de la Chef',
     antes: [
-      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas, el espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables; sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro. (Reseña Estudio y Huerto del Chef Casacor 2022).',
+      'Este proyecto reune la naturaleza, los elementos orgánicos y las texturas que se combinan con una paleta de color neutra y maderas cálidas con pinceladas de colores intensos y piezas escultóricas, el espacio es sobrio e invita a la introspección, a disfrutar de las cosas simples y el tiempo en calma, de la esencia detrás de momentos que se hacen memorables; sembrar y cosechar los alimentos para crear experiencias a través de la comida, enfatiza la importancia de la naturaleza, mientras su belleza queda enmarcada desde el interior como un cuadro.',
     ],
     cliente: 'Arquitectas Andrea Cavassa y Claudia Triveño',
     proceso:
