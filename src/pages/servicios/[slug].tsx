@@ -110,7 +110,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
               <h2 className='text-garden-option1 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl ' >
                 {obj.tittle || ''}
               </h2>
-              <div className='text-gray-600 font-garden_regular text-xs md:text-base lg:text-lg font-light py-7 text-justify'>
+              <div className='text-gray-600 font-garden_regular text-[14px] md:text-base lg:text-lg font-light py-7 text-justify'>
                 {obj?.subcontent?.map((obj2, j) => <p className='pb-4' key={j}>
                   {obj2 || ''}
                 </p>)}
