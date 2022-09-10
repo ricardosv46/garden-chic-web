@@ -28,11 +28,11 @@ const Contactanos = ({ data }: IProps) => {
     <Container>
       <div className='flex flex-col lg:flex-row lg:py-10 '>
         <div className='w-full lg:w-1/2 px-0 lg:px-10 h-auto mb-6 sm:mb-0'>
-          <h2 className='text-primary-300 font-garden_bold text-xl md:text-2xl lg:text-4xl  pt-20'>
+          <h2 className='text-garden-option1 font-garden_bold text-xl md:text-2xl lg:text-4xl  pt-20'>
             {data.tittle || ''}
           </h2>
           <div>
-            <h3 className='text-primary-300 font-garden_medium text-base lg:text-xl mt-5 lg:mt-14'>
+            <h3 className='text-garden-option1 font-garden_medium text-base lg:text-xl mt-5 lg:mt-14'>
               Tú información
             </h3>
             <form
@@ -65,7 +65,7 @@ const Contactanos = ({ data }: IProps) => {
                 />
                 <div className='w-full '>
                   <select
-                    className='w-full px-2.5 text-primary-300   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
+                    className='w-full px-2.5 text-garden-option1   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
                     name='service'
                     defaultValue='0'
                   >
@@ -84,7 +84,7 @@ const Contactanos = ({ data }: IProps) => {
               <div>
                 <button
                   type='submit'
-                  className='bg-primary-300 text-white border-2 p-2 md:px-10 md:py-4 rounded-full text-xs md:text-base uppercase duration-300 ease-in-out hover:border-primary-300  hover:bg-white hover:text-primary-300'
+                  className='bg-garden-option1 text-white border-2 p-2 md:px-10 md:py-4 rounded-full text-xs md:text-base uppercase duration-300 ease-in-out hover:border-garden-option1  hover:bg-white hover:text-garden-option1'
                 >
                   Enviar
                 </button>

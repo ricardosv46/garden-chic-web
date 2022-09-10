@@ -66,7 +66,7 @@ const Proyects = () => {
         {!show && ProyectosFiltrado.length > 5 && (
           <button
             onClick={() => setShow(true)}
-            className='bg-primary-600 text-white px-8 py-2.5 rounded-full ease-out duration-300 hover:bg-primary-800 font-garden_regular'
+            className='bg-garden-option1 text-white px-8 py-2.5 rounded-full ease-out duration-300  font-garden_regular'
           >
             Cargar más
           </button>

@@ -69,7 +69,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
       </div>
       <Container className='flex flex-col-reverse lg:flex lg:flex-row py-10 gap-10 mt-10  '>
         <div className='flex flex-col gap-x-2 sm:gap-x-7 w-full lg:w-3/12 p-5 lg:px-3'>
-          <p className='text-primary-300 text-xl md:text-3xl font-garden_medium pb-5'>Servicios</p>
+          <p className='text-garden-option1 text-xl md:text-3xl font-garden_medium pb-5'>Servicios</p>
           {serviciosLat.map((item, i) => (
             <div key={i} className='border-b-2 border-b-gray-200 py-4 lg:py-5'>
               <p
@@ -81,7 +81,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
             </div>
           ))}
 
-          <p className='text-primary-300 text-xl md:text-3xl font-garden_medium py-5'>
+          <p className='text-garden-option1 text-xl md:text-3xl font-garden_medium py-5'>
             Productos similares
           </p>
 
@@ -107,7 +107,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
         <div className='w-full lg:w-9/12'>
           {url?.content.map((obj, i) => (
             <article className='' key={i}>
-              <h2 className='text-primary-300 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl ' >
+              <h2 className='text-garden-option1 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl ' >
                 {obj.tittle || ''}
               </h2>
               <div className='text-gray-600 font-garden_regular text-xs md:text-base lg:text-lg font-light py-7 text-justify'>
@@ -120,7 +120,7 @@ const DetalleServicios = ({ url }: PropsStatic) => {
 
 
           <div className='mt-3'>
-            <h2 className='text-primary-300 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl'>
+            <h2 className='text-garden-option1 font-garden_medium leading-none text-xl md:text-3xl lg:text-5xl'>
               Proyectos
             </h2>
             <div className=' grid grid-cols-1 sm:grid-cols-2  gap-5  justify-items-center mt-10 '>
