@@ -11,9 +11,9 @@ export const Footer = () => {
     return (
         <Container bgColor="bg-garden-option1 lg:pb-6" >
             <div className='flex flex-col md:flex-row  text-white py-8 text-[16px] gap-2 md:gap-4  '>
-                <div className='w-1/5 lg:w-[20%] text-sm md:text-xl  '>
+                <div className='w-1/5 lg:w-[20%] text-[16px] md:text-xl  '>
                     <div className='tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-garden-option2'>Web</div>
-                    <ul className='flex flex-col md:gap-2  leading-[18.2px] font-garden_regular text-xs md:text-base'>
+                    <ul className='flex flex-col md:gap-2  leading-[18.2px] font-garden_regular text-[14px] md:text-base'>
                         <li onClick={() => Push('/')} className="cursor-pointer">Inicio</li>
                         <li onClick={() => Push('/nosotros')} className="cursor-pointer">Nosotros</li>
                         <li onClick={() => Push('/servicios')} className="cursor-pointer">Servicios</li>
@@ -23,9 +23,9 @@ export const Footer = () => {
                         <li onClick={() => Push('/contactos')} className="cursor-pointer">Contacto</li>
                     </ul>
                 </div>
-                <div className='w-[26.6] lg:w-[27%] text-sm md:text-xl  '>
+                <div className='w-[26.6] lg:w-[27%] text-[16px] md:text-xl  '>
                     <div className=' tracking-[1px] capitalize my-3 leading-[23.24px] font-garden_bold text-garden-option2'>Servicios</div>
-                    <ul className='flex flex-col  md:gap-2  leading-[18.2px] font-garden_regular text-xs md:text-base'>
+                    <ul className='flex flex-col  md:gap-2  leading-[18.2px] font-garden_regular text-[14px] md:text-base'>
                         <li onClick={() => Push('/servicios/paisajismo')} className="cursor-pointer">Paisajismo</li>
                         <li onClick={() => Push('/servicios/jardinesverticales')} className="cursor-pointer">Jardines verticales</li>
                         <li onClick={() => Push('/servicios/mantenimientodeareasverdes')} className="cursor-pointer">Mantenimiento de áreas verdes</li>
@@ -36,17 +36,17 @@ export const Footer = () => {
 
                     </ul>
                 </div>
-                <div className='w-[26.7] lg:w-[27%] text-sm md:text-xl flex flex-col justify-between  '>
-                    <div className='text-sm md:text-xl'>
+                <div className='w-[26.7] lg:w-[27%] text-[16px] md:text-xl flex flex-col justify-between  '>
+                    <div className='text-[16px] md:text-xl'>
                         <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-garden-option2'>Contáctanos</div>
-                        <ul className='flex flex-col md:gap-2  leading-[18.2px] font-garden_regular text-xs md:text-base '>
+                        <ul className='flex flex-col md:gap-2  leading-[18.2px] font-garden_regular text-[14px] md:text-base '>
                             <span>Tel: 996 276 109</span>
                             <span >consultas@gardenchicperu.com</span>
                         </ul>
                     </div>
-                    <div className='mb-4 text-sm md:text-xl'>
+                    <div className='mb-4 text-[16px] md:text-xl'>
                         <div className=' tracking-[1px] capitalize my-3  leading-[23.24px] font-garden_bold  text-garden-option2'>Síguenos</div>
-                        <ul className='flex flex-row gap-2 md:gap-2 lg:gap-3 leading-[18.2px] font-garden_regular text-xs md:text-base'>
+                        <ul className='flex flex-row gap-2 md:gap-2 lg:gap-3 leading-[18.2px] font-garden_regular text-[14px] md:text-base'>
                             <li className='cursor-pointer'>
                                 <Link href={'https://www.facebook.com/gardenchicperu/'} target={'_blank'}>
                                     <FaFacebook className='w-6 h-6 lg:w-8 lg:h-8 hover:text-white' />
@@ -71,10 +71,10 @@ export const Footer = () => {
                     </div>
 
                 </div>
-                <div className='w-[26.7] lg:w-[26%] flex flex-col justify-between text-sm md:text-xl  '>
+                <div className='w-[26.7] lg:w-[26%] flex flex-col justify-between text-[16px] md:text-xl  '>
                     <div className=''>
-                        <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-garden-option2 my-3 text-sm md:text-xl'>Proveedor Oficial</div>
-                        <span className='block my-3 font-garden_regular text-xs w-4/5 md:w-full   md:text-base'>¡Somos proveedores oficiales de CASACOR PERÚ desde hace 03 ediciones!</span>
+                        <div className=' tracking-[1px] capitalize  leading-[23.24px] font-garden_bold  text-garden-option2 my-3 text-[16px] md:text-xl'>Proveedor Oficial</div>
+                        <span className='block my-3 font-garden_regular text-[14px] w-4/5 md:w-full   md:text-base'>¡Somos proveedores oficiales de CASACOR PERÚ desde hace 03 ediciones!</span>
                     </div>
                     <div className='w-full h-16 relative max-w-[288px] md:h-16 lg:h-16 mb-4  '>
                         <Image
