@@ -32,7 +32,7 @@ const Contador = ({ num, duration, className}: Props) => {
  //console.log(count);
 
  const renderedCount = Math.floor(count);
- return <span className={className || ''}>{renderedCount}{num.split(' ')[1] || null}</span>;
+ return <span className={className || ''}>{renderedCount}<label className="font-garden_bold">{num.split(' ')[1] || null}</label></span>;
 };
 
 

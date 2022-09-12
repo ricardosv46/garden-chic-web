@@ -62,7 +62,7 @@ const MenuMobile = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }:
       <div className='flex justify-between items-center  '>
         <Link href='/' passHref>
           <div className='flex'>
-            <Image className='cursor-pointer' src='/imgs/logos/logo-horizontal.svg' width={175} height={70} alt='logo' />
+            <Image className='cursor-pointer' src='/imgs/logos/HORIZONTAL.svg' width={175} height={70} alt='logo' />
           </div>
         </Link>
         <div className='flex gap-x-9 text-primary-600'>

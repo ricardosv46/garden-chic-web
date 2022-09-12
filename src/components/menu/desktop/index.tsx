@@ -28,7 +28,7 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
           <div className="flex">
             <Image
               className="cursor-pointer"
-              src="/imgs/logos/logo-horizontal.svg"
+              src="/imgs/logos/HORIZONTAL.svg"
               width={200}
               height={80}
               alt="logo"
