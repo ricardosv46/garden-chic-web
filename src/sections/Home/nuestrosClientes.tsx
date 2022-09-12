@@ -64,8 +64,10 @@ const NuestrosClientes = ({ data }: IProps) => {
         {data.map((item) => (
           <SwiperSlide key={item} >
             <div
-              className={`flex flex-col items-center mx-auto  transition-all duration-500 grayscale hover:grayscale-0 aspect-square h-24 md:h-32 md:w-40  relative`}
-            >
+             // className={`flex flex-col items-center mx-auto  transition-all duration-500 grayscale hover:grayscale-0 aspect-auto h-24 w-full border-2 md:h-32 md:w-40  relative`}
+              className={`flex flex-col items-center mx-6  transition-all duration-500 grayscale hover:grayscale-0  h-auto aspect-video  relative`}
+           
+           >
               <Image src={resolvePath(item)}
                 alt={item}
                 className="absolute"
