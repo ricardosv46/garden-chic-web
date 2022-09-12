@@ -22,7 +22,7 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
     <nav className="mx-auto my-0 w-[90%] xl:w-[1280px] lg:block hidden ">
       <div
         className={`w-full hidden  
-        text-primary-800 md:flex items-center justify-between`}
+        text-garden-option1 md:flex items-center justify-between`}
       >
         <Link href="/" passHref>
           <div className="flex">

@@ -26,7 +26,7 @@ const NuestrosClientes = ({ data }: IProps) => {
       <div className='flex items-center gap-x-4 mb-10'>
         <hr className='w-[30%] lg:w-[40%] h-[1px] border border-black  '></hr>
 
-        <h2 className='text-base lg:text-3xl text-center font-garden_medium text-primary-800 w-[60%] '>
+        <h2 className='text-base lg:text-3xl text-center font-garden_medium text-garden-option1 w-[60%] '>
           Ellos confían en nosotros
         </h2>
         <hr className='w-[30%]  lg:w-[40%] h-[1px] border border-black'></hr>
@@ -64,7 +64,7 @@ const NuestrosClientes = ({ data }: IProps) => {
         {data.map((item) => (
           <SwiperSlide key={item} >
             <div
-              className={`flex flex-col items-center mx-auto  transition-all duration-500 grayscale hover:grayscale-0 aspect-auto h-24 md:h-32 md:w-40  relative`}
+              className={`flex flex-col items-center mx-auto  transition-all duration-500 grayscale hover:grayscale-0 aspect-square h-24 md:h-32 md:w-40  relative`}
             >
               <Image src={resolvePath(item)}
                 alt={item}

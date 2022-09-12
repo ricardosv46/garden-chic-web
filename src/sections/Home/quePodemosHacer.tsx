@@ -20,7 +20,7 @@ const QuePodemosHacer = ({ data }: IProps) => {
             <div className="space-y-4 text-center" key={i}>
               <div className="flex flex-col gap-2">
                 <h2 className="lg:text-7xl md:text-4xl text-3xl text-garden-option1">
-                  {inView ? <Contador className="font-garden_bold " duration={obj.duration || 1000} num={obj.count || '20'} /> : '0'}
+                  {inView ? <Contador className="font-garden_bold" duration={obj.duration || 1000} num={obj.count || '20'} /> : '0'}
                 </h2>
                 <h3 className="md:text-xl text-xl font-garden_medium text-garden-option1">{obj.type || ''}</h3>
                 {/* <h4 className="text-lg">{obj.tittle || ''}</h4> */}
