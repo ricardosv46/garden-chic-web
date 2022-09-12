@@ -10,7 +10,7 @@ const HeaderContent = () => {
                     y especializado para el mantenimiento y creación del jardín de tus sueños.
 
                 </div>
-                <div className="flex flex-col gap-4 mt-5 text-base md:text-xl md:w-1/2 md:px-5 m-2 font-light text-justify font-garden_regular text-gray-600">
+                <div className="flex flex-col gap-4 mt-5 text-base md:text-xl md:w-1/2 md:px-5 m-2 font-light text-justify tracking-tighter font-garden_regular text-gray-600">
                     <span>
                         Contamos con un equipo especializado y con experiencia exclusivamente al sector de paisajismo.
                     </span>
