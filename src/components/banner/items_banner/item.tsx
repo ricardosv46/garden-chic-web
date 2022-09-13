@@ -1,4 +1,5 @@
 import ButtonBanner from '@components/buttons/buttonBanner'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { IBanner } from 'src/data/dataGeneral'
 import style from '../items.module.css'
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 export const Item = ({ data }: IProps) => {
+    const { push: Push } = useRouter()
     const ResolverPahtname = (imgCurrent: string) => `url(${pathnameImg}${imgCurrent})`
     return (
         // ${style['item-1']} 
@@ -22,7 +24,10 @@ export const Item = ({ data }: IProps) => {
                     <p className='mb-2 lg:mt-2 lg:mb-4 text-sm md:text-xl font-garden_medium '>
                         {data.subtittle || ''}
                     </p>
-                    <ButtonBanner title={data.buttonText || 'SABER MÁS'} />
+                    <ButtonBanner
+                        onclick={() => Push(`servicios/${data.url!}`)}
+                        title={data.buttonText || 'SABER MÁS'}
+                    />
                 </div>
             </div>
         </div >

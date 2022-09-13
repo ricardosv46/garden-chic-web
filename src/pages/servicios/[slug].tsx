@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { ProyectItem } from '@components/proyects'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -5,8 +6,7 @@ import React from 'react'
 import { FiChevronRight } from 'react-icons/fi'
 import CardProductosRelacionados from '../../components/cards/cardProducto/cardProductosRelacionados'
 import Container from '../../components/container'
-import { ServicioItem } from '@components/servicios'
-import { dataProyectos, dataProyects } from '../../data/dataProyectos'
+import { dataProyects } from '../../data/dataProyectos'
 import { servicios } from '../../data/dataServicios'
 import { useProductos } from '../../services/useProducto'
 
@@ -32,13 +32,33 @@ const DetalleServicios = ({ url }: PropsStatic) => {
   let slug = router.query.slug
   const { db: productos, loading } = useProductos()
 
-  const serviciosLat = ['Paisajismo',
-    'Jardines Verticales',
-    'Mantenimiento',
-    'Techos Verdes',
-    'Sistema de Riego Tecnificado',
-    'Impermeabilización ',
-    'Vivero'
+  const serviciosLat = [{
+    text: 'Paisajismo',
+    url: 'paisajismo'
+  },
+  {
+    text: 'Jardines Verticales',
+    url: 'jardinesverticales'
+  },
+  {
+    text: 'Mantenimiento',
+    url: 'mantenimientodeareasverdes'
+  },
+  {
+    text: 'Techos Verdes',
+    url: 'techosverdes'
+  },
+  {
+    text: 'Sistema de Riego Tecnificado',
+    url: 'sistemaderiegotecnificado'
+  },
+  {
+    text: 'Impermeabilización',
+    url: 'impermeabilización'
+  }, {
+    text: 'Vivero',
+    url: 'vivero'
+  }
   ]
 
   const SiguienteServicio = () => {
@@ -73,10 +93,10 @@ const DetalleServicios = ({ url }: PropsStatic) => {
           {serviciosLat.map((item, i) => (
             <div key={i} className='border-b-2 border-b-gray-200 py-4 lg:py-5'>
               <p
-                onClick={() => router.push(`/servicios/${item.split(' ').join('').toLowerCase()}`)}
+                onClick={() => router.push(`/servicios/${item.url}`)}
                 className='text-gray-600 text-xs md:text-base lg:text-xl font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
               >
-                {item}
+                {item.text}
               </p>
             </div>
           ))}

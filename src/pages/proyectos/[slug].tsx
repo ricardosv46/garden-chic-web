@@ -6,7 +6,7 @@ import React from 'react'
 import { FiChevronRight } from 'react-icons/fi'
 import BannerProyectos from '../../components/banner/bannerProyectos'
 import Container from '../../components/container'
-import { dataProyectos, dataProyects } from '../../data/dataProyectos'
+import { dataProyects } from '../../data/dataProyectos'
 const exem = ['1', '2', '3']
 const Detalle = () => {
   const router = useRouter()
@@ -39,7 +39,10 @@ const Detalle = () => {
 
           </div>
           <div className='flex justify-center '>
-            <div className='flex justify-center w-[70px] h-[70px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-2 md:-bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer '>
+            <div
+           onClick={() => router.push(`/servicios/${proyecto?.servicios?.url}`)}
+              className='flex justify-center w-[70px] h-[70px] sm:w-[70px] sm:h-[70px] md:w-[150px]  md:h-[150px] border drop-shadow-xl absolute bottom-2 md:-bottom-6 z-10 mx-auto rounded-full bg-white cursor-pointer'
+            >
               <Image
                 layout='fill'
                 src='/icons/png/iconProyect_circle.png'
@@ -51,7 +54,9 @@ const Detalle = () => {
         </div>
 
         <div className='flex flex-col-reverse xl:flex-row gap-5 pb-10 pt-4 sm:pt-16 justify-center items-start '>
-          <div className='bg-gradiant-secondary rounded-lg mx-auto xl:mx-0 '>
+          <div
+            className='bg-gradiant-secondary rounded-lg mx-auto xl:mx-0'
+          >
             <Image
               width={660}
               height={600}

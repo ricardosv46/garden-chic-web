@@ -1,27 +1,25 @@
-// import { FaCalendar, FaCalendarAlt, FaChess, FaMapMarkedAlt, FaUserShield } from 'react-icons/fa'
-// import { IconJardinesVerticalesColor, IconPaisajismoColor, IconMantenimientoColor, IconImpermeabilizacionColor, IconRiegoTecnificadoColor, IconTechosVerdesColor, IconViverosColor } from 'public/icons/servicios/color'
+import { useRouter } from 'next/router'
 import { IconJardinesVerticales, IconPaisajismo, IconMantenimiento, IconImpermeablizacion, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
 
-import { FiChevronRight } from 'react-icons/fi'
-import Image from 'next/image'
 const TypeIcon: any = {
-    'Paisajismo': <IconPaisajismo  className=' w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Mantenimiento': <IconMantenimiento  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Impermeabilización': <IconImpermeablizacion  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Impermeabilización con manto asfáltico': <IconVivero  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Techos verdes': <IconTechosVerdes  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Sistema de Riego Tecnificado': <IconRiegoTexnificado  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Jardín Vertical': <IconJardinesVerticales  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Vivero': <IconVivero  className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Paisajismo': <IconPaisajismo className=' w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Mantenimiento': <IconMantenimiento className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Impermeabilización': <IconImpermeablizacion className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Impermeabilización con manto asfáltico': <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Techos verdes': <IconTechosVerdes className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Sistema de Riego Tecnificado': <IconRiegoTexnificado className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Jardín Vertical': <IconJardinesVerticales className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+    'Vivero': <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
 
 }
 interface Iprops {
-    data: string[],
+    data: { icon: string, url: string }[],
     tittle: string
     // tittle: 'Año' | 'Dificultad' | 'Duración' | 'Ubicación' | 'Cliente'
 }
 
 export const RenderIcons = ({ data, tittle }: Iprops) => {
+    const { push: Push } = useRouter()
     return (
         <>
             <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-garden-option1 font-garden_bold'>
@@ -30,10 +28,15 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
             <div className='flex items-center gap-2 flex-col lg:px-10 '>
                 {data.map((obj, key) => (
                     <div key={key} className="flex flex-row w-full gap-2">
-                        <div className='bg-garden-option2 w-10 h-10 lg:h-16 lg:w-16 rounded-full flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border '>
-                            {TypeIcon[obj]}
+                        <div
+                            onClick={() => Push(`/servicios/${obj.url}`)}
+                            className='bg-garden-option2 w-10 h-10 lg:h-16 lg:w-16 rounded-full  flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border'
+                        >
+                            {TypeIcon[obj.icon]}
                         </div>
-                        <p className='text-sm md:text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto'>{obj}</p>
+                        <p
+                            onClick={() => Push(`/servicios/${obj.url}`)}
+                            className='text-sm md:text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto cursor-pointer'>{obj.icon}</p>
                     </div>
                 ))}
 

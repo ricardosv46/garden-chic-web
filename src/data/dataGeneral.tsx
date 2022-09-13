@@ -1,17 +1,4 @@
-import {
-  IconImpermeablizacion,
-  IconJardinesVerticales,
-  IconMantenimiento,
-  IconPaisajismo,
-  IconRiegoTexnificado,
-  IconTechosVerdes,
-  IconVivero,
-} from "public/icons/servicios/linear";
-import {
-  HORIZONTAL_PLANTAS,
-  HORIZONTAL_SERVICIO,
-  HORIZONTAL_VIVERO,
-} from "public/icons/nosotros/bannerCarrousel";
+
 export const DataGeneral: IDataGeneral = {
   Home: {
     QuePodemosHacer: {
@@ -57,6 +44,7 @@ export const DataGeneral: IDataGeneral = {
         image: "02_PAISAJISMO.jpg",
         subtittle: "Disfruta de tu espacio.",
         align: "r",
+        url: 'paisajismo',
         itemPrincipal: false,
       },
       {
@@ -64,6 +52,7 @@ export const DataGeneral: IDataGeneral = {
         image: "03_JARDIN_VERTICAL.png",
         subtittle: "Una nueva experiencia en decoración.",
         align: "l",
+        url: 'jardinesverticales',
         itemPrincipal: false,
       },
       {
@@ -71,6 +60,7 @@ export const DataGeneral: IDataGeneral = {
         image: "04_MANTENIMIENTO.jpg",
         subtittle: "Somos expertos en el cuidado de tu jardín.",
         align: "r",
+        url: 'mantenimientodeareasverdes',
         itemPrincipal: false,
       },
       {
@@ -79,11 +69,13 @@ export const DataGeneral: IDataGeneral = {
         align: "l",
         subtittle: "Uso más eficiente del agua.",
         itemPrincipal: false,
+        url: 'sistemaderiegotecnificado'
       },
       {
         tittle: "TECHOS VERDES",
         image: "06_TECHO_VERDE.jpg",
         align: "r",
+        url: 'techosverdes',
         subtittle: "Techos ecológicos para tu hogar.",
         itemPrincipal: false,
       },
@@ -92,6 +84,7 @@ export const DataGeneral: IDataGeneral = {
         image: "07_IMPERMEABILIZACION.jpg",
         subtittle: "Protege tu espacio de la humedad.",
         align: "l",
+        url: 'impermeabilización',
         itemPrincipal: false,
       },
       {
@@ -99,6 +92,7 @@ export const DataGeneral: IDataGeneral = {
         image: "08_VIVERO.jpg",
         subtittle: "Cultivo de plantas en gran variedad.",
         align: "r",
+        url: 'vivero',
         itemPrincipal: false,
       },
     ],
@@ -271,6 +265,7 @@ export interface IBanner {
   subtittle: string;
   image: string;
   align?: string;
+  url?: string,
   imgTittle?: string;
   itemPrincipal: boolean;
   buttonText?: string;
