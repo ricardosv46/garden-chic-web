@@ -18,10 +18,10 @@ export const Item = ({ data }: IProps) => {
         <div className={`animate-area ${style.itemBanner}`} style={{ backgroundImage: ResolverPahtname(data.image) }}  >
             <div className={`mx-auto my-0 w-[90%] xl:w-5/6 h-full flex justify-center items-center text-white relative z-10 ${data.align === 'l' ? 'md:justify-start' : 'md:justify-end'} md:px-6  `}>
                 <div className='h-80 flex flex-col items-center md:items-start justify-center max-w-sm lg:max-w-[700px] '>
-                    <h4 className='font-garden_bold text-lg md:text-4xl md:font-extralight text-center md:text-left '>
+                    <h4 className='font-garden_bold text-xl md:text-4xl md:font-extralight text-center md:text-left '>
                         {data.tittle || ''}
                     </h4>
-                    <p className='mb-2 lg:mt-2 lg:mb-4 text-sm md:text-xl font-garden_medium '>
+                    <p className='mb-2  lg:mt-2 lg:mb-4 text-base text-center md:text-left md:text-xl font-garden_medium '>
                         {data.subtittle || ''}
                     </p>
                     <ButtonBanner

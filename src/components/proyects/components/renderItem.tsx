@@ -11,7 +11,7 @@ export const RenderItem = ({ data, tittle }: Iprops) => {
                 {tittle}
             </h3>
             {data.map((obj, i) => (
-                <ul key={i} className='text-sm md:text-base lg:text-xl text-justify text-garden-option3 font-garden_regular pt-5'>
+                <ul key={i} className='text-base lg:text-xl text-justify text-garden-option3 font-garden_regular pt-5'>
                     {obj || ''} 
                 </ul>
             ))}

@@ -5,7 +5,7 @@ const HeaderContent = () => {
     return (
         <Container>
             <div className="flex flex-col md:flex-row w-full py-10 md:py-16">
-                <div className="flex flex-auto text-3xl md:text-4xl leading-none md:w-1/2 md:px-5 md:my-auto m-2 font-garden_bold text-garden-option1 ">
+                <div className="flex flex-auto text-2xl md:text-3xl leading-none md:w-1/2 md:px-5 md:my-auto m-2 font-garden_bold text-garden-option1 ">
                     Garden Chic ofrece un servicio completo
                     y especializado para el mantenimiento y creación del jardín de tus sueños.
 

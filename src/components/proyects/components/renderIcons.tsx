@@ -36,7 +36,7 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                         </div>
                         <p
                             onClick={() => Push(`/servicios/${obj.url}`)}
-                            className='text-sm md:text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto cursor-pointer'>{obj.icon}</p>
+                            className='text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto cursor-pointer'>{obj.icon}</p>
                     </div>
                 ))}
 
