@@ -30,7 +30,9 @@ const SidebarCart = () => {
 	const { carrito, eliminarCarrito, CalcularTotal, actualizarPrecioCarrito, ViewCarrito, OpenCarrito } = useCarritoContext()
 	const { changeModal } = useModalContext()
 	const navigate = useRouter()
-	const { status } = useSession()
+	const { status, data } = useSession()
+	console.log({ data })
+	console.log({ status })
 	const [total, setTotal] = useState(0)
 	useEffect(() => {
 		const calculoTotal = carrito.reduce((total, product) => total + product.amount * product.price, 0)
@@ -83,10 +85,11 @@ const SidebarCart = () => {
 										<button
 											onClick={() => {
 												OpenCarrito(false)
-												if (status !== 'authenticated') {
-													return changeModal(true)
+												if (status === 'authenticated') {
+													navigate.push('/comprar')
+												} else {
+													changeModal(true)
 												}
-												navigate.push('/comprar')
 											}}
 											className='w-full px-4 py-2 text-sm font-bold text-white uppercase rounded bg-primary-800'>
 											Finalizar compra
