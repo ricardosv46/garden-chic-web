@@ -124,23 +124,23 @@ const Comprar = () => {
 	)
 }
 
-// export const getServerSideProps = async (ctx: any) => {
-//   const session = await getSession(ctx);
-//   console.log(session)
+export const getServerSideProps = async (ctx: any) => {
+	const session = await getSession(ctx)
+	console.log(session)
 
-//   if (!session)
-//     return {
-//       redirect: {
-//         destination: '/',
-//         permanent: false
-//       }
-//     }
+	if (!session)
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		}
 
-//   return {
-//     props: {
-//       session: session,
-//     },
-//   };
-// };
+	return {
+		props: {
+			session: session
+		}
+	}
+}
 
 export default Comprar
