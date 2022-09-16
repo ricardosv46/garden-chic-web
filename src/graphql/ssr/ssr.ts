@@ -1,4 +1,4 @@
-export const URL = 'https://plantilla.rongqian.pe/public/graphql'
+export const URL = 'https://gardenchicperu.com/'
 
 export const GET_SLUG_BLOG = `
 query GetBlogSlug($slug: String) {

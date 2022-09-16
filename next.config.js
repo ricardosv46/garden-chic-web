@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['plantilla.rongqian.pe']
+    domains: ['gardenchicperu.com']
   }
 }
 

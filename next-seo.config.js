@@ -5,13 +5,13 @@ const ConfigSeo = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://garden-chic-web.vercel.app',
+    url: 'https://gardenchicperu.com',
     site_name: 'Next SEO',
     title: 'Garden Chic - Inicio',
     description: 'Somos expertos en el cuidado de tu jardin.',
     images: [
       {
-        url: 'https://garden-chic-web.vercel.app/imgs/banner/banner__item1.jpg',
+        url: 'https://gardenchicperu.com/imgs/banner/banner__item1.jpg',
         width: 1200,
         height: 1200,
         alt: 'Next SEO',
@@ -31,11 +31,11 @@ const ConfigSeo = {
   },
   google: {
     handle: '123456789',
-    site: 'https://garden-chic-web.vercel.app',
+    site: 'https://gardenchicperu.com',
   },
   microsoft: {
     handle: '123456789',
-    site: 'https://garden-chic-web.vercel.app',
+    site: 'https://gardenchicperu.com',
   },
 
 }
