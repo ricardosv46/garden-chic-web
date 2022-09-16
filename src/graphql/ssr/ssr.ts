@@ -1,4 +1,4 @@
-export const URL = 'https://gardenchicperu.com/'
+export const URL = 'https://api.gardenchicperu.com/public/graphql'
 
 export const GET_SLUG_BLOG = `
 query GetBlogSlug($slug: String) {
