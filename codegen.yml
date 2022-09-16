@@ -1,5 +1,5 @@
 overwrite: true
-schema: 'https://gardenchicperu.com/'
+schema: 'https://api.gardenchicperu.com/public/graphql'
 documents: 'src/**/*.graphql'
 generates:
     src/generated/graphql.tsx:

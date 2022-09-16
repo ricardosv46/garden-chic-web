@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['gardenchicperu.com']
+    domains: ['api.gardenchicperu.com']
   }
 }
 

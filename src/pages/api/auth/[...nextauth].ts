@@ -36,7 +36,7 @@ export default NextAuth({
 			},
 			async authorize(credentials: any) {
 				try {
-					const res = await request('https://gardenchicperu.com/', LOGIN_AUTH, {
+					const res = await request('https://api.gardenchicperu.com/public/graphql', LOGIN_AUTH, {
 						input: {
 							email: credentials.email,
 							password: credentials.password
