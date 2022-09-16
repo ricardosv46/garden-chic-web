@@ -1416,6 +1416,13 @@ export type Reniec = {
   FechaNacimiento?: Maybe<Scalars['String']>;
 };
 
+export type CreateContactosMutationVariables = Exact<{
+  input: ContactoInput;
+}>;
+
+
+export type CreateContactosMutation = { __typename?: 'Mutation', CreateContactos: { __typename?: 'Contacto', contactoId?: number | null, nombre?: string | null, email?: string | null, celular?: string | null, tipoServicio?: string | null, descripcion?: string | null, estado?: string | null } };
+
 export type CreatePedidoMutationVariables = Exact<{
   input1: PedidoInput;
   input2?: InputMaybe<Array<DetallePedidoInput> | DetallePedidoInput>;
@@ -1535,6 +1542,45 @@ export type GetAllProductosRelacionadosQueryVariables = Exact<{
 export type GetAllProductosRelacionadosQuery = { __typename?: 'Query', GetAllProductosRelacionados: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', titulo?: string | null, slug?: string | null, categoriaProductoId?: number | null }> | null } };
 
 
+export const CreateContactosDocument = gql`
+    mutation CreateContactos($input: ContactoInput!) {
+  CreateContactos(input: $input) {
+    contactoId
+    nombre
+    email
+    celular
+    tipoServicio
+    descripcion
+    estado
+  }
+}
+    `;
+export type CreateContactosMutationFn = Apollo.MutationFunction<CreateContactosMutation, CreateContactosMutationVariables>;
+
+/**
+ * __useCreateContactosMutation__
+ *
+ * To run a mutation, you first call `useCreateContactosMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateContactosMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createContactosMutation, { data, loading, error }] = useCreateContactosMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateContactosMutation(baseOptions?: Apollo.MutationHookOptions<CreateContactosMutation, CreateContactosMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateContactosMutation, CreateContactosMutationVariables>(CreateContactosDocument, options);
+      }
+export type CreateContactosMutationHookResult = ReturnType<typeof useCreateContactosMutation>;
+export type CreateContactosMutationResult = Apollo.MutationResult<CreateContactosMutation>;
+export type CreateContactosMutationOptions = Apollo.BaseMutationOptions<CreateContactosMutation, CreateContactosMutationVariables>;
 export const CreatePedidoDocument = gql`
     mutation CreatePedido($input1: PedidoInput!, $input2: [DetallePedidoInput!], $input3: ReciboInput!, $input4: DireccionEnvioInput!, $input5: DatosTarjetaInput) {
   CreatePedido(

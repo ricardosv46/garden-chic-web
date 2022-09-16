@@ -1,0 +1,11 @@
+mutation CreateContactos($input: ContactoInput!) {
+	CreateContactos(input: $input) {
+		contactoId
+		nombre
+		email
+		celular
+		tipoServicio
+		descripcion
+		estado
+	}
+}
