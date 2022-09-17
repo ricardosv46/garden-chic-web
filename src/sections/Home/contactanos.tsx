@@ -22,13 +22,14 @@ const Contactanos = ({ data }: IProps) => {
 
 	const [descripcion, setDescripcion] = useState('')
 	const [mensaje, setMensaje] = useState(false)
-	const { crearContacto } = useContactos()
+	const { crearContacto, loadingCreate } = useContactos()
 
 	const handleClick = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		crearContacto({ celular, descripcion, email, nombre, tipoServicio }).then((res) => {
 			if (res.ok) {
 				resetForm()
+				setDescripcion('')
 				setMensaje(true)
 				setTimeout(() => {
 					setMensaje(false)
@@ -46,8 +47,8 @@ const Contactanos = ({ data }: IProps) => {
 						<h3 className='mt-5 text-base text-garden-option1 font-garden_medium lg:text-xl lg:mt-14'>Tú información</h3>
 						<form onSubmit={handleClick} className='flex flex-col mt-6 gap-y-5 '>
 							<div className='flex flex-col gap-5 lg:flex-row '>
-								<InputFloat type='text' label='Nombre' name='nombre' value={nombre} onChange={onChange} />
-								<InputFloat type='email' label='E-mail' name='email' value={email} onChange={onChange} />
+								<InputFloat required type='text' label='Nombre' name='nombre' value={nombre} onChange={onChange} />
+								<InputFloat required type='email' label='E-mail' name='email' value={email} onChange={onChange} />
 							</div>
 							<div className='flex flex-col gap-5 lg:flex-row '>
 								<InputFloat type='text' label='Celular' name='celular' value={celular} onChange={onChange} />
@@ -55,7 +56,9 @@ const Contactanos = ({ data }: IProps) => {
 									<select
 										className='w-full px-2.5 text-garden-option1   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
 										name='tipoServicio'
-										defaultValue='0'
+										required
+										value={tipoServicio}
+										defaultValue=''
 										onChange={onChange}>
 										<option value=''>Selección de servicios</option>
 										{data.OptionForm.map((obj, i) => (
@@ -66,12 +69,21 @@ const Contactanos = ({ data }: IProps) => {
 									</select>
 								</div>
 							</div>
-							<InputArea label='Descripción' name='decription' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+							<InputArea
+								required
+								label='Descripción'
+								name='decription'
+								value={descripcion}
+								onChange={(e) => setDescripcion(e.target.value)}
+							/>
 
 							<div className='flex flex-col items-start justify-between gap-3 md:items-center md:flex-row'>
 								<button
 									type='submit'
-									className='p-2 text-xs text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-garden-option1 md:px-10 md:py-4 md:text-base hover:border-garden-option1 hover:bg-white hover:text-garden-option1'>
+									disabled={loadingCreate}
+									className={`${
+										loadingCreate ? 'opacity-50' : 'opacity-100'
+									} p-2 text-xs text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-garden-option1 md:px-10 md:py-4 md:text-base hover:border-garden-option1 hover:bg-white hover:text-garden-option1`}>
 									Enviar
 								</button>
 								<p className='text-green-500'>{mensaje ? 'Información enviada Correctamente' : ''}</p>
