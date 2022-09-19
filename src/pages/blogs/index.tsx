@@ -38,9 +38,9 @@ const Blogs = () => {
 						<ol className='flex-col hidden gap-3 mt-24 lg:flex-row lg:flex'>
 							{categorias.map((item) => (
 								<li
-									key={item.slug}
+									key={item?.slug}
 									className='py-1 text-lg font-semibold text-gray-900 duration-300 ease-in-out border-b-2 border-white hover:border-primary-300 hover:cursor-pointer'>
-									{item.titulo}
+									{item?.titulo}
 								</li>
 							))}
 						</ol>

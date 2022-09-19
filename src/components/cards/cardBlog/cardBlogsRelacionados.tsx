@@ -4,34 +4,33 @@ import React from 'react'
 import { Imagen } from '../../../generated/graphql'
 
 interface IProps {
-  imagenPrincipal: Imagen
-  titulo: string
-  slug: string
+	imagenPrincipal: Imagen
+	titulo: string
+	slug: string
 }
 
 const CardBlogsRelacionados = ({ imagenPrincipal, titulo, slug }: IProps) => {
-  const router = useRouter()
-  return (
-    <div className='flex gap-3 border-b-2 border-b-gray-200 py-3'>
-      <Image
-        onClick={() => router.push(`/blogs/${slug}`)}
-        loading='lazy'
-        className='cursor-pointer'
-        src={imagenPrincipal?.url!}
-        width={75}
-        height={75}
-        alt='blogs'
-      />
-      <div className='flex flex-1 justify-center items-center'>
-        <p
-          onClick={() => router.push(`/blogs/${slug}`)}
-          className='text-gray-900 text-lg font-bold  ease-in-out duration-300 hover:text-primary-300 cursor-pointer leading-5'
-        >
-          {titulo}
-        </p>
-      </div>
-    </div>
-  )
+	const router = useRouter()
+	return (
+		<div className='flex gap-3 py-3 border-b-2 border-b-gray-200'>
+			<Image
+				onClick={() => router.push(`/blogs/${slug}`)}
+				loading='lazy'
+				className='cursor-pointer'
+				src={imagenPrincipal?.url!}
+				width={75}
+				height={75}
+				alt='blogs'
+			/>
+			<div className='flex items-center justify-start flex-1'>
+				<p
+					onClick={() => router.push(`/blogs/${slug}`)}
+					className='text-lg font-bold leading-5 text-gray-900 duration-300 ease-in-out cursor-pointer hover:text-primary-300'>
+					{titulo}
+				</p>
+			</div>
+		</div>
+	)
 }
 
 export default CardBlogsRelacionados

@@ -4,55 +4,45 @@ import React, { useState } from 'react'
 import { CategoriaBlog, Imagen } from '../../../generated/graphql'
 import Compartir from '../../compartir'
 interface IProps {
-  imagenPrincipal: Imagen
-  CategoriaBlog: CategoriaBlog
-  titulo: string | null | undefined
-  descripcionCorta: string | null | undefined
-  slug: string | null | undefined
+	imagenPrincipal: Imagen
+	CategoriaBlog: CategoriaBlog
+	titulo: string | null | undefined
+	descripcionCorta: string | null | undefined
+	slug: string | null | undefined
 }
 
-const CarBlog = ({
-  imagenPrincipal,
-  titulo,
-  CategoriaBlog,
-  descripcionCorta,
-  slug
-}: IProps) => {
-  const router = useRouter()
-  return (
-    <div className='w-full lg:w-[370px] border-2 rounded-lg overflow-hidden pb-2'>
-      <Image
-        loading='lazy'
-        className='cursor-pointer'
-        src={imagenPrincipal?.url!}
-        width={740}
-        height={460}
-        alt='blogs'
-        onClick={() => router.push(`/blogs/${slug}`)}
-      />
-      <div className='p-5'>
-        <p
-          onClick={() => router.push(`/blogs/${slug}`)}
-          className='text-gray-900 text-md font-semibold hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
-        >
-          {CategoriaBlog.titulo}
-        </p>
-        <div className='bg-primary-300 w-10 h-0.5 my-4'></div>
-        <p
-          onClick={() => router.push(`/blogs/${slug}`)}
-          className='text-gray-900 text-3xl font-black hover:text-primary-300 ease-in-out duration-300 cursor-pointer'
-        >
-          {titulo}
-        </p>
-        <p className='text-gray-900 text-md font-normal mt-5'>
-          {descripcionCorta}
-        </p>
-        <div className='mt-5'>
-          <Compartir ruta={slug!} title={titulo!} />
-        </div>
-      </div>
-    </div>
-  )
+const CarBlog = ({ imagenPrincipal, titulo, CategoriaBlog, descripcionCorta, slug }: IProps) => {
+	const router = useRouter()
+	return (
+		<div className='w-full lg:w-[370px] border-2 rounded-lg overflow-hidden pb-2'>
+			<Image
+				loading='lazy'
+				className='cursor-pointer'
+				src={imagenPrincipal?.url!}
+				width={740}
+				height={460}
+				alt='blogs'
+				onClick={() => router.push(`/blogs/${slug}`)}
+			/>
+			<div className='p-5'>
+				<p
+					onClick={() => router.push(`/blogs/${slug}`)}
+					className='font-semibold text-gray-900 duration-300 ease-in-out cursor-pointer text-md hover:text-primary-300'>
+					{CategoriaBlog?.titulo}
+				</p>
+				<div className='bg-primary-300 w-10 h-0.5 my-4'></div>
+				<p
+					onClick={() => router.push(`/blogs/${slug}`)}
+					className='text-3xl font-black text-gray-900 duration-300 ease-in-out cursor-pointer hover:text-primary-300'>
+					{titulo}
+				</p>
+				<p className='mt-5 font-normal text-gray-900 text-md'>{descripcionCorta}</p>
+				<div className='mt-5'>
+					<Compartir ruta={slug!} title={titulo!} />
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default CarBlog
