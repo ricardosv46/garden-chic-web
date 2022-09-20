@@ -22,7 +22,7 @@ const Blogs = () => {
 				{loading ? (
 					<div className='flex justify-center py-10'>
 						<svg
-							className='w-8 h-8 animate-spin text-primary-300'
+							className='w-8 h-8 animate-spin text-garden-option1'
 							xmlns='http://www.w3.org/2000/svg'
 							fill='currentColor'
 							viewBox='0 0 24 24'>
@@ -39,7 +39,7 @@ const Blogs = () => {
 							{categorias.map((item) => (
 								<li
 									key={item?.slug}
-									className='py-1 text-lg font-semibold text-gray-900 duration-300 ease-in-out border-b-2 border-white hover:border-primary-300 hover:cursor-pointer'>
+									className='py-1 text-lg font-semibold text-garden-option3 duration-300 ease-in-out border-b-2 border-white hover:border-garden-option1 hover:cursor-pointer'>
 									{item?.titulo}
 								</li>
 							))}

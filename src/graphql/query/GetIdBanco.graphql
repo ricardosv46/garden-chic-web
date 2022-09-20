@@ -1,0 +1,14 @@
+query GetBancoId($bancoId: Int) {
+	GetBancoId(bancoId: $bancoId) {
+		bancoId
+		titulo
+		estado
+		numeroCuenta
+		imagenPrincipal {
+			url
+			titulo
+			id
+			estado
+		}
+	}
+}

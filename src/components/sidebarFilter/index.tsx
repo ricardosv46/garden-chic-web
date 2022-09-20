@@ -34,7 +34,7 @@ interface SidebarFilterProps {
 
 const SidebarFilter = ({ isOpen = false, onClose, children }: SidebarFilterProps) => {
 	return (
-		<div className='fixed top-0 text-primary-800 h-screen md:right-auto md:bottom-px z-40 block lg:hidden'>
+		<div className='fixed top-0 text-garden-option1 h-screen md:right-auto md:bottom-px z-40 block lg:hidden'>
 			<motion.div
 				variants={fade}
 				onClick={onClose}
@@ -47,7 +47,7 @@ const SidebarFilter = ({ isOpen = false, onClose, children }: SidebarFilterProps
 				className='absolute top-0 z-50 h-screen  '
 				initial={{ opacity: 0, x: '-100%' }}
 				animate={isOpen ? 'open' : 'closed'}>
-				<div className='text-primary-600 w-[340px]  bg-white  min-h-screen border-r p-6 h-full overflow-y-scroll scroll'>{children}</div>
+				<div className='text-garden-option1 w-[340px]  bg-white  min-h-screen border-r p-6 h-full overflow-y-scroll scroll'>{children}</div>
 			</motion.div>
 		</div>
 	)

@@ -21,8 +21,8 @@ interface IProps {
 	resetForm: () => void
 	handleSubmit: (e: FormEvent<HTMLFormElement>) => void
 	setIsFiltrados: Dispatch<SetStateAction<boolean>>
-	resetFilter:boolean
-	setResetFilter:Dispatch<SetStateAction<boolean>>
+	resetFilter: boolean
+	setResetFilter: Dispatch<SetStateAction<boolean>>
 }
 
 const Filtro = ({
@@ -38,9 +38,7 @@ const Filtro = ({
 	setIsFiltrados,
 	resetFilter,
 	setResetFilter
-
 }: IProps) => {
-	
 	return (
 		<div className=''>
 			<HeaderFiltro />
@@ -75,7 +73,7 @@ const Filtro = ({
 									<p>Selecciona un rango de precio para filtrar tu búsqueda.</p>
 								</div>
 								<div className='pb-10'>
-									<div className='flex justify-between text-primary-600'>
+									<div className='flex justify-between text-garden-option1'>
 										<div className='flex flex-col '>
 											<div className='text-base'>S/. {precio?.min}</div>
 										</div>
@@ -132,13 +130,13 @@ const Filtro = ({
 
 				<div className='py-4 flex flex-row gap-2'>
 					<button
-						className='w-5/6 bg-primary-600 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-primary-800'
+						className='w-5/6 bg-garden-option1 text-white px-8 py-2.5 rounded-lg ease-out duration-300 hover:bg-garden-option1'
 						type='submit'>
 						Filtrar
 					</button>
 					<button
 						type='button'
-						className='w-1/6 border  text-black border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ease-out'
+						className='w-1/6 border  text-garden-option3 border-red-500 hover:text-white hover:bg-red-700 transition-all duration-300 rounded-md ease-out'
 						onClick={() => {
 							setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
 							resetForm()

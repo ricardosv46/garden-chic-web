@@ -56,13 +56,13 @@ export const SelectSearch = ({ tittle, data, name, value, disabled, setStateMuta
 						setTextFilter(target.value)
 						setFiltering(true)
 					}}
-					className={`w-full block px-2.5 pb-2 pt-5 text-sm text-gray-900 font-semibold border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md`}
+					className={`w-full block px-2.5 pb-2 pt-5 text-sm text-garden-option3 font-semibold border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-garden-option1 peer rounded-md`}
 					placeholder=''
 					ref={inpEl}
 				/>
 				<label
 					htmlFor={tittle}
-					className='absolute text-sm text-primary-300 font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75  peer-focus:-translate-y-4'>
+					className='absolute text-sm text-garden-option1 font-semibold duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-garden-option1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75  peer-focus:-translate-y-4'>
 					{tittle}
 				</label>
 
@@ -81,13 +81,13 @@ export const SelectSearch = ({ tittle, data, name, value, disabled, setStateMuta
 				className={`absolute  ${
 					open || (textFilter.length && !open && filtering) ? 'block' : 'hidden'
 				}  bg-white rounded shadow overflow-y-scroll z-30 top-14 w-full`}>
-				<ul className='px-3 pb-3 max-h-[192px] text-sm text-gray-700 dark:text-gray-200'>
+				<ul className='px-3 pb-3 max-h-[192px] text-sm text-garden-option3 dark:text-garden-option3'>
 					{data.map((obj, index) =>
 						obj.titulo.startsWith(textFilter.toUpperCase()) ? (
 							<li key={index}>
 								<div className='flex items-center pl-2 rounded hover:bg-gray-100 '>
 									<label
-										className='w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded cursor-pointer'
+										className='w-full py-2 ml-2 text-sm font-medium text-garden-option3 rounded cursor-pointer'
 										onClick={() => {
 											setStateMutation(name, obj.value), setOpen(false), setTextFilter(obj.titulo)
 											setFiltering(false)

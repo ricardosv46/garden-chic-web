@@ -15,22 +15,18 @@ interface Props {
 const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 	const { db: dbBancos, loading } = useBancos()
 
-	console.log({ tipoPago })
-
 	const disabled = useMemo(() => {
-		return dbBancos.some((item) => item.titulo === tipoPago)
+		return dbBancos.some((item) => item.bancoId === tipoPago)
 	}, [tipoPago])
 
-	console.log(disabled)
-
 	return (
-		<form onSubmit={() => setShow('TransferenciaUpload')} className='relative pt-0 lg:p-10'>
-			<button onClick={() => setShow('formulario')} className='absolute top-0 left-0 p-2.5 text-white rounded-full bg-primary-300'>
+		<form onSubmit={() => setShow('TransferenciaId')} className='relative pt-0 lg:p-10'>
+			<button onClick={() => setShow('formulario')} className='absolute top-0 lg:left-20 p-1.5 text-white rounded-full bg-garden-option1'>
 				<IconArrowLeft />
 			</button>
-			<h2 className='text-4xl font-bold text-center text-primary-300 xl:text-6xl '>Tranferencia Bancaria</h2>
+			<h2 className='text-4xl font-bold text-center text-garden-option1'>Tranferencia Bancaria</h2>
 
-			<h2 className='mt-10 text-xl font-bold lg:pl-20 xl:text-3xl'>Escoge el tipo de banco con el que deseas transferir</h2>
+			<h2 className='mt-10 text-xl font-bold lg:pl-20 '>Escoge el tipo de banco con el que deseas transferir</h2>
 			<Show
 				condition={!loading}
 				isDefault={
@@ -46,13 +42,13 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 								type='radio'
 								required
 								name='tipoPago'
-								value={item.titulo!}
+								value={item.bancoId!}
 								id={item.bancoId!}
 								onChange={onChange}
 							/>
 
 							<label
-								className=' p-3.5 text-sm px-5 gap-1   flex items-center flex-col-reverse justify-between   font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+								className=' p-3.5 text-sm px-5 gap-1   flex items-center flex-col-reverse justify-between   font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-garden-option1 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
 								htmlFor={item.bancoId!}>
 								<div className='flex flex-col gap-3'>
 									<span className='font-bold'> {item.titulo!} </span>
@@ -70,7 +66,7 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 								</div>
 							</label>
 
-							<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-primary-300 top-2 right-2 peer-checked:opacity-100' />
+							<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-garden-option1 top-2 right-2 peer-checked:opacity-100' />
 						</div>
 					))}
 				</div>
@@ -82,7 +78,9 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 						disabled={!disabled}
 						type='submit'
 						className={`${
-							!disabled ? 'bg-primary-300 opacity-50' : 'bg-primary-300 hover:border-primary-300 hover:bg-white hover:text-primary-300'
+							!disabled
+								? 'bg-garden-option1 opacity-50'
+								: 'bg-garden-option1 hover:border-garden-option1 hover:bg-white hover:text-garden-option1'
 						} px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full `}>
 						Continuar
 					</button>

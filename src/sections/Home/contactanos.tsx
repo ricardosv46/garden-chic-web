@@ -54,7 +54,7 @@ const Contactanos = ({ data }: IProps) => {
 								<InputFloat type='text' label='Celular' name='celular' value={celular} onChange={onChange} />
 								<div className='w-full '>
 									<select
-										className='w-full px-2.5 text-garden-option1   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-primary-300 peer rounded-md'
+										className='w-full px-2.5 text-garden-option1   py-3.5 text-sm font-semibold border border-gray-300  focus:outline-none focus:ring-0 focus:border-garden-option1 peer rounded-md'
 										name='tipoServicio'
 										required
 										value={tipoServicio}

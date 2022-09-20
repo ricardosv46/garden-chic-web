@@ -1,48 +1,52 @@
 import { useRouter } from 'next/router'
-import { IconJardinesVerticales, IconPaisajismo, IconMantenimiento, IconImpermeablizacion, IconRiegoTexnificado, IconTechosVerdes, IconVivero } from 'public/icons/servicios/linear'
+import {
+	IconJardinesVerticales,
+	IconPaisajismo,
+	IconMantenimiento,
+	IconImpermeablizacion,
+	IconRiegoTexnificado,
+	IconTechosVerdes,
+	IconVivero
+} from 'public/icons/servicios/linear'
 
 const TypeIcon: any = {
-    'Paisajismo': <IconPaisajismo className=' w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Mantenimiento': <IconMantenimiento className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Impermeabilización': <IconImpermeablizacion className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Impermeabilización con manto asfáltico': <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Techos verdes': <IconTechosVerdes className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Sistema de Riego Tecnificado': <IconRiegoTexnificado className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Jardín Vertical': <IconJardinesVerticales className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-    'Vivero': <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
-
+	Paisajismo: <IconPaisajismo className=' w-4 h-4 lg:w-9 lg:h-9 ' />,
+	Mantenimiento: <IconMantenimiento className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	Impermeabilización: <IconImpermeablizacion className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	'Impermeabilización con manto asfáltico': <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	'Techos verdes': <IconTechosVerdes className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	'Sistema de Riego Tecnificado': <IconRiegoTexnificado className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	'Jardín Vertical': <IconJardinesVerticales className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />,
+	Vivero: <IconVivero className='text-white w-4 h-4 lg:w-9 lg:h-9 ' />
 }
 interface Iprops {
-    data: { icon: string, url: string }[],
-    tittle: string
-    // tittle: 'Año' | 'Dificultad' | 'Duración' | 'Ubicación' | 'Cliente'
+	data: { icon: string; url: string }[]
+	tittle: string
+	// tittle: 'Año' | 'Dificultad' | 'Duración' | 'Ubicación' | 'Cliente'
 }
 
 export const RenderIcons = ({ data, tittle }: Iprops) => {
-    const { push: Push } = useRouter()
-    return (
-        <>
-            <h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-garden-option1 font-garden_bold'>
-                {tittle}
-            </h3>
-            <div className='flex items-center gap-2 flex-col lg:px-10 '>
-                {data.map((obj, key) => (
-                    <div key={key} className="flex flex-row w-full gap-2">
-                        <div
-                            onClick={() => Push(`/servicios/${obj.url}`)}
-                            className='bg-garden-option2 w-10 h-10 lg:h-16 lg:w-16 rounded-full  flex justify-center items-center hover:bg-primary-300 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border'
-                        >
-                            {TypeIcon[obj.icon]}
-                        </div>
-                        <p
-                            onClick={() => Push(`/servicios/${obj.url}`)}
-                            className='text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto cursor-pointer'>{obj.icon}</p>
-                    </div>
-                ))}
-
-
-            </div>
-            {/* <div className='flex mt-4 flex-row w-full h-auto  lg:px-10 '>
+	const { push: Push } = useRouter()
+	return (
+		<>
+			<h3 className='lg:text-center text-2xl md:text-3xl lg:text-4xl text-garden-option1 font-garden_bold'>{tittle}</h3>
+			<div className='flex items-center gap-2 flex-col lg:px-10 '>
+				{data.map((obj, key) => (
+					<div key={key} className='flex flex-row w-full gap-2'>
+						<div
+							onClick={() => Push(`/servicios/${obj.url}`)}
+							className='bg-garden-option2 w-10 h-10 lg:h-16 lg:w-16 rounded-full  flex justify-center items-center hover:bg-garden-option1 ease-in-out duration-300 hover:fill-white cursor-pointer hover:border'>
+							{TypeIcon[obj.icon]}
+						</div>
+						<p
+							onClick={() => Push(`/servicios/${obj.url}`)}
+							className='text-base lg:text-xl  text-garden-option3 font-garden_medium my-auto cursor-pointer'>
+							{obj.icon}
+						</p>
+					</div>
+				))}
+			</div>
+			{/* <div className='flex mt-4 flex-row w-full h-auto  lg:px-10 '>
                 <div className='w-[40px] h-[40px] relative  lg:w-[64px] lg:h-[64px]'>
                     <Image
                         // width={40}
@@ -59,7 +63,6 @@ export const RenderIcons = ({ data, tittle }: Iprops) => {
                     <FiChevronRight className='my-auto ml-2' />
                 </div>
             </div> */}
-
-        </>
-    )
+		</>
+	)
 }

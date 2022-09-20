@@ -41,7 +41,7 @@ const SidebarCart = () => {
 	}, [carrito])
 
 	return (
-		<div className='absolute top-0 z-40 h-screen text-primary-800 md:left-auto md:bottom-px'>
+		<div className='absolute top-0 z-40 h-screen text-garden-option1 md:left-auto md:bottom-px'>
 			<motion.div
 				variants={fade}
 				onClick={() => OpenCarrito(false)}
@@ -54,11 +54,11 @@ const SidebarCart = () => {
 				className='fixed top-0 left-0 z-50 h-screen '
 				initial={{ opacity: 0 }}
 				animate={ViewCarrito ? 'open' : 'closed'}>
-				<div className='text-primary-600 w-[340px]  bg-white  min-h-screen border-r '>
+				<div className='text-garden-option1 w-[340px]  bg-white  min-h-screen border-r '>
 					<div className='flex flex-col w-full h-screen py-6 pl-6 bg-white'>
 						<div className='flex items-center justify-between pr-6 '>
 							<h2 className='font-bold uppercase'>Mi carrito</h2>
-							<p className='font-bold text-black cursor-pointer' onClick={() => OpenCarrito(false)}>
+							<p className='font-bold text-garden-option3 cursor-pointer' onClick={() => OpenCarrito(false)}>
 								Seguir comprando
 							</p>
 						</div>
@@ -79,7 +79,7 @@ const SidebarCart = () => {
 								<div className='fixed bottom-0 left-0 w-full p-3 bg-white'>
 									<div className='flex justify-between mt-8 mb-4'>
 										<p className='text-lg font-semibold'>Subtotal</p>
-										<p className='font-bold text-black'>S/ {total.toFixed(2)}</p>
+										<p className='font-bold text-garden-option3'>S/ {total.toFixed(2)}</p>
 									</div>
 									<div className='flex flex-col gap-y-3 '>
 										<button
@@ -91,7 +91,7 @@ const SidebarCart = () => {
 													changeModal(true)
 												}
 											}}
-											className='w-full px-4 py-2 text-sm font-bold text-white uppercase rounded bg-primary-800'>
+											className='w-full px-4 py-2 text-sm font-bold text-white uppercase rounded bg-garden-option1'>
 											Finalizar compra
 										</button>
 									</div>

@@ -16,6 +16,7 @@ import FormEfectivo from '@components/forms/FormEfectivo'
 import FormTransferencia from '@components/forms/FormTransferencia'
 import TipoPagoBancos from '@components/forms/TipoPagoBancos'
 import TipoPagoEfectivo from '@components/forms/TipoPagoEfectivo'
+import SubirArchivo from '@components/forms/SubirArchivo'
 interface PayProps {
 	payment_method_id: string
 	token: string
@@ -25,7 +26,12 @@ interface PayProps {
 const Comprar = () => {
 	const { createPedido } = usePedido()
 	const [show, setShow] = useState('formulario')
+	const [image, setImage] = useState(null)
+
+	const [id, setId] = useState<number>()
 	const [error, setError] = useState(false)
+	const { carrito, total, VaciarCarrito } = useCarritoContext()
+	console.log({ total })
 
 	const { ruc, razonSocial, celular, direccion, venta, depa, prov, dist, recojo, tipoPago, onChange, setStateMutation } = useForm({
 		ruc: '',
@@ -39,9 +45,6 @@ const Comprar = () => {
 		recojo: '',
 		tipoPago: ''
 	})
-	const { carrito, total, VaciarCarrito } = useCarritoContext()
-
-	console.log({ ruc, razonSocial, celular, direccion, venta, depa, prov, dist, recojo, tipoPago })
 
 	const productos = carrito.map(({ title, amount, price, id }) => ({
 		titulo: title,
@@ -52,17 +55,16 @@ const Comprar = () => {
 		total: amount * price
 	}))
 
-	const pago = async ({ payment_method_id, token, installments }: PayProps) => {
+	const pagoTarjeta = async ({ payment_method_id, token, installments }: PayProps) => {
 		await createPedido({
 			input1: {
-				estado: '1',
 				tipoPago: 3,
 				medioPago: payment_method_id,
 				tipoVenta: venta,
 				numeroOperacion: '',
-				tipoEnvio: 1,
+				tipoEnvio: recojo,
 				precioEnvio: 0,
-				precioTotal: 12,
+				precioTotal: total,
 				direccionEnvio: direccion
 			},
 			input2: productos,
@@ -84,6 +86,44 @@ const Comprar = () => {
 				installments,
 				tipo_tarjeta: 0
 			}
+		}).then((res) => {
+			if (res?.ok) {
+				setShow('pagado')
+				VaciarCarrito()
+			} else {
+				setError(true)
+				setTimeout(() => {
+					setError(false)
+				}, 5000)
+			}
+		})
+	}
+
+	const pagoSinTarjeta = async (tipoPagoUpload: number) => {
+		await createPedido({
+			input1: {
+				tipoPago: tipoPagoUpload,
+				medioPago: null,
+				tipoVenta: venta,
+				numeroOperacion: '',
+				tipoEnvio: recojo,
+				precioEnvio: 0,
+				precioTotal: total,
+				direccionEnvio: direccion
+			},
+			input2: productos,
+			input3: {
+				ruc: venta === 'factura' ? ruc : '',
+				razonSocial: venta === 'factura' ? razonSocial : ''
+			},
+			input4: {
+				email: '',
+				celular,
+				DeparCodi: Number(depa),
+				ProvCodi: Number(prov),
+				DistCodi: Number(dist)
+			},
+			voucher: image
 		}).then((res) => {
 			if (res?.ok) {
 				setShow('pagado')
@@ -127,17 +167,19 @@ const Comprar = () => {
 				/>
 			)}
 
-			{/* {show === 'Efectivo' && <FormEfectivo />} */}
+			{show === 'EfectivoIdUpload' && <SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta }} />}
 
-			{show === 'EfectivoUpload' && <FormEfectivo setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+			{show === 'TransferenciaIdUpload' && <SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta }} />}
 
-			{show === 'TransferenciaUpload' && <FormTransferencia setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+			{show === 'TransferenciaId' && <FormTransferencia {...{ setShow, tipoPago, onChange, total }} />}
 
-			{show === 'Efectivo' && <TipoPagoEfectivo setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+			{show === 'EfectivoId' && <FormEfectivo {...{ setShow, tipoPago, onChange, total }} />}
 
-			{show === 'Transferencia' && <TipoPagoBancos setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+			{show === 'Efectivo' && <TipoPagoEfectivo {...{ setShow, tipoPago, onChange }} />}
 
-			{show === 'pagar' && <FormMercadopago pago={pago} setShow={setShow} total={total} error={error} />}
+			{show === 'Transferencia' && <TipoPagoBancos {...{ setShow, tipoPago, onChange }} />}
+
+			{show === 'Trajeta' && <FormMercadopago {...{ setShow, total, error }} pago={pagoTarjeta} />}
 
 			{show === 'pagado' && <CheckPago />}
 		</Container>

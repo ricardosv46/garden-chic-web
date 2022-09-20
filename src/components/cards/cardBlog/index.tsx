@@ -27,16 +27,16 @@ const CarBlog = ({ imagenPrincipal, titulo, CategoriaBlog, descripcionCorta, slu
 			<div className='p-5'>
 				<p
 					onClick={() => router.push(`/blogs/${slug}`)}
-					className='font-semibold text-gray-900 duration-300 ease-in-out cursor-pointer text-md hover:text-primary-300'>
+					className='font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer text-md hover:text-garden-option1'>
 					{CategoriaBlog?.titulo}
 				</p>
-				<div className='bg-primary-300 w-10 h-0.5 my-4'></div>
+				<div className='bg-garden-option1 w-10 h-0.5 my-4'></div>
 				<p
 					onClick={() => router.push(`/blogs/${slug}`)}
-					className='text-3xl font-black text-gray-900 duration-300 ease-in-out cursor-pointer hover:text-primary-300'>
+					className='text-3xl font-black text-garden-option3 duration-300 ease-in-out cursor-pointer hover:text-garden-option1'>
 					{titulo}
 				</p>
-				<p className='mt-5 font-normal text-gray-900 text-md'>{descripcionCorta}</p>
+				<p className='mt-5 font-normal text-garden-option3 text-md'>{descripcionCorta}</p>
 				<div className='mt-5'>
 					<Compartir ruta={slug!} title={titulo!} />
 				</div>

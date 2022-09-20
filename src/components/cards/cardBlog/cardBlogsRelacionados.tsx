@@ -25,7 +25,7 @@ const CardBlogsRelacionados = ({ imagenPrincipal, titulo, slug }: IProps) => {
 			<div className='flex items-center justify-start flex-1'>
 				<p
 					onClick={() => router.push(`/blogs/${slug}`)}
-					className='text-lg font-bold leading-5 text-gray-900 duration-300 ease-in-out cursor-pointer hover:text-primary-300'>
+					className='text-lg font-bold leading-5 text-garden-option3 duration-300 ease-in-out cursor-pointer hover:text-garden-option1'>
 					{titulo}
 				</p>
 			</div>

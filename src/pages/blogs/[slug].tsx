@@ -50,18 +50,18 @@ const DetalleBlog = ({ blog }: Blogs) => {
 			/>
 			<Container className='gap-10 py-10 lg:flex'>
 				<div className='w-full lg:w-9/12'>
-					<h1 className='font-semibold text-gray-900 duration-300 ease-in-out cursor-pointer text-md hover:text-primary-300'>
+					<h1 className='font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer text-md hover:text-garden-option1'>
 						{blog?.CategoriaBlog?.titulo}
 					</h1>
-					<div className='bg-primary-300 w-5 h-0.5 my-2'></div>
-					<p className='py-5 text-5xl font-black text-gray-900'>{blog?.titulo}</p>
-					{/* <p className='py-5 mb-5 font-semibold text-gray-900 text-md'>
+					<div className='bg-garden-option1 w-5 h-0.5 my-2'></div>
+					<p className='py-5 text-5xl font-black text-garden-option3'>{blog?.titulo}</p>
+					{/* <p className='py-5 mb-5 font-semibold text-garden-option3 text-md'>
             January 10, 2018
-            <span className='text-primary-300'>by BoldThemes</span>
+            <span className='text-garden-option1'>by BoldThemes</span>
           </p> */}
 					<Image loading='lazy' className='cursor-pointer' src={blog?.imagenSecundaria?.url!} width={1110} height={690} alt='blogs' />
 					<div
-						className='mt-16 font-medium leading-8 text-gray-900 text-md lg:pr-20'
+						className='mt-16 font-medium leading-8 text-garden-option3 text-md lg:pr-20'
 						dangerouslySetInnerHTML={{ __html: blog?.descripcionLarga! }}>
 						{/* {descripcionLarga} */}
 					</div>
@@ -72,7 +72,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
 
 				<div className='w-full px-3 lg:w-3/12'>
 					<InputSearch placeholder='Buscar' onClick={() => console.log('buscando publicaciones recientes')} />
-					<p className='py-10 text-2xl font-bold text-gray-900'>Publicaciones Recientes</p>
+					<p className='py-10 text-2xl font-bold text-garden-option3'>Publicaciones Recientes</p>
 					{blogs.map((item, i) => {
 						if (i < 5) {
 							return <CardBlogsRelacionados titulo={item.titulo!} slug={item.slug!} imagenPrincipal={item.imagenPrincipal!} key={i} />
@@ -80,10 +80,10 @@ const DetalleBlog = ({ blog }: Blogs) => {
 							return null
 						}
 					})}
-					<p className='py-10 text-2xl font-bold text-gray-900'>Categorias</p>
+					<p className='py-10 text-2xl font-bold text-garden-option3'>Categorias</p>
 					{categorias.map((item) => (
 						<div key={item.slug} className='py-5 border-b-2 border-b-gray-200'>
-							<p className='text-xl font-semibold text-gray-700 duration-300 ease-in-out cursor-pointer hover:text-primary-300'>
+							<p className='text-xl font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer hover:text-garden-option1'>
 								{item.titulo}
 							</p>
 						</div>

@@ -880,13 +880,12 @@ export type Pedido = {
 export type PedidoInput = {
   pedidoId?: InputMaybe<Scalars['ID']>;
   fechaPedido?: InputMaybe<Scalars['Date']>;
-  estado?: InputMaybe<Scalars['String']>;
   visto?: InputMaybe<Scalars['Int']>;
   tipoPago?: InputMaybe<Scalars['Int']>;
   tipoVenta?: InputMaybe<Scalars['String']>;
   medioPago?: InputMaybe<Scalars['String']>;
   numeroOperacion?: InputMaybe<Scalars['String']>;
-  tipoEnvio?: InputMaybe<Scalars['Int']>;
+  tipoEnvio?: InputMaybe<Scalars['String']>;
   precioEnvio?: InputMaybe<Scalars['Float']>;
   precioTotal?: InputMaybe<Scalars['Float']>;
   direccionEnvio?: InputMaybe<Scalars['String']>;
@@ -1427,6 +1426,7 @@ export type CreatePedidoMutationVariables = Exact<{
   input1: PedidoInput;
   input2?: InputMaybe<Array<DetallePedidoInput> | DetallePedidoInput>;
   input3: ReciboInput;
+  voucher?: InputMaybe<Scalars['Upload']>;
   input4: DireccionEnvioInput;
   input5?: InputMaybe<DatosTarjetaInput>;
 }>;
@@ -1532,6 +1532,20 @@ export type GetBusquedaAvanzadaQueryVariables = Exact<{
 
 export type GetBusquedaAvanzadaQuery = { __typename?: 'Query', GetBusquedaAvanzada: { __typename?: 'GetAllProductos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Producto', categoriaProductoId?: number | null, created_at?: any | null, descripcionCorta?: string | null, descripcionLarga?: string | null, destacado?: string | null, estado?: string | null, keywords?: string | null, precioOferta?: number | null, precioReal?: number | null, productoId?: string | null, slug?: string | null, stockMinimo?: number | null, stockReal?: number | null, titulo?: string | null, imagenPrincipal?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null, CategoriaProducto?: { __typename?: 'CategoriaProducto', titulo?: string | null, slug?: string | null, estado?: string | null } | null, imagenSecundaria?: { __typename?: 'Imagen', estado?: string | null, id?: string | null, titulo?: string | null, url?: string | null } | null }> | null } };
 
+export type GetEfectivoMovilIdQueryVariables = Exact<{
+  efectivoMovilId?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type GetEfectivoMovilIdQuery = { __typename?: 'Query', GetEfectivoMovilId: { __typename?: 'EfectivoMovil', efectivoMovilId?: string | null, titulo?: string | null, estado?: string | null, updated_at?: any | null, created_at?: any | null, numeroCelular?: string | null, imagenPrincipal?: { __typename?: 'Imagen', url?: string | null, estado?: string | null, titulo?: string | null, id?: string | null } | null, imagenQr?: { __typename?: 'Imagen', url?: string | null, estado?: string | null, titulo?: string | null, id?: string | null } | null } };
+
+export type GetBancoIdQueryVariables = Exact<{
+  bancoId?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type GetBancoIdQuery = { __typename?: 'Query', GetBancoId: { __typename?: 'Banco', bancoId?: string | null, titulo?: string | null, estado?: string | null, numeroCuenta?: string | null, imagenPrincipal?: { __typename?: 'Imagen', url?: string | null, titulo?: string | null, id?: string | null, estado?: string | null } | null } };
+
 export type GetPreciosQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1596,11 +1610,12 @@ export type CreateContactosMutationHookResult = ReturnType<typeof useCreateConta
 export type CreateContactosMutationResult = Apollo.MutationResult<CreateContactosMutation>;
 export type CreateContactosMutationOptions = Apollo.BaseMutationOptions<CreateContactosMutation, CreateContactosMutationVariables>;
 export const CreatePedidoDocument = gql`
-    mutation CreatePedido($input1: PedidoInput!, $input2: [DetallePedidoInput!], $input3: ReciboInput!, $input4: DireccionEnvioInput!, $input5: DatosTarjetaInput) {
+    mutation CreatePedido($input1: PedidoInput!, $input2: [DetallePedidoInput!], $input3: ReciboInput!, $voucher: Upload, $input4: DireccionEnvioInput!, $input5: DatosTarjetaInput) {
   CreatePedido(
     input1: $input1
     input2: $input2
     input3: $input3
+    voucher: $voucher
     input4: $input4
     input5: $input5
   ) {
@@ -1648,6 +1663,7 @@ export type CreatePedidoMutationFn = Apollo.MutationFunction<CreatePedidoMutatio
  *      input1: // value for 'input1'
  *      input2: // value for 'input2'
  *      input3: // value for 'input3'
+ *      voucher: // value for 'voucher'
  *      input4: // value for 'input4'
  *      input5: // value for 'input5'
  *   },
@@ -2354,6 +2370,102 @@ export function useGetBusquedaAvanzadaLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type GetBusquedaAvanzadaQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaQuery>;
 export type GetBusquedaAvanzadaLazyQueryHookResult = ReturnType<typeof useGetBusquedaAvanzadaLazyQuery>;
 export type GetBusquedaAvanzadaQueryResult = Apollo.QueryResult<GetBusquedaAvanzadaQuery, GetBusquedaAvanzadaQueryVariables>;
+export const GetEfectivoMovilIdDocument = gql`
+    query GetEfectivoMovilId($efectivoMovilId: Int) {
+  GetEfectivoMovilId(efectivoMovilId: $efectivoMovilId) {
+    efectivoMovilId
+    titulo
+    estado
+    imagenPrincipal {
+      url
+      estado
+      titulo
+      id
+    }
+    updated_at
+    created_at
+    numeroCelular
+    imagenQr {
+      url
+      estado
+      titulo
+      id
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetEfectivoMovilIdQuery__
+ *
+ * To run a query within a React component, call `useGetEfectivoMovilIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetEfectivoMovilIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetEfectivoMovilIdQuery({
+ *   variables: {
+ *      efectivoMovilId: // value for 'efectivoMovilId'
+ *   },
+ * });
+ */
+export function useGetEfectivoMovilIdQuery(baseOptions?: Apollo.QueryHookOptions<GetEfectivoMovilIdQuery, GetEfectivoMovilIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetEfectivoMovilIdQuery, GetEfectivoMovilIdQueryVariables>(GetEfectivoMovilIdDocument, options);
+      }
+export function useGetEfectivoMovilIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetEfectivoMovilIdQuery, GetEfectivoMovilIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetEfectivoMovilIdQuery, GetEfectivoMovilIdQueryVariables>(GetEfectivoMovilIdDocument, options);
+        }
+export type GetEfectivoMovilIdQueryHookResult = ReturnType<typeof useGetEfectivoMovilIdQuery>;
+export type GetEfectivoMovilIdLazyQueryHookResult = ReturnType<typeof useGetEfectivoMovilIdLazyQuery>;
+export type GetEfectivoMovilIdQueryResult = Apollo.QueryResult<GetEfectivoMovilIdQuery, GetEfectivoMovilIdQueryVariables>;
+export const GetBancoIdDocument = gql`
+    query GetBancoId($bancoId: Int) {
+  GetBancoId(bancoId: $bancoId) {
+    bancoId
+    titulo
+    estado
+    numeroCuenta
+    imagenPrincipal {
+      url
+      titulo
+      id
+      estado
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetBancoIdQuery__
+ *
+ * To run a query within a React component, call `useGetBancoIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetBancoIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetBancoIdQuery({
+ *   variables: {
+ *      bancoId: // value for 'bancoId'
+ *   },
+ * });
+ */
+export function useGetBancoIdQuery(baseOptions?: Apollo.QueryHookOptions<GetBancoIdQuery, GetBancoIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetBancoIdQuery, GetBancoIdQueryVariables>(GetBancoIdDocument, options);
+      }
+export function useGetBancoIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBancoIdQuery, GetBancoIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetBancoIdQuery, GetBancoIdQueryVariables>(GetBancoIdDocument, options);
+        }
+export type GetBancoIdQueryHookResult = ReturnType<typeof useGetBancoIdQuery>;
+export type GetBancoIdLazyQueryHookResult = ReturnType<typeof useGetBancoIdLazyQuery>;
+export type GetBancoIdQueryResult = Apollo.QueryResult<GetBancoIdQuery, GetBancoIdQueryVariables>;
 export const GetPreciosDocument = gql`
     query GetPrecios {
   GetPrecios {

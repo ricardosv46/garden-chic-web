@@ -31,7 +31,7 @@ const Select = ({
 			<select
 				{...props}
 				autoComplete='off'
-				className='block w-full px-2 pt-5 pb-2 text-sm font-semibold text-gray-900 bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-0 focus:border-primary-300 peer'
+				className='block w-full px-2 pt-5 pb-2 text-sm font-semibold text-garden-option3 bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-0 focus:border-garden-option1 peer'
 				value={value}
 				onChange={onChange}>
 				<option value='' hidden></option>
@@ -45,7 +45,7 @@ const Select = ({
 			<label
 				className={`${
 					value.length ? 'top-0 text-xs ' : 'top-4 text-base'
-				} absolute text-sm text-primary-300 bg-white -z-10 font-semibold duration-300 transform left-2.5 leading-5`}>
+				} absolute text-sm text-garden-option1 bg-white -z-10 font-semibold duration-300 transform left-2.5 leading-5`}>
 				{label}
 			</label>
 		</div>

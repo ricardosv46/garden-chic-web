@@ -204,7 +204,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 							<div className='flex justify-end mt-7'>
 								<button
 									type='submit'
-									className='w-full py-3 text-white rounded-lg cursor-pointer bg-primary-600'
+									className='w-full py-3 text-white rounded-lg cursor-pointer bg-garden-option1'
 									disabled={errorForm.email.length > 0 ? true : false}>
 									{textoBtnCambiarForm()[3]}
 								</button>
@@ -218,9 +218,9 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 						)}
 
 						<div className={`${error ? 'mt-2' : 'mt-7'}`}>
-							<p className='text-base text-gray-400'>
+							<p className='text-base text-garden-option3'>
 								{textoBtnCambiarForm()[0]}
-								<span className='cursor-pointer text-primary-600' onClick={cambiarFormulario}>
+								<span className='cursor-pointer text-garden-option1' onClick={cambiarFormulario}>
 									{textoBtnCambiarForm()[1]}
 								</span>{' '}
 							</p>
