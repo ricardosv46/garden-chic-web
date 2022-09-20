@@ -4,7 +4,7 @@ import { useBancos } from '@services/useBancos'
 import Image from 'next/image'
 import IconArrowLeft from 'public/icons/IconArrowLeft'
 import IconCheckRadio from 'public/icons/IconCheckRadio'
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useMemo, useState } from 'react'
 
 interface Props {
 	setShow: React.Dispatch<React.SetStateAction<string>>
@@ -14,6 +14,14 @@ interface Props {
 
 const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 	const { db: dbBancos, loading } = useBancos()
+
+	console.log({ tipoPago })
+
+	const disabled = useMemo(() => {
+		return dbBancos.some((item) => item.titulo === tipoPago)
+	}, [tipoPago])
+
+	console.log(disabled)
 
 	return (
 		<form onSubmit={() => setShow('TransferenciaUpload')} className='relative pt-0 lg:p-10'>
@@ -44,7 +52,7 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 							/>
 
 							<label
-								className=' p-3.5 text-sm px-5 pr-8  flex items-center justify-between   font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+								className=' p-3.5 text-sm px-5 gap-1   flex items-center flex-col-reverse justify-between   font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
 								htmlFor={item.bancoId!}>
 								<div className='flex flex-col gap-3'>
 									<span className='font-bold'> {item.titulo!} </span>
@@ -71,9 +79,11 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 			<div className='pt-10'>
 				<div className='flex justify-center pt-5'>
 					<button
-						disabled={tipoPago.length > 0 ? false : true}
+						disabled={!disabled}
 						type='submit'
-						className='px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-primary-300 hover:border-primary-300 hover:bg-white hover:text-primary-300'>
+						className={`${
+							!disabled ? 'bg-primary-300 opacity-50' : 'bg-primary-300 hover:border-primary-300 hover:bg-white hover:text-primary-300'
+						} px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full `}>
 						Continuar
 					</button>
 				</div>

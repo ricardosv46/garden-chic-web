@@ -5,7 +5,7 @@ import { useEfectivoMovil } from '@services/useEfectivoMovil'
 import Image from 'next/image'
 import IconArrowLeft from 'public/icons/IconArrowLeft'
 import IconCheckRadio from 'public/icons/IconCheckRadio'
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useMemo, useState } from 'react'
 import { Interface } from 'readline'
 import useForm from 'src/hooks/useForm'
 
@@ -17,6 +17,12 @@ interface Props {
 
 const TipoPagoEfectivo = ({ onChange, setShow, tipoPago }: Props) => {
 	const { db: dbEfectivo, loading } = useEfectivoMovil()
+
+	const disabled = useMemo(() => {
+		return dbEfectivo.some((item) => item.titulo === tipoPago)
+	}, [tipoPago])
+
+	console.log(disabled)
 
 	return (
 		<form onSubmit={() => setShow('EfectivoUpload')} className='relative pt-0 lg:p-10'>
@@ -47,7 +53,7 @@ const TipoPagoEfectivo = ({ onChange, setShow, tipoPago }: Props) => {
 							/>
 
 							<label
-								className=' p-3.5 text-sm px-5 pr-8  flex items-center justify-between   font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+								className=' p-3.5 text-sm px-5 gap-1  flex items-center justify-between  flex-col-reverse  font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
 								htmlFor={item.efectivoMovilId!}>
 								<div className='flex flex-col gap-3'>
 									<span className='font-bold'> {item.titulo!} </span>
@@ -74,8 +80,11 @@ const TipoPagoEfectivo = ({ onChange, setShow, tipoPago }: Props) => {
 			<div className='pt-10'>
 				<div className='flex justify-center pt-5'>
 					<button
+						disabled={!disabled}
 						type='submit'
-						className='px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-primary-300 hover:border-primary-300 hover:bg-white hover:text-primary-300'>
+						className={`${
+							!disabled ? 'bg-primary-300 opacity-50' : 'bg-primary-300 hover:border-primary-300 hover:bg-white hover:text-primary-300'
+						} px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full `}>
 						Continuar
 					</button>
 				</div>
