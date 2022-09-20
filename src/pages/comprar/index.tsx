@@ -65,7 +65,7 @@ const Comprar = () => {
 				tipoEnvio: recojo,
 				precioEnvio: 0,
 				precioTotal: total,
-				direccionEnvio: direccion
+				direccionEnvio: recojo === 'Tienda' ? '' : direccion
 			},
 			input2: productos,
 			input3: {
@@ -109,7 +109,7 @@ const Comprar = () => {
 				tipoEnvio: recojo,
 				precioEnvio: 0,
 				precioTotal: total,
-				direccionEnvio: direccion
+				direccionEnvio: recojo === 'Tienda' ? '' : direccion
 			},
 			input2: productos,
 			input3: {
