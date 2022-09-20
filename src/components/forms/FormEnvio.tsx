@@ -1,12 +1,9 @@
 import { SelectSearch } from '@components/SelectSearch'
-import { useRouter } from 'next/router'
-import React, { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
+import IconCheckRadio from 'public/icons/IconCheckRadio'
+import React, { ChangeEvent } from 'react'
 import { useEffect } from 'react'
-import { useCarritoContext } from '../../context/carrito/CarritoState'
-import useForm from '../../hooks/useForm'
 import { useDepartamentos } from '../../services/useDepartamentos'
 import { useDistritos } from '../../services/useDistritos'
-import { usePedido } from '../../services/usePedido'
 import { useProvincias } from '../../services/useProvincias'
 import InputFloat from '../inputs/InputFloat'
 import Select from '../select'
@@ -21,17 +18,33 @@ interface IProps {
 	setShow: React.Dispatch<React.SetStateAction<string>>
 	venta: string
 	depa: string
+	recojo: string
 	prov: string
 	dist: string
 	ruc: string
 	razonSocial: string
 	celular: string
 	direccion: string
+	tipoPago: string
 	onChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	setStateMutation: (key: string, value: string | number) => void
 }
 
-const FormEnvio = ({ setShow, ruc, razonSocial, celular, direccion, venta, depa, prov, dist, onChange, setStateMutation }: IProps) => {
+const FormEnvio = ({
+	setShow,
+	ruc,
+	razonSocial,
+	celular,
+	direccion,
+	venta,
+	depa,
+	recojo,
+	tipoPago,
+	prov,
+	dist,
+	onChange,
+	setStateMutation
+}: IProps) => {
 	const { db: departamentos } = useDepartamentos()
 	const { db: provincias } = useProvincias({ DepCode: depa.toString() })
 	const { db: distritos } = useDistritos({ ProCode: prov.toString() })
@@ -57,7 +70,7 @@ const FormEnvio = ({ setShow, ruc, razonSocial, celular, direccion, venta, depa,
 			<div className='w-full h-auto md:w-2/5 '>
 				<h2 className='text-4xl font-bold text-center text-primary-300 xl:text-6xl '>Completa tu información</h2>
 				<div>
-					<form onSubmit={() => setShow('pagar')} className='flex flex-col mt-10 gap-y-5 '>
+					<form onSubmit={() => setShow(tipoPago)} className='flex flex-col mt-10 gap-y-5 '>
 						<Select
 							required
 							label='Tipo de recibo'
@@ -70,16 +83,17 @@ const FormEnvio = ({ setShow, ruc, razonSocial, celular, direccion, venta, depa,
 							]}
 						/>
 
-						{/* <SelectSearch
-              tittle="Tipo de recibo"
-              data={[
-                { value: "boleta", titulo: "Boleta" },
-                { value: "factura", titulo: "Factura" },
-              ]}
-              name="venta"
-              value={venta}
-              setStateMutation={setStateMutation}
-            /> */}
+						<Select
+							required
+							label='Tipo de recojo'
+							name='recojo'
+							value={recojo}
+							onChange={onChange}
+							data={[
+								{ value: 'Tienda', titulo: 'Tienda' },
+								{ value: 'Delivery', titulo: 'Delivery' }
+							]}
+						/>
 
 						{venta === 'factura' && (
 							<>
@@ -97,61 +111,92 @@ const FormEnvio = ({ setShow, ruc, razonSocial, celular, direccion, venta, depa,
 							</>
 						)}
 
-						<div className='flex flex-col gap-5 xl:flex-row '>
-							{/* <Select
-                required
-                label="Departamento"
-                name="depa"
-                value={depa}
-                onChange={onChange}
-                data={dataDepartamentos!}
-              /> 
-              
-              <Select
-                required
-                disabled={depa ? false : true}
-                label="Provincia"
-                name="prov"
-                value={prov}
-                onChange={onChange}
-                data={dataProvincias!}
-              />
+						{recojo === 'Delivery' && (
+							<div className='flex flex-col gap-5 xl:flex-row '>
+								<SelectSearch
+									tittle='Departamento'
+									data={dataDepartamentos}
+									name='depa'
+									value={depa}
+									setStateMutation={setStateMutation}
+								/>
+								<SelectSearch
+									tittle='Provincia'
+									data={dataProvincias}
+									name='prov'
+									value={prov}
+									disabled={depa ? false : true}
+									setStateMutation={setStateMutation}
+								/>
+								<SelectSearch
+									tittle='Distrito'
+									data={dataDistritos}
+									name='dist'
+									value={dist}
+									disabled={prov ? false : true}
+									setStateMutation={setStateMutation}
+								/>
+							</div>
+						)}
 
-              <Select
-                disabled={prov ? false : true}
-                label="Distrito"
-                name="dist"
-                value={dist}
-                onChange={onChange}
-                data={dataDistritos!}
-                required
-              />
-              */}
+						<div className='grid grid-cols-1 gap-5 xl:grid-cols-3'>
+							<div className='relative'>
+								<input
+									className='hidden group peer'
+									type='radio'
+									required
+									name='tipoPago'
+									value='Transferencia'
+									id='Transferencia'
+									onChange={onChange}
+								/>
 
-							<SelectSearch
-								tittle='Departamento'
-								data={dataDepartamentos}
-								name='depa'
-								value={depa}
-								setStateMutation={setStateMutation}
-							/>
+								<label
+									className='block p-3.5 text-sm font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+									htmlFor='Transferencia'>
+									<span> Transferencia </span>
+								</label>
+								<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-primary-300 top-4 right-4 peer-checked:opacity-100' />
+							</div>
 
-							<SelectSearch
-								tittle='Provincia'
-								data={dataProvincias}
-								name='prov'
-								value={prov}
-								disabled={depa ? false : true}
-								setStateMutation={setStateMutation}
-							/>
-							<SelectSearch
-								tittle='Distrito'
-								data={dataDistritos}
-								name='dist'
-								value={dist}
-								disabled={prov ? false : true}
-								setStateMutation={setStateMutation}
-							/>
+							<div className='relative'>
+								<input
+									className='hidden group peer'
+									type='radio'
+									required
+									name='tipoPago'
+									value='Efectivo'
+									id='Efectivo'
+									onChange={onChange}
+								/>
+
+								<label
+									className='block p-3.5 text-sm font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+									htmlFor='Efectivo'>
+									<span> Efectivo Móvil </span>
+								</label>
+
+								<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-primary-300 top-4 right-4 peer-checked:opacity-100' />
+							</div>
+							<div className='relative'>
+								<input
+									className='hidden group peer'
+									type='radio'
+									required
+									name='tipoPago'
+									value='Tarjeta'
+									id='Tarjeta'
+									onChange={onChange}
+								/>
+
+								<label
+									className='block p-3.5 text-sm font-medium transition-colors border border-gray-300 rounded-lg shadow-sm cursor-pointer peer-checked:border-primary-300 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-blue-500'
+									htmlFor='Tarjeta'>
+									<span> Tarjeta </span>
+								</label>
+
+								<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-primary-300 top-4 right-4 peer-checked:opacity-100' />
+							</div>
 						</div>
 
 						<InputFloat

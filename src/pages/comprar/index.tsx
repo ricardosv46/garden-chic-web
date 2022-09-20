@@ -12,6 +12,10 @@ import { useRouter } from 'next/router'
 import CheckPago from '../../components/forms/CheckPago'
 import FormEnvio from '../../components/forms/FormEnvio'
 import { getSession } from 'next-auth/react'
+import FormEfectivo from '@components/forms/FormEfectivo'
+import FormTransferencia from '@components/forms/FormTransferencia'
+import TipoPagoBancos from '@components/forms/TipoPagoBancos'
+import TipoPagoEfectivo from '@components/forms/TipoPagoEfectivo'
 interface PayProps {
 	payment_method_id: string
 	token: string
@@ -23,7 +27,7 @@ const Comprar = () => {
 	const [show, setShow] = useState('formulario')
 	const [error, setError] = useState(false)
 
-	const { ruc, razonSocial, celular, direccion, venta, depa, prov, dist, onChange, setStateMutation } = useForm({
+	const { ruc, razonSocial, celular, direccion, venta, depa, prov, dist, recojo, tipoPago, onChange, setStateMutation } = useForm({
 		ruc: '',
 		razonSocial: '',
 		celular: '',
@@ -31,9 +35,13 @@ const Comprar = () => {
 		venta: '',
 		depa: '',
 		prov: '',
-		dist: ''
+		dist: '',
+		recojo: '',
+		tipoPago: ''
 	})
 	const { carrito, total, VaciarCarrito } = useCarritoContext()
+
+	console.log({ ruc, razonSocial, celular, direccion, venta, depa, prov, dist, recojo, tipoPago })
 
 	const productos = carrito.map(({ title, amount, price, id }) => ({
 		titulo: title,
@@ -104,10 +112,12 @@ const Comprar = () => {
 					{...{
 						setShow,
 						ruc,
+						tipoPago,
 						razonSocial,
 						celular,
 						direccion,
 						venta,
+						recojo,
 						depa,
 						prov,
 						dist,
@@ -116,6 +126,16 @@ const Comprar = () => {
 					}}
 				/>
 			)}
+
+			{/* {show === 'Efectivo' && <FormEfectivo />} */}
+
+			{show === 'EfectivoUpload' && <FormEfectivo setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+
+			{show === 'TransferenciaUpload' && <FormTransferencia setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+
+			{show === 'Efectivo' && <TipoPagoEfectivo setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
+
+			{show === 'Transferencia' && <TipoPagoBancos setShow={setShow} tipoPago={tipoPago} onChange={onChange} />}
 
 			{show === 'pagar' && <FormMercadopago pago={pago} setShow={setShow} total={total} error={error} />}
 

@@ -1448,6 +1448,13 @@ export type LoginMutationVariables = Exact<{
 
 export type LoginMutation = { __typename?: 'Mutation', Login: { __typename?: 'User', id?: string | null, tipoUsuario?: number | null, tipoDocumento?: string | null, numeroDocumento?: string | null, genero?: number | null, nombres?: string | null, apellidos?: string | null, celular?: string | null, fechaNacimiento?: any | null, foto?: string | null, email?: string | null, apiToken?: string | null, customer_id?: string | null } };
 
+export type GetAllBancosQueryVariables = Exact<{
+  estado?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetAllBancosQuery = { __typename?: 'Query', GetAllBancos: { __typename?: 'GetAllBancos', numeroTotal?: number | null, data?: Array<{ __typename?: 'Banco', bancoId?: string | null, titulo?: string | null, estado?: string | null, numeroCuenta?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', id?: string | null, titulo?: string | null, estado?: string | null, url?: string | null } | null }> | null } };
+
 export type GetAllBlogsQueryVariables = Exact<{
   pagina?: InputMaybe<Scalars['Int']>;
   numeroPagina?: InputMaybe<Scalars['Int']>;
@@ -1482,6 +1489,13 @@ export type GetAllDistritosQueryVariables = Exact<{
 
 
 export type GetAllDistritosQuery = { __typename?: 'Query', GetAllDistritos?: Array<{ __typename?: 'Distrito', DistCodi?: string | null, DistNom?: string | null, ProvCodi?: number | null, precioEnvio?: number | null, estado?: string | null }> | null };
+
+export type GetAllEfectivoMovilQueryVariables = Exact<{
+  estado?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetAllEfectivoMovilQuery = { __typename?: 'Query', GetAllEfectivoMovil: { __typename?: 'GetAllEfectivoMovil', numeroTotal?: number | null, data?: Array<{ __typename?: 'EfectivoMovil', efectivoMovilId?: string | null, titulo?: string | null, estado?: string | null, numeroCelular?: string | null, created_at?: any | null, updated_at?: any | null, imagenPrincipal?: { __typename?: 'Imagen', url?: string | null, estado?: string | null, titulo?: string | null, id?: string | null } | null, imagenQr?: { __typename?: 'Imagen', url?: string | null, estado?: string | null, titulo?: string | null, id?: string | null } | null }> | null } };
 
 export type GetAllProductosQueryVariables = Exact<{
   pagina?: InputMaybe<Scalars['Int']>;
@@ -1726,6 +1740,55 @@ export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginM
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
 export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
+export const GetAllBancosDocument = gql`
+    query GetAllBancos($estado: String) {
+  GetAllBancos(estado: $estado) {
+    data {
+      bancoId
+      titulo
+      estado
+      numeroCuenta
+      imagenPrincipal {
+        id
+        titulo
+        estado
+        url
+      }
+      created_at
+      updated_at
+    }
+    numeroTotal
+  }
+}
+    `;
+
+/**
+ * __useGetAllBancosQuery__
+ *
+ * To run a query within a React component, call `useGetAllBancosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllBancosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllBancosQuery({
+ *   variables: {
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllBancosQuery(baseOptions?: Apollo.QueryHookOptions<GetAllBancosQuery, GetAllBancosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllBancosQuery, GetAllBancosQueryVariables>(GetAllBancosDocument, options);
+      }
+export function useGetAllBancosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllBancosQuery, GetAllBancosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllBancosQuery, GetAllBancosQueryVariables>(GetAllBancosDocument, options);
+        }
+export type GetAllBancosQueryHookResult = ReturnType<typeof useGetAllBancosQuery>;
+export type GetAllBancosLazyQueryHookResult = ReturnType<typeof useGetAllBancosLazyQuery>;
+export type GetAllBancosQueryResult = Apollo.QueryResult<GetAllBancosQuery, GetAllBancosQueryVariables>;
 export const GetAllBlogsDocument = gql`
     query GetAllBlogs($pagina: Int, $numeroPagina: Int, $estado: String) {
   GetAllBlogs(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {
@@ -1981,6 +2044,61 @@ export function useGetAllDistritosLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type GetAllDistritosQueryHookResult = ReturnType<typeof useGetAllDistritosQuery>;
 export type GetAllDistritosLazyQueryHookResult = ReturnType<typeof useGetAllDistritosLazyQuery>;
 export type GetAllDistritosQueryResult = Apollo.QueryResult<GetAllDistritosQuery, GetAllDistritosQueryVariables>;
+export const GetAllEfectivoMovilDocument = gql`
+    query GetAllEfectivoMovil($estado: String) {
+  GetAllEfectivoMovil(estado: $estado) {
+    numeroTotal
+    data {
+      efectivoMovilId
+      titulo
+      estado
+      imagenPrincipal {
+        url
+        estado
+        titulo
+        id
+      }
+      imagenQr {
+        url
+        estado
+        titulo
+        id
+      }
+      numeroCelular
+      created_at
+      updated_at
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllEfectivoMovilQuery__
+ *
+ * To run a query within a React component, call `useGetAllEfectivoMovilQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllEfectivoMovilQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllEfectivoMovilQuery({
+ *   variables: {
+ *      estado: // value for 'estado'
+ *   },
+ * });
+ */
+export function useGetAllEfectivoMovilQuery(baseOptions?: Apollo.QueryHookOptions<GetAllEfectivoMovilQuery, GetAllEfectivoMovilQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllEfectivoMovilQuery, GetAllEfectivoMovilQueryVariables>(GetAllEfectivoMovilDocument, options);
+      }
+export function useGetAllEfectivoMovilLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllEfectivoMovilQuery, GetAllEfectivoMovilQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllEfectivoMovilQuery, GetAllEfectivoMovilQueryVariables>(GetAllEfectivoMovilDocument, options);
+        }
+export type GetAllEfectivoMovilQueryHookResult = ReturnType<typeof useGetAllEfectivoMovilQuery>;
+export type GetAllEfectivoMovilLazyQueryHookResult = ReturnType<typeof useGetAllEfectivoMovilLazyQuery>;
+export type GetAllEfectivoMovilQueryResult = Apollo.QueryResult<GetAllEfectivoMovilQuery, GetAllEfectivoMovilQueryVariables>;
 export const GetAllProductosDocument = gql`
     query GetAllProductos($pagina: Int, $numeroPagina: Int, $estado: String) {
   GetAllProductos(pagina: $pagina, numeroPagina: $numeroPagina, estado: $estado) {

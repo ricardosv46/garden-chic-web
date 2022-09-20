@@ -60,7 +60,11 @@ const DetalleBlog = ({ blog }: Blogs) => {
             <span className='text-primary-300'>by BoldThemes</span>
           </p> */}
 					<Image loading='lazy' className='cursor-pointer' src={blog?.imagenSecundaria?.url!} width={1110} height={690} alt='blogs' />
-					<p className='mt-16 font-medium leading-8 text-gray-900 text-md lg:pr-20'>{blog?.descripcionLarga}</p>
+					<div
+						className='mt-16 font-medium leading-8 text-gray-900 text-md lg:pr-20'
+						dangerouslySetInnerHTML={{ __html: blog?.descripcionLarga! }}>
+						{/* {descripcionLarga} */}
+					</div>
 					<div className='flex justify-end py-10 mt-5 lg:pr-20 lg:py-0'>
 						<Compartir ruta={blog?.slug!} />
 					</div>

@@ -44,7 +44,7 @@ export const SelectSearch = ({ tittle, data, name, value, disabled, setStateMuta
 	}, [data.length])
 
 	return (
-		<div className='relative flex flex-col w-full min-w-max' ref={WrapperDropdown}>
+		<div className='relative flex flex-col w-full ' ref={WrapperDropdown}>
 			<div className='relative w-full'>
 				<input
 					autoComplete='off'

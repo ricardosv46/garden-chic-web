@@ -42,11 +42,7 @@ export default NextAuth({
 							password: credentials.password
 						}
 					})
-
 					if (res?.Login) {
-						// localStorage.setItem('user', JSON.stringify(res.data?.Login))
-						// const user = res.data?.Login
-						// console.log(user)
 						return res?.Login
 					}
 					console.log('res', res)
@@ -54,15 +50,6 @@ export default NextAuth({
 					console.log('res', error)
 					throw new Error(error.response.errors[0].debugMessage)
 				}
-
-				// const res = await LoginUsuario({
-				//   variables: {
-				//     input: {
-				//       email: 'ricardosv46@gmail.com',
-				//       password: '123456'
-				//     }
-				//   }
-				// })
 			}
 		})
 	],

@@ -96,7 +96,9 @@ const Productos = ({ producto }: Producto) => {
 					</div>
 					<div>
 						<p className='mt-10 text-3xl font-bold text-gray-900'>Descripción</p>
-						<p className='my-5 text-lg text-gray-900'>{Product?.descripcionLarga}</p>
+						<div className='my-5 text-lg text-gray-900' dangerouslySetInnerHTML={{ __html: Product?.descripcionLarga! }}>
+							{/* {descripcionLarga} */}
+						</div>
 						<p className='mt-10 text-3xl font-bold text-gray-900'>También te puede interesar</p>
 						<div className='grid grid-cols-1 gap-5 py-10 md:grid-cols-2 lg:grid-cols-3 justify-items-center'>
 							{productos.map((item, i) => {
