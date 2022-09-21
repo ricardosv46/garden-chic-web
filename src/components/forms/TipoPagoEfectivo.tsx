@@ -11,11 +11,12 @@ import useForm from 'src/hooks/useForm'
 
 interface Props {
 	setShow: React.Dispatch<React.SetStateAction<string>>
+	setMediopago: React.Dispatch<React.SetStateAction<string>>
 	onChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	tipoPago: string
 }
 
-const TipoPagoEfectivo = ({ onChange, setShow, tipoPago }: Props) => {
+const TipoPagoEfectivo = ({ onChange, setShow, tipoPago, setMediopago }: Props) => {
 	const { db: dbEfectivo, loading } = useEfectivoMovil()
 
 	const disabled = useMemo(() => {
@@ -47,7 +48,10 @@ const TipoPagoEfectivo = ({ onChange, setShow, tipoPago }: Props) => {
 								name='tipoPago'
 								value={item.efectivoMovilId!}
 								id={item.efectivoMovilId!}
-								onChange={onChange}
+								onChange={(e) => {
+									onChange(e)
+									setMediopago(item.titulo!)
+								}}
 							/>
 
 							<label

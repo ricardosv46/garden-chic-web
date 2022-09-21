@@ -27,8 +27,8 @@ const Comprar = () => {
 	const { createPedido } = usePedido()
 	const [show, setShow] = useState('formulario')
 	const [image, setImage] = useState(null)
+	const [medioPago, setMediopago] = useState('')
 
-	const [id, setId] = useState<number>()
 	const [error, setError] = useState(false)
 	const { carrito, total, VaciarCarrito } = useCarritoContext()
 	console.log({ total })
@@ -59,7 +59,7 @@ const Comprar = () => {
 		await createPedido({
 			input1: {
 				tipoPago: 3,
-				medioPago: payment_method_id,
+				medioPago: tipoPago,
 				tipoVenta: venta,
 				numeroOperacion: '',
 				tipoEnvio: recojo,
@@ -103,7 +103,7 @@ const Comprar = () => {
 		await createPedido({
 			input1: {
 				tipoPago: tipoPagoUpload,
-				medioPago: null,
+				medioPago: medioPago,
 				tipoVenta: venta,
 				numeroOperacion: '',
 				tipoEnvio: recojo,
@@ -175,9 +175,9 @@ const Comprar = () => {
 
 			{show === 'EfectivoId' && <FormEfectivo {...{ setShow, tipoPago, onChange, total }} />}
 
-			{show === 'Efectivo' && <TipoPagoEfectivo {...{ setShow, tipoPago, onChange }} />}
+			{show === 'Efectivo' && <TipoPagoEfectivo {...{ setShow, tipoPago, onChange, setMediopago }} />}
 
-			{show === 'Transferencia' && <TipoPagoBancos {...{ setShow, tipoPago, onChange }} />}
+			{show === 'Transferencia' && <TipoPagoBancos {...{ setShow, tipoPago, onChange, setMediopago }} />}
 
 			{show === 'Trajeta' && <FormMercadopago {...{ setShow, total, error }} pago={pagoTarjeta} />}
 

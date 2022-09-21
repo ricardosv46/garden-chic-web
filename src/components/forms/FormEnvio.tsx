@@ -72,6 +72,7 @@ const FormEnvio = ({
 				<div>
 					<form onSubmit={() => setShow(tipoPago)} className='flex flex-col mt-10 gap-y-5 '>
 						<Select
+							id='venta'
 							required
 							label='Tipo de recibo'
 							name='venta'
@@ -84,6 +85,7 @@ const FormEnvio = ({
 						/>
 
 						<Select
+							id='recojo'
 							required
 							label='Tipo de recojo'
 							name='recojo'

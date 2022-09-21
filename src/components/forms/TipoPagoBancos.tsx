@@ -8,11 +8,12 @@ import React, { ChangeEvent, useMemo, useState } from 'react'
 
 interface Props {
 	setShow: React.Dispatch<React.SetStateAction<string>>
+	setMediopago: React.Dispatch<React.SetStateAction<string>>
 	onChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	tipoPago: string
 }
 
-const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
+const TipoPagoBancos = ({ onChange, tipoPago, setShow, setMediopago }: Props) => {
 	const { db: dbBancos, loading } = useBancos()
 
 	const disabled = useMemo(() => {
@@ -44,7 +45,10 @@ const TipoPagoBancos = ({ onChange, tipoPago, setShow }: Props) => {
 								name='tipoPago'
 								value={item.bancoId!}
 								id={item.bancoId!}
-								onChange={onChange}
+								onChange={(e) => {
+									onChange(e)
+									setMediopago(item.titulo!)
+								}}
 							/>
 
 							<label
