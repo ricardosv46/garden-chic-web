@@ -14,6 +14,7 @@ interface CardItemCarritoProps {
 	categoty1: string
 	rebaja: boolean
 	amount: number
+	stockTotal: number
 	eliminarCarrito: (id: number) => void
 	actualizarPrecioCarrito: (payload: CarritoProps) => void
 }
@@ -27,7 +28,8 @@ const CardItemCarrito = ({
 	rebaja,
 	amount,
 	eliminarCarrito,
-	actualizarPrecioCarrito
+	actualizarPrecioCarrito,
+	stockTotal
 }: CardItemCarritoProps) => {
 	const incrementPrice = () => {
 		console.log('increment')
@@ -40,7 +42,8 @@ const CardItemCarrito = ({
 			price,
 			categoty1,
 			rebaja,
-			amount: amount + 1
+			amount: amount + 1,
+			stockTotal
 		})
 	}
 	const decrementPrice = () => {
@@ -52,7 +55,8 @@ const CardItemCarrito = ({
 			price,
 			categoty1,
 			rebaja,
-			amount: amount > 1 ? amount - 1 : amount
+			amount: amount > 1 ? amount - 1 : amount,
+			stockTotal
 		})
 	}
 	return (
@@ -63,27 +67,27 @@ const CardItemCarrito = ({
 				</div>
 				<div className='flex flex-col justify-between'>
 					<div className=''>
-						<p className='font-bold text-garden-option1 text-xl'>{title}</p>
-						<div className='flex gap-x-3 mt-1'>
-							{firtsPrice > price && <p className='text-garden-option3 text-sm  line-through'>S/. {firtsPrice.toFixed(2)}</p>}
+						<p className='text-xl font-bold text-garden-option1'>{title}</p>
+						<div className='flex mt-1 gap-x-3'>
+							{firtsPrice > price && <p className='text-sm line-through text-garden-option3'>S/. {firtsPrice.toFixed(2)}</p>}
 
-							<p className='text-garden-option3 text-sm'>S/ {price.toFixed(2)}</p>
+							<p className='text-sm text-garden-option3'>S/ {price.toFixed(2)}</p>
 						</div>
 					</div>
 
-					<div className='flex  gap-x-2 '>
-						<button className='bg-gray-200 px-2 py-1 rounded ' onClick={decrementPrice}>
+					<div className='flex gap-x-2 '>
+						<button className='px-2 py-1 bg-gray-200 rounded ' onClick={decrementPrice}>
 							<IconMinus width={10} height={10} />
 						</button>
 						<p className='text-garden-option3'>{amount}</p>
-						<button className='bg-gray-200 px-2 py-1 rounded ' onClick={() => incrementPrice()}>
+						<button className='px-2 py-1 bg-gray-200 rounded ' onClick={() => incrementPrice()}>
 							<IconPlus width={10} height={10} />
 						</button>
 					</div>
 				</div>
 			</div>
 
-			<div className='cursor-pointer h-full mt-2' onClick={() => eliminarCarrito(id)}>
+			<div className='h-full mt-2 cursor-pointer' onClick={() => eliminarCarrito(id)}>
 				<IconDelete height={16} width={16} fill='red' />
 			</div>
 		</div>

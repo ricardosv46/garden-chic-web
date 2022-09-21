@@ -17,24 +17,25 @@ interface IProps {
 	categoty1: string
 	rebaja: boolean
 	amount: number
+	stockTotal: number
 }
 
-const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, rebaja, amount }: IProps) => {
+const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, rebaja, amount, stockTotal }: IProps) => {
 	const { agregarCarrito, OpenCarrito } = useCarritoContext()
 	const [hover, setHover] = useState(false)
 	const router = useRouter()
 	return (
 		<div>
-			<div className='w-full  rounded-xl  '>
-				<div className='border-b-2 cursor-pointer relative flex z-0' onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
-					<div className='absolute inset-0 md:hidden md:invisible z-20 md:z-0' onClick={() => router.push(`/tienda/${slug}`)} />
+			<div className='w-full rounded-xl '>
+				<div className='relative z-0 flex border-b-2 cursor-pointer' onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+					<div className='absolute inset-0 z-20 md:hidden md:invisible md:z-0' onClick={() => router.push(`/tienda/${slug}`)} />
 					<Image loading='lazy' src={img.url!} width={1080} height={1080} className='rounded-t-2xl' alt='blogs' />
 					{/* hover images buttons */}
 					<div
 						className={`hidden md:flex absolute transition-all ease-in duration-300 bg-gray-500  flex-row justify-center items-center gap-2 z-0 ${
 							hover ? 'bg-gradiant-primary inset-0 rounded-t-xl scale-100' : ' inset-[50%] rounded-full scale-0'
 						} `}>
-						<div className='w-10 h-10 bg-white rounded-md flex items-center justify-center z-40'>
+						<div className='z-40 flex items-center justify-center w-10 h-10 bg-white rounded-md'>
 							<button
 								className='w-full h-full'
 								onClick={() => {
@@ -46,14 +47,15 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 										price,
 										categoty1,
 										rebaja,
-										amount
+										amount,
+										stockTotal
 									})
 									OpenCarrito(true)
 								}}>
 								<FiShoppingCart className='m-auto' />
 							</button>
 						</div>
-						<div className='w-10 h-10 bg-white rounded-md flex items-center justify-center z-40'>
+						<div className='z-40 flex items-center justify-center w-10 h-10 bg-white rounded-md'>
 							<button onClick={() => router.push(`/tienda/${slug}`)} className='w-full h-full'>
 								<FiEye className='m-auto' />
 							</button>
@@ -69,36 +71,36 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 
 						{/* Top o destacado */}
 						<div className='absolute top-0 left-2 w-14 h-6 bg-[#3F72AF] transform -skew-x-[18deg] z-0'></div>
-						<div className='absolute top-0 right-2 w-6 h-14 bg-red-700 text-white flex justify-center items-center z-10'>
+						<div className='absolute top-0 z-10 flex items-center justify-center w-6 text-white bg-red-700 right-2 h-14'>
 							<FiHeart className='mt-2' />
 						</div>
 						<div className='absolute top-2 right-2 w-6 h-14  bg-red-700 transform -skew-y-[30deg] z-0'></div>
 						<div className='absolute top-2 right-2 w-6 h-14  bg-red-700 transform skew-y-[30deg] z-0'></div>
 					</Show>
 				</div>
-				<div className='p-2 border-b-2 border-x-2 rounded-b-xl flex flex-col  md:flex-row'>
+				<div className='flex flex-col p-2 border-b-2 border-x-2 rounded-b-xl md:flex-row'>
 					<div className='w-full '>
 						{/* title product */}
 						<p
 							onClick={() => router.push(`/tienda/${slug}`)}
-							className='text-garden-option3 text-xl font-bold ease-in-out duration-300 hover:text-garden-option1 cursor-pointer capitalize'>
+							className='text-xl font-bold capitalize duration-300 ease-in-out cursor-pointer text-garden-option3 hover:text-garden-option1'>
 							{titulo}
 						</p>
-						<div className='flex flex-col h-24 justify-between'>
+						<div className='flex flex-col justify-between h-24'>
 							{/* Price old and current */}
 							<div className='flex flex-col'>
 								{price < firtsPrice && (
 									<div className='flex flex-row gap-2'>
-										<p className='text-garden-option3 font-bold line-through'>S/. {firtsPrice.toFixed(2)}</p>
-										<p className='text-red-700  '>{formatPercent(firtsPrice, price)}%</p>
+										<p className='font-bold line-through text-garden-option3'>S/. {firtsPrice.toFixed(2)}</p>
+										<p className='text-red-700 '>{formatPercent(firtsPrice, price)}%</p>
 									</div>
 								)}
-								<p className='text-garden-option3 text-xl font-black  '>S./ {price.toFixed(2)}</p>
+								<p className='text-xl font-black text-garden-option3 '>S./ {price.toFixed(2)}</p>
 							</div>
 						</div>
 					</div>
 					{/* group button bottom */}
-					<div className='w-full my-2 md:hidden flex flex-row md:flex-col gap-4 justify-center items-center'>
+					<div className='flex flex-row items-center justify-center w-full gap-4 my-2 md:hidden md:flex-col'>
 						<button
 							className='w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] '
 							onClick={() => {
@@ -110,7 +112,8 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 									price,
 									categoty1,
 									rebaja,
-									amount
+									amount,
+									stockTotal
 								})
 								OpenCarrito(true)
 							}}>

@@ -83,32 +83,40 @@ const Productos = ({ producto }: Producto) => {
 							<p className='text-5xl text-garden-option3 '>S/ {Product?.precioOferta!}</p>
 
 							<p className='my-5 text-lg text-garden-option3'>{Product?.descripcionCorta!}</p>
-							<div className='flex justify-between border-2'>
-								<div className='flex items-center justify-center flex-1'>
+							<div className='flex gap-3 py-3'>
+								{/* <div className='flex items-center justify-center flex-1'>
 									<input type='number' min='1' placeholder='1' className='w-16 p-2 border-2 rounded-lg focus:outline-none' />
-								</div>
+								</div> */}
 
-								<p className='flex-1 p-5 text-center border-l-2 text-garden-option1'>Cantidad</p>
-								<p className='flex-1 p-5 border-l-2'>{Product?.stockReal!}</p>
+								<p className='font-semibold text-center text-garden-option1'>Stock</p>
+								<p className=''>{Product?.stockReal!}</p>
 							</div>
-
-							<button
-								className='px-5 py-3 mt-5 text-sm font-bold text-white duration-300 ease-in-out border-2 rounded-lg border-garden-option1 bg-garden-option1 hover:bg-white hover:text-garden-option1'
-								onClick={() => {
-									agregarCarrito({
-										id: Number(Product.productoId!),
-										amount: 1,
-										categoty1: Product.CategoriaProducto?.titulo!,
-										img: Product.imagenPrincipal?.url!,
-										title: Product.titulo!,
-										firtsPrice: Product.precioReal!,
-										price: Product.precioOferta!,
-										rebaja: true
-									})
-									OpenCarrito(true)
-								}}>
-								AGREGAR AL CARRITO
-							</button>
+							<div className='flex items-center gap-10 mt-5'>
+								<button
+									disabled={Product?.stockReal! <= 0}
+									className={`${
+										Product?.stockReal! <= 0 ? 'opacity-50' : 'hover:bg-white hover:text-garden-option1'
+									} px-5 py-3  text-sm font-bold text-white duration-300 ease-in-out border-2 rounded-lg border-garden-option1 bg-garden-option1 `}
+									onClick={() => {
+										agregarCarrito({
+											id: Number(Product.productoId!),
+											amount: 1,
+											categoty1: Product.CategoriaProducto?.titulo!,
+											img: Product.imagenPrincipal?.url!,
+											title: Product.titulo!,
+											firtsPrice: Product.precioReal!,
+											price: Product.precioOferta!,
+											rebaja: true,
+											stockTotal: Product?.stockReal!
+										})
+										OpenCarrito(true)
+									}}>
+									AGREGAR AL CARRITO
+								</button>
+								{Product?.stockReal! <= 0 && (
+									<button className='px-4 py-1 text-lg font-semibold text-white bg-red-500'>Agotado</button>
+								)}
+							</div>
 						</div>
 					</div>
 					<div>
@@ -125,6 +133,7 @@ const Productos = ({ producto }: Producto) => {
 											key={item.slug}
 											slug={item.slug!}
 											titulo={item.titulo!}
+											stockTotal={Product?.stockReal!}
 											amount={14}
 											firtsPrice={item.precioReal!}
 											categoty1={item.CategoriaProducto?.titulo!}
@@ -149,6 +158,7 @@ const Productos = ({ producto }: Producto) => {
 											slug={item.slug!}
 											titulo={item.titulo!}
 											amount={14}
+											stockTotal={Product?.stockReal!}
 											firtsPrice={item.precioReal!}
 											categoty1={item.CategoriaProducto?.titulo!}
 											price={item.precioOferta!}
