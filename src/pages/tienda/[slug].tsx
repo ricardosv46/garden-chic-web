@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import request from 'graphql-request'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import CardProducto from '@components/cards/cardProducto'
 import CardProductosRelacionados from '@components/cards/cardProducto/cardProductosRelacionados'
 import Container from '@components/container'
@@ -33,30 +33,47 @@ interface Producto {
 
 const Productos = ({ producto }: Producto) => {
 	const [isOpen, setIsOpen] = useState(false)
+
 	const { db: productos, loading } = useProductos()
 	const { DataProducts, DispatchProducts } = useProductContext()
 	const { Product } = DataProducts
+	const [imageModal, setImageModal] = useState<Imagen[]>([])
+	console.log({ imageModal })
 	const { agregarCarrito, OpenCarrito } = useCarritoContext()
 
 	useEffect(() => {
 		DispatchProducts({ type: 'SelectProduct', payload: producto })
 	}, [producto])
 
+	useEffect(() => {
+		setImageModal([])
+	}, [])
+
 	return (
 		<div>
 			<Container className='py-4 mt-6'>
 				<BreadCrumb />
 			</Container>
-			<ModalProduct isOpen={isOpen} onClose={() => setIsOpen(false)} data={Product?.galeria!} />
+			<ModalProduct isOpen={isOpen} onClose={() => setIsOpen(false)} data={imageModal} />
 			<Container className='gap-10 py-10 lg:flex'>
 				<div className='w-full lg:w-9/12 '>
 					<div className='gap-5 lg:flex'>
 						<div className='flex-1'>
-							<Gallery onClick={() => setIsOpen(true)} data={Product?.galeria!} />
+							<Gallery
+								onClick={() => {
+									if (imageModal.length === 0) {
+										setImageModal(Product?.galeria!)
+									}
+
+									setIsOpen(true)
+								}}
+								data={Product?.galeria!}
+								setImageModal={setImageModal}
+							/>
 						</div>
 						<div className='flex-1 '>
 							<div className='flex items-center gap-3'>
-								<p className='font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer text-md hover:text-garden-option1'>
+								<p className='font-semibold duration-300 ease-in-out cursor-pointer text-garden-option3 text-md hover:text-garden-option1'>
 									{Product?.CategoriaProducto?.titulo!}
 								</p>
 								<span className='w-1 h-1 rounded-full bg-garden-option1'></span>

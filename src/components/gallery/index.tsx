@@ -7,9 +7,10 @@ import { Imagen, Maybe } from '../../generated/graphql'
 interface IProps {
 	data: Array<Maybe<Imagen>>
 	onClick: () => void
+	setImageModal: any
 }
 
-const Gallery = ({ data, onClick }: IProps) => {
+const Gallery = ({ data, onClick, setImageModal }: IProps) => {
 	const [image, setImage] = useState<string>('')
 
 	useEffect(() => {
@@ -19,14 +20,14 @@ const Gallery = ({ data, onClick }: IProps) => {
 
 	return (
 		<>
-			<div className='border-2 border-gray-100 relative'>
+			<div className='relative border-2 border-gray-100'>
 				{image && <Image src={image} loading='lazy' width={1000} height={1000} alt='productos' />}
 
 				<button
 					onClick={onClick}
 					onMouseOver={() => setHover(true)}
 					onMouseOut={() => setHover(false)}
-					className='w-9 h-9 cursor-pointer rounded-full bg-garden-option1 absolute top-5 right-5 flex items-center justify-center hover:bg-white border-2 border-garden-option1 ease-in-out duration-300'>
+					className='absolute flex items-center justify-center duration-300 ease-in-out border-2 rounded-full cursor-pointer w-9 h-9 bg-garden-option1 top-5 right-5 hover:bg-white border-garden-option1'>
 					<svg
 						stroke='currentColor'
 						fill={hover ? '#7E94C1' : '#fff'}
@@ -38,10 +39,19 @@ const Gallery = ({ data, onClick }: IProps) => {
 					</svg>
 				</button>
 			</div>
-			<div className='flex  gap-5 mt-5'>
+			<div className='flex gap-5 mt-5'>
 				{typeof data !== 'undefined' &&
 					data.map((item) => (
-						<div key={item?.url} onClick={() => setImage(item?.url!)} className='border-2 border-gray-100 flex-1 flex'>
+						<div
+							key={item?.url}
+							onClick={() => {
+								setImage(item?.url!)
+
+								const newImageModal = data.filter((image) => image !== item)
+
+								setImageModal([item, ...newImageModal])
+							}}
+							className='flex flex-1 border-2 border-gray-100'>
 							<Image src={item?.url!} loading='lazy' className='cursor-pointer' width={130} height={130} alt='blogs' />
 						</div>
 					))}
