@@ -138,6 +138,30 @@ const FormEnvio = ({
 								/>
 							</div>
 						)}
+
+						<InputFloat
+							required
+							type='number'
+							label='Celular'
+							name='celular'
+							id='celular'
+							htmlFor='celular'
+							value={celular}
+							maxLength={9}
+							onChange={onChange}
+						/>
+						<InputFloat
+							required
+							type='text'
+							label='Dirección'
+							name='direccion'
+							id='direccion'
+							htmlFor='direccion'
+							maxLength={255}
+							value={direccion}
+							onChange={onChange}
+						/>
+
 						<div>
 							<p className='text-sm font-semibold duration-300  text-garden-option1 ml-2.5'>Tipo De Pago</p>
 							<div className='grid grid-cols-1 gap-5 mt-1 xl:grid-cols-3'>
@@ -200,29 +224,6 @@ const FormEnvio = ({
 								</div>
 							</div>
 						</div>
-
-						<InputFloat
-							required
-							type='number'
-							label='Celular'
-							name='celular'
-							id='celular'
-							htmlFor='celular'
-							value={celular}
-							maxLength={9}
-							onChange={onChange}
-						/>
-						<InputFloat
-							required
-							type='text'
-							label='Dirección'
-							name='direccion'
-							id='direccion'
-							htmlFor='direccion'
-							maxLength={255}
-							value={direccion}
-							onChange={onChange}
-						/>
 
 						<div className='flex justify-center pt-5'>
 							<button
