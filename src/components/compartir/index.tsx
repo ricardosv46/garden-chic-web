@@ -30,10 +30,10 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 					onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=https://gardenchicperu.com/blogs/${ruta}/`, '_blank')}
 					onMouseOver={() => setHoverF(true)}
 					onMouseOut={() => setHoverF(false)}
-					className='w-7 h-7 rounded-full border-2 border-garden-option1 hover:bg-garden-option1 ease-in-out duration-300 cursor-pointer flex justify-center items-center'>
+					className='flex items-center justify-center duration-300 ease-in-out border-2 rounded-full cursor-pointer w-7 h-7 border-garden-option1 hover:bg-garden-option1'>
 					<svg
 						stroke='currentColor'
-						fill={hoverF ? '#fff' : '#7E94C1'}
+						fill={hoverF ? '#fff' : '#014969'}
 						viewBox='0 0 320 512'
 						height='1em'
 						width='1em'
@@ -45,11 +45,11 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 				<div
 					onMouseOver={() => setHoverT(true)}
 					onMouseOut={() => setHoverT(false)}
-					className='w-7 h-7 rounded-full border-2 border-garden-option1 hover:bg-garden-option1 ease-in-out duration-300 cursor-pointer flex justify-center items-center'
+					className='flex items-center justify-center duration-300 ease-in-out border-2 rounded-full cursor-pointer w-7 h-7 border-garden-option1 hover:bg-garden-option1'
 					onClick={() => window.open(`https://twitter.com/intent/tweet?text=https://gardenchicperu.com/blogs/${ruta}`, '_blank')}>
 					<svg
 						stroke='currentColor'
-						fill={hoverT ? '#fff' : '#7E94C1'}
+						fill={hoverT ? '#fff' : '#014969'}
 						viewBox='0 0 512 512'
 						height='1em'
 						width='1em'
@@ -61,7 +61,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 				<div
 					onMouseOver={() => setHoverL(true)}
 					onMouseOut={() => setHoverL(false)}
-					className='w-7 h-7 rounded-full border-2 border-garden-option1 hover:bg-garden-option1 ease-in-out duration-300 cursor-pointer flex justify-center items-center'
+					className='flex items-center justify-center duration-300 ease-in-out border-2 rounded-full cursor-pointer w-7 h-7 border-garden-option1 hover:bg-garden-option1'
 					onClick={() =>
 						window.open(
 							` https://www.linkedin.com/shareArticle?mini=true&url=https://gardenchicperu.com/blogs/${ruta}/&title=${title} `,
@@ -70,7 +70,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 					}>
 					<svg
 						stroke='currentColor'
-						fill={hoverL ? '#fff' : '#7E94C1'}
+						fill={hoverL ? '#fff' : '#014969'}
 						viewBox='0 0 448 512'
 						height='1em'
 						width='1em'
@@ -89,7 +89,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 					}>
 					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='32px' height='32px'>
 						<path
-							// fill='#7E94C1'
+							// fill='#014969'
 							d='M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z'
 						/>
 						<path

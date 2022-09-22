@@ -476,7 +476,7 @@ export type Mutation = {
   CreateUsuario: User;
   UpdateUsuario: User;
   UpdatePasswordUsuario: User;
-  RecoverPasswordUsuario: User;
+  RecoverPasswordUsuario: Scalars['String'];
   Login: User;
   CreateDireccionUsuario: DireccionUsuario;
   UpdateDireccionUsuario: DireccionUsuario;
@@ -751,7 +751,7 @@ export type MutationUpdatePasswordUsuarioArgs = {
 
 
 export type MutationRecoverPasswordUsuarioArgs = {
-  input: UserInput;
+  email: Scalars['String'];
 };
 
 
@@ -914,6 +914,7 @@ export type Producto = {
   keywords?: Maybe<Scalars['String']>;
   destacado?: Maybe<Scalars['String']>;
   estado?: Maybe<Scalars['String']>;
+  fichaTecnica?: Maybe<Scalars['String']>;
   categoriaProductoId?: Maybe<Scalars['Int']>;
   CategoriaProducto?: Maybe<CategoriaProducto>;
   created_at?: Maybe<Scalars['DateTime']>;
@@ -935,6 +936,7 @@ export type ProductoInput = {
   galeria?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   keywords?: InputMaybe<Scalars['String']>;
   estado?: InputMaybe<Scalars['String']>;
+  fichaTecnica?: InputMaybe<Scalars['String']>;
   categoriaProductoId?: InputMaybe<Scalars['Int']>;
 };
 
@@ -1448,6 +1450,13 @@ export type LoginMutationVariables = Exact<{
 
 export type LoginMutation = { __typename?: 'Mutation', Login: { __typename?: 'User', id?: string | null, tipoUsuario?: number | null, tipoDocumento?: string | null, numeroDocumento?: string | null, genero?: number | null, nombres?: string | null, apellidos?: string | null, celular?: string | null, fechaNacimiento?: any | null, foto?: string | null, email?: string | null, apiToken?: string | null, customer_id?: string | null } };
 
+export type RecoverPasswordUsuarioMutationVariables = Exact<{
+  email: Scalars['String'];
+}>;
+
+
+export type RecoverPasswordUsuarioMutation = { __typename?: 'Mutation', RecoverPasswordUsuario: string };
+
 export type GetAllBancosQueryVariables = Exact<{
   estado?: InputMaybe<Scalars['String']>;
 }>;
@@ -1756,6 +1765,37 @@ export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginM
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
 export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
+export const RecoverPasswordUsuarioDocument = gql`
+    mutation RecoverPasswordUsuario($email: String!) {
+  RecoverPasswordUsuario(email: $email)
+}
+    `;
+export type RecoverPasswordUsuarioMutationFn = Apollo.MutationFunction<RecoverPasswordUsuarioMutation, RecoverPasswordUsuarioMutationVariables>;
+
+/**
+ * __useRecoverPasswordUsuarioMutation__
+ *
+ * To run a mutation, you first call `useRecoverPasswordUsuarioMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRecoverPasswordUsuarioMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [recoverPasswordUsuarioMutation, { data, loading, error }] = useRecoverPasswordUsuarioMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useRecoverPasswordUsuarioMutation(baseOptions?: Apollo.MutationHookOptions<RecoverPasswordUsuarioMutation, RecoverPasswordUsuarioMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RecoverPasswordUsuarioMutation, RecoverPasswordUsuarioMutationVariables>(RecoverPasswordUsuarioDocument, options);
+      }
+export type RecoverPasswordUsuarioMutationHookResult = ReturnType<typeof useRecoverPasswordUsuarioMutation>;
+export type RecoverPasswordUsuarioMutationResult = Apollo.MutationResult<RecoverPasswordUsuarioMutation>;
+export type RecoverPasswordUsuarioMutationOptions = Apollo.BaseMutationOptions<RecoverPasswordUsuarioMutation, RecoverPasswordUsuarioMutationVariables>;
 export const GetAllBancosDocument = gql`
     query GetAllBancos($estado: String) {
   GetAllBancos(estado: $estado) {

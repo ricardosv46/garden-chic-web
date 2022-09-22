@@ -38,7 +38,7 @@ const SubirArchivo = ({ setShow, show, pagoSinTarjeta, setImage, image, loadingP
 				className='absolute top-0 lg:left-20 p-1.5 text-white rounded-full bg-garden-option1'>
 				<IconArrowLeft />
 			</button>
-			<h2 className='text-4xl font-bold text-center text-garden-option1'>Subir archivo</h2>
+			<h2 className='text-4xl font-bold text-center text-garden-option1'>Subir comprobante</h2>
 
 			<h2 className='mt-10 text-xl font-bold text-center '>
 				En este momento puede realizar el pago y adjuntar el comprobante para asegurar la reserva de su pedido.

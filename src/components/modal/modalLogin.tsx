@@ -9,6 +9,8 @@ import FormLogin from '../authForm/formLogin'
 import FormRegister from '../authForm/formRegister'
 import { signIn, useSession } from 'next-auth/react'
 import { IsEmail } from '@utils'
+import FormRecoveryPassword from '@components/authForm/formRecoveryPassword'
+import { useRecoveryPassword } from '@services/useRecoveryPassword'
 interface Props {
 	isOpen: boolean
 	onClose: () => void
@@ -20,9 +22,11 @@ interface IerrorForm {
 const ModalLogin = ({ isOpen, onClose }: Props) => {
 	const [tipoForm, setTipoForm] = useState('ingresar')
 	const { createUsuario, loadingCreate } = useUsuario()
+	const { recoveryPassword, loadingRecovery } = useRecoveryPassword()
 	const [errorForm, setErrorForm] = useState<IerrorForm>({
 		email: []
 	})
+	const [messageRecovery, setMessageRecovery] = useState('')
 	const [errorMessage, setErrorMessage] = useState('')
 	const { status, data } = useSession() as { status: string; data: { user: any } }
 
@@ -61,6 +65,8 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 					errorForm={errorForm}
 				/>
 			)
+		} else if (tipoForm === 'recuperar') {
+			component = <FormRecoveryPassword email={email} onChange={onChange} />
 		}
 
 		return component
@@ -71,6 +77,9 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 			resetForm()
 			setTipoForm('registrate')
 		} else if (tipoForm === 'registrate') {
+			resetForm()
+			setTipoForm('ingresar')
+		} else if (tipoForm === 'recuperar') {
 			resetForm()
 			setTipoForm('ingresar')
 		}
@@ -84,11 +93,17 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 			textos[1] = 'regístrate aquí'
 			textos[2] = 'Iniciar sesión'
 			textos[3] = 'Ingresar'
+			textos[4] = '¿Olvidaste tu contraseña?'
 		} else if (tipoForm === 'registrate') {
 			textos[0] = 'Si ya tienes una cuenta '
 			textos[1] = 'ingrese por aquí'
 			textos[2] = 'Regístrate'
 			textos[3] = 'Regístrate'
+		} else if (tipoForm === 'recuperar') {
+			textos[0] = 'Si ya tienes una cuenta '
+			textos[1] = 'ingrese por aquí'
+			textos[2] = 'Iniciar sesión'
+			textos[3] = 'Recuperar Contraseña'
 		}
 
 		return textos
@@ -167,6 +182,24 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 				.catch((err) => console.log('err', err))
 		}
 
+		if (tipoForm === 'recuperar') {
+			const res = await recoveryPassword({ email: email })
+			if (res?.ok) {
+				setMessageRecovery(res?.data!)
+				setTimeout(() => {
+					setErrorMessage('')
+					setMessageRecovery('')
+				}, 5000)
+			} else {
+				setError(true)
+				setErrorMessage(res?.error || '')
+				setTimeout(() => {
+					setError(false)
+					setErrorMessage('')
+				}, 5000)
+			}
+		}
+
 		// loginUsuario({ email, password }).then((res) => {
 		//   if (res?.ok) {
 		//     onClose()
@@ -200,7 +233,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 						</div>
 						<form onSubmit={handleRegister}>
 							{asignarFormulario()}
-
+							{messageRecovery && <p className='mt-5 text-sm text-garden-option1'>{messageRecovery}</p>}
 							<div className='flex justify-end mt-7'>
 								<button
 									type='submit'
@@ -214,6 +247,7 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 							<p className='mt-3 font-bold text-center text-red-500'>
 								{tipoForm === 'registrate' && errorMessage}
 								{tipoForm === 'ingresar' && errorMessage}
+								{tipoForm === 'recuperar' && errorMessage}
 							</p>
 						)}
 
@@ -224,6 +258,9 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 									{textoBtnCambiarForm()[1]}
 								</span>{' '}
 							</p>
+							<span className='cursor-pointer text-garden-option1' onClick={() => setTipoForm('recuperar')}>
+								{textoBtnCambiarForm()[4]}
+							</span>
 						</div>
 					</div>
 				</>
