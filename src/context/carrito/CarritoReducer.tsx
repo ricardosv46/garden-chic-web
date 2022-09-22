@@ -7,6 +7,7 @@ type Action =
 	| { type: 'Total'; payload: number }
 	| { type: 'Vaciar' }
 	| { type: 'OpenCarrito'; payload: boolean }
+	| { type: 'Init'; payload: CarritoProps[] }
 
 const CarritoReducer = (state: CarritoInitialState, action: Action): CarritoInitialState => {
 	switch (action.type) {
@@ -18,8 +19,10 @@ const CarritoReducer = (state: CarritoInitialState, action: Action): CarritoInit
 						? currentdata.push({ ...item2, amount: item2.amount >= item2.stockTotal ? item2.amount : item2.amount + 1 })
 						: currentdata.push(item2)
 				)
+				localStorage.setItem('carrito', JSON.stringify(currentdata))
 				return { ...state, carrito: currentdata }
 			} else {
+				localStorage.setItem('carrito', JSON.stringify([...state.carrito, action.payload]))
 				return {
 					...state,
 					carrito: [...state.carrito, action.payload]
@@ -35,24 +38,36 @@ const CarritoReducer = (state: CarritoInitialState, action: Action): CarritoInit
 			// }
 			break
 		case 'UpAmount':
+			const carritoUpAmount = state.carrito.map((item) =>
+				item.id === action.payload.id
+					? { ...action.payload, amount: action.payload.amount > action.payload.stockTotal ? item.amount : action.payload.amount }
+					: item
+			)
+			localStorage.setItem('carrito', JSON.stringify(carritoUpAmount))
 			return {
 				...state,
-				carrito: state.carrito.map((item) =>
-					item.id === action.payload.id
-						? { ...action.payload, amount: action.payload.amount > action.payload.stockTotal ? item.amount : action.payload.amount }
-						: item
-				)
+				carrito: carritoUpAmount
 			}
 			break
 		case 'DeleteCarrito':
+			const deleteCarrito = state.carrito.filter((item) => item.id !== action.payload)
+			localStorage.setItem('carrito', JSON.stringify(deleteCarrito))
 			return {
 				...state,
-				carrito: state.carrito.filter((item) => item.id !== action.payload)
+				carrito: deleteCarrito
 			}
 			break
 		case 'Vaciar':
+			localStorage.removeItem('carrito')
 			return {
 				carrito: [],
+				total: 0,
+				ViewCarrito: false
+			}
+			break
+		case 'Init':
+			return {
+				carrito: action.payload,
 				total: 0,
 				ViewCarrito: false
 			}

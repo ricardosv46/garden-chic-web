@@ -28,38 +28,38 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
 					</div>
 				</Link>
 				<div className='flex items-center gap-8'>
-					<ul className='flex relative font-garden_regular'>
-						<li className='p-7 cursor-pointer '>
+					<ul className='relative flex font-garden_regular'>
+						<li className='cursor-pointer p-7 '>
 							<Link href='/' passHref>
 								Inicio
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/nosotros' passHref>
 								Nosotros
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/servicios' passHref>
 								Servicios
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/tienda' passHref>
 								Tienda
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/proyectos' passHref>
 								Proyectos
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/blogs' passHref>
 								Blog
 							</Link>
 						</li>
-						<li className='p-7 cursor-pointer'>
+						<li className='cursor-pointer p-7'>
 							<Link href='/contactos' passHref>
 								Contacto
 							</Link>
@@ -68,9 +68,9 @@ const MenuDestokp = ({ onOpen, setModalLogin, cerrar, setCerrar, handleSignOut }
 					<div className='flex gap-10'>
 						<div className='relative p-1 cursor-pointer' onClick={() => onOpen()}>
 							<IconCart height={25} width={25} className='animate-swing' />
-							{carrito.length > 0 && (
+							{carrito?.length > 0 && (
 								<div className='flex justify-center items-center  absolute top-0 right-0 rounded-full h-4 w-4 bg-garden-option1 text-white text-[8px]'>
-									{carrito.length}
+									{carrito?.length}
 								</div>
 							)}
 						</div>

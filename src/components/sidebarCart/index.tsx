@@ -58,12 +58,12 @@ const SidebarCart = () => {
 					<div className='flex flex-col w-full h-screen py-6 pl-6 bg-white'>
 						<div className='flex items-center justify-between pr-6 '>
 							<h2 className='font-bold uppercase'>Mi carrito</h2>
-							<p className='font-bold text-garden-option3 cursor-pointer' onClick={() => OpenCarrito(false)}>
+							<p className='font-bold cursor-pointer text-garden-option3' onClick={() => OpenCarrito(false)}>
 								Seguir comprando
 							</p>
 						</div>
 
-						{carrito.length > 0 ? (
+						{carrito?.length > 0 ? (
 							<div className='h-full pr-6 mt-5 overflow-y-scroll scroll'>
 								<div>
 									{carrito.map((item) => (

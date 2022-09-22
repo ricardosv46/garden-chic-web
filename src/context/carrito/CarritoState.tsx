@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import CarritoReducer from './CarritoReducer'
 export interface CarritoProps {
 	id: number
@@ -62,6 +62,19 @@ const CarritoState = ({ children }: Props) => {
 	const VaciarCarrito = async () => {
 		dispatch({ type: 'Vaciar' })
 	}
+
+	const InitCarrito = async (payload: CarritoProps[]) => {
+		dispatch({ type: 'Init', payload })
+	}
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const carrito = JSON.parse(localStorage.getItem('carrito')!) as CarritoProps[]
+			if (carrito) {
+				InitCarrito(carrito)
+			}
+		}
+	}, [])
 
 	return (
 		<CarritoContext.Provider

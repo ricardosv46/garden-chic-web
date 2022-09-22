@@ -24,6 +24,7 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 	const { agregarCarrito, OpenCarrito } = useCarritoContext()
 	const [hover, setHover] = useState(false)
 	const router = useRouter()
+	const agotado = stockTotal <= 0
 	return (
 		<div>
 			<div className='w-full rounded-xl '>
@@ -35,10 +36,13 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 						className={`hidden md:flex absolute transition-all ease-in duration-300 bg-gray-500  flex-row justify-center items-center gap-2 z-0 ${
 							hover ? 'bg-gradiant-primary inset-0 rounded-t-xl scale-100' : ' inset-[50%] rounded-full scale-0'
 						} `}>
-						<div className='z-40 flex items-center justify-center w-10 h-10 bg-white rounded-md'>
+						<div className={`${agotado ? 'bg-red-200' : 'bg-white'} z-40 flex items-center justify-center w-10 h-10  rounded-md`}>
 							<button
-								className='w-full h-full'
+								className={`${agotado ? 'cursor-default  ' : 'cursor-pointer'} w-full h-full`}
 								onClick={() => {
+									if (agotado) {
+										return
+									}
 									agregarCarrito({
 										id,
 										img: img.url!,
@@ -65,12 +69,18 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 					{/* Items */}
 					<Show condition={rebaja}>
 						{/* Sale */}
-						<div className='absolute top-0 left-0 w-14 h-6 bg-[#3F72AF] rounded-tl-xl  text-white flex justify-center items-center z-10'>
-							<span className='ml-2'>Sale!</span>
+						<div
+							className={`${
+								agotado ? 'bg-red-700 w-20' : 'bg-[#3F72AF] w-14'
+							} absolute top-0 left-0  h-6  rounded-tl-xl  text-white flex justify-center items-center z-10`}>
+							<span className='ml-2'>{agotado ? 'Agotado!' : 'Sale!'} </span>
 						</div>
 
 						{/* Top o destacado */}
-						<div className='absolute top-0 left-2 w-14 h-6 bg-[#3F72AF] transform -skew-x-[18deg] z-0'></div>
+						<div
+							className={`${
+								agotado ? 'bg-red-700 w-20' : 'bg-[#3F72AF] w-14'
+							} absolute top-0 left-2 h-6  transform -skew-x-[18deg] z-0`}></div>
 						<div className='absolute top-0 z-10 flex items-center justify-center w-6 text-white bg-red-700 right-2 h-14'>
 							<FiHeart className='mt-2' />
 						</div>
@@ -100,10 +110,15 @@ const CardProducto = ({ id, img, titulo, firtsPrice, price, categoty1, slug, reb
 						</div>
 					</div>
 					{/* group button bottom */}
-					<div className='flex flex-row items-center justify-center w-full gap-4 my-2 md:hidden md:flex-col'>
+					<div className={` flex flex-row items-center justify-center w-full gap-4 my-2 md:hidden md:flex-col`}>
 						<button
-							className='w-8 h-8 border border-[#3F72AF] rounded-md hover:bg-[#F9F7F7] '
+							className={`${
+								agotado ? 'cursor-default border-red-500 bg-red-200' : 'border-[#3F72AF] hover:bg-[#F9F7F7] cursor-pointer'
+							} w-8 h-8 border  rounded-md `}
 							onClick={() => {
+								if (agotado) {
+									return
+								}
 								agregarCarrito({
 									id,
 									img: img.url!,
