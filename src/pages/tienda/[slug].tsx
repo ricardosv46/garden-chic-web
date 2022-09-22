@@ -15,6 +15,7 @@ import { useProductos } from '@services/useProducto'
 import { BreadCrumb } from '@components/breadcrumb'
 import { useProductContext } from '@context/products/ProductsContext'
 import { useCarritoContext } from '@context/carrito/CarritoState'
+import IconPdf from 'public/icons/IconPdf'
 
 interface IProps {
 	slug: string
@@ -28,6 +29,7 @@ interface Producto {
 		precioOferta: number
 		descripcionLarga: string
 		descripcionCorta: string
+		fichaTecnica: string
 	}
 }
 
@@ -71,17 +73,17 @@ const Productos = ({ producto }: Producto) => {
 								setImageModal={setImageModal}
 							/>
 						</div>
-						<div className='flex-1 '>
+						<div className='relative flex-1 '>
 							<div className='flex items-center gap-3'>
 								<p className='font-semibold duration-300 ease-in-out cursor-pointer text-garden-option3 text-md hover:text-garden-option1'>
 									{Product?.CategoriaProducto?.titulo!}
 								</p>
 								<span className='w-1 h-1 rounded-full bg-garden-option1'></span>
 							</div>
+
 							<p className='mt-3 text-3xl font-bold text-garden-option3'>{Product?.titulo!}</p>
 							<div className='w-5 h-0.5 bg-garden-option1 my-5'></div>
 							<p className='text-5xl text-garden-option3 '>S/ {Product?.precioOferta?.toFixed(2)}</p>
-
 							<p className='my-5 text-lg text-garden-option3'>{Product?.descripcionCorta!}</p>
 							<div className='flex gap-3 py-3'>
 								{/* <div className='flex items-center justify-center flex-1'>
@@ -124,6 +126,13 @@ const Productos = ({ producto }: Producto) => {
 						<div className='my-5 text-lg text-garden-option3' dangerouslySetInnerHTML={{ __html: Product?.descripcionLarga! }}>
 							{/* {descripcionLarga} */}
 						</div>
+						{Product?.fichaTecnica?.length > 0 && (
+							<button
+								className={` px-5 items-center flex gap-3 py-3   text-sm font-bold text-white duration-300 ease-in-out border-2 rounded-lg border-garden-option1 hover:bg-white hover:text-garden-option1 bg-garden-option1 `}
+								onClick={() => window.open(Product?.fichaTecnica!)}>
+								Ficha Técnica <IconPdf className='w-6 h-6' />
+							</button>
+						)}
 						<p className='mt-10 text-3xl font-bold text-garden-option3'>También te puede interesar</p>
 						<div className='grid grid-cols-1 gap-5 py-10 md:grid-cols-2 lg:grid-cols-3 justify-items-center'>
 							{productos.map((item, i) => {

@@ -46,6 +46,7 @@ query GetProductoSlug($slug: String!) {
     precioOferta
     stockMinimo
     stockReal
+    fichaTecnica
     imagenPrincipal {
       id
       titulo
