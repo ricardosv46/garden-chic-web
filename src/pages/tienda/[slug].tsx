@@ -38,7 +38,7 @@ const Productos = ({ producto }: Producto) => {
 	const { DataProducts, DispatchProducts } = useProductContext()
 	const { Product } = DataProducts
 	const [imageModal, setImageModal] = useState<Imagen[]>([])
-	console.log({ imageModal })
+
 	const { agregarCarrito, OpenCarrito } = useCarritoContext()
 
 	useEffect(() => {
@@ -80,7 +80,7 @@ const Productos = ({ producto }: Producto) => {
 							</div>
 							<p className='mt-3 text-3xl font-bold text-garden-option3'>{Product?.titulo!}</p>
 							<div className='w-5 h-0.5 bg-garden-option1 my-5'></div>
-							<p className='text-5xl text-garden-option3 '>S/ {Product?.precioOferta!}</p>
+							<p className='text-5xl text-garden-option3 '>S/ {Product?.precioOferta?.toFixed(2)}</p>
 
 							<p className='my-5 text-lg text-garden-option3'>{Product?.descripcionCorta!}</p>
 							<div className='flex gap-3 py-3'>
@@ -88,7 +88,7 @@ const Productos = ({ producto }: Producto) => {
 									<input type='number' min='1' placeholder='1' className='w-16 p-2 border-2 rounded-lg focus:outline-none' />
 								</div> */}
 
-								<p className='font-semibold text-center text-garden-option1'>Stock</p>
+								<p className='font-bold text-garden-option1'>Stock</p>
 								<p className=''>{Product?.stockReal!}</p>
 							</div>
 							<div className='flex items-center gap-10 mt-5'>
