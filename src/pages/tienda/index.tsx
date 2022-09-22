@@ -72,12 +72,12 @@ const Tienda = () => {
 		}
 	}, [loadingPrecios])
 
-
 	const handleClick = () => {
 		setIsFiltrados(true)
 		FunctionBusquedaPalabraClave({
 			pagina: 1,
-			numeroPagina: 10, palabraClave: values?.palabraClave
+			numeroPagina: 10,
+			palabraClave: values?.palabraClave
 		}).then((res) => setProductosFiltrados(res?.db!))
 		setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
 		resetForm()
@@ -87,8 +87,8 @@ const Tienda = () => {
 	return (
 		<LayoutTienda>
 			{/*Wrapper Search and bottom filter */}
-			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter} >
-				<InputSearch placeholder="Buscar" onChange={handleChange} name='palabraClave' value={values.palabraClave} onClick={handleClick} />
+			<WrapperFiltrosBuscar setIsOpenFilter={setIsOpenFilter} isOpenFilter={isOpenFilter}>
+				<InputSearch placeholder='Buscar' onChange={handleChange} name='palabraClave' value={values.palabraClave} onClick={handleClick} />
 			</WrapperFiltrosBuscar>
 
 			{/* Wrapper sidebar filter desktop and card´s*/}
@@ -125,38 +125,41 @@ const Tienda = () => {
 				{/* wrapper card´s */}
 				<motion.div className={`flex justify-center items-start w-full mb-10 ${isOpenFilter ? ' lg:w-3/4 ' : 'lg:w-full'}`} layout>
 					<div
-						className={`grid grid-cols-1 delay-200 ${isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
-							} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
+						className={`grid grid-cols-1 delay-200 ${
+							isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
+						} gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
 						<Show condition={!loadingBusqueda && !loadingProductos && !loadingBusquedaPalabra} isDefault={<Spinner />}>
 							{isfiltrados
 								? productosFiltrados.map((item) => (
-									<CardProducto
-										key={item.slug}
-										slug={item.slug!}
-										titulo={item.titulo!}
-										amount={1}
-										firtsPrice={item.precioReal!}
-										categoty1={item.CategoriaProducto?.titulo!}
-										price={item.precioOferta!}
-										id={Number(item.productoId!)}
-										img={item.imagenPrincipal!}
-										rebaja
-									/>
-								))
+										<CardProducto
+											key={item.slug}
+											slug={item.slug!}
+											titulo={item.titulo!}
+											stockTotal={item.stockReal!}
+											amount={1}
+											firtsPrice={item.precioReal!}
+											categoty1={item.CategoriaProducto?.titulo!}
+											price={item.precioOferta!}
+											id={Number(item.productoId!)}
+											img={item.imagenPrincipal!}
+											rebaja
+										/>
+								  ))
 								: productos.map((item) => (
-									<CardProducto
-										key={item.slug}
-										slug={item.slug!}
-										titulo={item.titulo!}
-										amount={1}
-										firtsPrice={item.precioReal!}
-										categoty1={item.CategoriaProducto?.titulo!}
-										price={item.precioOferta!}
-										id={Number(item.productoId!)}
-										img={item.imagenPrincipal!}
-										rebaja
-									/>
-								))}
+										<CardProducto
+											key={item.slug}
+											slug={item.slug!}
+											titulo={item.titulo!}
+											amount={1}
+											stockTotal={item.stockReal!}
+											firtsPrice={item.precioReal!}
+											categoty1={item.CategoriaProducto?.titulo!}
+											price={item.precioOferta!}
+											id={Number(item.productoId!)}
+											img={item.imagenPrincipal!}
+											rebaja
+										/>
+								  ))}
 						</Show>
 					</div>
 				</motion.div>

@@ -99,11 +99,11 @@ const FormEnvio = ({
 
 						{venta === 'factura' && (
 							<>
-								<InputFloat required type='text' label='Ruc' name='ruc' id='ruc' htmlFor='ruc' value={ruc} onChange={onChange} />
+								<InputFloat required type='text' label='RUC' name='ruc' id='ruc' htmlFor='ruc' value={ruc} onChange={onChange} />
 								<InputFloat
 									required
 									type='text'
-									label='Razon Social'
+									label='Razón Social'
 									name='razonSocial'
 									id='razonSocial'
 									htmlFor='razonSocial'

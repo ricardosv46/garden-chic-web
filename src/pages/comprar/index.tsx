@@ -17,6 +17,7 @@ import FormTransferencia from '@components/forms/FormTransferencia'
 import TipoPagoBancos from '@components/forms/TipoPagoBancos'
 import TipoPagoEfectivo from '@components/forms/TipoPagoEfectivo'
 import SubirArchivo from '@components/forms/SubirArchivo'
+import ModalLoading from '@components/modal/modalLoading'
 interface PayProps {
 	payment_method_id: string
 	token: string
@@ -24,7 +25,7 @@ interface PayProps {
 }
 
 const Comprar = () => {
-	const { createPedido } = usePedido()
+	const { createPedido, loadingPedido } = usePedido()
 	const [show, setShow] = useState('formulario')
 	const [image, setImage] = useState(null)
 	const [medioPago, setMediopago] = useState('')
@@ -146,43 +147,50 @@ const Comprar = () => {
 	}, [prov])
 
 	return (
-		<Container className='py-10'>
-			{show === 'formulario' && (
-				<FormEnvio
-					{...{
-						setShow,
-						ruc,
-						tipoPago,
-						razonSocial,
-						celular,
-						direccion,
-						venta,
-						recojo,
-						depa,
-						prov,
-						dist,
-						onChange,
-						setStateMutation
-					}}
-				/>
-			)}
+		<>
+			<Container className='py-10'>
+				{show === 'formulario' && (
+					<FormEnvio
+						{...{
+							setShow,
+							ruc,
+							tipoPago,
+							razonSocial,
+							celular,
+							direccion,
+							venta,
+							recojo,
+							depa,
+							prov,
+							dist,
+							onChange,
+							setStateMutation
+						}}
+					/>
+				)}
 
-			{show === 'EfectivoIdUpload' && <SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta }} />}
+				{show === 'EfectivoIdUpload' && (
+					<SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta, loadingPedido }} />
+				)}
 
-			{show === 'TransferenciaIdUpload' && <SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta }} />}
+				{show === 'TransferenciaIdUpload' && (
+					<SubirArchivo {...{ setImage, image, setShow, tipoPago, onChange, total, show, pagoSinTarjeta, loadingPedido }} />
+				)}
 
-			{show === 'TransferenciaId' && <FormTransferencia {...{ setShow, tipoPago, onChange, total }} />}
+				{show === 'TransferenciaId' && <FormTransferencia {...{ setShow, tipoPago, onChange, total }} />}
 
-			{show === 'EfectivoId' && <FormEfectivo {...{ setShow, tipoPago, onChange, total }} />}
+				{show === 'EfectivoId' && <FormEfectivo {...{ setShow, tipoPago, onChange, total }} />}
 
-			{show === 'Efectivo' && <TipoPagoEfectivo {...{ setShow, tipoPago, onChange, setMediopago }} />}
+				{show === 'Efectivo' && <TipoPagoEfectivo {...{ setShow, tipoPago, onChange, setMediopago }} />}
 
-			{show === 'Transferencia' && <TipoPagoBancos {...{ setShow, tipoPago, onChange, setMediopago }} />}
+				{show === 'Transferencia' && <TipoPagoBancos {...{ setShow, tipoPago, onChange, setMediopago }} />}
 
-			{show === 'Trajeta' && <FormMercadopago {...{ setShow, total, error }} pago={pagoTarjeta} />}
+				{show === 'Tarjeta' && <FormMercadopago {...{ setShow, total, error }} pago={pagoTarjeta} />}
 
-			{show === 'pagado' && <CheckPago />}
-		</Container>
+				{show === 'pagado' && <CheckPago />}
+			</Container>
+			<ModalLoading isOpen={loadingPedido} />
+		</>
 	)
 }
 

@@ -5,8 +5,11 @@ import IconCheck from '../../../public/icons/IconCheck'
 const CheckPago = () => {
 	const navigate = useRouter()
 	return (
-		<div className='flex justify-center flex-col items-center text-garden-option1 gap-10 py-5'>
-			<p className='text-center font-bold text-xl'>Secompleto el pago exitosamente</p>
+		<div className='flex flex-col items-center justify-center gap-10 py-5 text-garden-option1'>
+			<p className='max-w-lg text-xl font-bold text-center'>
+				Se completo el pago exitosamente En breve, nuestro equipo de ventas se comunicará contigo para coordinar la entrega de tu pedido.
+				Muchas gracias
+			</p>
 			<div className='flex justify-center mt-4'>
 				<IconCheck width={100} height={100} className='text-current' />
 			</div>

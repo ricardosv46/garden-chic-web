@@ -11,9 +11,10 @@ interface Props {
 	setImage: React.Dispatch<React.SetStateAction<any>>
 	image: any
 	pagoSinTarjeta: any
+	loadingPedido: boolean
 }
 
-const SubirArchivo = ({ setShow, show, pagoSinTarjeta, setImage, image }: Props) => {
+const SubirArchivo = ({ setShow, show, pagoSinTarjeta, setImage, image, loadingPedido }: Props) => {
 	const [imagePrevios, setImagePrevios] = useState(null)
 
 	const changeImage = (e?: any) => {
@@ -61,12 +62,16 @@ const SubirArchivo = ({ setShow, show, pagoSinTarjeta, setImage, image }: Props)
 			</div>
 			<div className='flex justify-center pt-5'>
 				<button
-					disabled={!imagePrevios}
+					disabled={!imagePrevios || loadingPedido}
 					onClick={() => {
 						show === 'EfectivoIdUpload' ? pagoSinTarjeta(2) : pagoSinTarjeta(1)
 					}}
 					type='button'
-					className='px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-garden-option1 hover:border-garden-option1 hover:bg-white hover:text-garden-option1'>
+					className={`${
+						!imagePrevios || loadingPedido
+							? 'bg-garden-option1 opacity-50'
+							: 'bg-garden-option1 hover:border-garden-option1 hover:bg-white hover:text-garden-option1'
+					} px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full `}>
 					Completar Pago
 				</button>
 			</div>
