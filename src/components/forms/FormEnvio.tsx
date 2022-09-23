@@ -166,7 +166,7 @@ const FormEnvio = ({
 
 						<div>
 							<p className='text-sm font-semibold duration-300  text-garden-option1 ml-2.5'>Tipo De Pago</p>
-							<div className='grid grid-cols-1 gap-5 mt-1 xl:grid-cols-3'>
+							<div className='grid grid-cols-1 gap-5 mt-1 lg:grid-cols-2'>
 								<div className='relative'>
 									<input
 										className='hidden group peer'
@@ -205,7 +205,7 @@ const FormEnvio = ({
 
 									<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-garden-option1 top-4 right-4 peer-checked:opacity-100' />
 								</div>
-								<div className='relative'>
+								{/* <div className='relative'>
 									<input
 										className='hidden group peer'
 										type='radio'
@@ -223,7 +223,7 @@ const FormEnvio = ({
 									</label>
 
 									<IconCheckRadio className='absolute w-5 h-5 opacity-0 text-garden-option1 top-4 right-4 peer-checked:opacity-100' />
-								</div>
+								</div> */}
 							</div>
 						</div>
 
