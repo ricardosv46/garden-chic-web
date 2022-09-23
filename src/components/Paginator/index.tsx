@@ -2,6 +2,7 @@ import IconChevronLeft from 'public/icons/IconChevronLeft'
 import IconChevronRight from 'public/icons/IconChevronRight'
 import { Dispatch } from 'react'
 import { generatedTotalPages } from 'src/utils/generatedTotalPages'
+import { useMemo, useRef } from 'react'
 
 interface State {
   pagina: number
@@ -15,7 +16,9 @@ interface IProps {
 }
 
 const Paginator = ({ state, setState, nTotal }: IProps) => {
-  const paginas = generatedTotalPages(nTotal, state.numeroPagina)
+  const paginas = useMemo(() => {
+    return generatedTotalPages(nTotal, state.numeroPagina)
+  }, [nTotal])
 
   const { pagina, numeroPagina } = state
 
@@ -38,6 +41,7 @@ const Paginator = ({ state, setState, nTotal }: IProps) => {
       </button>
       {paginas.map((item) => (
         <button
+          key={item}
           onClick={() => changePagina(item)}
           className={`flex items-center justify-center w-8 h-8  rounded-full font-bold  ${
             pagina === item ? 'bg-garden-option1 text-white' : 'text-garden-option1'
