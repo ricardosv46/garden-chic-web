@@ -30,8 +30,6 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 	const [errorMessage, setErrorMessage] = useState('')
 	const { status, data } = useSession() as { status: string; data: { user: any } }
 
-	console.log('datatoken', data)
-	// const { loginUsuario } = useLogin()
 	const [error, setError] = useState(false)
 	const { nombres, apellidos, email, password, onChange, resetForm } = useForm({
 		nombres: '',
@@ -167,19 +165,8 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 							setErrorMessage('')
 						}, 5000)
 					}
-					// }
-					// else {
-					// setErrorMessage('Email invalido')
-					// Swal.fire({
-					//   title: 'Email invalido', icon: 'error'
-					// })
-					// setTimeout(() => {
-					//   setError(false)
-					//   setErrorMessage('')
-					// }, 5000)
-					// }
 				})
-				.catch((err) => console.log('err', err))
+				.catch((err) => {})
 		}
 
 		if (tipoForm === 'recuperar') {

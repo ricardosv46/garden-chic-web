@@ -31,8 +31,6 @@ const SidebarCart = () => {
 	const { changeModal } = useModalContext()
 	const navigate = useRouter()
 	const { status, data } = useSession()
-	console.log({ data })
-	console.log({ status })
 	const [total, setTotal] = useState(0)
 	useEffect(() => {
 		const calculoTotal = carrito.reduce((total, product) => total + product.amount * product.price, 0)

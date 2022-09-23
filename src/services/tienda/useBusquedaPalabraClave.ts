@@ -1,4 +1,4 @@
-import { useGetAllProductosPalabraClaveLazyQuery, } from '../../generated/graphql'
+import { useGetAllProductosPalabraClaveLazyQuery } from '../../generated/graphql'
 
 interface Iprops {
 	numeroPagina: number
@@ -8,9 +8,7 @@ interface Iprops {
 
 export const useBusquedaPalabraClave = () => {
 	const [MutationUseBusquedaPalabraClave, { loading }] = useGetAllProductosPalabraClaveLazyQuery({
-		onError: (err) => {
-			console.log('onError Busqueda Palabra ', err?.graphQLErrors[0])
-		}
+		onError: (err) => {}
 	})
 
 	const FunctionBusquedaPalabraClave = async (props: Iprops) => {

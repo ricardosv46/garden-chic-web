@@ -13,8 +13,6 @@ const Blogs = () => {
 	const { db: blogs, loading } = useBlogs()
 	const { db: categorias } = useCategoriaBlogs()
 
-	console.log({ blogs })
-
 	return (
 		<>
 			<BannerBlogs />
@@ -39,7 +37,7 @@ const Blogs = () => {
 							{categorias.map((item) => (
 								<li
 									key={item?.slug}
-									className='py-1 text-lg font-semibold text-garden-option3 duration-300 ease-in-out border-b-2 border-white hover:border-garden-option1 hover:cursor-pointer'>
+									className='py-1 text-lg font-semibold duration-300 ease-in-out border-b-2 border-white text-garden-option3 hover:border-garden-option1 hover:cursor-pointer'>
 									{item?.titulo}
 								</li>
 							))}

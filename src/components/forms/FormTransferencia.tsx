@@ -20,7 +20,6 @@ const FormTransferencia = ({ setShow, tipoPago, total }: Props) => {
 	const [imagePrevios, setImagePrevios] = useState(null)
 	const [copy, setCopy] = useState(false)
 	const { db, loading } = useBancosId({ bancoId: Number(tipoPago) })
-	console.log('db', { db, total })
 
 	const changeImage = (e?: any) => {
 		if (e.target.files[0]) {
@@ -88,7 +87,7 @@ const FormTransferencia = ({ setShow, tipoPago, total }: Props) => {
 
 				<p className='text-sm font-bold text-center '>S/. {total?.toFixed(2)}</p>
 				<div className='flex flex-col justify-center pt-5'>
-					{/* <div className='relative flex flex-col items-center justify-center w-full max-w-lg gap-1 p-5 mx-auto mt-5 text-lg font-bold text-center text-garden-option3 border border-gray-400 border-dashed rounded h-72 relativ'>
+					{/* <div className='relative flex flex-col items-center justify-center w-full max-w-lg gap-1 p-5 mx-auto mt-5 text-lg font-bold text-center border border-gray-400 border-dashed rounded text-garden-option3 h-72 relativ'>
 						{!imagePrevios && (
 							<>
 								<p>Arrastre la imagen o haga click aquí</p>

@@ -50,7 +50,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
 			/>
 			<Container className='gap-10 py-10 lg:flex'>
 				<div className='w-full lg:w-9/12'>
-					<h1 className='font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer text-md hover:text-garden-option1'>
+					<h1 className='font-semibold duration-300 ease-in-out cursor-pointer text-garden-option3 text-md hover:text-garden-option1'>
 						{blog?.CategoriaBlog?.titulo}
 					</h1>
 					<div className='bg-garden-option1 w-5 h-0.5 my-2'></div>
@@ -71,7 +71,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
 				</div>
 
 				<div className='w-full px-3 lg:w-3/12'>
-					<InputSearch placeholder='Buscar' onClick={() => console.log('buscando publicaciones recientes')} />
+					<InputSearch placeholder='Buscar' onClick={() => {}} />
 					<p className='py-10 text-2xl font-bold text-garden-option3'>Publicaciones Recientes</p>
 					{blogs.map((item, i) => {
 						if (i < 5) {
@@ -83,7 +83,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
 					<p className='py-10 text-2xl font-bold text-garden-option3'>Categorias</p>
 					{categorias.map((item) => (
 						<div key={item.slug} className='py-5 border-b-2 border-b-gray-200'>
-							<p className='text-xl font-semibold text-garden-option3 duration-300 ease-in-out cursor-pointer hover:text-garden-option1'>
+							<p className='text-xl font-semibold duration-300 ease-in-out cursor-pointer text-garden-option3 hover:text-garden-option1'>
 								{item.titulo}
 							</p>
 						</div>
@@ -100,7 +100,7 @@ export async function getServerSideProps({ params }: any) {
 	const res = await request(URL, GET_SLUG_BLOG, {
 		slug: params.slug
 	})
-	console.log(res)
+
 	const data = res?.GetBlogSlug
 
 	return {

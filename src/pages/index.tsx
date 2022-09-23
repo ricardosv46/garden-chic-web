@@ -21,7 +21,6 @@ const Home: NextPage = () => {
 	useEffect(() => {
 		const sesion = async () => {
 			const res = await getSession()
-			console.log('sesion', res)
 		}
 
 		sesion()

@@ -23,8 +23,6 @@ const useMercadoPago = ({ monto = 0, pago }: IProps) => {
 
 	useEffect(() => {
 		if (MercadoPago && monto != 0) {
-			console.log('INIT_MERCADO_PAGO')
-
 			const mp = new MercadoPago('APP_USR-2807ac08-b2cb-4533-8f9b-6d147d0a0c03')
 			const cardForm = mp.cardForm({
 				amount: monto.toString(),
@@ -33,7 +31,6 @@ const useMercadoPago = ({ monto = 0, pago }: IProps) => {
 				callbacks: {
 					onFormMounted: (error: any) => {
 						if (error) return console.warn('Form Mounted handling error: ', error)
-						console.log('Form mounted')
 					},
 					onSubmit: (event: ChangeEvent<HTMLFormElement>) => {
 						event.preventDefault()
@@ -54,9 +51,7 @@ const useMercadoPago = ({ monto = 0, pago }: IProps) => {
 							installments: Number(installments)
 						})
 					},
-					onFetching: (resource: any) => {
-						console.log('Fetching resource: ', resource)
-					}
+					onFetching: (resource: any) => {}
 				}
 			})
 		}

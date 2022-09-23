@@ -19,21 +19,11 @@ const Header = () => {
 
 	const handleSignOut = async () => {
 		await signOut({ redirect: false })
-		console.log('salir session')
+
 		localStorage.removeItem('token')
 	}
 
-	// const [aparecer, setAparecer] = useState(false)
 	const { status, data } = useSession() as any
-
-	// useEffect(() => {
-	//   if (status !== 'loading' && status === 'authenticated') {
-	//     console.log(status)
-	//     setAparecer(true)
-	//   } else {
-	//     setAparecer(false)
-	//   }
-	// }, [status])
 
 	useEffect(() => {
 		if (status === 'authenticated') {
@@ -46,7 +36,6 @@ const Header = () => {
 
 	useEffect(() => {
 		let lastScrollY = window.pageYOffset
-		console.log(lastScrollY)
 
 		const updateScrollDirection = () => {
 			const scrollY = window.pageYOffset
@@ -61,10 +50,6 @@ const Header = () => {
 			window.removeEventListener('scroll', updateScrollDirection)
 		}
 	}, [scrollDirection])
-
-	useEffect(() => {
-		console.log(cerrar)
-	}, [cerrar])
 
 	return (
 		<>

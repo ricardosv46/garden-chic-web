@@ -32,7 +32,6 @@ const Comprar = () => {
 
 	const [error, setError] = useState(false)
 	const { carrito, total, VaciarCarrito } = useCarritoContext()
-	console.log({ total })
 
 	const { ruc, razonSocial, celular, direccion, venta, depa, prov, dist, recojo, tipoPago, onChange, setStateMutation } = useForm({
 		ruc: '',
@@ -196,7 +195,6 @@ const Comprar = () => {
 
 export const getServerSideProps = async (ctx: any) => {
 	const session = await getSession(ctx)
-	console.log(session)
 
 	if (!session)
 		return {

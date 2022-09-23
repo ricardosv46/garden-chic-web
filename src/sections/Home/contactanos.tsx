@@ -58,7 +58,6 @@ const Contactanos = ({ data }: IProps) => {
 										name='tipoServicio'
 										required
 										value={tipoServicio}
-										defaultValue=''
 										onChange={onChange}>
 										<option value=''>Selección de servicios</option>
 										{data.OptionForm.map((obj, i) => (
@@ -92,7 +91,7 @@ const Contactanos = ({ data }: IProps) => {
 					</div>
 				</div>
 				<div className='pt-10 pb-5 mb-6 mg:mb-0 lg:p-0 w-full lg:w-1/2 h-[530px] sm:h-[830px] relative sm:mt-10 lg:mt-0 p-10 '>
-					<Image src='/imgs/nosotros/header/04_COTIZA_CON_NOSOTROS.jpg' alt='manos' loading='lazy' objectFit='cover' layout='fill' />
+					<Image src='/imgs/nosotros/header/04_COTIZA_CON_NOSOTROS.jpg' alt='manos' objectFit='cover' layout='fill' priority />
 				</div>
 			</div>
 		</Container>

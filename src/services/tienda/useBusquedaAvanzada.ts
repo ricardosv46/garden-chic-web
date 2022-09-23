@@ -12,9 +12,7 @@ interface Iprops {
 // Obtenemos todas los blogs
 export const useBusquedaAvanzada = () => {
 	const [MutationUseGetBusquedaAvanzada, { loading }] = useGetBusquedaAvanzadaLazyQuery({
-		onError: (err) => {
-			console.log('onError Busqueda Avanzada', err?.graphQLErrors[0])
-		}
+		onError: (err) => {}
 	})
 
 	const FunctionBusquedaAvanzada = async (FilterOptions: Iprops) => {

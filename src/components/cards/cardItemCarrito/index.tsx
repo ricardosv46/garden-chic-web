@@ -32,8 +32,6 @@ const CardItemCarrito = ({
 	stockTotal
 }: CardItemCarritoProps) => {
 	const incrementPrice = () => {
-		console.log('increment')
-
 		actualizarPrecioCarrito({
 			id,
 			img,

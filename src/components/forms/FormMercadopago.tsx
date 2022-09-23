@@ -64,7 +64,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 
 	return (
 		<div className='flex flex-col items-center justify-center '>
-			<h2 className='text-garden-option1 font-bold text-4xl xl:text-6xl text-center  '>Termina tu compra</h2>
+			<h2 className='text-4xl font-bold text-center text-garden-option1 xl:text-6xl '>Termina tu compra</h2>
 			<div className='w-full md:w-[500px] h-auto '>
 				<div onClick={() => setCardRotate(!cardRotate)} className='cursor-pointer w-[325px] h-[210px] mx-auto md:h-[250px] md:w-[400px] mt-8'>
 					<div
@@ -76,7 +76,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
               shadow-[0_25px_10px_-15px_rgba(0,0,0,0.3)] ${bgImage()} text-sm h-[210px] md:h-[250px]`}>
 							<div className='min-h-[50px] md:h-[80px]'>
 								{imgLogo === '4' && (
-									<div className='ml-auto w-20 md:w-32'>
+									<div className='w-20 ml-auto md:w-32'>
 										<Image
 											src='/imgs/creditCard/visa.png'
 											alt='visa logo'
@@ -88,7 +88,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 									</div>
 								)}
 								{imgLogo === '5' && (
-									<div className='ml-auto w-20 md:w-32'>
+									<div className='w-20 ml-auto md:w-32'>
 										<Image
 											src='/imgs/creditCard/mastercard.png'
 											alt='mastercard logo'
@@ -99,7 +99,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 									</div>
 								)}
 								{imgLogo === '3' && (
-									<div className='ml-auto w-20 md:w-32'>
+									<div className='w-20 ml-auto md:w-32'>
 										<Image
 											src='/imgs/creditCard/americanexold.png'
 											alt='american express logo'
@@ -109,7 +109,7 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 										/>
 									</div>
 								)}
-								{!imgLogo && <div className='ml-auto rounded bg-gray-600 w-24 h-10 md:h-12'></div>}
+								{!imgLogo && <div className='w-24 h-10 ml-auto bg-gray-600 rounded md:h-12'></div>}
 							</div>
 							<div className='w-[40px]'>
 								<Image src='/imgs/creditCard/chip-tarjeta.png' alt='chip' width={'100%'} height={'100%'} />
@@ -123,8 +123,8 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 								<div className='flex justify-between mt-4'>
 									<div className=''>
 										<p className='text-sm text-garden-option3'>Name</p>
-										<div className='name uppercase'>{cardholderName || 'Jhon Doe'}</div>
-										{/* <div className="name uppercase">{"Jhon Doe"}</div> */}
+										<div className='uppercase name'>{cardholderName || 'Jhon Doe'}</div>
+										{/* <div className="uppercase name">{"Jhon Doe"}</div> */}
 									</div>
 									<div className=''>
 										<p className='text-sm text-garden-option3'>Expiration</p>
@@ -142,28 +142,28 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 							className={`card-bank p-5 card-bank-back absolute top-0 left-0 w-full rounded-lg
               overflow-hidden bg-cover shadow-[0_25px_10px_-15px_rgba(0,0,0,0.3)]
               ${bgImage()} h-[210px] md:h-[250px]`}>
-							<div className='w-full h-10 md:h-12 bg-black absolute left-0 right-0'></div>
-							<div className='flex mt-14 items-center'>
+							<div className='absolute left-0 right-0 w-full h-10 bg-black md:h-12'></div>
+							<div className='flex items-center mt-14'>
 								<div className='flex flex-col w-8/12'>
-									<small className='w-20 h-3 md:h-4 rounded bg-gray-600 my-1'></small>
-									<div className='info w-full h-6 md:h-8'></div>
+									<small className='w-20 h-3 my-1 bg-gray-600 rounded md:h-4'></small>
+									<div className='w-full h-6 info md:h-8'></div>
 								</div>
 								<div className='flex flex-col'>
 									<small>CCV</small>
-									{/* <div className="bg-white h-5 md:h-7 text-garden-option3 px-2 italic">{"ccv"}</div> */}
-									<div className='bg-white h-5 md:h-7 text-garden-option3 px-2 italic'>{cvc || 'ccv'}</div>
+									{/* <div className="h-5 px-2 italic bg-white md:h-7 text-garden-option3">{"ccv"}</div> */}
+									<div className='h-5 px-2 italic bg-white md:h-7 text-garden-option3'>{cvc || 'ccv'}</div>
 								</div>
 							</div>
 							<div className='mt-6'>
-								<small className='w-32 h-3 md:h-4 rounded bg-gray-600 my-1 block'></small>
-								<small className='w-44 h-3 md:h-4 rounded bg-gray-600 my-1 block'></small>
-								<small className='w-32 h-3 md:h-4 rounded bg-gray-600 my-1 block'></small>
+								<small className='block w-32 h-3 my-1 bg-gray-600 rounded md:h-4'></small>
+								<small className='block h-3 my-1 bg-gray-600 rounded w-44 md:h-4'></small>
+								<small className='block w-32 h-3 my-1 bg-gray-600 rounded md:h-4'></small>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<form id='form-checkout' className='flex flex-col gap-y-5 mt-10'>
+				<form id='form-checkout' className='flex flex-col mt-10 gap-y-5'>
 					<InputFloat
 						required
 						type='text'
@@ -200,9 +200,9 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 							setCardRotate(false)
 							onFocus(e)
 						}}
-						className='uppercase w-full'
+						className='w-full uppercase'
 					/>
-					<div className='flex flex-col md:flex-row  gap-5 '>
+					<div className='flex flex-col gap-5 md:flex-row '>
 						<InputFloat
 							required
 							type='text'
@@ -322,20 +322,19 @@ const FormMercadopago = ({ pago, total, setShow, error }: IProps) => {
 						data={[]}
 					/>
 					{error && (
-						<div className='border-lg rounded-md bg-red-400 py-3'>
-							<p className='text-red-600 text-center font-semibold'>No se pudo completar el pago</p>
+						<div className='py-3 bg-red-400 rounded-md border-lg'>
+							<p className='font-semibold text-center text-red-600'>No se pudo completar el pago</p>
 						</div>
 					)}
 
-					<div className='flex justify-between items-center pt-5'>
+					<div className='flex items-center justify-between pt-5'>
 						<p onClick={() => setShow('formulario')} className='text-red-500 underline cursor-pointer'>
 							Regresar
 						</p>
 						<button
 							id='form-checkout__submit'
-							onClick={() => console.log(resultPayment)}
 							type='submit'
-							className='bg-garden-option1 text-white border-2 px-10 py-4 rounded-full uppercase duration-300 ease-in-out hover:border-garden-option1  hover:bg-white hover:text-garden-option1'>
+							className='px-10 py-4 text-white uppercase duration-300 ease-in-out border-2 rounded-full bg-garden-option1 hover:border-garden-option1 hover:bg-white hover:text-garden-option1'>
 							Pagar
 						</button>
 					</div>

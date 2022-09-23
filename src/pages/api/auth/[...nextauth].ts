@@ -45,9 +45,7 @@ export default NextAuth({
 					if (res?.Login) {
 						return res?.Login
 					}
-					console.log('res', res)
 				} catch (error: any) {
-					console.log('res', error)
 					throw new Error(error.response.errors[0].debugMessage)
 				}
 			}

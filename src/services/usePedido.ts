@@ -44,9 +44,7 @@ interface Iproductos {
 
 export const usePedido = () => {
 	const [CreatePedido, { loading: loadingPedido }] = useCreatePedidoMutation({
-		onError: (err) => {
-			console.log('onError Create Pedido', err?.graphQLErrors[0])
-		}
+		onError: (err) => {}
 	})
 
 	const createPedido = async ({ input1, input2, input3, input4, input5, voucher }: ICreateProps) => {
@@ -61,8 +59,6 @@ export const usePedido = () => {
 					voucher
 				}
 			})
-
-			console.log(res.data?.CreatePedido)
 
 			if (res.data?.CreatePedido) {
 				return { ok: true }

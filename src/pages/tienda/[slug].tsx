@@ -185,7 +185,7 @@ const Productos = ({ producto }: Producto) => {
 				</div>
 
 				<div className='w-full px-3 lg:w-3/12'>
-					<InputSearch placeholder='Buscar' onClick={() => console.log('buscando publicaciones recientes')} />
+					<InputSearch placeholder='Buscar' onClick={() => {}} />
 					<p className='py-10 text-2xl font-bold text-garden-option3'>Productos similares</p>
 					{productos.map((item, i) => {
 						if (i < 5) {

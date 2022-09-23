@@ -196,19 +196,3 @@ const Tienda = () => {
 }
 
 export default Tienda
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-	const { query } = ctx
-	// query && query.data && console.table(Decode(query.data! as string))
-	// console.log('data => ' + query.data)
-
-	return {
-		props: {}
-	}
-}
-// export async function getServerSideProps() {
-// 	const { query } = ctx
-// 	console.log(query)
-// 	return {
-// 		props: {}
-// 	}
-// }

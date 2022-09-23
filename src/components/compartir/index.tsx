@@ -93,7 +93,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 					<svg
 						stroke='currentColor'
 						fill={hoverC ? '#fff' : '#014969'}
-						stroke-width='0'
+						strokeWidth={0}
 						viewBox='0 0 20 20'
 						height='1em'
 						width='1em'

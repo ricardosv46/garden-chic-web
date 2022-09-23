@@ -10,11 +10,11 @@ export const ProyectItem = ({ data }: Iprops) => {
 	const router = useRouter()
 
 	return (
-		<div className='hover:cursor-pointer relative lg:shadow-sm' onClick={() => router.push(`/proyectos/${data.pathname}`)}>
+		<div className='relative hover:cursor-pointer lg:shadow-sm' onClick={() => router.push(`/proyectos/${data.pathname}`)}>
 			<Show condition={typeof data.dataHover !== 'undefined'}>
-				<div className='hidden lg:flex bg-white text-garden-option1 absolute top-0 w-full h-full z-10  justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-out pt-10 hover:pt-0 rounded-lg'>
-					<div className='text-center p-5'>
-						<p className='text-3xl pt-5 font-garden_medium'>{data.dataHover || ''}</p>
+				<div className='absolute top-0 z-10 items-center justify-center hidden w-full h-full pt-10 transition-all duration-500 ease-out bg-white rounded-lg opacity-0 lg:flex text-garden-option1 hover:opacity-100 hover:pt-0'>
+					<div className='p-5 text-center'>
+						<p className='pt-5 text-3xl font-garden_medium'>{data.dataHover || ''}</p>
 					</div>
 				</div>
 			</Show>
@@ -26,11 +26,11 @@ export const ProyectItem = ({ data }: Iprops) => {
 					className='transition-all duration-500 ease-out rounded-lg'
 				/>
 			</div>
-			<div className='lg:hidden p-1'>
-				{/* <p className='text-garden-option1 text-xl font-semibold'>
+			<div className='p-1 lg:hidden'>
+				{/* <p className='text-xl font-semibold text-garden-option1'>
             {item.title}
           </p> */}
-				<p className='text-garden-option1 text-center text-xl font-garden_medium'>{data.dataHover || ''}</p>
+				<p className='text-xl text-center text-garden-option1 font-garden_medium'>{data.dataHover || ''}</p>
 			</div>
 		</div>
 	)

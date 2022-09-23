@@ -8,7 +8,6 @@ interface IProps {
 	required?: boolean
 }
 const InputArea = ({ label, value, name, onChange, className, required }: IProps) => {
-	console.log(value)
 	return (
 		<>
 			<div className='relative w-full'>

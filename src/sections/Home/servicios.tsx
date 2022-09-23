@@ -36,7 +36,7 @@ const Servicios = ({ data, loop = true }: IProps) => {
 	//   layout="fill"
 	// />
 	return (
-		<Container className='flex justify-center items-center h-56 ' bgColor='bg-garden-option2 bg-opacity-50'>
+		<Container className='flex items-center justify-center h-56 ' bgColor='bg-garden-option2 bg-opacity-50'>
 			<Swiper
 				loop={loop}
 				grabCursor={loop}
@@ -70,7 +70,7 @@ const Servicios = ({ data, loop = true }: IProps) => {
 					<SwiperSlide key={i}>
 						{/* obj.icon1 es jsx.element*
             <Show condition={typeof obj.Icon1 !== "string"}>
-              <div className="flex flex-col items-center gap-y-5 text-garden-option1 h-32">
+              <div className="flex flex-col items-center h-32 gap-y-5 text-garden-option1">
                 {obj.Icon1}
                 <p className="text-xl font-garden_medium">
                   {obj.label || null}
@@ -80,9 +80,9 @@ const Servicios = ({ data, loop = true }: IProps) => {
             /}
             {/* obj.icon1 es string o src*/}
 						<Show condition={typeof obj.Icon1 === 'string'}>
-							<div className='flex flex-col items-center  text-garden-option1 h-36 relative'>
-								<div className='relative h-full w-full aspect-square '>
-									<Image src={obj.Icon1} alt={String(obj.Icon1)} className='object-contain' layout='fill' />
+							<div className='relative flex flex-col items-center text-garden-option1 h-36'>
+								<div className='relative w-full h-full aspect-square '>
+									<Image src={obj.Icon1} alt='image' className='object-contain' layout='fill' />
 								</div>
 								<p className='text-xl font-garden_medium'>{obj.label || null}</p>
 							</div>
