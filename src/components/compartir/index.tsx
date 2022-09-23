@@ -14,6 +14,7 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 	const [hoverF, setHoverF] = useState(false)
 	const [hoverT, setHoverT] = useState(false)
 	const [hoverL, setHoverL] = useState(false)
+	const [hoverC, setHoverC] = useState(false)
 
 	const shareResponsive = ({ title, text, url }: PropsShare) => {
 		if (navigator.share) {
@@ -80,36 +81,24 @@ const Compartir = ({ ruta, title }: PropsCompartir) => {
 				</div>
 				{/* Icon Mobile */}
 				<div
-					className='lg:hidden'
+					className='flex items-center justify-center duration-300 ease-in-out border-2 rounded-full cursor-pointer w-7 h-7 border-garden-option1 hover:bg-garden-option1 lg:hidden'
+					onMouseOver={() => setHoverC(true)}
+					onMouseOut={() => setHoverC(false)}
 					onClick={() =>
 						shareResponsive({
 							title,
 							url: `https://gardenchicperu.com/blogs/${ruta}`
 						})
 					}>
-					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='32px' height='32px'>
-						<path
-							// fill='#014969'
-							d='M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z'
-						/>
-						<path
-							// fill='#FFF'
-							d='M154.4 203.09999999999997A53.8 53.8 0 1 0 154.4 310.7 53.8 53.8 0 1 0 154.4 203.09999999999997zM318.7 107.39999999999999A53.8 53.8 0 1 0 318.7 215 53.8 53.8 0 1 0 318.7 107.39999999999999zM318.7 297A53.8 53.8 0 1 0 318.7 404.6 53.8 53.8 0 1 0 318.7 297z'
-						/>
-						<g>
-							<path
-								// fill='#FFF'
-								d='M222.1 112.2H251V302.3H222.1z'
-								transform='rotate(59.786 236.552 207.272)'
-							/>
-						</g>
-						<g>
-							<path
-								// fill='#FFF'
-								d='M141.5 288.5H331.6V317.4H141.5z'
-								transform='rotate(30.214 236.576 302.965)'
-							/>
-						</g>
+					<svg
+						stroke='currentColor'
+						fill={hoverC ? '#fff' : '#014969'}
+						stroke-width='0'
+						viewBox='0 0 20 20'
+						height='1em'
+						width='1em'
+						xmlns='http://www.w3.org/2000/svg'>
+						<path d='M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z'></path>
 					</svg>
 				</div>
 			</div>
