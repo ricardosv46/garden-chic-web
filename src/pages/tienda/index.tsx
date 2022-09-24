@@ -22,6 +22,8 @@ import { Console } from 'console'
 import { useBusquedaAvanzada } from '@services/tienda/useBusquedaAvanzada'
 import { useBusquedaPalabraClave } from '@services/tienda/useBusquedaPalabraClave'
 import Paginator from '@components/Paginator'
+import { useBusqueda } from '@services/tienda/useBusqueda'
+import { usePalabraClave } from '@services/tienda/usePalabraClave'
 const tipoOrdenacion = [
   { value: 'asc', label: 'Ascendente' },
   { value: 'desc', label: 'Descendente' }
@@ -33,17 +35,21 @@ const Tienda = () => {
     pagina: 1,
     numeroPagina: 12
   })
+  const [filters, setFilters] = useState({
+    precio: [] as any,
+    categoriaSlug: '',
+    tipoOrdenacion: 'desc',
+    destacado: ''
+  })
+  const [palabraClave, setPalabraClave] = useState('')
   const { db: productos, loading: loadingProductos, nTotal } = useProductos({ ...state, estado: 'Activado' })
-  const [isfiltrados, setIsFiltrados] = useState(false)
-  const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>([] as Producto[])
+  const [isShow, setIsShow] = useState('productos')
   const { precios: dataPriceMinMax, loading: loadingPrecios } = usePrecios()
   const { db: categoriaProductos, loading: loadingCategoria } = useCategoriaProductos()
   const [precio, setPrecio] = useState({ min: 0, max: 0 })
-  const { FunctionBusquedaAvanzada, loading: loadingBusqueda } = useBusquedaAvanzada()
-  const { FunctionBusquedaPalabraClave, loading: loadingBusquedaPalabra } = useBusquedaPalabraClave()
+  const { db: dbBusqueda, loading: loadingBusqueda, nTotal: nTotalB } = useBusqueda({ ...state, ...filters })
+  const { db: dbPalabra, loading: loadingBusquedaPalabra, nTotal: nTotalP } = usePalabraClave({ ...state, palabraClave })
   const [resetFilter, setResetFilter] = useState(false)
-
-  const { push } = useRouter()
   const { values, handleChange, resetForm, handleSubmit } = useFormik({
     initialValues: {
       palabraClave: '',
@@ -52,38 +58,32 @@ const Tienda = () => {
       destacado: false
     },
     onSubmit: async (values) => {
-      setIsFiltrados(true)
-      FunctionBusquedaAvanzada(handleData()).then((res) => setProductosFiltrados(res?.db!))
+      setIsShow('busqueda')
+      setPalabraClave('')
+      setFilters({
+        categoriaSlug: values?.categoria,
+        precio: [precio?.min, precio?.max],
+        tipoOrdenacion: values?.order,
+        destacado: values?.destacado ? 'Activado' : ''
+      })
+
       setState({
         pagina: 1,
         numeroPagina: 12
       })
-      // push({ pathname: '/tienda', query: { data: Code(JSON.stringify(handleData())) } })
     }
   })
-
-  const handleData = () => {
-    return {
-      ...state,
-      categoriaSlug: values?.categoria,
-      precio: [precio?.min, precio?.max],
-      tipoOrdenacion: values?.order,
-      destacado: values?.destacado ? 'Activado' : ''
-    }
-  }
 
   useEffect(() => {
     if (!loadingPrecios) {
       setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
+      setFilters({ ...filters, precio: [dataPriceMinMax?.minimo!, dataPriceMinMax?.maximo!] })
     }
   }, [loadingPrecios])
 
   const handleClick = () => {
-    setIsFiltrados(true)
-    FunctionBusquedaPalabraClave({
-      ...state,
-      palabraClave: values?.palabraClave
-    }).then((res) => setProductosFiltrados(res?.db!))
+    setPalabraClave(values.palabraClave)
+    setIsShow('palabra')
     setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
     resetForm()
     setResetFilter(!resetFilter)
@@ -123,7 +123,7 @@ const Tienda = () => {
                 resetForm,
                 loadingPrecios,
                 handleSubmit,
-                setIsFiltrados,
+                setIsShow,
                 resetFilter,
                 setResetFilter
               }}
@@ -144,41 +144,59 @@ const Tienda = () => {
               className={`grid grid-cols-1 delay-200 ${
                 isOpenFilter ? ' xl:grid-cols-3' : ' xl:grid-cols-4 lg:grid-cols-3 '
               } gap-5 justify-items-center  sm:grid-cols-2 md:grid-cols-3`}>
-              {isfiltrados
-                ? productosFiltrados.map((item) => (
-                    <CardProducto
-                      key={item.slug}
-                      slug={item.slug!}
-                      titulo={item.titulo!}
-                      stockTotal={item.stockReal!}
-                      amount={1}
-                      firtsPrice={item.precioReal!}
-                      categoty1={item.CategoriaProducto?.titulo!}
-                      price={item.precioOferta!}
-                      id={Number(item.productoId!)}
-                      img={item.imagenPrincipal!}
-                      rebaja
-                    />
-                  ))
-                : productos.map((item: any) => (
-                    <CardProducto
-                      key={item.slug}
-                      slug={item.slug!}
-                      titulo={item.titulo!}
-                      amount={1}
-                      stockTotal={item.stockReal!}
-                      firtsPrice={item.precioReal!}
-                      categoty1={item.CategoriaProducto?.titulo!}
-                      price={item.precioOferta!}
-                      id={Number(item.productoId!)}
-                      img={item.imagenPrincipal!}
-                      rebaja
-                    />
-                  ))}
-            </div>{' '}
+              {isShow === 'productos' &&
+                productos.map((item: any) => (
+                  <CardProducto
+                    key={item.slug}
+                    slug={item.slug!}
+                    titulo={item.titulo!}
+                    amount={1}
+                    stockTotal={item.stockReal!}
+                    firtsPrice={item.precioReal!}
+                    categoty1={item.CategoriaProducto?.titulo!}
+                    price={item.precioOferta!}
+                    id={Number(item.productoId!)}
+                    img={item.imagenPrincipal!}
+                    rebaja
+                  />
+                ))}
+              {isShow === 'busqueda' &&
+                dbBusqueda.map((item) => (
+                  <CardProducto
+                    key={item.slug}
+                    slug={item.slug!}
+                    titulo={item.titulo!}
+                    stockTotal={item.stockReal!}
+                    amount={1}
+                    firtsPrice={item.precioReal!}
+                    categoty1={item.CategoriaProducto?.titulo!}
+                    price={item.precioOferta!}
+                    id={Number(item.productoId!)}
+                    img={item.imagenPrincipal!}
+                    rebaja
+                  />
+                ))}
+
+              {isShow === 'palabra' &&
+                dbPalabra.map((item: any) => (
+                  <CardProducto
+                    key={item.slug}
+                    slug={item.slug!}
+                    titulo={item.titulo!}
+                    amount={1}
+                    stockTotal={item.stockReal!}
+                    firtsPrice={item.precioReal!}
+                    categoty1={item.CategoriaProducto?.titulo!}
+                    price={item.precioOferta!}
+                    id={Number(item.productoId!)}
+                    img={item.imagenPrincipal!}
+                    rebaja
+                  />
+                ))}
+            </div>
           </Show>
           <div className='flex justify-center w-full pt-10'>
-            <Paginator {...{ state, setState, nTotal }} />
+            <Paginator {...{ state, setState, nTotal: isShow === 'productos' ? nTotal : isShow === 'busqueda' ? nTotalB : nTotalP }} />
           </div>
         </motion.div>
       </Container>
@@ -200,7 +218,7 @@ const Tienda = () => {
                 resetForm,
                 loadingPrecios,
                 handleSubmit,
-                setIsFiltrados,
+                setIsShow,
                 resetFilter,
                 setResetFilter
               }}
