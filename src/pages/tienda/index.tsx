@@ -172,7 +172,7 @@ const Tienda = () => {
             </div>{' '}
           </Show>
           <div className='flex justify-center w-full pt-10'>
-            <Paginator {...{ state, setState, nTotal: 100 }} />
+            <Paginator {...{ state, setState, nTotal }} />
           </div>
         </motion.div>
       </Container>
