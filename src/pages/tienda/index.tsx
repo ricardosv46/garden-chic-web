@@ -54,18 +54,21 @@ const Tienda = () => {
     onSubmit: async (values) => {
       setIsFiltrados(true)
       FunctionBusquedaAvanzada(handleData()).then((res) => setProductosFiltrados(res?.db!))
+      setState({
+        pagina: 1,
+        numeroPagina: 12
+      })
       // push({ pathname: '/tienda', query: { data: Code(JSON.stringify(handleData())) } })
     }
   })
 
   const handleData = () => {
     return {
+      ...state,
       categoriaSlug: values?.categoria,
       precio: [precio?.min, precio?.max],
       tipoOrdenacion: values?.order,
-      destacado: values?.destacado ? 'Activado' : '',
-      pagina: 1,
-      numeroPagina: 10
+      destacado: values?.destacado ? 'Activado' : ''
     }
   }
 
@@ -78,13 +81,16 @@ const Tienda = () => {
   const handleClick = () => {
     setIsFiltrados(true)
     FunctionBusquedaPalabraClave({
-      pagina: 1,
-      numeroPagina: 10,
+      ...state,
       palabraClave: values?.palabraClave
     }).then((res) => setProductosFiltrados(res?.db!))
     setPrecio({ min: dataPriceMinMax?.minimo!, max: dataPriceMinMax?.maximo! })
     resetForm()
     setResetFilter(!resetFilter)
+    setState({
+      pagina: 1,
+      numeroPagina: 12
+    })
   }
 
   return (

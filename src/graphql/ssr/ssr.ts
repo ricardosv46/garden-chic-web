@@ -26,6 +26,7 @@ query GetBlogSlug($slug: String) {
     categoriaBlogId
     CategoriaBlog {
       titulo
+      slug
     }
     usuarioId
     created_at
@@ -71,6 +72,7 @@ query GetProductoSlug($slug: String!) {
     categoriaProductoId
     CategoriaProducto {
       titulo
+      slug
     }
     created_at
     updated_at
