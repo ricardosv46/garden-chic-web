@@ -26,7 +26,6 @@ const Blogs = () => {
     nTotal: nTotalBlogsCategoria
   } = useCategoriaBlogsSlug({ ...state, estado: 'Activado', slug: categoria })
 
-  console.log({ categoriasSlug, nTotalBlogsCategoria })
   return (
     <>
       <BannerBlogs />

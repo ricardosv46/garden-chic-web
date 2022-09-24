@@ -50,7 +50,6 @@ const Productos = ({ producto }: Producto) => {
     numeroPagina: 5,
     slug: Product.CategoriaProducto?.slug!
   })
-  console.log({ productos })
   const [imageModal, setImageModal] = useState<Imagen[]>([])
 
   const { agregarCarrito, OpenCarrito } = useCarritoContext()
