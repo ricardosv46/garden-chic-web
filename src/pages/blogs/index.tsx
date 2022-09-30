@@ -2,7 +2,8 @@ import Paginator from '@components/Paginator'
 import { Show } from '@components/show'
 import { useCategoriaBlogsSlug } from '@services/useCategoriaBlogsSlug'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 import BannerBlogs from '../../components/banner/bannerBlogs'
 import CarBlog from '../../components/cards/cardBlog'
 import Container from '../../components/container'
@@ -17,6 +18,8 @@ const Blogs = () => {
     pagina: 1,
     numeroPagina: 9
   })
+
+  const { slugCategoria } = useRouter().query as { slugCategoria: string }
   const [categoria, setCategoria] = useState('')
   const { db: blogs, loading: loadingBlogs, nTotal: nTotalBlogs } = useBlogs({ ...state, estado: 'Activado' })
   const { db: categorias } = useCategoriaBlogs()
@@ -25,6 +28,15 @@ const Blogs = () => {
     loading: loadingBlogsCategoria,
     nTotal: nTotalBlogsCategoria
   } = useCategoriaBlogsSlug({ ...state, estado: 'Activado', slug: categoria })
+
+  useEffect(() => {
+    if (slugCategoria) {
+      setCategoria(slugCategoria)
+    }
+    return () => {
+      setCategoria('')
+    }
+  }, [slugCategoria])
 
   return (
     <>
@@ -66,7 +78,7 @@ const Blogs = () => {
               ))}
             </ol>
             <div className='grid grid-cols-1 gap-5 mt-16 md:grid-cols-2 lg:grid-cols-3 justify-items-center '>
-              {(categoria.length > 0 ? categoriasSlug : blogs)?.map((item, index) => (
+              {(categoria?.length > 0 ? categoriasSlug : blogs)?.map((item, index) => (
                 <CarBlog
                   CategoriaBlog={item?.CategoriaBlog!}
                   imagenPrincipal={item?.imagenPrincipal!}

@@ -26,15 +26,27 @@ const Paginator = ({ state, setState, nTotal }: IProps) => {
   const decrement = () => {
     if (pagina === 1) return
     setState({ ...state, pagina: pagina - 1 })
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   const increment = () => {
     if (paginas.length === pagina) return
     setState({ ...state, pagina: pagina + 1 })
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   const changePagina = (number: number) => {
     setState({ ...state, pagina: number })
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   const disableLeft = pagina === 1 || paginas.length === 0

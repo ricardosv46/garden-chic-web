@@ -100,8 +100,8 @@ const FormEnvio = ({
               value={recojo}
               onChange={onChange}
               data={[
-                { value: 'Tienda', titulo: 'Tienda' },
-                { value: 'Delivery', titulo: 'Delivery' }
+                { value: 'Tienda', titulo: 'Tienda' }
+                // { value: 'Delivery', titulo: 'Delivery' }
               ]}
             />
 
