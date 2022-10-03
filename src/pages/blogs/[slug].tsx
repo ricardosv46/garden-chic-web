@@ -60,7 +60,7 @@ const DetalleBlog = ({ blog }: Blogs) => {
         domain={`https://gardenchicperu.com/blogs/${blog.slug}`}
       />
       <Container className='py-10 gap-7 lg:flex'>
-        <div className='w-full lg:w-8/12'>
+        <div className='w-full lg:w-8/12 lg:pr-20'>
           <h1 className='font-semibold duration-300 ease-in-out cursor-pointer text-garden-option3 text-md hover:text-garden-option1'>
             {blog?.CategoriaBlog?.titulo}
           </h1>
@@ -70,10 +70,18 @@ const DetalleBlog = ({ blog }: Blogs) => {
             January 10, 2018
             <span className='text-garden-option1'>by BoldThemes</span>
           </p> */}
-          <Image loading='lazy' className='cursor-pointer' src={blog?.imagenSecundaria?.url!} width={1110} height={690} alt='blogs' />
-          <div
-            className='mt-16 font-medium leading-8 text-garden-option3 text-md lg:pr-20'
-            dangerouslySetInnerHTML={{ __html: blog?.descripcionLarga! }}>
+          <div className='flex '>
+            <Image
+              loading='lazy'
+              className='cursor-pointer '
+              src={blog?.imagenSecundaria?.url!}
+              width={1110}
+              height={690}
+              objectFit='contain'
+              alt='blogs'
+            />
+          </div>
+          <div className='mt-16 font-medium leading-8 text-garden-option3 text-md ' dangerouslySetInnerHTML={{ __html: blog?.descripcionLarga! }}>
             {/* {descripcionLarga} */}
           </div>
           <div className='flex justify-end py-10 mt-5 lg:pr-20 lg:py-0'>
