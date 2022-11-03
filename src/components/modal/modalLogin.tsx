@@ -11,6 +11,7 @@ import { signIn, useSession } from 'next-auth/react'
 import { IsEmail } from '@utils'
 import FormRecoveryPassword from '@components/authForm/formRecoveryPassword'
 import { useRecoveryPassword } from '@services/useRecoveryPassword'
+import Spinner from '@components/Sppinner'
 interface Props {
 	isOpen: boolean
 	onClose: () => void
@@ -173,13 +174,16 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 			const res = await recoveryPassword({ email: email })
 			if (res?.ok) {
 				setMessageRecovery(res?.data!)
+				resetForm()
 				setTimeout(() => {
 					setErrorMessage('')
 					setMessageRecovery('')
+					setTipoForm('ingresar')
 				}, 5000)
 			} else {
 				setError(true)
 				setErrorMessage(res?.error || '')
+				resetForm()
 				setTimeout(() => {
 					setError(false)
 					setErrorMessage('')
@@ -224,9 +228,10 @@ const ModalLogin = ({ isOpen, onClose }: Props) => {
 							<div className='flex justify-end mt-7'>
 								<button
 									type='submit'
-									className='w-full py-3 text-white rounded-lg cursor-pointer bg-garden-option1'
-									disabled={errorForm.email.length > 0 ? true : false}>
-									{textoBtnCambiarForm()[3]}
+									className={`w-full py-3 inline text-white rounded-lg cursor-pointer bg-garden-option1 ${loadingRecovery || loadingCreate ? 'opacity-50' : ''}` }
+									disabled={loadingRecovery || loadingCreate}>
+										<div className='flex items-center justify-center gap-2 text-center'>{textoBtnCambiarForm()[3] } {loadingRecovery && <Spinner size='sm'/>} {loadingCreate && <Spinner size='sm'/>}</div>
+									
 								</button>
 							</div>
 						</form>
