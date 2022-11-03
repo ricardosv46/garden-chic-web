@@ -39,6 +39,10 @@ const Filtro = ({
   resetFilter,
   setResetFilter
 }: IProps) => {
+
+
+  console.log(dataPriceMinMax?.maximo, dataPriceMinMax?.minimo)
+
   return (
     <div className=''>
       <HeaderFiltro />
@@ -66,7 +70,7 @@ const Filtro = ({
 
         {/* accordion rango de precios */}
         <div className='py-4 border-b'>
-          {dataPriceMinMax?.maximo && dataPriceMinMax?.minimo && (
+          {dataPriceMinMax?.maximo && (
             <Accordion title='Precio' reset={resetFilter}>
               <div className='flex flex-col'>
                 <div className='mb-10'>
@@ -84,8 +88,8 @@ const Filtro = ({
                   <div className='mx-2 mt-2 border border-transparent max-h-6'>
                     <InputRange
                       name='precio'
-                      maxValue={dataPriceMinMax?.maximo}
-                      minValue={dataPriceMinMax?.minimo}
+                      maxValue={dataPriceMinMax?.maximo!}
+                      minValue={dataPriceMinMax?.minimo!}
                       value={{
                         min: precio?.min,
                         max: precio?.max
